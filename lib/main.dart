@@ -7,6 +7,7 @@ import 'package:sync_project/CompleteProfile.dart';
 import 'package:sync_project/ContactUs.dart';
 import 'package:sync_project/EventDetails1.dart';
 import 'package:sync_project/EventDetails2.dart';
+import 'package:sync_project/Events.dart';
 import 'package:sync_project/EventsPage.dart';
 import 'package:sync_project/Filters.dart';
 import 'package:sync_project/ForgotPassword.dart';
@@ -27,7 +28,7 @@ import 'package:sync_project/SignUp.dart';
 
 
 void main() {runApp(MaterialApp(
-  initialRoute: '/Intro1',
+  initialRoute: '/Events',
   routes: {
     '/AboutUs': (context) => AboutUs(),
     '/Categories': (context) => Categories(),
@@ -53,6 +54,7 @@ void main() {runApp(MaterialApp(
     '/PrivacyPolicy': (context) => PrivacyPolicy(),
     '/Settings': (context) => Settings(),
     '/Filters': (context) => Filters(),
+    '/Events': (context) => Events(),
   },
 ));
 }
