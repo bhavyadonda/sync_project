@@ -15,1344 +15,375 @@ class Categories extends StatelessWidget {
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
-          Positioned(
-            left: 214,
-            top: 778,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Corporate Image.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo Circle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 130, 0, 0),
+            child: ListView.builder(
+                itemCount: 4,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: EdgeInsets.fromLTRB(13, 0, 13, 0),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 183.0,
+                              height: 191.0,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinTop: true,
+                                    fixedHeight: true,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/Donation Image.png'),
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinBottom: true,
+                                    fixedHeight: true,
+                                    child:
+                                    // Adobe XD layer: 'Category Background' (shape)
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(15.0),
+                                          bottomLeft: Radius.circular(15.0),
+                                        ),
+                                        color: const Color(0xfaffffff),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0x28000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    fixedWidth: true,
+                                    fixedHeight: true,
+                                    child:
+                                    // Adobe XD layer: 'Club Logo' (group)
+                                    Stack(
+                                      children: <Widget>[
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
+                                          size: Size(35.0, 35.0),
+                                          pinLeft: true,
+                                          pinRight: true,
+                                          pinTop: true,
+                                          pinBottom: true,
+                                          child:
+                                          // Adobe XD layer: 'Logo CIrcle' (shape)
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.elliptical(9999.0, 9999.0)),
+                                              color: const Color(0xfaffffff),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: const Color(0x28000000),
+                                                  offset: Offset(0, 3),
+                                                  blurRadius: 6,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
+                                          size: Size(35.0, 35.0),
+                                          pinLeft: true,
+                                          pinRight: true,
+                                          pinTop: true,
+                                          pinBottom: true,
+                                          child:
+                                          // Adobe XD layer: 'Tech Club Logo' (shape)
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(13.0),
+                                              image: DecorationImage(
+                                                image: const AssetImage('assets/Tech Club Logo.png'),
+                                                fit: BoxFit.cover,
+                                                colorFilter: new ColorFilter.mode(
+                                                    Colors.black.withOpacity(0.98),
+                                                    BlendMode.dstIn),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
+                                    size: Size(168.0, 191.0),
+                                    child:
+                                    // Adobe XD layer: 'Continue Button' (shape)
+                                    PageLink(
+                                      links: [
+                                        PageLinkInfo(
+                                          transition: LinkTransition.Fade,
+                                          ease: Curves.linear,
+                                          duration: 0.3,
+                                          pageBuilder: () => EventDetails2(),
+                                        ),
+                                      ],
+                                      child: SvgPicture.string(
+                                        _svg_kf2adx,
+                                        allowDrawingOutsideViewBox: true,
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(5.0, 149.0, 145.0, 20.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinBottom: true,
+                                    fixedWidth: true,
+                                    fixedHeight: true,
+                                    child: Text(
+                                      'Donation Drive',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        color: const Color(0xfa404040),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(1.0, 169.0, 84.0, 15.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinBottom: true,
+                                    fixedWidth: true,
+                                    fixedHeight: true,
+                                    child: Text(
+                                      'By RC NMIMS',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 12,
+                                        color: const Color(0xfa9d9d9d),
+                                        height: 1.4,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 19,
+                              height: 10,
+                              child: const DecoratedBox(
+                                decoration: const BoxDecoration(
+                                    color: Colors.green
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 183.0,
+                              height: 191.0,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinTop: true,
+                                    fixedHeight: true,
+                                    child:
+                                    // Adobe XD layer: 'Imitation Image' (shape)
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/Imitation Image.png'),
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinBottom: true,
+                                    fixedHeight: true,
+                                    child:
+                                    // Adobe XD layer: 'Category Background' (shape)
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(15.0),
+                                          bottomLeft: Radius.circular(15.0),
+                                        ),
+                                        color: const Color(0xfaffffff),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0x28000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    fixedWidth: true,
+                                    fixedHeight: true,
+                                    child:
+                                    // Adobe XD layer: 'Club Logo' (group)
+                                    Stack(
+                                      children: <Widget>[
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
+                                          size: Size(35.0, 35.0),
+                                          pinLeft: true,
+                                          pinRight: true,
+                                          pinTop: true,
+                                          pinBottom: true,
+                                          child:
+                                          // Adobe XD layer: 'Logo CIrcle' (shape)
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.elliptical(9999.0, 9999.0)),
+                                              color: const Color(0xfaffffff),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: const Color(0x28000000),
+                                                  offset: Offset(0, 3),
+                                                  blurRadius: 6,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
+                                          size: Size(35.0, 35.0),
+                                          pinLeft: true,
+                                          pinRight: true,
+                                          pinTop: true,
+                                          pinBottom: true,
+                                          child:
+                                          // Adobe XD layer: 'Tech Club Logo' (shape)
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: const AssetImage('assets/Tech Club Logo.png'),
+                                                fit: BoxFit.fill,
+                                                colorFilter: new ColorFilter.mode(
+                                                    Colors.black.withOpacity(0.98),
+                                                    BlendMode.dstIn),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
+                                    size: Size(168.0, 191.0),
+                                    child:
+                                    // Adobe XD layer: 'Continue Button' (shape)
+                                    PageLink(
+                                      links: [
+                                        PageLinkInfo(
+                                          transition: LinkTransition.Fade,
+                                          ease: Curves.linear,
+                                          duration: 0.3,
+                                          pageBuilder: () => EventDetails2(),
+                                        ),
+                                      ],
+                                      child: SvgPicture.string(
+                                        _svg_kf2adx,
+                                        allowDrawingOutsideViewBox: true,
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(5.0, 149.0, 112.0, 20.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinBottom: true,
+                                    fixedWidth: true,
+                                    fixedHeight: true,
+                                    child: Text(
+                                      'Imitation Game',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        color: const Color(0xfa404040),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 169.0, 106.0, 15.0),
+                                    size: Size(168.0, 191.0),
+                                    pinLeft: true,
+                                    pinBottom: true,
+                                    fixedWidth: true,
+                                    fixedHeight: true,
+                                    child: Text(
+                                      'By The Tech Club',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 12,
+                                        color: const Color(0xfa9d9d9d),
+                                        height: 1.4,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.fill,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    SvgPicture.string(
-                  _svg_kf2adx,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 112.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Imitation Game',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(2.0, 169.0, 86.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By The Tech Club',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 778,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Imitation Image.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                        SizedBox(
+                          width: 10,
+                          height: 19,
+                          child: const DecoratedBox(
+                            decoration: const BoxDecoration(
+                                color: Colors.red
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.fill,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    SvgPicture.string(
-                  _svg_kf2adx,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 112.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Imitation Game',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(2.0, 169.0, 106.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By The Tech Club',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 214,
-            top: 567,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child:Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Blaze Image.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13.0),
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.cover,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => EventDetails2(),
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_kf2adx,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 99.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Blaze Run',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 169.0, 92.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By Sports Club',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 567,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/WTF Image.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13.0),
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.cover,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => EventDetails2(),
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_kf2adx,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 99.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'WTF Days',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(-11.0, 169.0, 100.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By Montage',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 214,
-            top: 356,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Corporate Image.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13.0),
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.cover,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => EventDetails2(),
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_kf2adx,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 153.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Corporate Summit',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(-1.0, 169.0, 108.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By Corporate Cell',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 356,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Glow Image.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13.0),
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.cover,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => EventDetails2(),
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_kf2adx,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 106.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Glow Party',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(-7.0, 169.0, 76.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By Vaayu',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 214,
-            top: 145,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Donation Image.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13.0),
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.cover,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => EventDetails2(),
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_kf2adx,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 145.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Donation Drive',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(1.0, 169.0, 84.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By RC NMIMS',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 145,
-            child: SizedBox(
-                width: 183.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Imitation Image' (shape)
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/Imitation Image.png'),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Category Background' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.0),
-                      bottomLeft: Radius.circular(15.0),
-                    ),
-                    color: const Color(0xfaffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x28000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Club Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xfaffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x28000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                      size: Size(35.0, 35.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo.png'),
-                            fit: BoxFit.fill,
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.98),
-                                BlendMode.dstIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                size: Size(168.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Continue Button' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => EventDetails2(),
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_kf2adx,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(5.0, 149.0, 112.0, 20.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Imitation Game',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xfa404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 169.0, 106.0, 15.0),
-                size: Size(168.0, 191.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'By The Tech Club',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xfa9d9d9d),
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-                ),
-              ),
+                  );
+                }
+            ),
           ),
           Positioned(
             left: 13,

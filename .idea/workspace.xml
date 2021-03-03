@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f253b73-6a70-4735-b23d-74ebd8b6cfc5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/Events.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/debug_android_application.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/flutter_assets.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/kernel_snapshot.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/faa0226705f3d0b2c373090ad2d9b7d8/kernel_snapshot.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
@@ -23,7 +19,11 @@
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Notifications.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Notifications.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Categories.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Categories.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Clubs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Clubs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Events.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ProfilePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ProfilePage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +67,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunAnythingCache">
@@ -126,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614181777595</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="changes made :)">
+      <created>1614361468912</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614361468913</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -147,42 +154,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1612956291618" />
-    <state x="231" y="0" key="CommitChangelistDialog2" timestamp="1614181776022">
+    <state x="231" y="0" key="CommitChangelistDialog2" timestamp="1614361446738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="231" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1614181776022" />
+    <state x="231" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1614361446738" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1614268504249">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1614268504249" />
-    <state width="1132" height="208" key="GridCell.Tab.0.bottom" timestamp="1614277025035">
+    <state width="1147" height="188" key="GridCell.Tab.0.bottom" timestamp="1614705003416">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1132" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614277025035" />
-    <state width="1132" height="208" key="GridCell.Tab.0.center" timestamp="1614277025035">
+    <state width="1147" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614705003416" />
+    <state width="1147" height="188" key="GridCell.Tab.0.center" timestamp="1614705003415">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1132" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614277025035" />
-    <state width="1132" height="208" key="GridCell.Tab.0.left" timestamp="1614277025034">
+    <state width="1147" height="188" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614705003415" />
+    <state width="1147" height="188" key="GridCell.Tab.0.left" timestamp="1614705003415">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1132" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614277025034" />
-    <state width="1132" height="208" key="GridCell.Tab.0.right" timestamp="1614277025035">
+    <state width="1147" height="188" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614705003415" />
+    <state width="1147" height="188" key="GridCell.Tab.0.right" timestamp="1614705003416">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1132" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614277025035" />
+    <state width="1147" height="188" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614705003416" />
     <state width="254" height="198" key="RunAnythingAction_Filter_Popup" timestamp="1614181843482">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="254" height="198" key="RunAnythingAction_Filter_Popup/0.0.1536.824@0.0.1536.824" timestamp="1614181843482" />
-    <state x="174" y="110" key="SettingsEditor" timestamp="1614268875183">
+    <state x="174" y="110" key="SettingsEditor" timestamp="1614615812322">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="174" y="110" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614268875183" />
-    <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1614343182301">
+    <state x="174" y="110" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614615812322" />
+    <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1614704872561">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824@0.0.1536.824" timestamp="1614343182301" />
+    <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824@0.0.1536.824" timestamp="1614704872561" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1614271114894">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -195,10 +202,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="428" y="230" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614181843490" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614263140925">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614615734484">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1614263140925" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1614615734484" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -207,16 +214,6 @@
           <url>file://$PROJECT_DIR$/lib/Filters.dart</url>
           <line>843</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/Homepage.dart</url>
-          <line>626</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/Homepage.dart</url>
-          <line>1208</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

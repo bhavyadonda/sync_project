@@ -9,7 +9,7 @@ class Events extends StatefulWidget {
 }
 
 class _EventsState extends State<Events> {
-  int _showData = 0;
+  int value = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,9 +57,7 @@ class _EventsState extends State<Events> {
               width: 25,
               height: 10,
               child: const DecoratedBox(
-                decoration: const BoxDecoration(
-                    color: Colors.white
-                ),
+                decoration: const BoxDecoration(color: Colors.white),
               ),
             ),
           ],
@@ -67,11 +65,11 @@ class _EventsState extends State<Events> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [ // padding = 25
+        children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 25, 0, 25),
             child: Container(
-              width:  MediaQuery.of(context).size.width - 40,
+              width: MediaQuery.of(context).size.width - 40,
               height: MediaQuery.of(context).size.height - 614,
               child: Card(
                 elevation: 10,
@@ -117,10 +115,12 @@ class _EventsState extends State<Events> {
                                 borderRadius: BorderRadius.circular(30),
                               ),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
@@ -154,7 +154,8 @@ class _EventsState extends State<Events> {
                                         height: 50.0,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(
-                                              Radius.elliptical(9999.0, 9999.0)),
+                                              Radius.elliptical(
+                                                  9999.0, 9999.0)),
                                           color: const Color(0xffffffff),
                                           boxShadow: [
                                             BoxShadow(
@@ -213,8 +214,13 @@ class _EventsState extends State<Events> {
                               textAlign: TextAlign.left,
                             ),
                             GestureDetector(
-                              onTap: (){
-                                setState(() => _showData = index);
+                              onTap: () {
+                                setState(() => {
+                                      if (value == index)
+                                        {value = -1}
+                                      else
+                                        {value = index}
+                                    });
                               },
                               child: SvgPicture.string(
                                 _svg_qlatz8,
@@ -224,27 +230,17 @@ class _EventsState extends State<Events> {
                             ),
                           ],
                         ),
-                        _showData == 1 ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: ['Kia','Samsung'].map((e){
-                              // make changes in the UI here for your company card
-                              return Card(child: Text(e));
-                            }).toList()
-                        ) : SizedBox(),
+                        if (value == index) Text('Hi') else SizedBox(),
                       ],
                     ),
                   );
-                }
-            ),
+                }),
           ),
         ],
       ),
     );
   }
 }
-
-
-
 
 // class _CardWidgetState extends State<CardWidget> {
 //   // responsible for toggle
@@ -293,7 +289,6 @@ class _EventsState extends State<Events> {
 //     );
 //   }
 // }
-
 
 const String _svg_qlatz8 =
     '<svg viewBox="348.0 276.5 14.0 14.0" ><defs><linearGradient id="gradient" x1="0.017181" y1="0.087972" x2="0.984024" y2="0.895426"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(346.0, 274.52)" d="M 8.984618186950684 15.96923828125 C 5.127120018005371 15.96923828125 1.999999284744263 12.84211730957031 2 8.984617233276367 C 2 5.127120018005371 5.127119541168213 1.999999046325684 8.984617233276367 1.999999046325684 C 12.84211921691895 1.999999046325684 15.96923732757568 5.127120018005371 15.96923732757568 8.984621047973633 C 15.96923732757568 12.84211730957031 12.84211921691895 15.96923637390137 8.984621047973633 15.96923828125 M 8.984618186950684 14.57231426239014 C 12.07061767578125 14.57231426239014 14.57231426239014 12.07061767578125 14.57231426239014 8.984619140625 C 14.57231426239014 5.898618698120117 12.07061767578125 3.39692211151123 8.984618186950684 3.39692211151123 C 5.898619651794434 3.39692211151123 3.396923780441284 5.898618698120117 3.396923780441284 8.984619140625 C 3.396923780441284 12.07061767578125 5.89862060546875 14.57231521606445 8.984619140625 14.57231426239014 M 5.492309093475342 10.38154220581055 L 8.984618186950684 6.889232635498047 L 12.47692775726318 10.38154220581055 L 5.492309093475342 10.38154220581055 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';

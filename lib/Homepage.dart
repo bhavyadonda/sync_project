@@ -272,320 +272,490 @@ class Homepage extends StatelessWidget {
                 ),
               ),
           ),
-//Event 2
-          Positioned(
-            left: 30,
-            top: 644,
-            child: SizedBox(
-                width: 349.0,
-                height: 76.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Fest Background' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
-                      size: Size(338.0, 67.2),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/Background Image1.png'),
-                            fit: BoxFit.fill,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30, 545, 30, 0),
+            child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 20),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 0,
+                        ),
+                        SizedBox(
+                          width: 349.0,
+                          height: 76.0,
+                          child: Stack(
+                            children: <Widget>[
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
+                                size: Size(349.0, 76.0),
+                                pinLeft: true,
+                                pinRight: true,
+                                pinTop: true,
+                                pinBottom: true,
+                                child:
+                                // Adobe XD layer: 'Fest Background' (group)
+                                Stack(
+                                  children: <Widget>[
+                                    Pinned.fromSize(
+                                      bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
+                                      size: Size(338.0, 67.2),
+                                      pinLeft: true,
+                                      pinRight: true,
+                                      pinTop: true,
+                                      pinBottom: true,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage('assets/Background Image1.png'),
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Pinned.fromSize(
+                                      bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
+                                      size: Size(338.0, 67.2),
+                                      child:
+                                      // Adobe XD layer: 'Next Button' (shape)
+                                      PageLink(
+                                        links: [
+                                          PageLinkInfo(
+                                            transition: LinkTransition.Fade,
+                                            ease: Curves.easeOut,
+                                            duration: 0.3,
+                                            pageBuilder: () => EventDetails2(),
+                                          ),
+                                        ],
+                                        child: SvgPicture.string(
+                                          _svg_rbwtgt,
+                                          allowDrawingOutsideViewBox: true,
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
+                                size: Size(349.0, 76.0),
+                                pinLeft: true,
+                                pinBottom: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
+                                child:
+                                // Adobe XD layer: 'Gradient Background' (shape)
+                                SvgPicture.string(
+                                  _svg_7u199j,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
+                                size: Size(349.0, 76.0),
+                                pinBottom: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
+                                child:
+                                // Adobe XD layer: 'Logo' (group)
+                                Stack(
+                                  children: <Widget>[
+                                    Pinned.fromSize(
+                                      bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
+                                      size: Size(67.5, 53.0),
+                                      pinLeft: true,
+                                      pinRight: true,
+                                      fixedHeight: true,
+                                      child:
+                                      // Adobe XD layer: 'Logo Background' (shape)
+                                      SvgPicture.string(
+                                        _svg_e0lvmc,
+                                        allowDrawingOutsideViewBox: true,
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                    Pinned.fromSize(
+                                      bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
+                                      size: Size(67.5, 53.0),
+                                      pinLeft: true,
+                                      pinRight: true,
+                                      pinTop: true,
+                                      pinBottom: true,
+                                      child:
+                                      // Adobe XD layer: 'Club Logo' (shape)
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: const AssetImage('assets/Montage Logo1.png'),
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
+                                size: Size(349.0, 76.0),
+                                pinLeft: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
+                                child: Text(
+                                  'May 09th, 2021  |  05:00 PM',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 13,
+                                    color: const Color(0xffffffff),
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(11.0, 25.0, 159.0, 21.0),
+                                size: Size(349.0, 76.0),
+                                pinLeft: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
+                                child: Text(
+                                  'Talent Hunt',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18,
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
-                      size: Size(338.0, 67.2),
-                      child:
-                          // Adobe XD layer: 'Next Button' (shape)
-                          PageLink(
-                        links: [
-                          PageLinkInfo(
-                            transition: LinkTransition.Fade,
-                            ease: Curves.linear,
-                            duration: 0.3,
-                            pageBuilder: () => EventDetails2(),
-                          ),
-                        ],
-                        child: SvgPicture.string(
-                          _svg_rbwtgt,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Gradient Background' (shape)
-                    SvgPicture.string(
-                  _svg_7u199j,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
-                size: Size(349.0, 76.0),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
-                      size: Size(67.5, 53.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Logo Background' (shape)
-                          SvgPicture.string(
-                        _svg_e0lvmc,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
-                      size: Size(67.5, 53.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Montage Logo1.png'),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'May 09th, 2021  |  05:00 PM',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 13,
-                    color: const Color(0xffffffff),
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(11.0, 25.0, 196.0, 21.0),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Open Mic Contest',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    color: const Color(0xffffffff),
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-            ],
-                ),
-              ),
+                  );
+                }
+            ),
           ),
-//Event 1
-          Positioned(
-            left: 30,
-            top: 558,
-            child: SizedBox(
-                width: 349.0,
-                height: 76.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Fest Background' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
-                      size: Size(338.0, 67.2),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/Background Image1.png'),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
-                      size: Size(338.0, 67.2),
-                      child:
-                          // Adobe XD layer: 'Next Button' (shape)
-                          PageLink(
-                        links: [
-                          PageLinkInfo(
-                            transition: LinkTransition.Fade,
-                            ease: Curves.easeOut,
-                            duration: 0.3,
-                            pageBuilder: () => EventDetails2(),
-                          ),
-                        ],
-                        child: SvgPicture.string(
-                          _svg_rbwtgt,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Gradient Background' (shape)
-                    SvgPicture.string(
-                  _svg_7u199j,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
-                size: Size(349.0, 76.0),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
-                      size: Size(67.5, 53.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Logo Background' (shape)
-                          SvgPicture.string(
-                        _svg_e0lvmc,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
-                      size: Size(67.5, 53.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Club Logo' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: const AssetImage('assets/Montage Logo1.png'),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'May 09th, 2021  |  05:00 PM',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 13,
-                    color: const Color(0xffffffff),
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(11.0, 25.0, 159.0, 21.0),
-                size: Size(349.0, 76.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Talent Hunt',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    color: const Color(0xffffffff),
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
+// //Event 2
+//           Positioned(
+//             left: 30,
+//             top: 644,
+//             child: SizedBox(
+//                 width: 349.0,
+//                 height: 76.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Fest Background' (group)
+//                     Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
+//                       size: Size(338.0, 67.2),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       child: Container(
+//                         decoration: BoxDecoration(
+//                           image: DecorationImage(
+//                             image: AssetImage('assets/Background Image1.png'),
+//                             fit: BoxFit.fill,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
+//                       size: Size(338.0, 67.2),
+//                       child:
+//                           // Adobe XD layer: 'Next Button' (shape)
+//                           PageLink(
+//                         links: [
+//                           PageLinkInfo(
+//                             transition: LinkTransition.Fade,
+//                             ease: Curves.linear,
+//                             duration: 0.3,
+//                             pageBuilder: () => EventDetails2(),
+//                           ),
+//                         ],
+//                         child: SvgPicture.string(
+//                           _svg_rbwtgt,
+//                           allowDrawingOutsideViewBox: true,
+//                           fit: BoxFit.fill,
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child:
+//                     // Adobe XD layer: 'Gradient Background' (shape)
+//                     SvgPicture.string(
+//                   _svg_7u199j,
+//                   allowDrawingOutsideViewBox: true,
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
+//                 size: Size(349.0, 76.0),
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child:
+//                     // Adobe XD layer: 'Logo' (group)
+//                     Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
+//                       size: Size(67.5, 53.0),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       fixedHeight: true,
+//                       child:
+//                           // Adobe XD layer: 'Logo Background' (shape)
+//                           SvgPicture.string(
+//                         _svg_e0lvmc,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
+//                       size: Size(67.5, 53.0),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       child:
+//                           // Adobe XD layer: 'Club Logo' (shape)
+//                           Container(
+//                         decoration: BoxDecoration(
+//                           image: DecorationImage(
+//                             image: const AssetImage('assets/Montage Logo1.png'),
+//                             fit: BoxFit.fill,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child: Text(
+//                   'May 09th, 2021  |  05:00 PM',
+//                   style: TextStyle(
+//                     fontFamily: 'Poppins',
+//                     fontSize: 13,
+//                     color: const Color(0xffffffff),
+//                   ),
+//                   textAlign: TextAlign.left,
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(11.0, 25.0, 196.0, 21.0),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child: Text(
+//                   'Open Mic Contest',
+//                   style: TextStyle(
+//                     fontFamily: 'Poppins',
+//                     fontSize: 18,
+//                     color: const Color(0xffffffff),
+//                     fontWeight: FontWeight.w700,
+//                   ),
+//                   textAlign: TextAlign.left,
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+// //Event 1
+//           Positioned(
+//             left: 30,
+//             top: 558,
+//             child: SizedBox(
+//                 width: 349.0,
+//                 height: 76.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Fest Background' (group)
+//                     Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
+//                       size: Size(338.0, 67.2),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       child: Container(
+//                         decoration: BoxDecoration(
+//                           image: DecorationImage(
+//                             image: AssetImage('assets/Background Image1.png'),
+//                             fit: BoxFit.fill,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
+//                       size: Size(338.0, 67.2),
+//                       child:
+//                           // Adobe XD layer: 'Next Button' (shape)
+//                           PageLink(
+//                         links: [
+//                           PageLinkInfo(
+//                             transition: LinkTransition.Fade,
+//                             ease: Curves.easeOut,
+//                             duration: 0.3,
+//                             pageBuilder: () => EventDetails2(),
+//                           ),
+//                         ],
+//                         child: SvgPicture.string(
+//                           _svg_rbwtgt,
+//                           allowDrawingOutsideViewBox: true,
+//                           fit: BoxFit.fill,
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child:
+//                     // Adobe XD layer: 'Gradient Background' (shape)
+//                     SvgPicture.string(
+//                   _svg_7u199j,
+//                   allowDrawingOutsideViewBox: true,
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
+//                 size: Size(349.0, 76.0),
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child:
+//                     // Adobe XD layer: 'Logo' (group)
+//                     Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
+//                       size: Size(67.5, 53.0),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       fixedHeight: true,
+//                       child:
+//                           // Adobe XD layer: 'Logo Background' (shape)
+//                           SvgPicture.string(
+//                         _svg_e0lvmc,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
+//                       size: Size(67.5, 53.0),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       child:
+//                           // Adobe XD layer: 'Club Logo' (shape)
+//                           Container(
+//                         decoration: BoxDecoration(
+//                           image: DecorationImage(
+//                             image: const AssetImage('assets/Montage Logo1.png'),
+//                             fit: BoxFit.fill,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child: Text(
+//                   'May 09th, 2021  |  05:00 PM',
+//                   style: TextStyle(
+//                     fontFamily: 'Poppins',
+//                     fontSize: 13,
+//                     color: const Color(0xffffffff),
+//                   ),
+//                   textAlign: TextAlign.left,
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(11.0, 25.0, 159.0, 21.0),
+//                 size: Size(349.0, 76.0),
+//                 pinLeft: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child: Text(
+//                   'Talent Hunt',
+//                   style: TextStyle(
+//                     fontFamily: 'Poppins',
+//                     fontSize: 18,
+//                     color: const Color(0xffffffff),
+//                     fontWeight: FontWeight.w700,
+//                   ),
+//                   textAlign: TextAlign.left,
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
 //Events text
           Positioned(
             left: 13,
@@ -602,784 +772,801 @@ class Homepage extends StatelessWidget {
             ),
           ),
 //Recommended scroller
-          Positioned(
-            left: 13,
-            top: 312,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(13, 300, 13, 0),
             child: SizedBox(
-                width: 469.0,
-                height: 191.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(242.0, 0.0, 227.0, 191.0),
-                size: Size(469.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Gaming' (group)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => Categories(),
-                    ),
-                  ],
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x45000000),
-                          offset: Offset(0, 3),
-                          spreadRadius: -7,
-                          blurRadius: 15,
-                        ),
-                      ],
-                    ),
-                    child: Stack(
-                      children: <Widget>[
-                        SvgPicture.string(
-                          _svg_elo20i,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                        Transform.translate(
-                          offset: Offset(37.0, 7.0),
-                          child:
-                              // Adobe XD layer: 'Gaming Image' (group)
-                              SizedBox(
-                            width: 153.0,
-                            height: 132.0,
+              height: 220,
+              width: MediaQuery. of(context). size. width,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                  itemCount: 1,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 0, 13, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 469.0,
+                            height: 191.0,
                             child: Stack(
                               children: <Widget>[
-                                SvgPicture.string(
-                                  _svg_w10n1t,
-                                  allowDrawingOutsideViewBox: true,
-                                ),
-                                Transform.translate(
-                                  offset: Offset(2.5, 100.1),
-                                  child: Container(
-                                    width: 150.4,
-                                    height: 10.3,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0.0, -1.0),
-                                        end: Alignment(0.0, 1.0),
-                                        colors: [
-                                          const Color(0x19fe4f70),
-                                          const Color(0x19cb6bd8)
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(242.0, 0.0, 227.0, 191.0),
+                                  size: Size(469.0, 191.0),
+                                  child:
+                                  // Adobe XD layer: 'Gaming' (group)
+                                  PageLink(
+                                    links: [
+                                      PageLinkInfo(
+                                        transition: LinkTransition.Fade,
+                                        ease: Curves.linear,
+                                        duration: 0.3,
+                                        pageBuilder: () => Categories(),
+                                      ),
+                                    ],
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0x45000000),
+                                            offset: Offset(0, 3),
+                                            spreadRadius: -7,
+                                            blurRadius: 15,
+                                          ),
                                         ],
-                                        stops: [0.0, 1.0],
+                                      ),
+                                      child: Stack(
+                                        children: <Widget>[
+                                          SvgPicture.string(
+                                            _svg_elo20i,
+                                            allowDrawingOutsideViewBox: true,
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(37.0, 7.0),
+                                            child:
+                                            // Adobe XD layer: 'Gaming Image' (group)
+                                            SizedBox(
+                                              width: 153.0,
+                                              height: 132.0,
+                                              child: Stack(
+                                                children: <Widget>[
+                                                  SvgPicture.string(
+                                                    _svg_w10n1t,
+                                                    allowDrawingOutsideViewBox: true,
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(2.5, 100.1),
+                                                    child: Container(
+                                                      width: 150.4,
+                                                      height: 10.3,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        gradient: LinearGradient(
+                                                          begin: Alignment(0.0, -1.0),
+                                                          end: Alignment(0.0, 1.0),
+                                                          colors: [
+                                                            const Color(0x19fe4f70),
+                                                            const Color(0x19cb6bd8)
+                                                          ],
+                                                          stops: [0.0, 1.0],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(15.8, 30.0),
+                                                    child: SvgPicture.string(
+                                                      _svg_42ror7,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(24.6, 35.9),
+                                                    child: Container(
+                                                      width: 27.2,
+                                                      height: 27.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(95.7, 35.9),
+                                                    child: Container(
+                                                      width: 27.2,
+                                                      height: 27.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(29.3, 40.6),
+                                                    child: SvgPicture.string(
+                                                      _svg_849x8u,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(46.8, 54.5),
+                                                    child: Container(
+                                                      width: 19.7,
+                                                      height: 19.7,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(49.8, 56.2),
+                                                    child: Container(
+                                                      width: 13.1,
+                                                      height: 13.1,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        gradient: LinearGradient(
+                                                          begin: Alignment(0.0, -1.0),
+                                                          end: Alignment(0.0, 1.0),
+                                                          colors: [
+                                                            const Color(0xfafe4f70),
+                                                            const Color(0xfacb6bd8)
+                                                          ],
+                                                          stops: [0.0, 1.0],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(81.0, 54.5),
+                                                    child: Container(
+                                                      width: 19.7,
+                                                      height: 19.7,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(83.9, 56.2),
+                                                    child: Container(
+                                                      width: 13.1,
+                                                      height: 13.1,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        gradient: LinearGradient(
+                                                          begin: Alignment(0.0, -1.0),
+                                                          end: Alignment(0.0, 1.0),
+                                                          colors: [
+                                                            const Color(0xfafe4f70),
+                                                            const Color(0xfacb6bd8)
+                                                          ],
+                                                          stops: [0.0, 1.0],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(52.0, 58.4),
+                                                    child: Container(
+                                                      width: 8.8,
+                                                      height: 8.8,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        border: Border.all(
+                                                            width: 2.0,
+                                                            color: const Color(0x19000000)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(86.1, 58.4),
+                                                    child: Container(
+                                                      width: 8.8,
+                                                      height: 8.8,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        border: Border.all(
+                                                            width: 2.0,
+                                                            color: const Color(0x19000000)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(71.3, 62.6),
+                                                    child: Container(
+                                                      width: 5.6,
+                                                      height: 5.6,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(69.2, 55.4),
+                                                    child: Container(
+                                                      width: 1.2,
+                                                      height: 1.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(71.5, 55.4),
+                                                    child: Container(
+                                                      width: 1.2,
+                                                      height: 1.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(71.2, 58.3),
+                                                    child: Container(
+                                                      width: 1.2,
+                                                      height: 1.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(73.3, 58.4),
+                                                    child: Container(
+                                                      width: 1.3,
+                                                      height: 1.3,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(75.5, 58.3),
+                                                    child: Container(
+                                                      width: 1.2,
+                                                      height: 1.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(70.2, 57.0),
+                                                    child: Container(
+                                                      width: 1.2,
+                                                      height: 1.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(72.2, 57.0),
+                                                    child: Container(
+                                                      width: 1.3,
+                                                      height: 1.3,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(74.2, 57.0),
+                                                    child: Container(
+                                                      width: 1.3,
+                                                      height: 1.3,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(76.4, 57.0),
+                                                    child: Container(
+                                                      width: 1.2,
+                                                      height: 1.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(73.3, 55.4),
+                                                    child: Container(
+                                                      width: 1.3,
+                                                      height: 1.3,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(75.5, 55.4),
+                                                    child: Container(
+                                                      width: 1.3,
+                                                      height: 1.3,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(77.3, 55.4),
+                                                    child: Container(
+                                                      width: 1.2,
+                                                      height: 1.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(49.3, 35.2),
+                                                    child: Container(
+                                                      width: 3.4,
+                                                      height: 5.9,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(8.5),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(95.1, 35.2),
+                                                    child: Container(
+                                                      width: 3.4,
+                                                      height: 5.9,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(8.5),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(105.7, 37.4),
+                                                    child: Container(
+                                                      width: 7.5,
+                                                      height: 7.5,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        gradient: LinearGradient(
+                                                          begin: Alignment(0.0, -1.0),
+                                                          end: Alignment(0.0, 1.0),
+                                                          colors: [
+                                                            const Color(0xfafe4f70),
+                                                            const Color(0xfacb6bd8)
+                                                          ],
+                                                          stops: [0.0, 1.0],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(97.7, 45.4),
+                                                    child: Container(
+                                                      width: 7.5,
+                                                      height: 7.5,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        gradient: LinearGradient(
+                                                          begin: Alignment(0.0, -1.0),
+                                                          end: Alignment(0.0, 1.0),
+                                                          colors: [
+                                                            const Color(0xfafe4f70),
+                                                            const Color(0xfacb6bd8)
+                                                          ],
+                                                          stops: [0.0, 1.0],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(114.0, 44.9),
+                                                    child: Container(
+                                                      width: 7.5,
+                                                      height: 7.5,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        gradient: LinearGradient(
+                                                          begin: Alignment(0.0, -1.0),
+                                                          end: Alignment(0.0, 1.0),
+                                                          colors: [
+                                                            const Color(0xfafe4f70),
+                                                            const Color(0xfacb6bd8)
+                                                          ],
+                                                          stops: [0.0, 1.0],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(106.3, 53.2),
+                                                    child: Container(
+                                                      width: 7.5,
+                                                      height: 7.5,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        gradient: LinearGradient(
+                                                          begin: Alignment(0.0, -1.0),
+                                                          end: Alignment(0.0, 1.0),
+                                                          colors: [
+                                                            const Color(0xfafe4f70),
+                                                            const Color(0xfacb6bd8)
+                                                          ],
+                                                          stops: [0.0, 1.0],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(54.4, 33.0),
+                                                    child: Container(
+                                                      width: 39.0,
+                                                      height: 20.8,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(21.75),
+                                                        color: const Color(0xfae2e2ec),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(107.2, 39.0),
+                                                    child: SvgPicture.string(
+                                                      _svg_t5ghue,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(99.8, 47.4),
+                                                    child: Container(
+                                                      width: 3.4,
+                                                      height: 3.4,
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            width: 1.0,
+                                                            color: const Color(0xfae2e2ec)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(115.6, 46.5),
+                                                    child: Container(
+                                                      width: 4.4,
+                                                      height: 4.4,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        border: Border.all(
+                                                            width: 1.0,
+                                                            color: const Color(0xfae2e2ec)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(43.7, 41.6),
+                                                    child: SvgPicture.string(
+                                                      _svg_26vdoc,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(124.2, 37.1),
+                                                    child: Container(
+                                                      width: 7.8,
+                                                      height: 7.8,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfac87486),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(121.2, 35.6),
+                                                    child: SvgPicture.string(
+                                                      _svg_lb60fx,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(0.0, 142.0),
+                                            child:
+                                            // Adobe XD layer: 'Category Background' (shape)
+                                            Container(
+                                              width: 227.0,
+                                              height: 49.0,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.only(
+                                                  bottomRight: Radius.circular(15.0),
+                                                  bottomLeft: Radius.circular(15.0),
+                                                ),
+                                                color: const Color(0xfaffffff),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: const Color(0x28000000),
+                                                    offset: Offset(0, 3),
+                                                    blurRadius: 6,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(8.0, 168.5),
+                                            child: Text(
+                                              'Check out some of the gaming events!',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12,
+                                                color: const Color(0xfa9d9d9d),
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(8.0, 143.8),
+                                            child: Text(
+                                              'Gaming',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 18,
+                                                color: const Color(0xfa404040),
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                Transform.translate(
-                                  offset: Offset(15.8, 30.0),
-                                  child: SvgPicture.string(
-                                    _svg_42ror7,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(24.6, 35.9),
-                                  child: Container(
-                                    width: 27.2,
-                                    height: 27.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(95.7, 35.9),
-                                  child: Container(
-                                    width: 27.2,
-                                    height: 27.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(29.3, 40.6),
-                                  child: SvgPicture.string(
-                                    _svg_849x8u,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(46.8, 54.5),
-                                  child: Container(
-                                    width: 19.7,
-                                    height: 19.7,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(49.8, 56.2),
-                                  child: Container(
-                                    width: 13.1,
-                                    height: 13.1,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0.0, -1.0),
-                                        end: Alignment(0.0, 1.0),
-                                        colors: [
-                                          const Color(0xfafe4f70),
-                                          const Color(0xfacb6bd8)
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 0.0, 227.0, 191.0),
+                                  size: Size(469.0, 191.0),
+                                  child:
+                                  // Adobe XD layer: 'Trending' (group)
+                                  PageLink(
+                                    links: [
+                                      PageLinkInfo(
+                                        transition: LinkTransition.Fade,
+                                        ease: Curves.linear,
+                                        duration: 0.3,
+                                        pageBuilder: () => Categories(),
+                                      ),
+                                    ],
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0x45000000),
+                                            offset: Offset(0, 3),
+                                            spreadRadius: -7,
+                                            blurRadius: 15,
+                                          ),
                                         ],
-                                        stops: [0.0, 1.0],
+                                      ),
+                                      child: Stack(
+                                        children: <Widget>[
+                                          SvgPicture.string(
+                                            _svg_emp5xq,
+                                            allowDrawingOutsideViewBox: true,
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(30.0, 5.0),
+                                            child:
+                                            // Adobe XD layer: 'Trending Image' (group)
+                                            SizedBox(
+                                              width: 167.0,
+                                              height: 132.0,
+                                              child: Stack(
+                                                children: <Widget>[
+                                                  Transform.translate(
+                                                    offset: Offset(12.7, 125.3),
+                                                    child: Container(
+                                                      width: 51.0,
+                                                      height: 6.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfaf2f2f2),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(66.4, 125.3),
+                                                    child: Container(
+                                                      width: 51.0,
+                                                      height: 6.2,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfaf2f2f2),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(0.0, 20.2),
+                                                    child: SvgPicture.string(
+                                                      _svg_kuo91b,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(132.8, 21.1),
+                                                    child: Container(
+                                                      width: 13.8,
+                                                      height: 23.6,
+                                                      decoration: BoxDecoration(
+                                                        color: const Color(0xfa2f2e41),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(124.6, 11.6),
+                                                    child: SvgPicture.string(
+                                                      _svg_juqimq,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(134.2, 17.7),
+                                                    child: Container(
+                                                      width: 12.6,
+                                                      height: 12.6,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfaffb9b9),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(127.8, 26.9),
+                                                    child: SvgPicture.string(
+                                                      _svg_5fm82o,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(137.6, 6.7),
+                                                    child: Container(
+                                                      width: 6.7,
+                                                      height: 6.7,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.all(
+                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        color: const Color(0xfa2f2e41),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Transform.translate(
+                                                    offset: Offset(15.3, 0.0),
+                                                    child: SvgPicture.string(
+                                                      _svg_wphjkb,
+                                                      allowDrawingOutsideViewBox: true,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(0.0, 142.0),
+                                            child:
+                                            // Adobe XD layer: 'Category Background' (shape)
+                                            Container(
+                                              width: 227.0,
+                                              height: 49.0,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.only(
+                                                  bottomRight: Radius.circular(15.0),
+                                                  bottomLeft: Radius.circular(15.0),
+                                                ),
+                                                color: const Color(0xfaffffff),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: const Color(0x28000000),
+                                                    offset: Offset(0, 3),
+                                                    blurRadius: 6,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(8.0, 168.5),
+                                            child: Text(
+                                              'Check out the hottest events right now!',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12,
+                                                color: const Color(0xfa9d9d9d),
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(8.0, 143.8),
+                                            child: Text(
+                                              'Trending',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 18,
+                                                color: const Color(0xfa404040),
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(81.0, 54.5),
-                                  child: Container(
-                                    width: 19.7,
-                                    height: 19.7,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(83.9, 56.2),
-                                  child: Container(
-                                    width: 13.1,
-                                    height: 13.1,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0.0, -1.0),
-                                        end: Alignment(0.0, 1.0),
-                                        colors: [
-                                          const Color(0xfafe4f70),
-                                          const Color(0xfacb6bd8)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(52.0, 58.4),
-                                  child: Container(
-                                    width: 8.8,
-                                    height: 8.8,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      border: Border.all(
-                                          width: 2.0,
-                                          color: const Color(0x19000000)),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(86.1, 58.4),
-                                  child: Container(
-                                    width: 8.8,
-                                    height: 8.8,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      border: Border.all(
-                                          width: 2.0,
-                                          color: const Color(0x19000000)),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(71.3, 62.6),
-                                  child: Container(
-                                    width: 5.6,
-                                    height: 5.6,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(69.2, 55.4),
-                                  child: Container(
-                                    width: 1.2,
-                                    height: 1.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(71.5, 55.4),
-                                  child: Container(
-                                    width: 1.2,
-                                    height: 1.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(71.2, 58.3),
-                                  child: Container(
-                                    width: 1.2,
-                                    height: 1.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(73.3, 58.4),
-                                  child: Container(
-                                    width: 1.3,
-                                    height: 1.3,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(75.5, 58.3),
-                                  child: Container(
-                                    width: 1.2,
-                                    height: 1.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(70.2, 57.0),
-                                  child: Container(
-                                    width: 1.2,
-                                    height: 1.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(72.2, 57.0),
-                                  child: Container(
-                                    width: 1.3,
-                                    height: 1.3,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(74.2, 57.0),
-                                  child: Container(
-                                    width: 1.3,
-                                    height: 1.3,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(76.4, 57.0),
-                                  child: Container(
-                                    width: 1.2,
-                                    height: 1.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(73.3, 55.4),
-                                  child: Container(
-                                    width: 1.3,
-                                    height: 1.3,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(75.5, 55.4),
-                                  child: Container(
-                                    width: 1.3,
-                                    height: 1.3,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(77.3, 55.4),
-                                  child: Container(
-                                    width: 1.2,
-                                    height: 1.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(49.3, 35.2),
-                                  child: Container(
-                                    width: 3.4,
-                                    height: 5.9,
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(8.5),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(95.1, 35.2),
-                                  child: Container(
-                                    width: 3.4,
-                                    height: 5.9,
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(8.5),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(105.7, 37.4),
-                                  child: Container(
-                                    width: 7.5,
-                                    height: 7.5,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0.0, -1.0),
-                                        end: Alignment(0.0, 1.0),
-                                        colors: [
-                                          const Color(0xfafe4f70),
-                                          const Color(0xfacb6bd8)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(97.7, 45.4),
-                                  child: Container(
-                                    width: 7.5,
-                                    height: 7.5,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0.0, -1.0),
-                                        end: Alignment(0.0, 1.0),
-                                        colors: [
-                                          const Color(0xfafe4f70),
-                                          const Color(0xfacb6bd8)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(114.0, 44.9),
-                                  child: Container(
-                                    width: 7.5,
-                                    height: 7.5,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0.0, -1.0),
-                                        end: Alignment(0.0, 1.0),
-                                        colors: [
-                                          const Color(0xfafe4f70),
-                                          const Color(0xfacb6bd8)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(106.3, 53.2),
-                                  child: Container(
-                                    width: 7.5,
-                                    height: 7.5,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0.0, -1.0),
-                                        end: Alignment(0.0, 1.0),
-                                        colors: [
-                                          const Color(0xfafe4f70),
-                                          const Color(0xfacb6bd8)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(54.4, 33.0),
-                                  child: Container(
-                                    width: 39.0,
-                                    height: 20.8,
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(21.75),
-                                      color: const Color(0xfae2e2ec),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(107.2, 39.0),
-                                  child: SvgPicture.string(
-                                    _svg_t5ghue,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(99.8, 47.4),
-                                  child: Container(
-                                    width: 3.4,
-                                    height: 3.4,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 1.0,
-                                          color: const Color(0xfae2e2ec)),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(115.6, 46.5),
-                                  child: Container(
-                                    width: 4.4,
-                                    height: 4.4,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      border: Border.all(
-                                          width: 1.0,
-                                          color: const Color(0xfae2e2ec)),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(43.7, 41.6),
-                                  child: SvgPicture.string(
-                                    _svg_26vdoc,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(124.2, 37.1),
-                                  child: Container(
-                                    width: 7.8,
-                                    height: 7.8,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfac87486),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(121.2, 35.6),
-                                  child: SvgPicture.string(
-                                    _svg_lb60fx,
-                                    allowDrawingOutsideViewBox: true,
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ),
-                        Transform.translate(
-                          offset: Offset(0.0, 142.0),
-                          child:
-                              // Adobe XD layer: 'Category Background' (shape)
-                              Container(
-                            width: 227.0,
-                            height: 49.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(15.0),
-                                bottomLeft: Radius.circular(15.0),
-                              ),
-                              color: const Color(0xfaffffff),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x28000000),
-                                  offset: Offset(0, 3),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Transform.translate(
-                          offset: Offset(8.0, 168.5),
-                          child: Text(
-                            'Check out some of the gaming events!',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 12,
-                              color: const Color(0xfa9d9d9d),
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Transform.translate(
-                          offset: Offset(8.0, 143.8),
-                          child: Text(
-                            'Gaming',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 18,
-                              color: const Color(0xfa404040),
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                        ],
+                      ),
+                    );
+                  }
               ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 227.0, 191.0),
-                size: Size(469.0, 191.0),
-                child:
-                    // Adobe XD layer: 'Trending' (group)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => Categories(),
-                    ),
-                  ],
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x45000000),
-                          offset: Offset(0, 3),
-                          spreadRadius: -7,
-                          blurRadius: 15,
-                        ),
-                      ],
-                    ),
-                    child: Stack(
-                      children: <Widget>[
-                        SvgPicture.string(
-                          _svg_emp5xq,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                        Transform.translate(
-                          offset: Offset(30.0, 5.0),
-                          child:
-                              // Adobe XD layer: 'Trending Image' (group)
-                              SizedBox(
-                            width: 167.0,
-                            height: 132.0,
-                            child: Stack(
-                              children: <Widget>[
-                                Transform.translate(
-                                  offset: Offset(12.7, 125.3),
-                                  child: Container(
-                                    width: 51.0,
-                                    height: 6.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfaf2f2f2),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(66.4, 125.3),
-                                  child: Container(
-                                    width: 51.0,
-                                    height: 6.2,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfaf2f2f2),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(0.0, 20.2),
-                                  child: SvgPicture.string(
-                                    _svg_kuo91b,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(132.8, 21.1),
-                                  child: Container(
-                                    width: 13.8,
-                                    height: 23.6,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xfa2f2e41),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(124.6, 11.6),
-                                  child: SvgPicture.string(
-                                    _svg_juqimq,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(134.2, 17.7),
-                                  child: Container(
-                                    width: 12.6,
-                                    height: 12.6,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfaffb9b9),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(127.8, 26.9),
-                                  child: SvgPicture.string(
-                                    _svg_5fm82o,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(137.6, 6.7),
-                                  child: Container(
-                                    width: 6.7,
-                                    height: 6.7,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.elliptical(9999.0, 9999.0)),
-                                      color: const Color(0xfa2f2e41),
-                                    ),
-                                  ),
-                                ),
-                                Transform.translate(
-                                  offset: Offset(15.3, 0.0),
-                                  child: SvgPicture.string(
-                                    _svg_wphjkb,
-                                    allowDrawingOutsideViewBox: true,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Transform.translate(
-                          offset: Offset(0.0, 142.0),
-                          child:
-                              // Adobe XD layer: 'Category Background' (shape)
-                              Container(
-                            width: 227.0,
-                            height: 49.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(15.0),
-                                bottomLeft: Radius.circular(15.0),
-                              ),
-                              color: const Color(0xfaffffff),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x28000000),
-                                  offset: Offset(0, 3),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Transform.translate(
-                          offset: Offset(8.0, 168.5),
-                          child: Text(
-                            'Check out the hottest events right now!',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 12,
-                              color: const Color(0xfa9d9d9d),
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Transform.translate(
-                          offset: Offset(8.0, 143.8),
-                          child: Text(
-                            'Trending',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 18,
-                              color: const Color(0xfa404040),
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-                ),
-              ),
+            ),
           ),
-//Recommended Text
+// Recommended Text
           Positioned(
             left: 13,
             top: 277,
