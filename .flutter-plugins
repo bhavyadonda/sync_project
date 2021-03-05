@@ -1,5 +1,16 @@
 # This is a generated file; do not edit or check into version control.
-path_provider=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-2.0.1\\
-path_provider_linux=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-2.0.0\\
-path_provider_macos=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-2.0.0\\
-path_provider_windows=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_windows-2.0.0\\
+firebase_auth=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth-0.16.1\\
+firebase_auth_web=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth_web-0.1.3+1\\
+firebase_core=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.5\\
+firebase_core_web=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.1.1+2\\
+firebase_database=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database-3.1.6\\
+firebase_storage=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_storage-3.1.6\\
+path_provider=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.6.27\\
+path_provider_linux=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-0.0.1+2\\
+path_provider_macos=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-0.0.4+8\\
+path_provider_windows=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_windows-0.0.5\\
+shared_preferences=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences-0.5.12+4\\
+shared_preferences_linux=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_linux-0.0.2+4\\
+shared_preferences_macos=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_macos-0.0.1+11\\
+shared_preferences_web=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_web-0.1.2+7\\
+shared_preferences_windows=C:\\Users\\Yash\\Desktop\\TechClub\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_windows-0.0.2+3\\

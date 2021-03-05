@@ -4,11 +4,20 @@ import './CompleteProfile.dart';
 import 'package:adobe_xd/page_link.dart';
 import './SignIn.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import './methods.dart';
 
-class SignUp extends StatelessWidget {
-  SignUp({
-    Key key,
-  }) : super(key: key);
+class SignUp extends StatefulWidget {
+  @override
+  _RegisterViewState createState() => _RegisterViewState();
+}
+
+class _RegisterViewState extends State<SignUp> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _repasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +29,12 @@ class SignUp extends StatelessWidget {
             top: 697,
             child: PageLink(
                 links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => CompleteProfile(),
-            ),
+            // PageLinkInfo(
+            //   transition: LinkTransition.Fade,
+            //   ease: Curves.easeOut,
+            //   duration: 0.3,
+            //   pageBuilder: () => CompleteProfile(),
+            // ),
                 ],
                 child: SizedBox(
             width: 300.0,
@@ -42,6 +51,7 @@ class SignUp extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'Button' (shape)
                       Container(
+
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       gradient: LinearGradient(
@@ -61,6 +71,51 @@ class SignUp extends StatelessWidget {
                         ),
                       ],
                     ),
+                        child: InkWell(
+                          onTap: () async {
+                            if (_passwordController.text == _repasswordController.text) {
+                              showLoaderDialog(context, "Registering...");
+                              try {
+                                FirebaseAuth auth = FirebaseAuth.instance;
+                                FirebaseUser user = (await auth.createUserWithEmailAndPassword(
+                                  email: _emailController.text + "@nmims.edu.in",
+                                  password: _passwordController.text,
+                                ))
+                                    .user;
+                                if (user != null) {
+                                  await user.sendEmailVerification();
+                                  FirebaseUser currentUser = await auth.currentUser();
+                                  final uid = currentUser.uid;
+                                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                                  prefs.setString('uid', uid);
+                                  Navigator.pop(context);
+                                  showAlertDialog(
+                                      context,
+                                      '/CompleteProfile',
+                                      'Id Created Successfully!',
+                                      'A verification link has been sent to your email id, please verify your email id within 24 hours.');
+                                }
+                              } catch (e) {
+                                Navigator.pop(context);
+                                _passwordController.text = "";
+                                _repasswordController.text = "";
+                                _emailController.text = "";
+                                showAlertDialog(
+                                    context,
+                                    '',
+                                    e.toString().split('(')[1].split(',')[0],
+                                    e.toString().split(', ')[1].split(',')[0]);
+                              }
+                            } else {
+                              _passwordController.text = "";
+                              _repasswordController.text = "";
+                              _emailController.text = "";
+                              showAlertDialog(
+                                  context, '', 'Registration failed', 'Passwords do not match');
+                            }
+                          },
+
+                        ),
                   ),
                 ),
                 Pinned.fromSize(
@@ -144,22 +199,22 @@ class SignUp extends StatelessWidget {
                 height: 48.0,
                 child: Stack(
             children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-                size: Size(273.0, 48.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
+              // Pinned.fromSize(
+              //   bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
+              //   size: Size(273.0, 48.0),
+              //   pinLeft: true,
+              //   pinRight: true,
+              //   pinTop: true,
+              //   pinBottom: true,
+                // child:
                     // Adobe XD layer: 'Re-enter Password I…' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: const Color(0x1a9d9d9d),
-                  ),
-                ),
-              ),
+                //     Container(
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(10.0),
+                //     color: const Color(0x1a9d9d9d),
+                //   ),
+                // ),
+              // ),
               Pinned.fromSize(
                 bounds: Rect.fromLTWH(19.0, 14.0, 191.0, 20.0),
                 size: Size(273.0, 48.0),
@@ -167,18 +222,24 @@ class SignUp extends StatelessWidget {
                 fixedWidth: true,
                 fixedHeight: true,
                 child:
-                    // Adobe XD layer: 'Password Placeholder' (text)
-                    Text(
-                  'Re-enter Password',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 17,
-                    color: const Color(0xffb6b6b6),
-                    fontWeight: FontWeight.w300,
+                TextFormField(
+                  obscureText: true,
+                  controller: _repasswordController,
+                  decoration: InputDecoration(
+                    // border: BorderRadius.circular(10.0),
+                      fillColor: const Color(0x1a9d9d9d),
+                      hintText:  'Re-enter Password',
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 17,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                    ),
                   ),
-                  textAlign: TextAlign.left,
+                    // Adobe XD layer: 'Password Placeholder' (text)
+                //     Text(
                 ),
-              ),
             ],
                 ),
               ),
@@ -199,33 +260,41 @@ class SignUp extends StatelessWidget {
                 pinTop: true,
                 pinBottom: true,
                 child:
-                    // Adobe XD layer: 'Password Input' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: const Color(0x1a9d9d9d),
+                TextFormField(
+                  obscureText: true,
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    // border: BorderRadius.circular(10.0),
+                    fillColor: const Color(0x1a9d9d9d),
+                    hintText:  'Enter Password',
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 17,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                 ),
               ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(19.0, 14.0, 107.0, 20.0),
-                size: Size(273.0, 48.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Password Placeholder' (text)
-                    Text(
-                  'Password',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 17,
-                    color: const Color(0xffb6b6b6),
-                    fontWeight: FontWeight.w300,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
+              // Pinned.fromSize(
+              //   bounds: Rect.fromLTWH(19.0, 14.0, 107.0, 20.0),
+              //   size: Size(273.0, 48.0),
+              //   pinLeft: true,
+              //   fixedWidth: true,
+              //   fixedHeight: true,
+              //   child:
+              //       // Adobe XD layer: 'Password Placeholder' (text)
+              //       Text(
+              //     'Password',
+              //     style: TextStyle(
+              //       fontFamily: 'Poppins',
+              //       fontSize: 17,
+              //       color: const Color(0xffb6b6b6),
+              //       fontWeight: FontWeight.w300,
+              //     ),
+              //     textAlign: TextAlign.left,
+              //   ),
+              // ),
             ],
                 ),
               ),
@@ -246,33 +315,45 @@ class SignUp extends StatelessWidget {
                 pinTop: true,
                 pinBottom: true,
                 child:
+                TextFormField(
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                      // borderRadius: BorderRadius.circular(10.0),
+                      fillColor: const Color(0x1a9d9d9d),
+                    hintText:  'Mail Id',
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 17,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                    ),
+
                     // Adobe XD layer: 'Mail Input' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: const Color(0x1a9d9d9d),
-                  ),
+                //     Container(
+
                 ),
               ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(19.0, 14.0, 95.0, 20.0),
-                size: Size(273.0, 48.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Mail Placeholder' (text)
-                    Text(
-                  'Mail ID',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 17,
-                    color: const Color(0xffb6b6b6),
-                    fontWeight: FontWeight.w300,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
+              // Pinned.fromSize(
+              //   bounds: Rect.fromLTWH(19.0, 14.0, 95.0, 20.0),
+              //   size: Size(273.0, 48.0),
+              //   pinLeft: true,
+              //   fixedWidth: true,
+              //   fixedHeight: true,
+              //   child:
+              //       // Adobe XD layer: 'Mail Placeholder' (text)
+              //       Text(
+              //     'Mail ID',
+              //     style: TextStyle(
+              //       fontFamily: 'Poppins',
+              //       fontSize: 17,
+              //       color: const Color(0xffb6b6b6),
+              //       fontWeight: FontWeight.w300,
+              //     ),
+              //     textAlign: TextAlign.left,
+              //   ),
+              // ),
             ],
                 ),
               ),
@@ -301,7 +382,7 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: 'sign up to continue',
+                    text: 'Sign up to continue',
                     style: TextStyle(
                       color: const Color(0xff404040),
                       fontWeight: FontWeight.w600,

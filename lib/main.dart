@@ -27,6 +27,7 @@ import 'package:sync_project/SignIn.dart';
 import 'package:sync_project/SignUp.dart';
 
 
+
 void main() {runApp(MaterialApp(
   initialRoute: '/SignUp',
   routes: {
