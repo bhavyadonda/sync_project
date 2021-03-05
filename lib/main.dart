@@ -28,7 +28,7 @@ import 'package:sync_project/SignUp.dart';
 
 
 void main() {runApp(MaterialApp(
-  initialRoute: '/Categories',
+  initialRoute: '/SignUp',
   routes: {
     '/AboutUs': (context) => AboutUs(),
     '/Categories': (context) => Categories(),

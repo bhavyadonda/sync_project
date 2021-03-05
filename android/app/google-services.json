@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "44865139772",
+    "firebase_url": "https://sync-ad973.firebaseio.com",
+    "project_id": "sync-ad973",
+    "storage_bucket": "sync-ad973.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44865139772:android:f8525f316c4eebff627f39",
+        "android_client_info": {
+          "package_name": "com.example.sync_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44865139772-pbb4g3nsl5h5oldsjjktn91fh9u9e4k9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaEttXOmX-r3CGasENEH-vYHy7O45Zkgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44865139772-pbb4g3nsl5h5oldsjjktn91fh9u9e4k9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "44865139772-rppa35gkag7aorf0c2dsbetmtj7150fl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.syncApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44865139772:android:7489cd84ec7650df627f39",
+        "android_client_info": {
+          "package_name": "com.example.sync_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44865139772-pbb4g3nsl5h5oldsjjktn91fh9u9e4k9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaEttXOmX-r3CGasENEH-vYHy7O45Zkgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44865139772-pbb4g3nsl5h5oldsjjktn91fh9u9e4k9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "44865139772-rppa35gkag7aorf0c2dsbetmtj7150fl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.syncApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
