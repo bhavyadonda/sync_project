@@ -4,12 +4,12 @@ import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
-class Forgot extends StatefulWidget {
+class ForgotPassword extends StatefulWidget {
   @override
-  _ForgotState createState() => _ForgotState();
+  _ForgotPasswordState createState() => _ForgotPasswordState();
 }
 
-class _ForgotState extends State<Forgot> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,6 +212,7 @@ class _ForgotState extends State<Forgot> {
     );
   }
 }
+
 
 
 
