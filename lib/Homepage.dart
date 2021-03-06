@@ -22,255 +22,255 @@ class Homepage extends StatelessWidget {
             left: 0,
             top: 743,
             child: SizedBox(
-                width: 412.0,
-                height: 78.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 28.3, 375.0, 49.9),
-                size: Size(375.0, 78.1),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Bottom Bar' (shape)
-                    SvgPicture.string(
-                  _svg_2w8omz,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(297.0, 32.0, 40.0, 40.0),
-                size: Size(375.0, 78.1),
-                pinRight: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Calendar Button' (group)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.easeOut,
-                      duration: 0.3,
-                      pageBuilder: () => EventsPage(),
+              width: 412.0,
+              height: 78.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 28.3, 375.0, 49.9),
+                    size: Size(375.0, 78.1),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinBottom: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Bottom Bar' (shape)
+                        SvgPicture.string(
+                      _svg_2w8omz,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
                     ),
-                  ],
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 40.0, 40.0),
-                        size: Size(40.0, 40.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child:
-                            // Adobe XD layer: 'Calendar Circle' (shape)
-                            Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            color: const Color(0xffffffff),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0x29000000),
-                                offset: Offset(0, 3),
-                                blurRadius: 6,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(9.0, 9.0, 22.0, 22.0),
-                        size: Size(40.0, 40.0),
-                        fixedWidth: true,
-                        fixedHeight: true,
-                        child:
-                            // Adobe XD layer: 'Calendar Icon' (group)
-                            Stack(
-                          children: <Widget>[
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(14.9, 0.0, 2.6, 5.2),
-                              size: Size(22.0, 22.0),
-                              child: SvgPicture.string(
-                                _svg_7sbw54,
-                                allowDrawingOutsideViewBox: true,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(0.0, 2.6, 22.0, 5.2),
-                              size: Size(22.0, 22.0),
-                              child: SvgPicture.string(
-                                _svg_x7aajd,
-                                allowDrawingOutsideViewBox: true,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(4.6, 0.0, 2.6, 5.2),
-                              size: Size(22.0, 22.0),
-                              child: SvgPicture.string(
-                                _svg_udq5wv,
-                                allowDrawingOutsideViewBox: true,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(0.0, 9.1, 22.0, 12.9),
-                              size: Size(22.0, 22.0),
-                              child: SvgPicture.string(
-                                _svg_q86o9f,
-                                allowDrawingOutsideViewBox: true,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
                   ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(158.2, 0.0, 60.0, 60.0),
-                size: Size(375.0, 78.1),
-                pinTop: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Home Button' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 60.0, 60.0),
-                      size: Size(60.0, 60.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Home Circle' (shape)
-                          SvgPicture.string(
-                        _svg_90a85a,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(12.3, 13.5, 35.4, 33.0),
-                      size: Size(60.0, 60.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Home Icon' (shape)
-                          SvgPicture.string(
-                        _svg_sxb1lv,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(38.0, 32.0, 40.0, 40.0),
-                size: Size(375.0, 78.1),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Profile Button' (group)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.easeOut,
-                      duration: 0.3,
-                      pageBuilder: () => ProfilePage(),
-                    ),
-                  ],
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 40.0, 40.0),
-                        size: Size(40.0, 40.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child:
-                            // Adobe XD layer: 'Profile Circle' (shape)
-                            Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            color: const Color(0xffffffff),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0x29000000),
-                                offset: Offset(0, 3),
-                                blurRadius: 6,
-                              ),
-                            ],
-                          ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(297.0, 32.0, 40.0, 40.0),
+                    size: Size(375.0, 78.1),
+                    pinRight: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Calendar Button' (group)
+                        PageLink(
+                      links: [
+                        PageLinkInfo(
+                          transition: LinkTransition.Fade,
+                          ease: Curves.easeOut,
+                          duration: 0.3,
+                          pageBuilder: () => EventsPage(),
                         ),
-                      ),
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(10.0, 9.0, 20.0, 21.9),
-                        size: Size(40.0, 40.0),
-                        fixedWidth: true,
-                        fixedHeight: true,
-                        child:
-                            // Adobe XD layer: 'Profile Icon' (group)
-                            Stack(
-                          children: <Widget>[
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(5.0, 0.0, 10.0, 10.0),
-                              size: Size(20.0, 21.9),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                      Radius.elliptical(9999.0, 9999.0)),
-                                  gradient: LinearGradient(
-                                    begin: Alignment(-0.97, -0.82),
-                                    end: Alignment(0.97, 0.79),
-                                    colors: [
-                                      const Color(0xfffe4f70),
-                                      const Color(0xffcb6bd8)
-                                    ],
-                                    stops: [0.0, 1.0],
+                      ],
+                      child: Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 40.0, 40.0),
+                            size: Size(40.0, 40.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child:
+                                // Adobe XD layer: 'Calendar Circle' (shape)
+                                Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0xffffffff),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x29000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(9.0, 9.0, 22.0, 22.0),
+                            size: Size(40.0, 40.0),
+                            fixedWidth: true,
+                            fixedHeight: true,
+                            child:
+                                // Adobe XD layer: 'Calendar Icon' (group)
+                                Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(14.9, 0.0, 2.6, 5.2),
+                                  size: Size(22.0, 22.0),
+                                  child: SvgPicture.string(
+                                    _svg_7sbw54,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
-                              ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 2.6, 22.0, 5.2),
+                                  size: Size(22.0, 22.0),
+                                  child: SvgPicture.string(
+                                    _svg_x7aajd,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(4.6, 0.0, 2.6, 5.2),
+                                  size: Size(22.0, 22.0),
+                                  child: SvgPicture.string(
+                                    _svg_udq5wv,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 9.1, 22.0, 12.9),
+                                  size: Size(22.0, 22.0),
+                                  child: SvgPicture.string(
+                                    _svg_q86o9f,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ],
                             ),
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(0.0, 12.4, 20.0, 9.5),
-                              size: Size(20.0, 21.9),
-                              child: SvgPicture.string(
-                                _svg_lwl1au,
-                                allowDrawingOutsideViewBox: true,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(158.2, 0.0, 60.0, 60.0),
+                    size: Size(375.0, 78.1),
+                    pinTop: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Home Button' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 60.0, 60.0),
+                          size: Size(60.0, 60.0),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Home Circle' (shape)
+                              SvgPicture.string(
+                            _svg_90a85a,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(12.3, 13.5, 35.4, 33.0),
+                          size: Size(60.0, 60.0),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Home Icon' (shape)
+                              SvgPicture.string(
+                            _svg_sxb1lv,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(38.0, 32.0, 40.0, 40.0),
+                    size: Size(375.0, 78.1),
+                    pinLeft: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Profile Button' (group)
+                        PageLink(
+                      links: [
+                        PageLinkInfo(
+                          transition: LinkTransition.Fade,
+                          ease: Curves.easeOut,
+                          duration: 0.3,
+                          pageBuilder: () => ProfilePage(),
+                        ),
+                      ],
+                      child: Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 40.0, 40.0),
+                            size: Size(40.0, 40.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child:
+                                // Adobe XD layer: 'Profile Circle' (shape)
+                                Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0xffffffff),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x29000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(10.0, 9.0, 20.0, 21.9),
+                            size: Size(40.0, 40.0),
+                            fixedWidth: true,
+                            fixedHeight: true,
+                            child:
+                                // Adobe XD layer: 'Profile Icon' (group)
+                                Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(5.0, 0.0, 10.0, 10.0),
+                                  size: Size(20.0, 21.9),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.elliptical(9999.0, 9999.0)),
+                                      gradient: LinearGradient(
+                                        begin: Alignment(-0.97, -0.82),
+                                        end: Alignment(0.97, 0.79),
+                                        colors: [
+                                          const Color(0xfffe4f70),
+                                          const Color(0xffcb6bd8)
+                                        ],
+                                        stops: [0.0, 1.0],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 12.4, 20.0, 9.5),
+                                  size: Size(20.0, 21.9),
+                                  child: SvgPicture.string(
+                                    _svg_lwl1au,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(30, 545, 30, 0),
@@ -297,11 +297,12 @@ class Homepage extends StatelessWidget {
                                 pinTop: true,
                                 pinBottom: true,
                                 child:
-                                // Adobe XD layer: 'Fest Background' (group)
-                                Stack(
+                                    // Adobe XD layer: 'Fest Background' (group)
+                                    Stack(
                                   children: <Widget>[
                                     Pinned.fromSize(
-                                      bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
+                                      bounds:
+                                          Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
                                       size: Size(338.0, 67.2),
                                       pinLeft: true,
                                       pinRight: true,
@@ -310,18 +311,20 @@ class Homepage extends StatelessWidget {
                                       child: Container(
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: AssetImage('assets/Background Image1.png'),
+                                            image: AssetImage(
+                                                'assets/Background Image1.png'),
                                             fit: BoxFit.fill,
                                           ),
                                         ),
                                       ),
                                     ),
                                     Pinned.fromSize(
-                                      bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
+                                      bounds: Rect.fromLTWH(
+                                          304.0, 25.0, 18.0, 18.0),
                                       size: Size(338.0, 67.2),
                                       child:
-                                      // Adobe XD layer: 'Next Button' (shape)
-                                      PageLink(
+                                          // Adobe XD layer: 'Next Button' (shape)
+                                          PageLink(
                                         links: [
                                           PageLinkInfo(
                                             transition: LinkTransition.Fade,
@@ -348,8 +351,8 @@ class Homepage extends StatelessWidget {
                                 fixedWidth: true,
                                 fixedHeight: true,
                                 child:
-                                // Adobe XD layer: 'Gradient Background' (shape)
-                                SvgPicture.string(
+                                    // Adobe XD layer: 'Gradient Background' (shape)
+                                    SvgPicture.string(
                                   _svg_7u199j,
                                   allowDrawingOutsideViewBox: true,
                                   fit: BoxFit.fill,
@@ -362,36 +365,39 @@ class Homepage extends StatelessWidget {
                                 fixedWidth: true,
                                 fixedHeight: true,
                                 child:
-                                // Adobe XD layer: 'Logo' (group)
-                                Stack(
+                                    // Adobe XD layer: 'Logo' (group)
+                                    Stack(
                                   children: <Widget>[
                                     Pinned.fromSize(
-                                      bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
+                                      bounds:
+                                          Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
                                       size: Size(67.5, 53.0),
                                       pinLeft: true,
                                       pinRight: true,
                                       fixedHeight: true,
                                       child:
-                                      // Adobe XD layer: 'Logo Background' (shape)
-                                      SvgPicture.string(
+                                          // Adobe XD layer: 'Logo Background' (shape)
+                                          SvgPicture.string(
                                         _svg_e0lvmc,
                                         allowDrawingOutsideViewBox: true,
                                         fit: BoxFit.fill,
                                       ),
                                     ),
                                     Pinned.fromSize(
-                                      bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
+                                      bounds:
+                                          Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
                                       size: Size(67.5, 53.0),
                                       pinLeft: true,
                                       pinRight: true,
                                       pinTop: true,
                                       pinBottom: true,
                                       child:
-                                      // Adobe XD layer: 'Club Logo' (shape)
-                                      Container(
+                                          // Adobe XD layer: 'Club Logo' (shape)
+                                          Container(
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: const AssetImage('assets/Montage Logo1.png'),
+                                            image: const AssetImage(
+                                                'assets/Montage Logo1.png'),
                                             fit: BoxFit.fill,
                                           ),
                                         ),
@@ -439,8 +445,7 @@ class Homepage extends StatelessWidget {
                       ],
                     ),
                   );
-                }
-            ),
+                }),
           ),
 // //Event 2
 //           Positioned(
@@ -776,9 +781,9 @@ class Homepage extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(13, 300, 13, 0),
             child: SizedBox(
               height: 220,
-              width: MediaQuery. of(context). size. width,
+              width: MediaQuery.of(context).size.width,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.horizontal,
                   itemCount: 1,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
@@ -792,11 +797,12 @@ class Homepage extends StatelessWidget {
                             child: Stack(
                               children: <Widget>[
                                 Pinned.fromSize(
-                                  bounds: Rect.fromLTWH(242.0, 0.0, 227.0, 191.0),
+                                  bounds:
+                                      Rect.fromLTWH(242.0, 0.0, 227.0, 191.0),
                                   size: Size(469.0, 191.0),
                                   child:
-                                  // Adobe XD layer: 'Gaming' (group)
-                                  PageLink(
+                                      // Adobe XD layer: 'Gaming' (group)
+                                      PageLink(
                                     links: [
                                       PageLinkInfo(
                                         transition: LinkTransition.Fade,
@@ -825,15 +831,16 @@ class Homepage extends StatelessWidget {
                                           Transform.translate(
                                             offset: Offset(37.0, 7.0),
                                             child:
-                                            // Adobe XD layer: 'Gaming Image' (group)
-                                            SizedBox(
+                                                // Adobe XD layer: 'Gaming Image' (group)
+                                                SizedBox(
                                               width: 153.0,
                                               height: 132.0,
                                               child: Stack(
                                                 children: <Widget>[
                                                   SvgPicture.string(
                                                     _svg_w10n1t,
-                                                    allowDrawingOutsideViewBox: true,
+                                                    allowDrawingOutsideViewBox:
+                                                        true,
                                                   ),
                                                   Transform.translate(
                                                     offset: Offset(2.5, 100.1),
@@ -841,14 +848,23 @@ class Homepage extends StatelessWidget {
                                                       width: 150.4,
                                                       height: 10.3,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        gradient: LinearGradient(
-                                                          begin: Alignment(0.0, -1.0),
-                                                          end: Alignment(0.0, 1.0),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment(
+                                                              0.0, -1.0),
+                                                          end: Alignment(
+                                                              0.0, 1.0),
                                                           colors: [
-                                                            const Color(0x19fe4f70),
-                                                            const Color(0x19cb6bd8)
+                                                            const Color(
+                                                                0x19fe4f70),
+                                                            const Color(
+                                                                0x19cb6bd8)
                                                           ],
                                                           stops: [0.0, 1.0],
                                                         ),
@@ -859,7 +875,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(15.8, 30.0),
                                                     child: SvgPicture.string(
                                                       _svg_42ror7,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -868,9 +885,14 @@ class Homepage extends StatelessWidget {
                                                       width: 27.2,
                                                       height: 27.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -880,9 +902,14 @@ class Homepage extends StatelessWidget {
                                                       width: 27.2,
                                                       height: 27.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -890,7 +917,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(29.3, 40.6),
                                                     child: SvgPicture.string(
                                                       _svg_849x8u,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -899,9 +927,14 @@ class Homepage extends StatelessWidget {
                                                       width: 19.7,
                                                       height: 19.7,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -911,14 +944,23 @@ class Homepage extends StatelessWidget {
                                                       width: 13.1,
                                                       height: 13.1,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        gradient: LinearGradient(
-                                                          begin: Alignment(0.0, -1.0),
-                                                          end: Alignment(0.0, 1.0),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment(
+                                                              0.0, -1.0),
+                                                          end: Alignment(
+                                                              0.0, 1.0),
                                                           colors: [
-                                                            const Color(0xfafe4f70),
-                                                            const Color(0xfacb6bd8)
+                                                            const Color(
+                                                                0xfafe4f70),
+                                                            const Color(
+                                                                0xfacb6bd8)
                                                           ],
                                                           stops: [0.0, 1.0],
                                                         ),
@@ -931,9 +973,14 @@ class Homepage extends StatelessWidget {
                                                       width: 19.7,
                                                       height: 19.7,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -943,14 +990,23 @@ class Homepage extends StatelessWidget {
                                                       width: 13.1,
                                                       height: 13.1,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        gradient: LinearGradient(
-                                                          begin: Alignment(0.0, -1.0),
-                                                          end: Alignment(0.0, 1.0),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment(
+                                                              0.0, -1.0),
+                                                          end: Alignment(
+                                                              0.0, 1.0),
                                                           colors: [
-                                                            const Color(0xfafe4f70),
-                                                            const Color(0xfacb6bd8)
+                                                            const Color(
+                                                                0xfafe4f70),
+                                                            const Color(
+                                                                0xfacb6bd8)
                                                           ],
                                                           stops: [0.0, 1.0],
                                                         ),
@@ -963,11 +1019,16 @@ class Homepage extends StatelessWidget {
                                                       width: 8.8,
                                                       height: 8.8,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
                                                         border: Border.all(
                                                             width: 2.0,
-                                                            color: const Color(0x19000000)),
+                                                            color: const Color(
+                                                                0x19000000)),
                                                       ),
                                                     ),
                                                   ),
@@ -977,11 +1038,16 @@ class Homepage extends StatelessWidget {
                                                       width: 8.8,
                                                       height: 8.8,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
                                                         border: Border.all(
                                                             width: 2.0,
-                                                            color: const Color(0x19000000)),
+                                                            color: const Color(
+                                                                0x19000000)),
                                                       ),
                                                     ),
                                                   ),
@@ -991,9 +1057,14 @@ class Homepage extends StatelessWidget {
                                                       width: 5.6,
                                                       height: 5.6,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1003,9 +1074,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.2,
                                                       height: 1.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1015,9 +1091,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.2,
                                                       height: 1.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1027,9 +1108,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.2,
                                                       height: 1.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1039,9 +1125,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.3,
                                                       height: 1.3,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1051,9 +1142,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.2,
                                                       height: 1.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1063,9 +1159,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.2,
                                                       height: 1.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1075,9 +1176,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.3,
                                                       height: 1.3,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1087,9 +1193,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.3,
                                                       height: 1.3,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1099,9 +1210,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.2,
                                                       height: 1.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1111,9 +1227,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.3,
                                                       height: 1.3,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1123,9 +1244,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.3,
                                                       height: 1.3,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1135,9 +1261,14 @@ class Homepage extends StatelessWidget {
                                                       width: 1.2,
                                                       height: 1.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfae2e2ec),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1148,8 +1279,10 @@ class Homepage extends StatelessWidget {
                                                       height: 5.9,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
-                                                        BorderRadius.circular(8.5),
-                                                        color: const Color(0xfae2e2ec),
+                                                            BorderRadius
+                                                                .circular(8.5),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1160,8 +1293,10 @@ class Homepage extends StatelessWidget {
                                                       height: 5.9,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
-                                                        BorderRadius.circular(8.5),
-                                                        color: const Color(0xfae2e2ec),
+                                                            BorderRadius
+                                                                .circular(8.5),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1171,14 +1306,23 @@ class Homepage extends StatelessWidget {
                                                       width: 7.5,
                                                       height: 7.5,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        gradient: LinearGradient(
-                                                          begin: Alignment(0.0, -1.0),
-                                                          end: Alignment(0.0, 1.0),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment(
+                                                              0.0, -1.0),
+                                                          end: Alignment(
+                                                              0.0, 1.0),
                                                           colors: [
-                                                            const Color(0xfafe4f70),
-                                                            const Color(0xfacb6bd8)
+                                                            const Color(
+                                                                0xfafe4f70),
+                                                            const Color(
+                                                                0xfacb6bd8)
                                                           ],
                                                           stops: [0.0, 1.0],
                                                         ),
@@ -1191,14 +1335,23 @@ class Homepage extends StatelessWidget {
                                                       width: 7.5,
                                                       height: 7.5,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        gradient: LinearGradient(
-                                                          begin: Alignment(0.0, -1.0),
-                                                          end: Alignment(0.0, 1.0),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment(
+                                                              0.0, -1.0),
+                                                          end: Alignment(
+                                                              0.0, 1.0),
                                                           colors: [
-                                                            const Color(0xfafe4f70),
-                                                            const Color(0xfacb6bd8)
+                                                            const Color(
+                                                                0xfafe4f70),
+                                                            const Color(
+                                                                0xfacb6bd8)
                                                           ],
                                                           stops: [0.0, 1.0],
                                                         ),
@@ -1211,14 +1364,23 @@ class Homepage extends StatelessWidget {
                                                       width: 7.5,
                                                       height: 7.5,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        gradient: LinearGradient(
-                                                          begin: Alignment(0.0, -1.0),
-                                                          end: Alignment(0.0, 1.0),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment(
+                                                              0.0, -1.0),
+                                                          end: Alignment(
+                                                              0.0, 1.0),
                                                           colors: [
-                                                            const Color(0xfafe4f70),
-                                                            const Color(0xfacb6bd8)
+                                                            const Color(
+                                                                0xfafe4f70),
+                                                            const Color(
+                                                                0xfacb6bd8)
                                                           ],
                                                           stops: [0.0, 1.0],
                                                         ),
@@ -1231,14 +1393,23 @@ class Homepage extends StatelessWidget {
                                                       width: 7.5,
                                                       height: 7.5,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        gradient: LinearGradient(
-                                                          begin: Alignment(0.0, -1.0),
-                                                          end: Alignment(0.0, 1.0),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment(
+                                                              0.0, -1.0),
+                                                          end: Alignment(
+                                                              0.0, 1.0),
                                                           colors: [
-                                                            const Color(0xfafe4f70),
-                                                            const Color(0xfacb6bd8)
+                                                            const Color(
+                                                                0xfafe4f70),
+                                                            const Color(
+                                                                0xfacb6bd8)
                                                           ],
                                                           stops: [0.0, 1.0],
                                                         ),
@@ -1252,8 +1423,11 @@ class Homepage extends StatelessWidget {
                                                       height: 20.8,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
-                                                        BorderRadius.circular(21.75),
-                                                        color: const Color(0xfae2e2ec),
+                                                            BorderRadius
+                                                                .circular(
+                                                                    21.75),
+                                                        color: const Color(
+                                                            0xfae2e2ec),
                                                       ),
                                                     ),
                                                   ),
@@ -1261,7 +1435,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(107.2, 39.0),
                                                     child: SvgPicture.string(
                                                       _svg_t5ghue,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -1272,7 +1447,8 @@ class Homepage extends StatelessWidget {
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                             width: 1.0,
-                                                            color: const Color(0xfae2e2ec)),
+                                                            color: const Color(
+                                                                0xfae2e2ec)),
                                                       ),
                                                     ),
                                                   ),
@@ -1282,11 +1458,16 @@ class Homepage extends StatelessWidget {
                                                       width: 4.4,
                                                       height: 4.4,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
                                                         border: Border.all(
                                                             width: 1.0,
-                                                            color: const Color(0xfae2e2ec)),
+                                                            color: const Color(
+                                                                0xfae2e2ec)),
                                                       ),
                                                     ),
                                                   ),
@@ -1294,7 +1475,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(43.7, 41.6),
                                                     child: SvgPicture.string(
                                                       _svg_26vdoc,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -1303,9 +1485,14 @@ class Homepage extends StatelessWidget {
                                                       width: 7.8,
                                                       height: 7.8,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfac87486),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfac87486),
                                                       ),
                                                     ),
                                                   ),
@@ -1313,7 +1500,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(121.2, 35.6),
                                                     child: SvgPicture.string(
                                                       _svg_lb60fx,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                 ],
@@ -1323,19 +1511,22 @@ class Homepage extends StatelessWidget {
                                           Transform.translate(
                                             offset: Offset(0.0, 142.0),
                                             child:
-                                            // Adobe XD layer: 'Category Background' (shape)
-                                            Container(
+                                                // Adobe XD layer: 'Category Background' (shape)
+                                                Container(
                                               width: 227.0,
                                               height: 49.0,
                                               decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.only(
-                                                  bottomRight: Radius.circular(15.0),
-                                                  bottomLeft: Radius.circular(15.0),
+                                                  bottomRight:
+                                                      Radius.circular(15.0),
+                                                  bottomLeft:
+                                                      Radius.circular(15.0),
                                                 ),
                                                 color: const Color(0xfaffffff),
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    color: const Color(0x28000000),
+                                                    color:
+                                                        const Color(0x28000000),
                                                     offset: Offset(0, 3),
                                                     blurRadius: 6,
                                                   ),
@@ -1377,8 +1568,8 @@ class Homepage extends StatelessWidget {
                                   bounds: Rect.fromLTWH(0.0, 0.0, 227.0, 191.0),
                                   size: Size(469.0, 191.0),
                                   child:
-                                  // Adobe XD layer: 'Trending' (group)
-                                  PageLink(
+                                      // Adobe XD layer: 'Trending' (group)
+                                      PageLink(
                                     links: [
                                       PageLinkInfo(
                                         transition: LinkTransition.Fade,
@@ -1407,8 +1598,8 @@ class Homepage extends StatelessWidget {
                                           Transform.translate(
                                             offset: Offset(30.0, 5.0),
                                             child:
-                                            // Adobe XD layer: 'Trending Image' (group)
-                                            SizedBox(
+                                                // Adobe XD layer: 'Trending Image' (group)
+                                                SizedBox(
                                               width: 167.0,
                                               height: 132.0,
                                               child: Stack(
@@ -1419,9 +1610,14 @@ class Homepage extends StatelessWidget {
                                                       width: 51.0,
                                                       height: 6.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfaf2f2f2),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfaf2f2f2),
                                                       ),
                                                     ),
                                                   ),
@@ -1431,9 +1627,14 @@ class Homepage extends StatelessWidget {
                                                       width: 51.0,
                                                       height: 6.2,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfaf2f2f2),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfaf2f2f2),
                                                       ),
                                                     ),
                                                   ),
@@ -1441,7 +1642,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(0.0, 20.2),
                                                     child: SvgPicture.string(
                                                       _svg_kuo91b,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -1450,7 +1652,8 @@ class Homepage extends StatelessWidget {
                                                       width: 13.8,
                                                       height: 23.6,
                                                       decoration: BoxDecoration(
-                                                        color: const Color(0xfa2f2e41),
+                                                        color: const Color(
+                                                            0xfa2f2e41),
                                                       ),
                                                     ),
                                                   ),
@@ -1458,7 +1661,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(124.6, 11.6),
                                                     child: SvgPicture.string(
                                                       _svg_juqimq,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -1467,9 +1671,14 @@ class Homepage extends StatelessWidget {
                                                       width: 12.6,
                                                       height: 12.6,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfaffb9b9),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfaffb9b9),
                                                       ),
                                                     ),
                                                   ),
@@ -1477,7 +1686,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(127.8, 26.9),
                                                     child: SvgPicture.string(
                                                       _svg_5fm82o,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -1486,9 +1696,14 @@ class Homepage extends StatelessWidget {
                                                       width: 6.7,
                                                       height: 6.7,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.all(
-                                                            Radius.elliptical(9999.0, 9999.0)),
-                                                        color: const Color(0xfa2f2e41),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius
+                                                                    .elliptical(
+                                                                        9999.0,
+                                                                        9999.0)),
+                                                        color: const Color(
+                                                            0xfa2f2e41),
                                                       ),
                                                     ),
                                                   ),
@@ -1496,7 +1711,8 @@ class Homepage extends StatelessWidget {
                                                     offset: Offset(15.3, 0.0),
                                                     child: SvgPicture.string(
                                                       _svg_wphjkb,
-                                                      allowDrawingOutsideViewBox: true,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                     ),
                                                   ),
                                                 ],
@@ -1506,19 +1722,22 @@ class Homepage extends StatelessWidget {
                                           Transform.translate(
                                             offset: Offset(0.0, 142.0),
                                             child:
-                                            // Adobe XD layer: 'Category Background' (shape)
-                                            Container(
+                                                // Adobe XD layer: 'Category Background' (shape)
+                                                Container(
                                               width: 227.0,
                                               height: 49.0,
                                               decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.only(
-                                                  bottomRight: Radius.circular(15.0),
-                                                  bottomLeft: Radius.circular(15.0),
+                                                  bottomRight:
+                                                      Radius.circular(15.0),
+                                                  bottomLeft:
+                                                      Radius.circular(15.0),
                                                 ),
                                                 color: const Color(0xfaffffff),
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    color: const Color(0x28000000),
+                                                    color:
+                                                        const Color(0x28000000),
                                                     offset: Offset(0, 3),
                                                     blurRadius: 6,
                                                   ),
@@ -1562,8 +1781,7 @@ class Homepage extends StatelessWidget {
                         ],
                       ),
                     );
-                  }
-              ),
+                  }),
             ),
           ),
 // Recommended Text
@@ -1586,133 +1804,134 @@ class Homepage extends StatelessWidget {
             left: 13,
             top: 196,
             child: SizedBox(
-            width: 349.0,
-            height: 61.0,
-            child: Stack(
-              children: <Widget>[
-            Pinned.fromSize(
-              bounds: Rect.fromLTWH(101.3, 1.0, 247.7, 60.0),
-              size: Size(349.0, 61.0),
-              pinRight: true,
-              pinTop: true,
-              pinBottom: true,
-              fixedWidth: true,
-              child:
-                  // Adobe XD layer: 'Gradient Section' (group)
-                  Stack(
+              width: 349.0,
+              height: 61.0,
+              child: Stack(
                 children: <Widget>[
                   Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 247.7, 60.0),
-                    size: Size(247.7, 60.0),
-                    pinLeft: true,
+                    bounds: Rect.fromLTWH(101.3, 1.0, 247.7, 60.0),
+                    size: Size(349.0, 61.0),
                     pinRight: true,
                     pinTop: true,
                     pinBottom: true,
-                    child:
-                        // Adobe XD layer: 'Event Background' (shape)
-                        SvgPicture.string(
-                      _svg_pdp23n,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(12.2, 32.0, 190.0, 15.0),
-                    size: Size(247.7, 60.0),
-                    pinLeft: true,
                     fixedWidth: true,
-                    fixedHeight: true,
-                    child: Text(
-                      'May 09th, 2021  |  05:00 PM',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 14,
-                        color: const Color(0xffffffff),
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(12.2, 10.0, 119.0, 21.0),
-                    size: Size(247.7, 60.0),
-                    pinLeft: true,
-                    fixedWidth: true,
-                    fixedHeight: true,
-                    child: Text(
-                      'Talent Hunt',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 18,
-                        color: const Color(0xffffffff),
-                        fontWeight: FontWeight.w700,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Pinned.fromSize(
-              bounds: Rect.fromLTWH(0.0, 0.0, 94.1, 61.0),
-              size: Size(349.0, 61.0),
-              pinLeft: true,
-              pinTop: true,
-              pinBottom: true,
-              fixedWidth: true,
-              child:
-                  // Adobe XD layer: 'Logo Section' (group)
-                  Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.5, 94.1, 60.0),
-                    size: Size(94.1, 61.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
                     child:
-                        // Adobe XD layer: 'Logo Background' (shape)
-                        Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0x45000000),
-                                offset: Offset(0, 3),
-                                spreadRadius: 0,
-                                blurRadius: 6,
-                              ),
-                            ],
+                        // Adobe XD layer: 'Gradient Section' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 247.7, 60.0),
+                          size: Size(247.7, 60.0),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Event Background' (shape)
+                              SvgPicture.string(
+                            _svg_pdp23n,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
                           ),
-                          child: SvgPicture.string(
-                      _svg_cs1cob,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
                         ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(12.2, 32.0, 190.0, 15.0),
+                          size: Size(247.7, 60.0),
+                          pinLeft: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'May 09th, 2021  |  05:00 PM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 14,
+                              color: const Color(0xffffffff),
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(12.2, 10.0, 119.0, 21.0),
+                          size: Size(247.7, 60.0),
+                          pinLeft: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'Talent Hunt',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              color: const Color(0xffffffff),
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Pinned.fromSize(
-                    bounds: Rect.fromLTWH(12.1, 0.0, 70.0, 61.0),
-                    size: Size(94.1, 61.0),
+                    bounds: Rect.fromLTWH(0.0, 0.0, 94.1, 61.0),
+                    size: Size(349.0, 61.0),
                     pinLeft: true,
-                    pinRight: true,
                     pinTop: true,
                     pinBottom: true,
+                    fixedWidth: true,
                     child:
-                        // Adobe XD layer: 'Montage Logo' (shape)
-                        Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: const AssetImage('assets/Montage Square Logo.png'),
-                          fit: BoxFit.fill,
+                        // Adobe XD layer: 'Logo Section' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.5, 94.1, 60.0),
+                          size: Size(94.1, 61.0),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Logo Background' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x45000000),
+                                  offset: Offset(0, 3),
+                                  spreadRadius: 0,
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                            child: SvgPicture.string(
+                              _svg_cs1cob,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
-                      ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(12.1, 0.0, 70.0, 61.0),
+                          size: Size(94.1, 61.0),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Montage Logo' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: const AssetImage(
+                                    'assets/Montage Square Logo.png'),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-              ],
-            ),
             ),
           ),
 //Upcoming Event Text
@@ -1788,25 +2007,26 @@ class Homepage extends StatelessWidget {
           ),
 //Notifications
           Positioned(
-          left: 322,
-          top: 35,
-          child: FlatButton(
-            onPressed: () async{
-              dynamic result = await Navigator.pushNamed(context, '/Notifications');
-            },
-            //shape: CircleBorder(),
-            child: SvgPicture.string(
-              _svg_t3qb8j,
-              allowDrawingOutsideViewBox: true,
+            left: 322,
+            top: 35,
+            child: FlatButton(
+              onPressed: () async {
+                dynamic result =
+                    await Navigator.pushNamed(context, '/Notifications');
+              },
+              //shape: CircleBorder(),
+              child: SvgPicture.string(
+                _svg_t3qb8j,
+                allowDrawingOutsideViewBox: true,
+              ),
             ),
           ),
-        ),
 //Navigation Bar
           Positioned(
             left: 0,
             top: 35,
             child: FlatButton(
-              onPressed: () async{
+              onPressed: () async {
                 dynamic result = await Navigator.pushNamed(context, '/NavBar');
               },
               //shape: CircleBorder(),
@@ -1819,8 +2039,8 @@ class Homepage extends StatelessWidget {
                       bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
                       size: Size(30.0, 23.8),
                       child:
-                      // Adobe XD layer: 'Bottom Line' (shape)
-                      Container(
+                          // Adobe XD layer: 'Bottom Line' (shape)
+                          Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4.0),
                           gradient: LinearGradient(
@@ -1839,8 +2059,8 @@ class Homepage extends StatelessWidget {
                       bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
                       size: Size(30.0, 23.8),
                       child:
-                      // Adobe XD layer: 'Mid Line' (shape)
-                      Container(
+                          // Adobe XD layer: 'Mid Line' (shape)
+                          Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.0),
                           gradient: LinearGradient(
@@ -1859,8 +2079,8 @@ class Homepage extends StatelessWidget {
                       bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
                       size: Size(30.0, 23.8),
                       child:
-                      // Adobe XD layer: 'Upper Line' (shape)
-                      Container(
+                          // Adobe XD layer: 'Upper Line' (shape)
+                          Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.0),
                           gradient: LinearGradient(
@@ -1885,24 +2105,24 @@ class Homepage extends StatelessWidget {
             left: 173,
             top: 39,
             child: Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Sync Logo.png'),
-              fit: BoxFit.fill,
-              colorFilter: new ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.dstIn),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0x45000000),
-                offset: Offset(0, 3),
-                blurRadius: 80,
-              ),
-            ],
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x45000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 80,
+                  ),
+                ],
               ),
+            ),
           ),
         ],
       ),

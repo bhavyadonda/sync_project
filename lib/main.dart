@@ -8,10 +8,10 @@ import 'package:sync_project/ContactUs.dart';
 import 'package:sync_project/EventDetails1.dart';
 import 'package:sync_project/EventDetails2.dart';
 import 'package:sync_project/Events.dart';
-import 'package:sync_project/EventsPage.dart';
-import 'package:sync_project/Filters.dart';
+import 'package:sync_project/Calender.dart';
+import 'package:sync_project/filterpage.dart';
 import 'package:sync_project/ForgotPassword.dart';
-import 'package:sync_project/Homepage.dart';
+import 'package:sync_project/Home.dart';
 import 'package:sync_project/Intro1.dart';
 import 'package:sync_project/Intro2.dart';
 import 'package:sync_project/Intro3.dart';
@@ -26,35 +26,35 @@ import 'package:sync_project/Settings.dart';
 import 'package:sync_project/SignIn.dart';
 import 'package:sync_project/SignUp.dart';
 
-
-void main() {runApp(MaterialApp(
-  initialRoute: '/Categories',
-  routes: {
-    '/AboutUs': (context) => AboutUs(),
-    '/Categories': (context) => Categories(),
-    '/Home': (context) => Homepage(),
-    '/CompleteProfile': (context) => CompleteProfile(),
-    '/SignUp': (context) => SignUp(),
-    '/SignIn': (context) => SignIn(),
-    '/ProfilePage': (context) => ProfilePage(),
-    '/Notifications': (context) => Notifications(),
-    '/NavBar': (context) => NavBar(),
-    '/EventsPage': (context) => EventsPage(),
-    '/Intro1': (context) => Intro1(),
-    '/Intro2': (context) => Intro2(),
-    '/Intro3': (context) => Intro3(),
-    '/Intro4': (context) => Intro4(),
-    '/Intro5': (context) => Intro5(),
-    '/ClubDetails': (context) => ClubDetails(),
-    '/Clubs': (context) => Clubs(),
-    '/ContactUs': (context) => ContactUs(),
-    '/EventDetails1': (context) => EventDetails1(),
-    '/EventDetails2': (context) => EventDetails2(),
-    '/ForgotPassword': (context) => ForgotPassword(),
-    '/PrivacyPolicy': (context) => PrivacyPolicy(),
-    '/Settings': (context) => Settings(),
-    '/Filters': (context) => Filters(),
-    '/Events': (context) => Events(),
-  },
-));
+void main() {
+  runApp(MaterialApp(
+    initialRoute: '/Events',
+    routes: {
+      '/AboutUs': (context) => AboutUs(),
+      '/Categories': (context) => Categories(),
+      '/Home': (context) => HomePage(),
+      '/CompleteProfile': (context) => CompleteProfile(),
+      '/SignUp': (context) => SignUp(),
+      '/SignIn': (context) => SignIn(),
+      '/ProfilePage': (context) => ProfilePage(),
+      '/Notifications': (context) => Notifications(),
+      '/NavBar': (context) => NavBar(),
+      '/Calender': (context) => Calender(),
+      '/Intro1': (context) => Intro1(),
+      '/Intro2': (context) => Intro2(),
+      '/Intro3': (context) => Intro3(),
+      '/Intro4': (context) => Intro4(),
+      '/Intro5': (context) => Intro5(),
+      '/ClubDetails': (context) => ClubDetails(),
+      '/Clubs': (context) => Clubs(),
+      '/ContactUs': (context) => ContactUs(),
+      '/EventDetails1': (context) => EventDetails1(),
+      '/EventDetails2': (context) => EventDetails2(),
+      '/ForgotPassword': (context) => ForgotPassword(),
+      '/PrivacyPolicy': (context) => PrivacyPolicy(),
+      '/Settings': (context) => Settings(),
+      '/Filters': (context) => FilterPage(),
+      '/Events': (context) => Events(),
+    },
+  ));
 }

@@ -11,356 +11,358 @@ class AboutUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            left: 302,
-            top: 750,
-            child: SizedBox(
-              width: 36.0,
-              height: 36.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                    size: Size(36.0, 36.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                      _svg_t8mx6y,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              left: 302,
+              top: 750,
+              child: SizedBox(
+                width: 36.0,
+                height: 36.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                      size: Size(36.0, 36.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                      // Adobe XD layer: 'Social Background' (shape)
+                      SvgPicture.string(
+                        _svg_t8mx6y,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(6.6, 10.0, 22.8, 16.0),
-                    size: Size(36.0, 36.0),
-                    child:
-                    // Adobe XD layer: 'Youtube Logo' (shape)
-                    SvgPicture.string(
-                      _svg_h8r6a3,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(6.6, 10.0, 22.8, 16.0),
+                      size: Size(36.0, 36.0),
+                      child:
+                      // Adobe XD layer: 'Youtube Logo' (shape)
+                      SvgPicture.string(
+                        _svg_h8r6a3,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          Positioned(
-            left: 246,
-            top: 750,
-            child: SizedBox(
-              width: 36.0,
-              height: 36.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                    size: Size(36.0, 36.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                      _svg_x9p9xs,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
+            Positioned(
+              left: 246,
+              top: 750,
+              child: SizedBox(
+                width: 36.0,
+                height: 36.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                      size: Size(36.0, 36.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                      // Adobe XD layer: 'Social Background' (shape)
+                      SvgPicture.string(
+                        _svg_x9p9xs,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(10.0, 9.0, 16.1, 16.0),
-                    size: Size(36.0, 36.0),
-                    fixedWidth: true,
-                    fixedHeight: true,
-                    child:
-                    // Adobe XD layer: 'Linkedin Icon' (group)
-                    Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(5.4, 5.0, 10.6, 11.0),
-                          size: Size(16.1, 16.0),
-                          child: SvgPicture.string(
-                            _svg_vgawgd,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(10.0, 9.0, 16.1, 16.0),
+                      size: Size(36.0, 36.0),
+                      fixedWidth: true,
+                      fixedHeight: true,
+                      child:
+                      // Adobe XD layer: 'Linkedin Icon' (group)
+                      Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(5.4, 5.0, 10.6, 11.0),
+                            size: Size(16.1, 16.0),
+                            child: SvgPicture.string(
+                              _svg_vgawgd,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.1, 5.4, 3.3, 10.6),
-                          size: Size(16.1, 16.0),
-                          child: SvgPicture.string(
-                            _svg_a2994i,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.1, 5.4, 3.3, 10.6),
+                            size: Size(16.1, 16.0),
+                            child: SvgPicture.string(
+                              _svg_a2994i,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 3.4, 3.3),
-                          size: Size(16.1, 16.0),
-                          child: SvgPicture.string(
-                            _svg_ohuxxi,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 3.4, 3.3),
+                            size: Size(16.1, 16.0),
+                            child: SvgPicture.string(
+                              _svg_ohuxxi,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 190,
-            top: 750,
-            child: SizedBox(
-              width: 36.0,
-              height: 36.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                    size: Size(36.0, 36.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                      _svg_vg5czu,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
-                    size: Size(36.0, 36.0),
-                    child:
-                    // Adobe XD layer: 'Web Icon' (shape)
-                    SvgPicture.string(
-                      _svg_fgw2iy,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 134,
-            top: 750,
-            child: SizedBox(
-              width: 36.0,
-              height: 36.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                    size: Size(36.0, 36.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                      _svg_x9p9xs,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
-                    size: Size(36.0, 36.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                    // Adobe XD layer: 'Instagram Icon' (shape)
-                    SvgPicture.string(
-                      _svg_pdwfmb,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 78,
-            top: 750,
-            child: SizedBox(
-              width: 36.0,
-              height: 36.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                    size: Size(36.0, 36.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                      _svg_7e8qy6,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(14.0, 10.0, 8.4, 16.0),
-                    size: Size(36.0, 36.0),
-                    pinTop: true,
-                    pinBottom: true,
-                    fixedWidth: true,
-                    child:
-                    // Adobe XD layer: 'Facebook Icon' (shape)
-                    SvgPicture.string(
-                      _svg_gzdh7g,
-                      allowDrawingOutsideViewBox: true,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 184,
-            top: 616,
-            child: Container(
-              width: 172.7,
-              height: 100.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x24000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 59,
-            top: 616,
-            child: Container(
-              width: 100.0,
-              height: 100.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/Tech Club Logo Big.png'),
-                  fit: BoxFit.fill,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x26000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 44,
-            top: 423,
-            child: Text(
-              'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et \ndolore magna aliquyam erat, sed diam \nvoluptua. At vero eos et accusam et \njusto duo dolores et ea rebum. Stet clita \nkasd gubergren, no sea takimata \nsanctus est Lorem ipsum dolor sit amet.',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 18,
-                color: const Color(0xff9d9d9d),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Positioned(
-            left: 42,
-            top: 164,
-            child: Container(
-              width: 330.0,
-              height: 226.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                image: DecorationImage(
-                  image: const AssetImage('assets/Aftermovie.png'),
-                  fit: BoxFit.fill,
+                  ],
                 ),
               ),
             ),
-          ),
-          Positioned(
-            left: 33,
-            top: 110,
-            child: Text(
-              'About Us',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 20,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Positioned(
-            left: 176,
-            top: 39,
-            child: Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
+            Positioned(
+              left: 190,
+              top: 750,
+              child: SizedBox(
+                width: 36.0,
+                height: 36.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                      size: Size(36.0, 36.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                      // Adobe XD layer: 'Social Background' (shape)
+                      SvgPicture.string(
+                        _svg_vg5czu,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+                      size: Size(36.0, 36.0),
+                      child:
+                      // Adobe XD layer: 'Web Icon' (shape)
+                      SvgPicture.string(
+                        _svg_fgw2iy,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ],
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
+              ),
+            ),
+            Positioned(
+              left: 134,
+              top: 750,
+              child: SizedBox(
+                width: 36.0,
+                height: 36.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                      size: Size(36.0, 36.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                      // Adobe XD layer: 'Social Background' (shape)
+                      SvgPicture.string(
+                        _svg_x9p9xs,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+                      size: Size(36.0, 36.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                      // Adobe XD layer: 'Instagram Icon' (shape)
+                      SvgPicture.string(
+                        _svg_pdwfmb,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 78,
+              top: 750,
+              child: SizedBox(
+                width: 36.0,
+                height: 36.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                      size: Size(36.0, 36.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                      // Adobe XD layer: 'Social Background' (shape)
+                      SvgPicture.string(
+                        _svg_7e8qy6,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(14.0, 10.0, 8.4, 16.0),
+                      size: Size(36.0, 36.0),
+                      pinTop: true,
+                      pinBottom: true,
+                      fixedWidth: true,
+                      child:
+                      // Adobe XD layer: 'Facebook Icon' (shape)
+                      SvgPicture.string(
+                        _svg_gzdh7g,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 184,
+              top: 616,
+              child: Container(
+                width: 172.7,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage('assets/Sync Logo.png'),
+                    fit: BoxFit.fill,
+                    colorFilter: new ColorFilter.mode(
+                        Colors.black.withOpacity(0.7), BlendMode.dstIn),
                   ),
-                ],
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x24000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 80,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          Positioned(
-            left: 0,
-            top: 35,
-            child: FlatButton(
-              onPressed: () async{
-                dynamic result = await Navigator.pushNamed(context, '/');
-              },
-              child: SvgPicture.string(
-                _svg_ah28f4,
-                allowDrawingOutsideViewBox: true,
+            Positioned(
+              left: 59,
+              top: 616,
+              child: Container(
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage('assets/Tech Club Logo Big.png'),
+                    fit: BoxFit.fill,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x26000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 80,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+            Positioned(
+              left: 44,
+              top: 423,
+              child: Text(
+                'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et \ndolore magna aliquyam erat, sed diam \nvoluptua. At vero eos et accusam et \njusto duo dolores et ea rebum. Stet clita \nkasd gubergren, no sea takimata \nsanctus est Lorem ipsum dolor sit amet.',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 18,
+                  color: const Color(0xff9d9d9d),
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Positioned(
+              left: 42,
+              top: 164,
+              child: Container(
+                width: 330.0,
+                height: 226.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  image: DecorationImage(
+                    image: const AssetImage('assets/Aftermovie.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 33,
+              top: 110,
+              child: Text(
+                'About Us',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w700,
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Positioned(
+              left: 176,
+              top: 39,
+              child: Container(
+                width: 64.0,
+                height: 37.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage('assets/Sync Logo.png'),
+                    fit: BoxFit.fill,
+                    colorFilter: new ColorFilter.mode(
+                        Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x45000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 80,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 0,
+              top: 35,
+              child: FlatButton(
+                onPressed: () async{
+                  dynamic result = await Navigator.pushNamed(context, '/');
+                },
+                child: SvgPicture.string(
+                  _svg_ah28f4,
+                  allowDrawingOutsideViewBox: true,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
