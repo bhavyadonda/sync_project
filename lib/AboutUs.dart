@@ -3,12 +3,12 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class About extends StatefulWidget {
+class AboutUs extends StatefulWidget {
   @override
-  _AboutState createState() => _AboutState();
+  _AboutUsState createState() => _AboutUsState();
 }
 
-class _AboutState extends State<About> {
+class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -360,6 +360,7 @@ class _AboutState extends State<About> {
     );
   }
 }
+
 
 
 const String _svg_t8mx6y =
