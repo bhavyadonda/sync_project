@@ -25,16 +25,18 @@ dependencies:
   persistent_bottom_nav_bar: ^3.1.0
   imagebutton: ^0.0.6
   adobe_xd: ^1.0.0+1
-  table_calendar: ^2.3.3
-  
   flutter:
     sdk: flutter
+  firebase_auth: ^0.16.1
+  shared_preferences: ^0.5.12
+  firebase_storage: ^3.1.6
+  firebase_database: ^3.1.6
+  table_calendar: ^2.3.3
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
-  
 
 dev_dependencies:
   flutter_test:
