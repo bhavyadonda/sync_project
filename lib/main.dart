@@ -25,10 +25,11 @@ import 'package:sync_project/ProfilePage.dart';
 import 'package:sync_project/Settings.dart';
 import 'package:sync_project/SignIn.dart';
 import 'package:sync_project/SignUp.dart';
+import 'package:sync_project/opening_screen.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/Events',
+    initialRoute: '/OpeningScreen',
     routes: {
       '/AboutUs': (context) => AboutUs(),
       '/Categories': (context) => Categories(),
@@ -55,6 +56,7 @@ void main() {
       '/Settings': (context) => Settings(),
       '/Filters': (context) => FilterPage(),
       '/Events': (context) => Events(),
+      '/OpeningScreen': (context) => OpeningView(),
     },
   ));
 }
