@@ -3,13 +3,77 @@ import 'package:adobe_xd/pinned.dart';
 import './Homepage.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:path/path.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import './methods.dart';
+import 'dart:async';
+import 'dart:io';
 
-class CompleteProfile extends StatelessWidget {
-  CompleteProfile({
-    Key key,
-  }) : super(key: key);
+class CompleteProfile extends StatefulWidget {
+  @override
+  _CompleteProfileState createState() => _CompleteProfileState();
+}
+
+class _CompleteProfileState extends State<CompleteProfile> {
+  File _image;
+
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _name = TextEditingController();
+  TextEditingController _course = TextEditingController();
+  TextEditingController _sapID = TextEditingController();
+  TextEditingController _yearOfStudy = TextEditingController();
+  TextEditingController _phoneNumber = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context);
+    Future createProfile() async {
+      try {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        final uid = prefs.getString('uid') ?? '';
+
+        String fileName = basename(_image.path);
+        StorageReference firebaseStorageRef = FirebaseStorage.instance
+            .ref()
+            .child('profile_pictures/' + fileName);
+        StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+        StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+        String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+
+        final databaseReference = FirebaseDatabase.instance.reference();
+        await databaseReference.child("users/" + uid).set({
+          'profile_pic': downloadUrl,
+          'name': _name.text,
+          'course': _course.text,
+          'year': _yearOfStudy.text,
+          'SAP': _sapID.text,
+          'phone': _phoneNumber.text,
+        });
+
+        Navigator.pop(context);
+        showAlertDialog(context, '/SignIn', 'Profile Created Successfully',
+            'You can now login to start using the application.');
+      } catch (e) {
+        Navigator.pop(context);
+        _name.text = '';
+        _course.text = '';
+        _yearOfStudy.text = '';
+        _sapID.text = '';
+        _phoneNumber.text = '';
+        showAlertDialog(context, '', e.toString().split('(')[1].split(',')[0],
+            e.toString().split(', ')[1].split(',')[0]);
+      }
+    }
+    Future getImage() async {
+      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+      setState(() {
+        _image = image;
+      });
+    }
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -19,12 +83,12 @@ class CompleteProfile extends StatelessWidget {
             top: 667,
             child: PageLink(
                 links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => Homepage(),
-            ),
+            // PageLinkInfo(
+            //   transition: LinkTransition.Fade,
+            //   ease: Curves.easeOut,
+            //   duration: 0.3,
+            //   pageBuilder: () => Homepage(),
+            // ),
                 ],
                 child: SizedBox(
             width: 273.0,
@@ -60,7 +124,21 @@ class CompleteProfile extends StatelessWidget {
                         ),
                       ],
                     ),
+
+                        child: GestureDetector(
+                          onTap: () async {
+                          if (_sapID.text.length != 11 || _phoneNumber.text.length != 10) {
+                            _sapID.text = '';
+                            _phoneNumber.text = '';
+                            showAlertDialog(context, '', 'Wrong Inputs',
+                                'Please make sure SAP id is 11-digit and Phone number is 10-digit');
+                          } else {
+                            showLoaderDialog(context, "Creating Profile...");
+                            createProfile() ;
+                          }
+                        },
                   ),
+                      ),
                 ),
                 Pinned.fromSize(
                   bounds: Rect.fromLTWH(108.0, 12.0, 78.0, 21.0),
@@ -112,15 +190,30 @@ class CompleteProfile extends StatelessWidget {
                 fixedHeight: true,
                 child:
                     // Adobe XD layer: 'Phone Placeholder' (text)
-                    Text(
-                  'Phone Number',
+                TextFormField(
+                  controller: _phoneNumber,
+                  keyboardType: TextInputType.emailAddress,
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 16,
                     color: const Color(0xffb6b6b6),
                     fontWeight: FontWeight.w300,
                   ),
-                  textAlign: TextAlign.left,
+                  cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    hintText: "Phone Number",
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ),
               ),
               Pinned.fromSize(
@@ -169,15 +262,30 @@ class CompleteProfile extends StatelessWidget {
                 fixedHeight: true,
                 child:
                     // Adobe XD layer: 'SAP ID Placeholder' (text)
-                    Text(
-                  'SAP ID',
+                TextFormField(
+                  controller: _sapID,
+                  keyboardType: TextInputType.emailAddress,
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 16,
                     color: const Color(0xffb6b6b6),
                     fontWeight: FontWeight.w300,
                   ),
-                  textAlign: TextAlign.left,
+                  cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    hintText: "SAP ID",
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ),
               ),
               Pinned.fromSize(
@@ -226,15 +334,30 @@ class CompleteProfile extends StatelessWidget {
                 fixedHeight: true,
                 child:
                     // Adobe XD layer: 'Year Placeholder' (text)
-                    Text(
-                  'Year of Study',
+                TextFormField(
+                  controller: _yearOfStudy,
+                  keyboardType: TextInputType.emailAddress,
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 16,
                     color: const Color(0xffb6b6b6),
                     fontWeight: FontWeight.w300,
                   ),
-                  textAlign: TextAlign.left,
+                  cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    hintText: "Year of Study",
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ),
               ),
               Pinned.fromSize(
@@ -303,15 +426,30 @@ class CompleteProfile extends StatelessWidget {
                 fixedHeight: true,
                 child:
                     // Adobe XD layer: 'Course Placeholder' (text)
-                    Text(
-                  'Course',
+                TextFormField(
+                  controller: _course,
+                  keyboardType: TextInputType.emailAddress,
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 16,
                     color: const Color(0xffb6b6b6),
                     fontWeight: FontWeight.w300,
                   ),
-                  textAlign: TextAlign.left,
+                  cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    hintText: "Course",
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ),
               ),
               Pinned.fromSize(
@@ -407,17 +545,33 @@ class CompleteProfile extends StatelessWidget {
                 fixedHeight: true,
                 child:
                     // Adobe XD layer: 'Name Placeholder' (text)
-                    Text(
-                  'Name',
+                TextFormField(
+                  controller: _name,
+                  keyboardType: TextInputType.emailAddress,
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 16,
                     color: const Color(0xffb6b6b6),
                     fontWeight: FontWeight.w300,
                   ),
-                  textAlign: TextAlign.left,
+                  cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    hintText: "Name",
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      color: const Color(0xffb6b6b6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ),
               ),
+
               Pinned.fromSize(
                 bounds: Rect.fromLTWH(14.5, 11.7, 25.0, 25.5),
                 size: Size(273.0, 48.0),
@@ -453,6 +607,8 @@ class CompleteProfile extends StatelessWidget {
                 ),
               ),
           ),
+
+
           Positioned(
             left: 98,
             top: 211,
@@ -471,132 +627,152 @@ class CompleteProfile extends StatelessWidget {
             left: 160,
             top: 108,
             child: SizedBox(
-                width: 89.0,
-                height: 89.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 89.0, 89.0),
-                size: Size(89.0, 89.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
+              width: 89.0,
+              height: 89.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 89.0, 89.0),
+                    size: Size(89.0, 89.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
                     // Adobe XD layer: 'Profile Circle' (shape)
                     Container(
-                  decoration: BoxDecoration(
-                    borderRadius:
+                      decoration: BoxDecoration(
+                        borderRadius:
                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x7a000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
+                        color: const Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x7a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(60.0, 72.0, 17.0, 17.0),
-                size: Size(89.0, 89.0),
-                child:
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(60.0, 72.0, 17.0, 17.0),
+                    size: Size(89.0, 89.0),
+                    child:
+
                     // Adobe XD layer: 'Add Button' (group)
                     Stack(
-                  children: <Widget>[
-                    // Adobe XD layer: 'Add Circle' (shape)
-                    Container(
-                      width: 17.0,
-                      height: 17.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                            Radius.elliptical(9999.0, 9999.0)),
-                        gradient: LinearGradient(
-                          begin: Alignment(-0.97, -0.82),
-                          end: Alignment(0.97, 0.79),
-                          colors: [
-                            const Color(0xfffe4f70),
-                            const Color(0xffcb6bd8)
-                          ],
-                          stops: [0.0, 1.0],
+                      children: <Widget>[
+                        // Adobe XD layer: 'Add Circle' (shape)
+
+                        Container(
+                          width: 17.0,
+                          height: 17.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                                Radius.elliptical(9999.0, 9999.0)),
+                            gradient: LinearGradient(
+                              begin: Alignment(-0.97, -0.82),
+                              end: Alignment(0.97, 0.79),
+                              colors: [
+                                const Color(0xfffe4f70),
+                                const Color(0xffcb6bd8)
+                              ],
+                              stops: [0.0, 1.0],
+                            ),
+                          ),
+                        child: GestureDetector(
+                                onTap: () {
+                                  getImage();
+                                },
+                      ),
                         ),
-                      ),
-                    ),
-                    Transform.translate(
-                      offset: Offset(3.7, 3.7),
-                      child: SvgPicture.string(
-                        _svg_qftx7n,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(29.0, 27.5, 31.0, 33.9),
-                size: Size(89.0, 89.0),
-                child:
-                    // Adobe XD layer: 'Profile Icon' (group)
-                    Stack(
-                  children: <Widget>[
-                    Transform.translate(
-                      offset: Offset(7.8, 0.0),
-                      child: Container(
-                        width: 15.5,
-                        height: 15.5,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          gradient: LinearGradient(
-                            begin: Alignment(-0.97, -0.82),
-                            end: Alignment(0.97, 0.79),
-                            colors: [
-                              const Color(0xfffe4f70),
-                              const Color(0xffcb6bd8)
-                            ],
-                            stops: [0.0, 1.0],
+
+                        Transform.translate(
+                          offset: Offset(3.7, 3.7),
+                          child: SvgPicture.string(
+                            _svg_qftx7n,
+                            allowDrawingOutsideViewBox: true,
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                    Transform.translate(
-                      offset: Offset(0.0, 19.3),
-                      child: SvgPicture.string(
-                        _svg_maxgtd,
-                        allowDrawingOutsideViewBox: true,
-                      ),
+
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(29.0, 27.5, 31.0, 33.9),
+                    size: Size(89.0, 89.0),
+                    child:
+                    // Adobe XD layer: 'Profile Icon' (group)
+                    Stack(
+                      children: <Widget>[
+                        Transform.translate(
+                          offset: Offset(7.8, 0.0),
+                          child: Container(
+                            width: 15.5,
+                            height: 15.5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                  Radius.elliptical(9999.0, 9999.0)),
+                              gradient: LinearGradient(
+                                begin: Alignment(-0.97, -0.82),
+                                end: Alignment(0.97, 0.79),
+                                colors: [
+                                  const Color(0xfffe4f70),
+                                  const Color(0xffcb6bd8)
+                                ],
+                                stops: [0.0, 1.0],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Transform.translate(
+                          offset: Offset(0.0, 19.3),
+                          child: ClipOval(
+                          child: new SizedBox(
+                            // width: 180.0,
+                            // height: 180.0,
+                            child: (_image != null)
+                                ? Image.file(
+                              _image,
+                              fit: BoxFit.fill,
+                            )
+                                : SvgPicture.string(
+                              _svg_maxgtd,
+                              allowDrawingOutsideViewBox: true,
+                            )
+                          ),
+                            ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 173,
             top: 39,
             child: Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Sync Logo.png'),
-              fit: BoxFit.fill,
-              colorFilter: new ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.dstIn),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0x45000000),
-                offset: Offset(0, 3),
-                blurRadius: 80,
-              ),
-            ],
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x45000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 80,
+                  ),
+                ],
               ),
+            ),
           ),
         ],
       ),
