@@ -9,6 +9,7 @@ import 'package:sync_project/EventDetails1.dart';
 import 'package:sync_project/EventDetails2.dart';
 import 'package:sync_project/Events.dart';
 import 'package:sync_project/Calender.dart';
+import 'package:sync_project/PrivacyPolicy.dart';
 import 'package:sync_project/filterpage.dart';
 import 'package:sync_project/ForgotPassword.dart';
 import 'package:sync_project/Home.dart';
@@ -29,7 +30,7 @@ import 'package:sync_project/opening_screen.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/OpeningScreen',
+    initialRoute: '/PrivacyPolicy',
     routes: {
       '/AboutUs': (context) => AboutUs(),
       '/Categories': (context) => Categories(),
@@ -52,11 +53,12 @@ void main() {
       '/EventDetails1': (context) => EventDetails1(),
       '/EventDetails2': (context) => EventDetails2(),
       '/ForgotPassword': (context) => ForgotPassword(),
-      '/PrivacyPolicy': (context) => PrivacyPolicy(),
+      '/TermsAndConditions': (context) => TermsAndConditions(),
       '/Settings': (context) => Settings(),
       '/Filters': (context) => FilterPage(),
       '/Events': (context) => Events(),
       '/OpeningScreen': (context) => OpeningView(),
+      '/PrivacyPolicy': (context) => PrivacyPolicy(),
     },
   ));
 }
