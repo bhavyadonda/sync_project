@@ -15,6 +15,51 @@ class _NotificationsState extends State<Notifications> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
+          Container(
+            alignment: Alignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 88.0,
+                  height: 89.0,
+                  child: Stack(
+                    children: <Widget>[
+                      Pinned.fromSize(
+                        bounds: Rect.fromLTWH(0.0, 0.0, 88.2, 89.3),
+                        size: Size(88.2, 89.3),
+                        pinLeft: true,
+                        pinRight: true,
+                        pinTop: true,
+                        pinBottom: true,
+                        child:
+                        // Adobe XD layer: 'Bell Gradient Circle' (shape)
+                        SvgPicture.string(
+                          _svg_bmep7c,
+                          allowDrawingOutsideViewBox: true,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      Pinned.fromSize(
+                        bounds: Rect.fromLTWH(12.6, 30.0, 27.0, 29.3),
+                        size: Size(88.2, 89.3),
+                        child:
+                        // Adobe XD layer: 'Bell Icon' (shape)
+                        SvgPicture.string(
+                          _svg_kcgqpm,
+                          allowDrawingOutsideViewBox: true,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 140.0,
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: Align(
               alignment: Alignment.centerRight,
