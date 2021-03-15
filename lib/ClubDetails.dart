@@ -3,258 +3,169 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ClubDetails extends StatelessWidget {
-  ClubDetails({
-    Key key,
-  }) : super(key: key);
+
+class ClubDetails extends StatefulWidget {
+  @override
+  _ClubDetailsState createState() => _ClubDetailsState();
+}
+
+class _ClubDetailsState extends State<ClubDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            left: 246,
-            top: 755,
-            child: SizedBox(
-                width: 36.0,
-                height: 36.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                  _svg_x9p9xs,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    width: 412.0,
+                    height: 198.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: const AssetImage('assets/Background Image2.png'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 70,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(10.0, 9.0, 16.1, 16.0),
-                size: Size(36.0, 36.0),
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Linkedin Icon' (group)
-                    Stack(
+              SizedBox(
+                width: 137.0,
+                height: 137.0,
+                child: Stack(
                   children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(5.4, 5.0, 10.6, 11.0),
-                      size: Size(16.1, 16.0),
-                      child: SvgPicture.string(
-                        _svg_vgawgd,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
+                    // Adobe XD layer: 'Club Circle' (shape)
+                    Container(
+                      width: 137.0,
+                      height: 137.0,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x29000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
                       ),
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.1, 5.4, 3.3, 10.6),
-                      size: Size(16.1, 16.0),
-                      child: SvgPicture.string(
-                        _svg_a2994i,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 3.4, 3.3),
-                      size: Size(16.1, 16.0),
-                      child: SvgPicture.string(
-                        _svg_ohuxxi,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
+                    Transform.translate(
+                      offset: Offset(12.0, 12.0),
+                      child:
+                      // Adobe XD layer: 'Tech Club Logo' (shape)
+                      Container(
+                        width: 113.0,
+                        height: 113.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: const AssetImage('assets/Tech Club Logo Big.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
             ],
-                ),
-              ),
           ),
-          Positioned(
-            left: 187,
-            top: 755,
-            child: SizedBox(
-                width: 36.0,
-                height: 36.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                  _svg_x9p9xs,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Instagram Icon' (shape)
-                    SvgPicture.string(
-                  _svg_pdwfmb,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 127,
-            top: 755,
-            child: SizedBox(
-                width: 36.0,
-                height: 36.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Social Background' (shape)
-                    SvgPicture.string(
-                  _svg_7e8qy6,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(14.0, 10.0, 8.4, 16.0),
-                size: Size(36.0, 36.0),
-                pinTop: true,
-                pinBottom: true,
-                fixedWidth: true,
-                child:
-                    // Adobe XD layer: 'Facebook Icon' (shape)
-                    SvgPicture.string(
-                  _svg_gzdh7g,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 21,
-            top: 498,
-            child: SizedBox(
-                width: 333.0,
-                height: 211.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(190.0, 105.0, 177.0, 106.0),//left = 176
-                size: Size(333.0, 211.0),
-                pinRight: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Image 3' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    image: DecorationImage(
-                      image: const AssetImage('assets/Background Image3.png'),
-                      fit: BoxFit.cover,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'The Tech Club',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 24,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(190.0, 0.0, 177.0, 97.0),
-                size: Size(333.0, 211.0),
-                pinRight: true,
-                pinTop: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Image 2' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    image: DecorationImage(
-                      image: const AssetImage('assets/Background Image3.png'),
-                      fit: BoxFit.cover,
+                    Text(
+                      'Technical Society of NMIMS',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 14,
+                        color: const Color(0xff9d9d9d),
+                        fontWeight: FontWeight.w500,
+                        height: 1.1666666666666667,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                  ),
+                  ],
                 ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 167.0, 211.0),
-                size: Size(333.0, 211.0),
-                pinLeft: true,
-                pinTop: true,
-                pinBottom: true,
-                fixedWidth: true,
-                child:
-                    // Adobe XD layer: 'Image 1' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    image: DecorationImage(
-                      image: const AssetImage('assets/Background Image4.png'),
-                      fit: BoxFit.cover,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x29000000),
-                        offset: Offset(7, 7),
-                        blurRadius: 6,
+                SizedBox(
+                  width: 87.0,
+                  height: 28.0,
+                  child: Stack(
+                    children: <Widget>[
+                      Pinned.fromSize(
+                        bounds: Rect.fromLTWH(0.0, 0.0, 87.0, 27.5),
+                        size: Size(87.0, 27.5),
+                        pinLeft: true,
+                        pinRight: true,
+                        pinTop: true,
+                        pinBottom: true,
+                        child:
+                        // Adobe XD layer: 'Button' (shape)
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.0),
+                            gradient: LinearGradient(
+                              begin: Alignment(-0.97, -0.82),
+                              end: Alignment(0.97, 0.79),
+                              colors: [
+                                const Color(0xfffe4f70),
+                                const Color(0xffcb6bd8)
+                              ],
+                              stops: [0.0, 1.0],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Pinned.fromSize(
+                        bounds: Rect.fromLTWH(17.0, 7.0, 53.0, 16.0),
+                        size: Size(87.0, 27.5),
+                        child: Text(
+                          'Following',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 12,
+                            color: const Color(0xffffffff),
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
                       ),
                     ],
                   ),
                 ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 21,
-            top: 460,
-            child: Text(
-              'Gallery',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 22,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.left,
+              ],
             ),
           ),
-          Positioned(
-            left: 28,
-            top: 337,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
             child: Text(
               'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy eirmod \ntempor invidunt ut labore et dolore magna \naliquyam erat, sed diam voluptua. At vero \neos et accusam et justo duo dolores et ea',
               style: TextStyle(
@@ -265,158 +176,79 @@ class ClubDetails extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Positioned(
-            //left: 297,
-            top: 281,
-            right: 21,
-            child: SizedBox(
-                width: 87.0,
-                height: 28.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 87.0, 27.5),
-                size: Size(87.0, 27.5),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Button' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.0),
-                    gradient: LinearGradient(
-                      begin: Alignment(-0.97, -0.82),
-                      end: Alignment(0.97, 0.79),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(17.0, 7.0, 53.0, 16.0),
-                size: Size(87.0, 27.5),
-                child: Text(
-                  'Following',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 12,
-                    color: const Color(0xffffffff),
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 307,
-            child: SizedBox(
-              width: 197.0,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 20, 0, 0),
+            child: Container(
+              alignment: Alignment.centerLeft,
               child: Text(
-                'Technical Society of NMIMS',
+                'Gallery',
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 14,
-                  color: const Color(0xff9d9d9d),
-                  fontWeight: FontWeight.w500,
-                  height: 1.1666666666666667,
+                  fontSize: 22,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w600,
                 ),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.left,
               ),
             ),
           ),
-          Positioned(
-            left: 21,
-            top: 278,
-            child: Text(
-              'The Tech Club',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 24,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          // Adobe XD layer: 'Club Background' (shape)
-          Positioned(
-            left: 0,
-            top: 0,
-            child: Container(
-              width: 412.0,
-              height: 198.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/Background Image2.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 137,
-            top: 130,
-            child: SizedBox(
-                width: 137.0,
-                height: 137.0,
-                child: Stack(
-            children: <Widget>[
-              // Adobe XD layer: 'Club Circle' (shape)
-              Container(
-                width: 137.0,
-                height: 137.0,
-                decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                  color: const Color(0xffffffff),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0x29000000),
-                      offset: Offset(0, 3),
-                      blurRadius: 6,
-                    ),
-                  ],
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(12.0, 12.0),
-                child:
-                    // Adobe XD layer: 'Tech Club Logo' (shape)
-                    Container(
-                  width: 113.0,
-                  height: 113.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: const AssetImage('assets/Tech Club Logo Big.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 0,
-            top: 35,
-            child: FlatButton(
-              onPressed: () async{
-                dynamic result = await Navigator.pushNamed(context, '/');
-              },
-              child: SvgPicture.string(
-              _svg_see9ki,
-              allowDrawingOutsideViewBox: true,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(21, 0, 45, 0),
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                      child: SizedBox(
+                        width: 160.0,
+                        height: 211.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 10.0, 157.0, 106.0),//left = 176
+                              size: Size(333.0, 211.0),
+                              pinRight: true,
+                              pinBottom: true,
+                              fixedWidth: true,
+                              fixedHeight: true,
+                              child:
+                              // Adobe XD layer: 'Image 3' (shape)
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  image: DecorationImage(
+                                    image: const AssetImage('assets/Background Image3.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 0.0, 157.0, 97.0),
+                              size: Size(333.0, 211.0),
+                              pinRight: true,
+                              pinTop: true,
+                              fixedWidth: true,
+                              fixedHeight: true,
+                              child:
+                              // Adobe XD layer: 'Image 2' (shape)
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  image: DecorationImage(
+                                    image: const AssetImage('assets/Background Image3.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
               ),
             ),
           ),
@@ -425,6 +257,431 @@ class ClubDetails extends StatelessWidget {
     );
   }
 }
+
+
+
+// class ClubDetails extends StatelessWidget {
+//   ClubDetails({
+//     Key key,
+//   }) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xffffffff),
+//       body: Stack(
+//         children: <Widget>[
+//           Positioned(
+//             left: 246,
+//             top: 755,
+//             child: SizedBox(
+//                 width: 36.0,
+//                 height: 36.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+//                 size: Size(36.0, 36.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Social Background' (shape)
+//                     SvgPicture.string(
+//                   _svg_x9p9xs,
+//                   allowDrawingOutsideViewBox: true,
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(10.0, 9.0, 16.1, 16.0),
+//                 size: Size(36.0, 36.0),
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child:
+//                     // Adobe XD layer: 'Linkedin Icon' (group)
+//                     Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(5.4, 5.0, 10.6, 11.0),
+//                       size: Size(16.1, 16.0),
+//                       child: SvgPicture.string(
+//                         _svg_vgawgd,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.1, 5.4, 3.3, 10.6),
+//                       size: Size(16.1, 16.0),
+//                       child: SvgPicture.string(
+//                         _svg_a2994i,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 0.0, 3.4, 3.3),
+//                       size: Size(16.1, 16.0),
+//                       child: SvgPicture.string(
+//                         _svg_ohuxxi,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 187,
+//             top: 755,
+//             child: SizedBox(
+//                 width: 36.0,
+//                 height: 36.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+//                 size: Size(36.0, 36.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Social Background' (shape)
+//                     SvgPicture.string(
+//                   _svg_x9p9xs,
+//                   allowDrawingOutsideViewBox: true,
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+//                 size: Size(36.0, 36.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Instagram Icon' (shape)
+//                     SvgPicture.string(
+//                   _svg_pdwfmb,
+//                   allowDrawingOutsideViewBox: true,
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 127,
+//             top: 755,
+//             child: SizedBox(
+//                 width: 36.0,
+//                 height: 36.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+//                 size: Size(36.0, 36.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Social Background' (shape)
+//                     SvgPicture.string(
+//                   _svg_7e8qy6,
+//                   allowDrawingOutsideViewBox: true,
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(14.0, 10.0, 8.4, 16.0),
+//                 size: Size(36.0, 36.0),
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 child:
+//                     // Adobe XD layer: 'Facebook Icon' (shape)
+//                     SvgPicture.string(
+//                   _svg_gzdh7g,
+//                   allowDrawingOutsideViewBox: true,
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 21,
+//             top: 498,
+//             child: SizedBox(
+//                 width: 333.0,
+//                 height: 211.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(190.0, 105.0, 177.0, 106.0),//left = 176
+//                 size: Size(333.0, 211.0),
+//                 pinRight: true,
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child:
+//                     // Adobe XD layer: 'Image 3' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(15.0),
+//                     image: DecorationImage(
+//                       image: const AssetImage('assets/Background Image3.png'),
+//                       fit: BoxFit.cover,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(190.0, 0.0, 177.0, 97.0),
+//                 size: Size(333.0, 211.0),
+//                 pinRight: true,
+//                 pinTop: true,
+//                 fixedWidth: true,
+//                 fixedHeight: true,
+//                 child:
+//                     // Adobe XD layer: 'Image 2' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(15.0),
+//                     image: DecorationImage(
+//                       image: const AssetImage('assets/Background Image3.png'),
+//                       fit: BoxFit.cover,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 167.0, 211.0),
+//                 size: Size(333.0, 211.0),
+//                 pinLeft: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 child:
+//                     // Adobe XD layer: 'Image 1' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(15.0),
+//                     image: DecorationImage(
+//                       image: const AssetImage('assets/Background Image4.png'),
+//                       fit: BoxFit.cover,
+//                     ),
+//                     boxShadow: [
+//                       BoxShadow(
+//                         color: const Color(0x29000000),
+//                         offset: Offset(7, 7),
+//                         blurRadius: 6,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 21,
+//             top: 460,
+//             child: Text(
+//               'Gallery',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 22,
+//                 color: const Color(0xff404040),
+//                 fontWeight: FontWeight.w600,
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           Positioned(
+//             left: 28,
+//             top: 337,
+//             child: Text(
+//               'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy eirmod \ntempor invidunt ut labore et dolore magna \naliquyam erat, sed diam voluptua. At vero \neos et accusam et justo duo dolores et ea',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 17,
+//                 color: const Color(0xff9d9d9d),
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           Positioned(
+//             //left: 297,
+//             top: 281,
+//             right: 21,
+//             child: SizedBox(
+//                 width: 87.0,
+//                 height: 28.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 87.0, 27.5),
+//                 size: Size(87.0, 27.5),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Button' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(30.0),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(-0.97, -0.82),
+//                       end: Alignment(0.97, 0.79),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(17.0, 7.0, 53.0, 16.0),
+//                 size: Size(87.0, 27.5),
+//                 child: Text(
+//                   'Following',
+//                   style: TextStyle(
+//                     fontFamily: 'Poppins',
+//                     fontSize: 12,
+//                     color: const Color(0xffffffff),
+//                     fontWeight: FontWeight.w700,
+//                   ),
+//                   textAlign: TextAlign.left,
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 307,
+//             child: SizedBox(
+//               width: 197.0,
+//               child: Text(
+//                 'Technical Society of NMIMS',
+//                 style: TextStyle(
+//                   fontFamily: 'Poppins',
+//                   fontSize: 14,
+//                   color: const Color(0xff9d9d9d),
+//                   fontWeight: FontWeight.w500,
+//                   height: 1.1666666666666667,
+//                 ),
+//                 textAlign: TextAlign.center,
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 21,
+//             top: 278,
+//             child: Text(
+//               'The Tech Club',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 24,
+//                 color: const Color(0xff404040),
+//                 fontWeight: FontWeight.w600,
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           // Adobe XD layer: 'Club Background' (shape)
+//           Positioned(
+//             left: 0,
+//             top: 0,
+//             child: Container(
+//               width: 412.0,
+//               height: 198.0,
+//               decoration: BoxDecoration(
+//                 image: DecorationImage(
+//                   image: const AssetImage('assets/Background Image2.png'),
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 137,
+//             top: 130,
+//             child: SizedBox(
+//                 width: 137.0,
+//                 height: 137.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               // Adobe XD layer: 'Club Circle' (shape)
+//               Container(
+//                 width: 137.0,
+//                 height: 137.0,
+//                 decoration: BoxDecoration(
+//                   borderRadius:
+//                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                   color: const Color(0xffffffff),
+//                   boxShadow: [
+//                     BoxShadow(
+//                       color: const Color(0x29000000),
+//                       offset: Offset(0, 3),
+//                       blurRadius: 6,
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(12.0, 12.0),
+//                 child:
+//                     // Adobe XD layer: 'Tech Club Logo' (shape)
+//                     Container(
+//                   width: 113.0,
+//                   height: 113.0,
+//                   decoration: BoxDecoration(
+//                     image: DecorationImage(
+//                       image: const AssetImage('assets/Tech Club Logo Big.png'),
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 0,
+//             top: 35,
+//             child: FlatButton(
+//               onPressed: () async{
+//                 dynamic result = await Navigator.pushNamed(context, '/');
+//               },
+//               child: SvgPicture.string(
+//               _svg_see9ki,
+//               allowDrawingOutsideViewBox: true,
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 const String _svg_vgawgd =
     '<svg viewBox="50.4 734.0 10.6 11.0" ><path transform="translate(-123.11, 572.94)" d="M 173.4986572265625 172.0462951660156 C 173.4986572265625 171.9701385498047 173.4986572265625 171.8971557617188 173.4986572265625 171.8241729736328 C 173.4986572265625 168.4067230224609 173.4986572265625 164.992431640625 173.4986572265625 161.5749816894531 C 173.4986572265625 161.4797821044922 173.4923095703125 161.4036254882813 173.6319274902344 161.4036254882813 C 174.6409759521484 161.4099731445313 175.6532135009766 161.4067993164063 176.6622619628906 161.4067993164063 C 176.6876525878906 161.4067993164063 176.7130279541016 161.4131469726563 176.7542877197266 161.4194946289063 C 176.7542877197266 161.8637390136719 176.7542877197266 162.3016204833984 176.7542877197266 162.7426910400391 C 176.7669677734375 162.7458648681641 176.7764892578125 162.7522125244141 176.7891845703125 162.7553863525391 C 176.9161071777344 162.5903778076172 177.0366821289063 162.4190368652344 177.1699676513672 162.2572021484375 C 177.5570831298828 161.7812347412109 178.0425720214844 161.4321899414063 178.6137390136719 161.2227630615234 C 178.9246978759766 161.1085357666016 179.2642211914063 161.0387268066406 179.5910491943359 161.0228576660156 C 180.0416412353516 161.0038146972656 180.5017395019531 161.0101623535156 180.9459838867188 161.0863189697266 C 181.6757965087891 161.2100677490234 182.3199462890625 161.5337371826172 182.85302734375 162.0636444091797 C 183.3575592041016 162.5618286132813 183.6907348632813 163.1615447998047 183.8715972900391 163.8374176025391 C 183.966796875 164.1959838867188 184.0270843505859 164.5640563964844 184.0841979980469 164.9289703369141 C 184.1222839355469 165.1828308105469 184.1413269042969 165.4430236816406 184.1413269042969 165.6968688964844 C 184.1444854736328 167.7593994140625 184.1444854736328 169.8219299316406 184.1444854736328 171.8844604492188 C 184.1444854736328 171.9352416992188 184.1413269042969 171.9860076904297 184.1381530761719 172.0526428222656 C 184.0778503417969 172.0526428222656 184.0270843505859 172.0526428222656 183.976318359375 172.0526428222656 C 183.0021667480469 172.0526428222656 182.0311889648438 172.0494689941406 181.0570373535156 172.0558166503906 C 180.8952026367188 172.0558166503906 180.8666534423828 172.0018768310547 180.8666534423828 171.8559112548828 C 180.8698272705078 169.9583740234375 180.8761749267578 168.0576782226563 180.8634796142578 166.16015625 C 180.8603057861328 165.8269653320313 180.8285827636719 165.4810943603516 180.7429046630859 165.1606140136719 C 180.5874176025391 164.5989685058594 180.2320251464844 164.1928100585938 179.6672058105469 163.9865570068359 C 179.1912384033203 163.8120422363281 178.7089233398438 163.7803039550781 178.2202606201172 163.904052734375 C 177.6808319091797 164.0404968261719 177.3095855712891 164.3990631103516 177.0303497314453 164.8718566894531 C 176.8145751953125 165.2367706298828 176.7733154296875 165.6397552490234 176.7701416015625 166.0427398681641 C 176.7574615478516 167.9688262939453 176.7637939453125 169.8917388916016 176.7637939453125 171.8178253173828 C 176.7637939453125 171.8908081054688 176.7637939453125 171.9637908935547 176.7637939453125 172.0431213378906 C 175.6690673828125 172.0462951660156 174.5933837890625 172.0462951660156 173.4986572265625 172.0462951660156 Z" fill="#ffffff" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
