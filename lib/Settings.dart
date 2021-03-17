@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import './SignIn.dart';
+import './PrivacyPolicy.dart';
 import 'package:adobe_xd/page_link.dart';
 import './ForgotPassword.dart';
 import './TermsAndConditions.dart';
@@ -15,388 +16,389 @@ class Settings extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
-        children: <Widget>[ //32, 48
+        children: <Widget>[
+          //32, 48
           Positioned(
             left: 30,
             top: 355,
             child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => SignIn(),
-            ),
-                ],
-                child: SizedBox(
-            width: 349.0,
-            height: 45.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-                  size: Size(349.0, 45.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-                        size: Size(349.0, 45.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child: SvgPicture.string(
-                          _svg_9wjj3m,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(319.0, 18.0, 10.0, 10.0),
-                  size: Size(349.0, 45.0),
-                  pinRight: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Transform.rotate(
-                    angle: 1.5708,
-                    child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-                          size: Size(10.0, 10.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child: SvgPicture.string(
-                            _svg_5aru5n,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-                          size: Size(10.0, 10.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child: Container(
-                            decoration: BoxDecoration(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(23.0, 9.0, 69.0, 25.0),
-                  size: Size(349.0, 45.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'Log Out',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xbfff0000),
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+              links: [
+                PageLinkInfo(
+                  transition: LinkTransition.Fade,
+                  ease: Curves.easeOut,
+                  duration: 0.3,
+                  pageBuilder: () => SignIn(),
                 ),
               ],
-            ),
+              child: SizedBox(
+                width: 349.0,
+                height: 45.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
+                      size: Size(349.0, 45.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child: Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
+                            size: Size(349.0, 45.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child: SvgPicture.string(
+                              _svg_9wjj3m,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(319.0, 18.0, 10.0, 10.0),
+                      size: Size(349.0, 45.0),
+                      pinRight: true,
+                      fixedWidth: true,
+                      fixedHeight: true,
+                      child: Transform.rotate(
+                        angle: 1.5708,
+                        child: Stack(
+                          children: <Widget>[
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
+                              size: Size(10.0, 10.0),
+                              pinLeft: true,
+                              pinRight: true,
+                              pinTop: true,
+                              pinBottom: true,
+                              child: SvgPicture.string(
+                                _svg_5aru5n,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
+                              size: Size(10.0, 10.0),
+                              pinLeft: true,
+                              pinRight: true,
+                              pinTop: true,
+                              pinBottom: true,
+                              child: Container(
+                                decoration: BoxDecoration(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(23.0, 9.0, 69.0, 25.0),
+                      size: Size(349.0, 45.0),
+                      fixedWidth: true,
+                      fixedHeight: true,
+                      child: Text(
+                        'Log Out',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
+                          color: const Color(0xbfff0000),
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ],
                 ),
               ),
+            ),
           ),
           Positioned(
             left: 30,
             top: 290,
             child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => ForgotPassword(),
-            ),
-                ],
-                child: SizedBox(
-            width: 349.0,
-            height: 45.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-                  size: Size(349.0, 45.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-                        size: Size(349.0, 45.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child: SvgPicture.string(
-                          _svg_feqhip,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(25.0, 10.0, 165.0, 25.0),
-                  size: Size(349.0, 45.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'Change Password',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xff404040),
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(319.0, 18.0, 10.0, 10.0),
-                  size: Size(349.0, 45.0),
-                  pinRight: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Transform.rotate(
-                    angle: 1.5708,
-                    child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-                          size: Size(10.0, 10.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child: SvgPicture.string(
-                            _svg_5aru5n,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-                          size: Size(10.0, 10.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child: Container(
-                            decoration: BoxDecoration(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+              links: [
+                PageLinkInfo(
+                  transition: LinkTransition.Fade,
+                  ease: Curves.easeOut,
+                  duration: 0.3,
+                  pageBuilder: () => ForgotPassword(),
                 ),
               ],
-            ),
+              child: SizedBox(
+                width: 349.0,
+                height: 45.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
+                      size: Size(349.0, 45.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child: Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
+                            size: Size(349.0, 45.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child: SvgPicture.string(
+                              _svg_feqhip,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(25.0, 10.0, 165.0, 25.0),
+                      size: Size(349.0, 45.0),
+                      fixedWidth: true,
+                      fixedHeight: true,
+                      child: Text(
+                        'Change Password',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
+                          color: const Color(0xff404040),
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(319.0, 18.0, 10.0, 10.0),
+                      size: Size(349.0, 45.0),
+                      pinRight: true,
+                      fixedWidth: true,
+                      fixedHeight: true,
+                      child: Transform.rotate(
+                        angle: 1.5708,
+                        child: Stack(
+                          children: <Widget>[
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
+                              size: Size(10.0, 10.0),
+                              pinLeft: true,
+                              pinRight: true,
+                              pinTop: true,
+                              pinBottom: true,
+                              child: SvgPicture.string(
+                                _svg_5aru5n,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
+                              size: Size(10.0, 10.0),
+                              pinLeft: true,
+                              pinRight: true,
+                              pinTop: true,
+                              pinBottom: true,
+                              child: Container(
+                                decoration: BoxDecoration(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
+            ),
           ),
           Positioned(
             left: 30,
             top: 225,
             child: SizedBox(
-                width: 349.0,
-                height: 45.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-                size: Size(349.0, 45.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child: SvgPicture.string(
-                  _svg_w7aonn,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(25.0, 10.0, 178.0, 25.0),
-                size: Size(349.0, 45.0),
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Terms & Conditions',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    color: const Color(0xff404040),
-                    fontWeight: FontWeight.w500,
+              width: 349.0,
+              height: 45.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
+                    size: Size(349.0, 45.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child: SvgPicture.string(
+                      _svg_w7aonn,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(319.0, 20.0, 10.0, 10.0),
-                size: Size(349.0, 45.0),
-                pinRight: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Transform.rotate(
-                  angle: 1.5708,
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-                        size: Size(10.0, 10.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child: SvgPicture.string(
-                          _svg_5aru5n,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
-                        ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(25.0, 10.0, 178.0, 25.0),
+                    size: Size(349.0, 45.0),
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child: Text(
+                      'Terms & Conditions',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w500,
                       ),
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-                        size: Size(10.0, 10.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child: Container(
-                          decoration: BoxDecoration(),
-                        ),
-                      ),
-                    ],
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(319.0, 20.0, 10.0, 10.0),
+                    size: Size(349.0, 45.0),
+                    pinRight: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child: Transform.rotate(
+                      angle: 1.5708,
+                      child: Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
+                            size: Size(10.0, 10.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child: SvgPicture.string(
+                              _svg_5aru5n,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
+                            size: Size(10.0, 10.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child: Container(
+                              decoration: BoxDecoration(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 30,
             top: 160,
             child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => PrivacyPolicy(),
-            ),
-                ],
-                child: SizedBox(
-            width: 349.0,
-            height: 45.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-                  size: Size(349.0, 45.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-                        size: Size(349.0, 45.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child: SvgPicture.string(
-                          _svg_feqhip,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(319.0, 20.0, 10.0, 10.0),
-                  size: Size(349.0, 45.0),
-                  pinRight: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Transform.rotate(
-                    angle: 1.5708,
-                    child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-                          size: Size(10.0, 10.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child: SvgPicture.string(
-                            _svg_5aru5n,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-                          size: Size(10.0, 10.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child: Container(
-                            decoration: BoxDecoration(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(31.0, 10.0, 124.0, 25.0),
-                  size: Size(349.0, 45.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'Privacy Policy',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xff404040),
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+              links: [
+                PageLinkInfo(
+                  transition: LinkTransition.Fade,
+                  ease: Curves.easeOut,
+                  duration: 0.3,
+                  pageBuilder: () => PrivacyPolicy(),
                 ),
               ],
-            ),
+              child: SizedBox(
+                width: 349.0,
+                height: 45.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
+                      size: Size(349.0, 45.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child: Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
+                            size: Size(349.0, 45.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child: SvgPicture.string(
+                              _svg_feqhip,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(319.0, 20.0, 10.0, 10.0),
+                      size: Size(349.0, 45.0),
+                      pinRight: true,
+                      fixedWidth: true,
+                      fixedHeight: true,
+                      child: Transform.rotate(
+                        angle: 1.5708,
+                        child: Stack(
+                          children: <Widget>[
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
+                              size: Size(10.0, 10.0),
+                              pinLeft: true,
+                              pinRight: true,
+                              pinTop: true,
+                              pinBottom: true,
+                              child: SvgPicture.string(
+                                _svg_5aru5n,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
+                              size: Size(10.0, 10.0),
+                              pinLeft: true,
+                              pinRight: true,
+                              pinTop: true,
+                              pinBottom: true,
+                              child: Container(
+                                decoration: BoxDecoration(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(31.0, 10.0, 124.0, 25.0),
+                      size: Size(349.0, 45.0),
+                      fixedWidth: true,
+                      fixedHeight: true,
+                      child: Text(
+                        'Privacy Policy',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
+                          color: const Color(0xff404040),
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ],
                 ),
               ),
+            ),
           ),
           Positioned(
             left: 25,
@@ -416,54 +418,54 @@ class Settings extends StatelessWidget {
             left: 173,
             top: 39,
             child: Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Sync Logo.png'),
-              fit: BoxFit.fill,
-              colorFilter: new ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.dstIn),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0x45000000),
-                offset: Offset(0, 3),
-                blurRadius: 80,
-              ),
-            ],
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x45000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 80,
+                  ),
+                ],
               ),
+            ),
           ),
           Positioned(
             left: 0,
             top: 35,
             child: FlatButton(
-              onPressed: () async{
+              onPressed: () async {
                 dynamic result = await Navigator.pushNamed(context, '/');
               },
               child: SizedBox(
-              width: 13.0,
-              height: 18.0,
-              child: Stack(
-                children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 12.6, 18.0),
-                size: Size(12.6, 18.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Back Arrow' (shape)
-                    SvgPicture.string(
-                  _svg_nytea6,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
+                width: 13.0,
+                height: 18.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 12.6, 18.0),
+                      size: Size(12.6, 18.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                          // Adobe XD layer: 'Back Arrow' (shape)
+                          SvgPicture.string(
+                        _svg_nytea6,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-                ],
-              ),
               ),
             ),
           ),
