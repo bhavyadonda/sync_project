@@ -34,11 +34,11 @@ class _EventsState extends State<Events> {
                 itemCount: values.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding: const EdgeInsets.fromLTRB(35, 0, 35, 25),
+                    padding: const EdgeInsets.fromLTRB(35, 0, 35, 0),
                     child: Column(
                       children: [
                         Container(
-                          height: MediaQuery.of(context).size.height - 600,
+                          height: MediaQuery.of(context).size.height - 700,
                           width: MediaQuery.of(context).size.width,
                           child: Stack(
                             children: [
@@ -306,7 +306,7 @@ class _EventsState extends State<Events> {
             padding: const EdgeInsets.fromLTRB(0, 25, 0, 25),
             child: Container(
               width: MediaQuery.of(context).size.width - 40,
-              height: MediaQuery.of(context).size.height - 500,
+              height: MediaQuery.of(context).size.height - 560,
               child: Card(
                 elevation: 10,
                 shadowColor: Colors.black38,
@@ -345,7 +345,7 @@ class _EventsState extends State<Events> {
                           // Card 2
                           Container(
                             width: 317,
-                            height: 100,
+                            height: 170,
                             child: Card(
                               elevation: 0,
                               shape: RoundedRectangleBorder(
