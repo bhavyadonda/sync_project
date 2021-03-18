@@ -1,8 +1,13 @@
+import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sync_project/Calender.dart';
 import './Categories.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 class FilterPage extends StatefulWidget {
   FilterPage({Key key}) : super(key: key);
@@ -12,13 +17,25 @@ class FilterPage extends StatefulWidget {
 }
 
 class _FilterPageState extends State<FilterPage> {
+  bool morning = false;
+  bool afternoon = false;
+  bool evening = false;
+  bool night = false;
+  DateTime _selecteddate;
   double len = 250;
   double wid = 250;
   List<String> _Clubs = ['A', 'B', 'C', 'D'];
+  Map<String, bool> categories = {
+    'P': false,
+    'Q': false,
+    'R': false,
+    'S': false
+  };
   String _selectedClub;
   bool checkBoxValue = true;
   @override
   Widget build(BuildContext context) {
+    initializeDateFormatting('az');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -85,9 +102,32 @@ class _FilterPageState extends State<FilterPage> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              InkWell(
+              GestureDetector(
                 child: Text('Clear all'),
-                onTap: () {},
+                onTap: () {
+                  setState(() {
+                    _selectedClub = 'A';
+                    _selecteddate = DateTime(2021, 3, 1);
+                    if (morning == true) {
+                      morning = false;
+                    }
+                    if (afternoon == true) {
+                      afternoon = false;
+                    }
+                    if (evening == true) {
+                      evening = false;
+                    }
+                    if (night == true) {
+                      night = false;
+                    }
+                    for (var i = 0; i < categories.keys.toList().length; i++) {
+                      var element = categories[categories.keys.toList()[i]];
+                      if (element == true) {
+                        element = false;
+                      }
+                    }
+                  });
+                },
               )
             ],
           ),
@@ -110,6 +150,7 @@ class _FilterPageState extends State<FilterPage> {
                 setState(() {
                   _selectedClub = newValue;
                 });
+                print(_selectedClub);
               },
               items: _Clubs.map((location) {
                 return DropdownMenuItem(
@@ -128,50 +169,23 @@ class _FilterPageState extends State<FilterPage> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 100,
-            child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {},
-                        child: Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '12',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 18,
-                                    color: const Color(0xfa404040),
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  'MON',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 12,
-                                    color: const Color(0xfa9d9d9d),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                }),
+          CalendarTimeline(
+            initialDate: DateTime(2020, 4, 20),
+            firstDate: DateTime(2019, 1, 15),
+            lastDate: DateTime(2020, 11, 20),
+            onDateSelected: (date) => {
+              _selecteddate = date,
+              print(_selecteddate),
+            },
+            leftMargin: 20,
+            monthColor: Colors.blueGrey,
+            dayColor: Colors.teal[200],
+            activeDayColor: Colors.white,
+            activeBackgroundDayColor: Colors.redAccent[100],
+            dotsColor: Color(0xFF333A47),
+            locale: 'en_ISO',
           ),
+
           Text(
             'Preffered Time',
             style: TextStyle(
@@ -215,15 +229,24 @@ class _FilterPageState extends State<FilterPage> {
                 ],
               ),
               Checkbox(
-                tristate: true,
-                checkColor: Colors.red,
-                onChanged: (bool newValue){
+                value: this.morning,
+                onChanged: (bool value) {
                   setState(() {
-                    checkBoxValue = newValue;
+                    morning = value;
                   });
-                  Text('Remember me');
+                  print(morning);
                 },
               ),
+              // Checkbox(
+              //   tristate: true,
+              //   checkColor: Colors.red,
+              //   onChanged: (bool newValue) {
+              //     setState(() {
+              //       checkBoxValue = newValue;
+              //     });
+              //     Text('Remember me');
+              //   },
+              // ),
             ],
           ),
           Row(
@@ -260,15 +283,24 @@ class _FilterPageState extends State<FilterPage> {
                 ],
               ),
               Checkbox(
-                tristate: true,
-                checkColor: Colors.red,
-                onChanged: (bool newValue){
+                value: this.afternoon,
+                onChanged: (bool value) {
                   setState(() {
-                    checkBoxValue = newValue;
+                    afternoon = value;
                   });
-                  Text('Remember me');
+                  print(afternoon);
                 },
               ),
+              // Checkbox(
+              //   tristate: true,
+              //   checkColor: Colors.red,
+              //   onChanged: (bool newValue) {
+              //     setState(() {
+              //       checkBoxValue = newValue;
+              //     });
+              //     Text('Remember me');
+              //   },
+              // ),
             ],
           ),
           Row(
@@ -301,17 +333,17 @@ class _FilterPageState extends State<FilterPage> {
                 ],
               ),
               Checkbox(
-                tristate: true,
-                checkColor: Colors.red,
-                onChanged: (bool newValue){
+                value: this.evening,
+                onChanged: (bool value) {
                   setState(() {
-                    checkBoxValue = newValue;
+                    evening = value;
                   });
-                  Text('Remember me');
+                  print(evening);
                 },
               ),
             ],
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -320,7 +352,7 @@ class _FilterPageState extends State<FilterPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Morning',
+                    'Night',
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 17,
@@ -342,21 +374,21 @@ class _FilterPageState extends State<FilterPage> {
                 ],
               ),
               Checkbox(
-                tristate: true,
-                checkColor: Colors.red,
-                onChanged: (bool newValue){
+                value: this.night,
+                onChanged: (bool value) {
                   setState(() {
-                    checkBoxValue = newValue;
+                    night = value;
                   });
-                  Text('Remember me');
+                  print(night);
                 },
               ),
             ],
           ),
+
           Expanded(
             child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     color: Colors.green,
@@ -370,8 +402,8 @@ class _FilterPageState extends State<FilterPage> {
                             bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
                             size: Size(91.0, 34.0),
                             child:
-                            // Adobe XD layer: 'Tag box' (shape)
-                            Container(
+                                // Adobe XD layer: 'Tag box' (shape)
+                                Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(17.0),
                                 gradient: LinearGradient(
@@ -396,23 +428,48 @@ class _FilterPageState extends State<FilterPage> {
                           Pinned.fromSize(
                             bounds: Rect.fromLTWH(17.0, 7.0, 57.0, 20.0),
                             size: Size(91.0, 34.0),
-                            child: Text(
-                              'Gaming',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                color: const Color(0xffffffff),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  categories[categories.keys.toList()[index]] ^=
+                                      true;
+                                });
+                                print(categories);
+                              },
+                              child: Text(
+                                categories.keys.toList()[index],
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 16,
+                                  color: const Color(0xffffffff),
+                                ),
+                                textAlign: TextAlign.left,
                               ),
-                              textAlign: TextAlign.left,
                             ),
                           ),
                         ],
                       ),
                     ),
                   );
-                }
-            ),
+
+                  // MaterialButton(child: Text('apply filter'), onPressed: () {
+
+                  // });
+                }),
           ),
+          MaterialButton(
+              child: Text('apply filters'),
+              onPressed: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.setBool('morning', morning);
+                prefs.setBool('afternoon', afternoon);
+                prefs.setBool('evening', evening);
+                prefs.setBool('night', night);
+                prefs.setString('date', _selecteddate.toString());
+                prefs.setString('club', _selectedClub);
+                prefs.setString('categories', categories.toString());
+                Navigator.of(context).pushNamed('/Calender');
+              })
           //paste code here
           // Expanded(
           //   child: Stack(

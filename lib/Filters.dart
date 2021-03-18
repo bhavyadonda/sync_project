@@ -23,8 +23,8 @@ class Filters extends StatelessWidget {
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: const Color(0xffffffff),
-                  borderRadius: BorderRadius.all(
-                      Radius.elliptical(99.0, 9999.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.elliptical(99.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
                       color: const Color(0x1a000000),
@@ -45,8 +45,8 @@ class Filters extends StatelessWidget {
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: const Color(0xffffffff),
-                  borderRadius: BorderRadius.all(
-                      Radius.elliptical(99.0, 9999.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.elliptical(99.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
                       color: const Color(0x1a000000),
@@ -67,8 +67,8 @@ class Filters extends StatelessWidget {
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: const Color(0xffffffff),
-                  borderRadius: BorderRadius.all(
-                      Radius.elliptical(99.0, 9999.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.elliptical(99.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
                       color: const Color(0x1a000000),
@@ -89,8 +89,8 @@ class Filters extends StatelessWidget {
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: const Color(0xffffffff),
-                  borderRadius: BorderRadius.all(
-                      Radius.elliptical(99.0, 9999.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.elliptical(99.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
                       color: const Color(0x1a000000),
@@ -111,8 +111,8 @@ class Filters extends StatelessWidget {
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: const Color(0xffffffff),
-                  borderRadius: BorderRadius.all(
-                      Radius.elliptical(99.0, 9999.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.elliptical(99.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
                       color: const Color(0x1a000000),
@@ -128,1532 +128,1532 @@ class Filters extends StatelessWidget {
             left: 25,
             top: 744,
             child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.linear,
-              duration: 0.3,
-              pageBuilder: () => Categories(),
-            ),
-                ],
-                child: SizedBox(
-            width: 360.0,
-            height: 48.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 333.0, 48.0),
-                  size: Size(333.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'Button' (shape)
-                      Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      gradient: LinearGradient(
-                        begin: Alignment(-0.97, -0.82),
-                        end: Alignment(0.97, 0.79),
-                        colors: [
-                          const Color(0xfffe4f70),
-                          const Color(0xffcb6bd8)
-                        ],
-                        stops: [0.0, 1.0],
-                      ),
-                    ),
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(145.0, 12.0, 54.0, 21.0),
-                  size: Size(333.0, 48.0),
-                  child: Text(
-                    'Apply',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+              links: [
+                PageLinkInfo(
+                  transition: LinkTransition.Fade,
+                  ease: Curves.linear,
+                  duration: 0.3,
+                  pageBuilder: () => Categories(),
                 ),
               ],
-            ),
+              child: SizedBox(
+                width: 360.0,
+                height: 48.0,
+                child: Stack(
+                  children: <Widget>[
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(0.0, 0.0, 333.0, 48.0),
+                      size: Size(333.0, 48.0),
+                      pinLeft: true,
+                      pinRight: true,
+                      pinTop: true,
+                      pinBottom: true,
+                      child:
+                          // Adobe XD layer: 'Button' (shape)
+                          Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          gradient: LinearGradient(
+                            begin: Alignment(-0.97, -0.82),
+                            end: Alignment(0.97, 0.79),
+                            colors: [
+                              const Color(0xfffe4f70),
+                              const Color(0xffcb6bd8)
+                            ],
+                            stops: [0.0, 1.0],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Pinned.fromSize(
+                      bounds: Rect.fromLTWH(145.0, 12.0, 54.0, 21.0),
+                      size: Size(333.0, 48.0),
+                      child: Text(
+                        'Apply',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
+                          color: const Color(0xffffffff),
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ],
                 ),
               ),
+            ),
           ),
           Positioned(
             left: 25,
             top: 596,
             child: SizedBox(
-                width: 399.0,
-                height: 113.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 44.0, 25.0),
-                size: Size(399.0, 113.0),
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Tags',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20,
-                    color: const Color(0xff404040),
-                    fontWeight: FontWeight.w500,
+              width: 399.0,
+              height: 113.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 44.0, 25.0),
+                    size: Size(399.0, 113.0),
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child: Text(
+                      'Tags',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 20,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 35.0, 91.0, 34.0),
-                size: Size(399.0, 113.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Gaming tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
-                      size: Size(91.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          gradient: LinearGradient(
-                            begin: Alignment(-0.97, -0.82),
-                            end: Alignment(0.97, 0.79),
-                            colors: [
-                              const Color(0xfffe4f70),
-                              const Color(0xffcb6bd8)
-                            ],
-                            stops: [0.0, 1.0],
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 35.0, 91.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    pinLeft: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Gaming tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
+                          size: Size(91.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              gradient: LinearGradient(
+                                begin: Alignment(-0.97, -0.82),
+                                end: Alignment(0.97, 0.79),
+                                colors: [
+                                  const Color(0xfffe4f70),
+                                  const Color(0xffcb6bd8)
+                                ],
+                                stops: [0.0, 1.0],
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
                           ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 57.0, 20.0),
+                          size: Size(91.0, 34.0),
+                          child: Text(
+                            'Gaming',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xffffffff),
                             ),
-                          ],
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 57.0, 20.0),
-                      size: Size(91.0, 34.0),
-                      child: Text(
-                        'Gaming',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xffffffff),
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(101.0, 35.0, 89.0, 34.0),
-                size: Size(399.0, 113.0),
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Finance tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 89.0, 34.0),
-                      size: Size(89.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(101.0, 35.0, 89.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Finance tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 89.0, 34.0),
+                          size: Size(89.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 65.0, 20.0),
-                      size: Size(89.0, 34.0),
-                      child: Text(
-                        'Finance',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(200.0, 35.0, 104.0, 34.0),
-                size: Size(399.0, 113.0),
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Marketing tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 104.0, 34.0),
-                      size: Size(104.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 65.0, 20.0),
+                          size: Size(89.0, 34.0),
+                          child: Text(
+                            'Finance',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
                             ),
-                          ],
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 78.0, 20.0),
-                      size: Size(104.0, 34.0),
-                      child: Text(
-                        'Marketing',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(314.0, 35.0, 85.0, 34.0),
-                size: Size(399.0, 113.0),
-                pinRight: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Debate tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 85.0, 34.0),
-                      size: Size(85.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(200.0, 35.0, 104.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Marketing tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 104.0, 34.0),
+                          size: Size(104.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 61.0, 20.0),
-                      size: Size(85.0, 34.0),
-                      child: Text(
-                        'Debate',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(274.0, 79.0, 99.0, 34.0),
-                size: Size(399.0, 113.0),
-                pinRight: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Seminars tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 99.0, 34.0),
-                      size: Size(99.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 78.0, 20.0),
+                          size: Size(104.0, 34.0),
+                          child: Text(
+                            'Marketing',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
                             ),
-                          ],
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 75.0, 20.0),
-                      size: Size(99.0, 34.0),
-                      child: Text(
-                        'Seminars',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 79.0, 92.0, 34.0),
-                size: Size(399.0, 113.0),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Trekking Tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 92.0, 34.0),
-                      size: Size(92.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(314.0, 35.0, 85.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    pinRight: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Debate tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 85.0, 34.0),
+                          size: Size(85.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 66.0, 20.0),
-                      size: Size(92.0, 34.0),
-                      child: Text(
-                        'Trekking',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(102.0, 79.0, 78.0, 34.0),
-                size: Size(399.0, 113.0),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Sports tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 78.0, 34.0),
-                      size: Size(78.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 61.0, 20.0),
+                          size: Size(85.0, 34.0),
+                          child: Text(
+                            'Debate',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
                             ),
-                          ],
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 54.0, 20.0),
-                      size: Size(78.0, 34.0),
-                      child: Text(
-                        'Sports',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(190.0, 79.0, 74.0, 34.0),
-                size: Size(399.0, 113.0),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Music tag' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 74.0, 34.0),
-                      size: Size(74.0, 34.0),
-                      child:
-                          // Adobe XD layer: 'Tag box' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(274.0, 79.0, 99.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    pinRight: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Seminars tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 99.0, 34.0),
+                          size: Size(99.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 7.0, 50.0, 20.0),
-                      size: Size(74.0, 34.0),
-                      child: Text(
-                        'Music',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 75.0, 20.0),
+                          size: Size(99.0, 34.0),
+                          child: Text(
+                            'Seminars',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                        textAlign: TextAlign.left,
-                      ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 79.0, 92.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    pinLeft: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Trekking Tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 92.0, 34.0),
+                          size: Size(92.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 66.0, 20.0),
+                          size: Size(92.0, 34.0),
+                          child: Text(
+                            'Trekking',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(102.0, 79.0, 78.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Sports tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 78.0, 34.0),
+                          size: Size(78.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 54.0, 20.0),
+                          size: Size(78.0, 34.0),
+                          child: Text(
+                            'Sports',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(190.0, 79.0, 74.0, 34.0),
+                    size: Size(399.0, 113.0),
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Music tag' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 74.0, 34.0),
+                          size: Size(74.0, 34.0),
+                          child:
+                              // Adobe XD layer: 'Tag box' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 7.0, 50.0, 20.0),
+                          size: Size(74.0, 34.0),
+                          child: Text(
+                            'Music',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 25,
             top: 366,
             child: SizedBox(
-                width: 330.0,
-                height: 210.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 152.0, 25.0),
-                size: Size(330.0, 210.0),
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Preferred Time',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20,
-                    color: const Color(0xff404040),
-                    fontWeight: FontWeight.w500,
+              width: 330.0,
+              height: 210.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 152.0, 25.0),
+                    size: Size(330.0, 210.0),
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child: Text(
+                      'Preferred Time',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 20,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 35.0, 330.0, 40.0),
-                size: Size(330.0, 210.0),
-                pinLeft: true,
-                pinRight: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Morning' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 11.0, 20.0, 19.2),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Cloud icon' (group)
-                          Stack(
-                        children: <Widget>[
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 8.9, 15.1, 10.4),
-                            size: Size(20.0, 19.2),
-                            child: SvgPicture.string(
-                              _svg_5k2qjp,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(6.3, 4.1, 13.7, 10.7),
-                            size: Size(20.0, 19.2),
-                            child: SvgPicture.string(
-                              _svg_8wfb7x,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(9.5, 0.0, 1.3, 2.8),
-                            size: Size(20.0, 19.2),
-                            child: SvgPicture.string(
-                              _svg_j3vz3q,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(2.1, 7.4, 2.8, 1.3),
-                            size: Size(20.0, 19.2),
-                            child: SvgPicture.string(
-                              _svg_4z4jwi,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(13.7, 2.1, 2.3, 2.3),
-                            size: Size(20.0, 19.2),
-                            child: SvgPicture.string(
-                              _svg_1qbi84,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(4.3, 2.1, 2.3, 2.3),
-                            size: Size(20.0, 19.2),
-                            child: SvgPicture.string(
-                              _svg_s6n209,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(32.0, 23.0, 132.0, 17.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinBottom: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '00:00 AM - 11:59 AM',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 13,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                          height: 1.1666666666666667,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(32.0, 0.0, 76.0, 23.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinTop: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'Morning',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 17,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(310.0, 10.0, 20.0, 20.0),
-                      size: Size(330.0, 40.0),
-                      pinRight: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Tick circle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          gradient: LinearGradient(
-                            begin: Alignment(-0.97, -0.82),
-                            end: Alignment(0.97, 0.79),
-                            colors: [
-                              const Color(0xfffe4f70),
-                              const Color(0xffcb6bd8)
-                            ],
-                            stops: [0.0, 1.0],
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(315.0, 17.0, 10.3, 6.8),
-                      size: Size(330.0, 40.0),
-                      child:
-                          // Adobe XD layer: 'Selected circle' (group)
-                          Stack(
-                        children: <Widget>[
-                          SvgPicture.string(
-                            _svg_dko6b1,
-                            allowDrawingOutsideViewBox: true,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 80.0, 330.0, 40.0),
-                size: Size(330.0, 210.0),
-                pinLeft: true,
-                pinRight: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Afternoon' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 12.0, 20.0, 20.0),
-                      size: Size(330.0, 40.0),
-                      child:
-                          // Adobe XD layer: 'Sunny icon' (shape)
-                          SvgPicture.string(
-                        _svg_nahds6,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(31.0, 23.0, 132.0, 17.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinBottom: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '12:00 PM - 03:59 PM',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 13,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                          height: 1.1666666666666667,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(32.0, 0.0, 88.0, 23.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinTop: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'Afternoon',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 17,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(310.0, 12.0, 20.0, 20.0),
-                      size: Size(330.0, 40.0),
-                      pinRight: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Tick circle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x1a000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 125.0, 330.0, 40.0),
-                size: Size(330.0, 210.0),
-                pinLeft: true,
-                pinRight: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Evening' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 11.0, 20.0, 18.6),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Evening icon' (group)
-                          Stack(
-                        children: <Widget>[
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(12.1, 3.1, 4.9, 4.7),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_w13sqh,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(13.4, 0.0, 1.2, 2.3),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_qr3gax,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(17.7, 5.4, 2.3, 1.2),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_nf7fvw,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(16.4, 1.6, 2.0, 2.0),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_4couuz,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(16.4, 8.5, 2.0, 2.0),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_8uxxuf,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(9.5, 1.6, 2.0, 2.0),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_rf6x39,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 8.6, 11.1, 4.5),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_ihtpka,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 14.1, 8.3, 4.5),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_329wgx,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(3.1, 4.2, 12.7, 8.8),
-                            size: Size(20.0, 18.6),
-                            child: SvgPicture.string(
-                              _svg_fde8v2,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(33.0, 23.0, 126.0, 17.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinBottom: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '04:00 PM - 06:59 PM',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 13,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                          height: 1.1666666666666667,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(32.0, 0.0, 72.0, 23.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinTop: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'Evening',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 17,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(310.0, 10.0, 20.0, 20.0),
-                      size: Size(330.0, 40.0),
-                      pinRight: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Tick circle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x1a000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 170.0, 330.0, 40.0),
-                size: Size(330.0, 210.0),
-                pinLeft: true,
-                pinRight: true,
-                pinBottom: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Night' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 10.0, 20.0, 19.4),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Moon icon' (group)
-                          Stack(
-                        children: <Widget>[
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(2.8, 0.0, 16.2, 16.2),
-                            size: Size(20.0, 19.4),
-                            child: SvgPicture.string(
-                              _svg_sa4y9,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(9.8, 0.7, 10.2, 5.9),
-                            size: Size(20.0, 19.4),
-                            child: SvgPicture.string(
-                              _svg_42wufd,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 14.6, 8.3, 4.9),
-                            size: Size(20.0, 19.4),
-                            child: SvgPicture.string(
-                              _svg_sgdtsw,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(1.5, 0.7, 2.1, 2.1),
-                            size: Size(20.0, 19.4),
-                            child: SvgPicture.string(
-                              _svg_ugkkv4,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.9, 10.4, 1.3, 1.3),
-                            size: Size(20.0, 19.4),
-                            child: SvgPicture.string(
-                              _svg_f6fu34,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(16.4, 15.0, 1.3, 1.3),
-                            size: Size(20.0, 19.4),
-                            child: SvgPicture.string(
-                              _svg_scoudi,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(14.9, 7.8, 1.3, 1.3),
-                            size: Size(20.0, 19.4),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
-                                    Radius.elliptical(9999.0, 9999.0)),
-                                gradient: LinearGradient(
-                                  begin: Alignment(-0.97, -0.82),
-                                  end: Alignment(0.97, 0.79),
-                                  colors: [
-                                    const Color(0xfffe4f70),
-                                    const Color(0xffcb6bd8)
-                                  ],
-                                  stops: [0.0, 1.0],
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 35.0, 330.0, 40.0),
+                    size: Size(330.0, 210.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Morning' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 11.0, 20.0, 19.2),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Cloud icon' (group)
+                              Stack(
+                            children: <Widget>[
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 8.9, 15.1, 10.4),
+                                size: Size(20.0, 19.2),
+                                child: SvgPicture.string(
+                                  _svg_5k2qjp,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(6.3, 4.1, 13.7, 10.7),
+                                size: Size(20.0, 19.2),
+                                child: SvgPicture.string(
+                                  _svg_8wfb7x,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(9.5, 0.0, 1.3, 2.8),
+                                size: Size(20.0, 19.2),
+                                child: SvgPicture.string(
+                                  _svg_j3vz3q,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(2.1, 7.4, 2.8, 1.3),
+                                size: Size(20.0, 19.2),
+                                child: SvgPicture.string(
+                                  _svg_4z4jwi,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(13.7, 2.1, 2.3, 2.3),
+                                size: Size(20.0, 19.2),
+                                child: SvgPicture.string(
+                                  _svg_1qbi84,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(4.3, 2.1, 2.3, 2.3),
+                                size: Size(20.0, 19.2),
+                                child: SvgPicture.string(
+                                  _svg_s6n209,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(32.0, 23.0, 132.0, 17.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinBottom: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '00:00 AM - 11:59 AM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(32.0, 0.0, 76.0, 23.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinTop: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'Morning',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(310.0, 10.0, 20.0, 20.0),
+                          size: Size(330.0, 40.0),
+                          pinRight: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Tick circle' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                  Radius.elliptical(9999.0, 9999.0)),
+                              gradient: LinearGradient(
+                                begin: Alignment(-0.97, -0.82),
+                                end: Alignment(0.97, 0.79),
+                                colors: [
+                                  const Color(0xfffe4f70),
+                                  const Color(0xffcb6bd8)
+                                ],
+                                stops: [0.0, 1.0],
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x29000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
                             ),
                           ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(10.3, 17.0, 1.3, 1.3),
-                            size: Size(20.0, 19.4),
-                            child: SvgPicture.string(
-                              _svg_tydvu3,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(315.0, 17.0, 10.3, 6.8),
+                          size: Size(330.0, 40.0),
+                          child:
+                              // Adobe XD layer: 'Selected circle' (group)
+                              Stack(
+                            children: <Widget>[
+                              SvgPicture.string(
+                                _svg_dko6b1,
+                                allowDrawingOutsideViewBox: true,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 80.0, 330.0, 40.0),
+                    size: Size(330.0, 210.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Afternoon' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 12.0, 20.0, 20.0),
+                          size: Size(330.0, 40.0),
+                          child:
+                              // Adobe XD layer: 'Sunny icon' (shape)
+                              SvgPicture.string(
+                            _svg_nahds6,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(31.0, 23.0, 132.0, 17.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinBottom: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '12:00 PM - 03:59 PM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(32.0, 0.0, 88.0, 23.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinTop: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'Afternoon',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(310.0, 12.0, 20.0, 20.0),
+                          size: Size(330.0, 40.0),
+                          pinRight: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Tick circle' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                  Radius.elliptical(9999.0, 9999.0)),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x1a000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(27.0, 23.0, 138.0, 17.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinBottom: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '07:00 PM - 11:59 PM',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 13,
-                          color: const Color(0xff9d9d9d),
-                          fontWeight: FontWeight.w300,
-                          height: 1.1666666666666667,
                         ),
-                        textAlign: TextAlign.center,
-                      ),
+                      ],
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(32.0, 0.0, 52.0, 23.0),
-                      size: Size(330.0, 40.0),
-                      pinLeft: true,
-                      pinTop: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'Night',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 17,
-                          color: const Color(0xff404040),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 125.0, 330.0, 40.0),
+                    size: Size(330.0, 210.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Evening' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 11.0, 20.0, 18.6),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Evening icon' (group)
+                              Stack(
+                            children: <Widget>[
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(12.1, 3.1, 4.9, 4.7),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_w13sqh,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(13.4, 0.0, 1.2, 2.3),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_qr3gax,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(17.7, 5.4, 2.3, 1.2),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_nf7fvw,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(16.4, 1.6, 2.0, 2.0),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_4couuz,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(16.4, 8.5, 2.0, 2.0),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_8uxxuf,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(9.5, 1.6, 2.0, 2.0),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_rf6x39,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 8.6, 11.1, 4.5),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_ihtpka,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 14.1, 8.3, 4.5),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_329wgx,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(3.1, 4.2, 12.7, 8.8),
+                                size: Size(20.0, 18.6),
+                                child: SvgPicture.string(
+                                  _svg_fde8v2,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(310.0, 10.0, 20.0, 20.0),
-                      size: Size(330.0, 40.0),
-                      pinRight: true,
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Tick circle' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                              Radius.elliptical(9999.0, 9999.0)),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x1a000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(33.0, 23.0, 126.0, 17.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinBottom: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '04:00 PM - 06:59 PM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
                             ),
-                          ],
+                            textAlign: TextAlign.center,
+                          ),
                         ),
-                      ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(32.0, 0.0, 72.0, 23.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinTop: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'Evening',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(310.0, 10.0, 20.0, 20.0),
+                          size: Size(330.0, 40.0),
+                          pinRight: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Tick circle' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                  Radius.elliptical(9999.0, 9999.0)),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x1a000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 170.0, 330.0, 40.0),
+                    size: Size(330.0, 210.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinBottom: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Night' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 10.0, 20.0, 19.4),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Moon icon' (group)
+                              Stack(
+                            children: <Widget>[
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(2.8, 0.0, 16.2, 16.2),
+                                size: Size(20.0, 19.4),
+                                child: SvgPicture.string(
+                                  _svg_sa4y9,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(9.8, 0.7, 10.2, 5.9),
+                                size: Size(20.0, 19.4),
+                                child: SvgPicture.string(
+                                  _svg_42wufd,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 14.6, 8.3, 4.9),
+                                size: Size(20.0, 19.4),
+                                child: SvgPicture.string(
+                                  _svg_sgdtsw,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(1.5, 0.7, 2.1, 2.1),
+                                size: Size(20.0, 19.4),
+                                child: SvgPicture.string(
+                                  _svg_ugkkv4,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.9, 10.4, 1.3, 1.3),
+                                size: Size(20.0, 19.4),
+                                child: SvgPicture.string(
+                                  _svg_f6fu34,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(16.4, 15.0, 1.3, 1.3),
+                                size: Size(20.0, 19.4),
+                                child: SvgPicture.string(
+                                  _svg_scoudi,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(14.9, 7.8, 1.3, 1.3),
+                                size: Size(20.0, 19.4),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.elliptical(9999.0, 9999.0)),
+                                    gradient: LinearGradient(
+                                      begin: Alignment(-0.97, -0.82),
+                                      end: Alignment(0.97, 0.79),
+                                      colors: [
+                                        const Color(0xfffe4f70),
+                                        const Color(0xffcb6bd8)
+                                      ],
+                                      stops: [0.0, 1.0],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(10.3, 17.0, 1.3, 1.3),
+                                size: Size(20.0, 19.4),
+                                child: SvgPicture.string(
+                                  _svg_tydvu3,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(27.0, 23.0, 138.0, 17.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinBottom: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '07:00 PM - 11:59 PM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(32.0, 0.0, 52.0, 23.0),
+                          size: Size(330.0, 40.0),
+                          pinLeft: true,
+                          pinTop: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'Night',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(310.0, 10.0, 20.0, 20.0),
+                          size: Size(330.0, 40.0),
+                          pinRight: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Tick circle' (shape)
+                              Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                  Radius.elliptical(9999.0, 9999.0)),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x1a000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 25,
             top: 258,
             child: SizedBox(
-                width: 383.0,
-                height: 88.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 150.0, 25.0),
-                size: Size(382.6, 87.6),
-                fixedWidth: true,
-                fixedHeight: true,
-                child: Text(
-                  'Preferred Date',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20,
-                    color: const Color(0xff404040),
-                    fontWeight: FontWeight.w500,
+              width: 383.0,
+              height: 88.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 150.0, 25.0),
+                    size: Size(382.6, 87.6),
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child: Text(
+                      'Preferred Date',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 20,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 35.0, 52.6, 52.6),
-                size: Size(382.6, 87.6),
-                pinLeft: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Date-1' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
-                      size: Size(52.6, 52.6),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Selector' (shape)
-                          SvgPicture.string(
-                        _svg_gocf2o,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(16.0, 8.0, 20.0, 35.8),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child:
-                          // Adobe XD layer: 'Selected Date' (group)
-                          Stack(
-                        children: <Widget>[
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 18.8, 22.0, 17.0),
-                            size: Size(20.0, 35.8),
-                            pinLeft: true,
-                            pinRight: true,
-                            pinBottom: true,
-                            fixedHeight: true,
-                            child: Text(
-                              'TUE',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 12,
-                                color: const Color(0xffffffff),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 35.0, 52.6, 52.6),
+                    size: Size(382.6, 87.6),
+                    pinLeft: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Date-1' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
+                          size: Size(52.6, 52.6),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Selector' (shape)
+                              SvgPicture.string(
+                            _svg_gocf2o,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
                           ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(1.3, 0.0, 19.0, 23.0),
-                            size: Size(20.0, 35.8),
-                            pinRight: true,
-                            pinTop: true,
-                            fixedWidth: true,
-                            fixedHeight: true,
-                            child: Text(
-                              '12',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w500,
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(16.0, 8.0, 20.0, 35.8),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Selected Date' (group)
+                              Stack(
+                            children: <Widget>[
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 18.8, 22.0, 17.0),
+                                size: Size(20.0, 35.8),
+                                pinLeft: true,
+                                pinRight: true,
+                                pinBottom: true,
+                                fixedHeight: true,
+                                child: Text(
+                                  'TUE',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                    color: const Color(0xffffffff),
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
-                              textAlign: TextAlign.center,
-                            ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(1.3, 0.0, 19.0, 23.0),
+                                size: Size(20.0, 35.8),
+                                pinRight: true,
+                                pinTop: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
+                                child: Text(
+                                  '12',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 16,
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(66.0, 35.0, 52.6, 52.6),
+                    size: Size(382.6, 87.6),
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Date-2' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
+                          size: Size(52.6, 52.6),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Selector' (shape)
+                              SvgPicture.string(
+                            _svg_bj0p7m,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(13.0, 26.8, 26.0, 17.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'WED',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 12,
+                              color: const Color(0xff404040),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 8.0, 18.0, 23.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '13',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(132.0, 35.0, 52.6, 52.6),
+                    size: Size(382.6, 87.6),
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Date-3' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
+                          size: Size(52.6, 52.6),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Selector' (shape)
+                              SvgPicture.string(
+                            _svg_bj0p7m,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(15.0, 26.8, 24.0, 17.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'THU',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 12,
+                              color: const Color(0xff404040),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(18.0, 8.0, 18.0, 23.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '14',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(198.0, 35.0, 52.6, 52.6),
+                    size: Size(382.6, 87.6),
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Date-4' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
+                          size: Size(52.6, 52.6),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Selector' (shape)
+                              SvgPicture.string(
+                            _svg_bj0p7m,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(18.0, 26.8, 18.0, 17.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'FRI',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 12,
+                              color: const Color(0xff404040),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(16.0, 8.0, 18.0, 23.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '15',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(264.0, 35.0, 52.6, 52.6),
+                    size: Size(382.6, 87.6),
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Date-5' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
+                          size: Size(52.6, 52.6),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Selector' (shape)
+                              SvgPicture.string(
+                            _svg_bj0p7m,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(16.0, 26.8, 22.0, 17.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'SAT',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 12,
+                              color: const Color(0xff404040),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(16.0, 8.0, 18.0, 23.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '16',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(330.0, 35.0, 52.6, 52.6),
+                    size: Size(382.6, 87.6),
+                    pinRight: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Date-6' (group)
+                        Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
+                          size: Size(52.6, 52.6),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Selector' (shape)
+                              SvgPicture.string(
+                            _svg_bj0p7m,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(14.0, 26.8, 24.0, 17.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            'SUN',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 12,
+                              color: const Color(0xff404040),
+                              fontWeight: FontWeight.w300,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(17.0, 8.0, 18.0, 23.0),
+                          size: Size(52.6, 52.6),
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child: Text(
+                            '17',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(66.0, 35.0, 52.6, 52.6),
-                size: Size(382.6, 87.6),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Date-2' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
-                      size: Size(52.6, 52.6),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Selector' (shape)
-                          SvgPicture.string(
-                        _svg_bj0p7m,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(13.0, 26.8, 26.0, 17.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'WED',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12,
-                          color: const Color(0xff404040),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 8.0, 18.0, 23.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '13',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(132.0, 35.0, 52.6, 52.6),
-                size: Size(382.6, 87.6),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Date-3' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
-                      size: Size(52.6, 52.6),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Selector' (shape)
-                          SvgPicture.string(
-                        _svg_bj0p7m,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(15.0, 26.8, 24.0, 17.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'THU',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12,
-                          color: const Color(0xff404040),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(18.0, 8.0, 18.0, 23.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '14',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(198.0, 35.0, 52.6, 52.6),
-                size: Size(382.6, 87.6),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Date-4' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
-                      size: Size(52.6, 52.6),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Selector' (shape)
-                          SvgPicture.string(
-                        _svg_bj0p7m,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(18.0, 26.8, 18.0, 17.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'FRI',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12,
-                          color: const Color(0xff404040),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(16.0, 8.0, 18.0, 23.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '15',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(264.0, 35.0, 52.6, 52.6),
-                size: Size(382.6, 87.6),
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Date-5' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
-                      size: Size(52.6, 52.6),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Selector' (shape)
-                          SvgPicture.string(
-                        _svg_bj0p7m,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(16.0, 26.8, 22.0, 17.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'SAT',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12,
-                          color: const Color(0xff404040),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(16.0, 8.0, 18.0, 23.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '16',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(330.0, 35.0, 52.6, 52.6),
-                size: Size(382.6, 87.6),
-                pinRight: true,
-                pinBottom: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Date-6' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 52.6, 52.6),
-                      size: Size(52.6, 52.6),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child:
-                          // Adobe XD layer: 'Selector' (shape)
-                          SvgPicture.string(
-                        _svg_bj0p7m,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(14.0, 26.8, 24.0, 17.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'SUN',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12,
-                          color: const Color(0xff404040),
-                          fontWeight: FontWeight.w300,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(17.0, 8.0, 18.0, 23.0),
-                      size: Size(52.6, 52.6),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        '17',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          color: const Color(0xff404040),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 25,
             top: 190,
             child: SizedBox(
-                width: 363.0,
-                height: 48.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 333.0, 48.0),
-                size: Size(333.0, 48.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Dropdown' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24.0),
-                    color: const Color(0x1a9d9d9d),
+              width: 363.0,
+              height: 48.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 333.0, 48.0),
+                    size: Size(333.0, 48.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                        // Adobe XD layer: 'Dropdown' (shape)
+                        Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24.0),
+                        color: const Color(0x1a9d9d9d),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(330.0, 21.0, -18.4, 6.1),
-                size: Size(333.0, 48.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Dropdown Arrow' (shape)
-                    SvgPicture.string(
-                  _svg_2a2k3i,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(19.0, 14.0, 105.0, 20.0),
-                size: Size(333.0, 48.0),
-                pinLeft: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Query Placeholder' (text)
-                    Text(
-                  'Select Clubs',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    color: const Color(0xffb6b6b6),
-                    fontWeight: FontWeight.w300,
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(330.0, 21.0, -18.4, 6.1),
+                    size: Size(333.0, 48.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                        // Adobe XD layer: 'Dropdown Arrow' (shape)
+                        SvgPicture.string(
+                      _svg_2a2k3i,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                  textAlign: TextAlign.left,
-                ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(19.0, 14.0, 105.0, 20.0),
+                    size: Size(333.0, 48.0),
+                    pinLeft: true,
+                    fixedWidth: true,
+                    fixedHeight: true,
+                    child:
+                        // Adobe XD layer: 'Query Placeholder' (text)
+                        Text(
+                      'Select Clubs',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: const Color(0xffb6b6b6),
+                        fontWeight: FontWeight.w300,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 25,
@@ -1700,35 +1700,36 @@ class Filters extends StatelessWidget {
             left: 173,
             top: 39,
             child: Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Sync Logo.png'),
-              fit: BoxFit.fill,
-              colorFilter: new ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.dstIn),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0x45000000),
-                offset: Offset(0, 3),
-                blurRadius: 80,
-              ),
-            ],
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x45000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 80,
+                  ),
+                ],
               ),
+            ),
           ),
           Positioned(
             left: 0,
             top: 35,
-            child: FlatButton(
-              onPressed: () async{
-                dynamic result = await Navigator.pushNamed(context, '/EventsPage');
+            child: GestureDetector(
+              onTap: () async {
+                dynamic result =
+                    await Navigator.pushNamed(context, '/EventsPage');
               },
               child: SvgPicture.string(
-              _svg_ah28f4,
-              allowDrawingOutsideViewBox: true,
+                _svg_ah28f4,
+                allowDrawingOutsideViewBox: true,
               ),
             ),
           ),

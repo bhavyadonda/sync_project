@@ -30,7 +30,7 @@ import 'package:sync_project/opening_screen.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/PrivacyPolicy',
+    initialRoute: '/OpeningScreen',
     routes: {
       '/AboutUs': (context) => AboutUs(),
       '/Categories': (context) => Categories(),

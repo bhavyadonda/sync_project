@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import './EventsPage.dart';
+import './Calender.dart';
 import 'package:adobe_xd/page_link.dart';
 import './ProfilePage.dart';
 // import './EventDetails2.dart';
@@ -425,15 +425,10 @@ class _HomePageState extends State<HomePage> {
               fixedHeight: true,
               child:
                   // Adobe XD layer: 'Calendar Button' (group)
-                  PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                    pageBuilder: () => EventsPage(),
-                  ),
-                ],
+                  GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/Calender');
+                },
                 child: Stack(
                   children: <Widget>[
                     Pinned.fromSize(
