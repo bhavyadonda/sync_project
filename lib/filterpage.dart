@@ -468,6 +468,7 @@ class _FilterPageState extends State<FilterPage> {
                 prefs.setString('date', _selecteddate.toString());
                 prefs.setString('club', _selectedClub);
                 prefs.setString('categories', categories.toString());
+                prefs.setBool('filter_applied', true);
                 Navigator.of(context).pushNamed('/Calender');
               })
           //paste code here

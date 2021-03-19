@@ -23,6 +23,19 @@ class _CalenderState extends State<Calender> {
   CalendarController _controller;
   DateTime dateSelected = DateTime(2021, 1, 1);
   List items = [];
+  bool filter = false;
+  bool morning = false;
+  bool afternoon = false;
+  bool evening = false;
+  bool night = false;
+  String _selecteddate;
+  Map<String, bool> categories = {
+    'P': false,
+    'Q': false,
+    'R': false,
+    'S': false
+  };
+  String _selectedClub;
 
   @override
   void initState() {
@@ -31,18 +44,26 @@ class _CalenderState extends State<Calender> {
     getdata();
   }
 
-  getdata() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map data = json.decode(prefs.getString('data'));
-    return data;
-  }
-
   String convertDateTimeDisplay(String date) {
     final DateFormat displayFormater = DateFormat('yyyy-MM-dd HH:mm:ss.SSS');
     final DateFormat serverFormater = DateFormat('yyyy-MM-dd');
     final DateTime displayDate = displayFormater.parse(date);
     final String formatted = serverFormater.format(displayDate);
     return formatted;
+  }
+
+  getdata() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      filter = prefs.getBool('filter_applied');
+      morning = prefs.getBool('morning');
+      afternoon = prefs.getBool('afternoon');
+      evening = prefs.getBool('evening');
+      night = prefs.getBool('night');
+      _selecteddate = convertDateTimeDisplay(prefs.getString('date'));
+    });
+    Map data = json.decode(prefs.getString('data'));
+    return data;
   }
 
   @override
@@ -147,217 +168,210 @@ class _CalenderState extends State<Calender> {
                 builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.hasData) {
                     Map<dynamic, dynamic> values = snapshot.data;
-                    // for (var i = 0; i < values.length; i++) {
-                    // if (values.values.toList()[i]['event_start_date'] ==
-                    //     convertDateTimeDisplay(
-                    //         dateSelected.toLocal().toString())) {
-                    //     items.add(values.values.toList()[i]);
-                    //   }
-                    // }
-                    // print(items);
                     return new ListView.builder(
                         itemCount: values.length,
                         itemBuilder: (BuildContext context, int index) {
-                          // print(values.values.toList()[index]
-                          //     ['event_start_date']);
-                          // print(convertDateTimeDisplay(
-                          //     dateSelected.toLocal().toString()));
-                          if (values.values.toList()[index]
-                                  ['event_start_date'] ==
-                              convertDateTimeDisplay(
-                                  dateSelected.toLocal().toString())) {
-                            // print(123);
-                            return Padding(
-                              padding: const EdgeInsets.fromLTRB(30, 0, 30, 20),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 0,
-                                  ),
-                                  SizedBox(
-                                    width: 349.0,
-                                    height: 76.0,
-                                    child: Stack(
-                                      children: <Widget>[
-                                        Pinned.fromSize(
-                                          bounds: Rect.fromLTWH(
-                                              11.0, 0.0, 338.0, 67.2),
-                                          size: Size(349.0, 76.0),
-                                          pinLeft: true,
-                                          pinRight: true,
-                                          pinTop: true,
-                                          pinBottom: true,
-                                          child:
-                                              // Adobe XD layer: 'Fest Background' (group)
-                                              Stack(
-                                            children: <Widget>[
-                                              Pinned.fromSize(
-                                                bounds: Rect.fromLTWH(
-                                                    0.0, 0.0, 338.0, 67.2),
-                                                size: Size(338.0, 67.2),
-                                                pinLeft: true,
-                                                pinRight: true,
-                                                pinTop: true,
-                                                pinBottom: true,
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      image: AssetImage(
-                                                          'assets/Background Image1.png'),
+                          if (filter == true) {
+                          } else {
+                            if (values.values.toList()[index]
+                                    ['event_start_date'] ==
+                                convertDateTimeDisplay(
+                                    dateSelected.toLocal().toString())) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(30, 0, 30, 20),
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 0,
+                                    ),
+                                    SizedBox(
+                                      width: 349.0,
+                                      height: 76.0,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                11.0, 0.0, 338.0, 67.2),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            pinRight: true,
+                                            pinTop: true,
+                                            pinBottom: true,
+                                            child:
+                                                // Adobe XD layer: 'Fest Background' (group)
+                                                Stack(
+                                              children: <Widget>[
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      0.0, 0.0, 338.0, 67.2),
+                                                  size: Size(338.0, 67.2),
+                                                  pinLeft: true,
+                                                  pinRight: true,
+                                                  pinTop: true,
+                                                  pinBottom: true,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        image: AssetImage(
+                                                            'assets/Background Image1.png'),
+                                                        fit: BoxFit.fill,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      304.0, 25.0, 18.0, 18.0),
+                                                  size: Size(338.0, 67.2),
+                                                  child:
+                                                      // Adobe XD layer: 'Next Button' (shape)
+                                                      GestureDetector(
+                                                    onTap: () async {
+                                                      SharedPreferences prefs =
+                                                          await SharedPreferences
+                                                              .getInstance();
+                                                      prefs.setString(
+                                                          'eventId',
+                                                          values.keys
+                                                              .toList()[index]);
+                                                      if (values.values
+                                                                      .toList()[
+                                                                  index]
+                                                              ['subEvents'] !=
+                                                          null) {
+                                                        Navigator.of(context)
+                                                            .pushNamed(
+                                                                '/Events');
+                                                      } else {
+                                                        Navigator.of(context)
+                                                            .pushNamed(
+                                                                '/EventDetails2');
+                                                      }
+                                                    },
+                                                    child: SvgPicture.string(
+                                                      _svg_rbwtgt,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
                                                       fit: BoxFit.fill,
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              Pinned.fromSize(
-                                                bounds: Rect.fromLTWH(
-                                                    304.0, 25.0, 18.0, 18.0),
-                                                size: Size(338.0, 67.2),
-                                                child:
-                                                    // Adobe XD layer: 'Next Button' (shape)
-                                                    GestureDetector(
-                                                  onTap: () async {
-                                                    SharedPreferences prefs =
-                                                        await SharedPreferences
-                                                            .getInstance();
-                                                    prefs.setString(
-                                                        'eventId',
-                                                        values.keys
-                                                            .toList()[index]);
-                                                    if (values.values
-                                                                .toList()[index]
-                                                            ['subEvents'] !=
-                                                        null) {
-                                                      Navigator.of(context)
-                                                          .pushNamed('/Events');
-                                                    } else {
-                                                      Navigator.of(context)
-                                                          .pushNamed(
-                                                              '/EventDetails2');
-                                                    }
-                                                  },
-                                                  child: SvgPicture.string(
-                                                    _svg_rbwtgt,
+                                              ],
+                                            ),
+                                          ),
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                0.0, 16.0, 242.0, 60.0),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            pinBottom: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child:
+                                                // Adobe XD layer: 'Gradient Background' (shape)
+                                                SvgPicture.string(
+                                              _svg_7u199j,
+                                              allowDrawingOutsideViewBox: true,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                177.5, 20.0, 67.5, 53.0),
+                                            size: Size(349.0, 76.0),
+                                            pinBottom: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child:
+                                                // Adobe XD layer: 'Logo' (group)
+                                                Stack(
+                                              children: <Widget>[
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      0.0, 14.0, 67.5, 24.0),
+                                                  size: Size(67.5, 53.0),
+                                                  pinLeft: true,
+                                                  pinRight: true,
+                                                  fixedHeight: true,
+                                                  child:
+                                                      // Adobe XD layer: 'Logo Background' (shape)
+                                                      SvgPicture.string(
+                                                    _svg_e0lvmc,
                                                     allowDrawingOutsideViewBox:
                                                         true,
                                                     fit: BoxFit.fill,
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Pinned.fromSize(
-                                          bounds: Rect.fromLTWH(
-                                              0.0, 16.0, 242.0, 60.0),
-                                          size: Size(349.0, 76.0),
-                                          pinLeft: true,
-                                          pinBottom: true,
-                                          fixedWidth: true,
-                                          fixedHeight: true,
-                                          child:
-                                              // Adobe XD layer: 'Gradient Background' (shape)
-                                              SvgPicture.string(
-                                            _svg_7u199j,
-                                            allowDrawingOutsideViewBox: true,
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                        Pinned.fromSize(
-                                          bounds: Rect.fromLTWH(
-                                              177.5, 20.0, 67.5, 53.0),
-                                          size: Size(349.0, 76.0),
-                                          pinBottom: true,
-                                          fixedWidth: true,
-                                          fixedHeight: true,
-                                          child:
-                                              // Adobe XD layer: 'Logo' (group)
-                                              Stack(
-                                            children: <Widget>[
-                                              Pinned.fromSize(
-                                                bounds: Rect.fromLTWH(
-                                                    0.0, 14.0, 67.5, 24.0),
-                                                size: Size(67.5, 53.0),
-                                                pinLeft: true,
-                                                pinRight: true,
-                                                fixedHeight: true,
-                                                child:
-                                                    // Adobe XD layer: 'Logo Background' (shape)
-                                                    SvgPicture.string(
-                                                  _svg_e0lvmc,
-                                                  allowDrawingOutsideViewBox:
-                                                      true,
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                              Pinned.fromSize(
-                                                bounds: Rect.fromLTWH(
-                                                    1.5, 0.0, 64.0, 53.0),
-                                                size: Size(67.5, 53.0),
-                                                pinLeft: true,
-                                                pinRight: true,
-                                                pinTop: true,
-                                                pinBottom: true,
-                                                child:
-                                                    // Adobe XD layer: 'Club Logo' (shape)
-                                                    Container(
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      image: const AssetImage(
-                                                          'assets/Montage Logo1.png'),
-                                                      fit: BoxFit.fill,
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      1.5, 0.0, 64.0, 53.0),
+                                                  size: Size(67.5, 53.0),
+                                                  pinLeft: true,
+                                                  pinRight: true,
+                                                  pinTop: true,
+                                                  pinBottom: true,
+                                                  child:
+                                                      // Adobe XD layer: 'Club Logo' (shape)
+                                                      Container(
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        image: const AssetImage(
+                                                            'assets/Montage Logo1.png'),
+                                                        fit: BoxFit.fill,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
+                                              ],
+                                            ),
+                                          ),
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                11.0, 50.0, 190.0, 15.0),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child: Text(
+                                              values.values.toList()[index]
+                                                  ['event_start_date'],
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 13,
+                                                color: const Color(0xffffffff),
                                               ),
-                                            ],
-                                          ),
-                                        ),
-                                        Pinned.fromSize(
-                                          bounds: Rect.fromLTWH(
-                                              11.0, 50.0, 190.0, 15.0),
-                                          size: Size(349.0, 76.0),
-                                          pinLeft: true,
-                                          fixedWidth: true,
-                                          fixedHeight: true,
-                                          child: Text(
-                                            values.values.toList()[index]
-                                                ['event_start_date'],
-                                            style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 13,
-                                              color: const Color(0xffffffff),
+                                              textAlign: TextAlign.left,
                                             ),
-                                            textAlign: TextAlign.left,
                                           ),
-                                        ),
-                                        Pinned.fromSize(
-                                          bounds: Rect.fromLTWH(
-                                              11.0, 25.0, 159.0, 21.0),
-                                          size: Size(349.0, 76.0),
-                                          pinLeft: true,
-                                          fixedWidth: true,
-                                          fixedHeight: true,
-                                          child: Text(
-                                            values.values.toList()[index]
-                                                ['event_name'],
-                                            style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 18,
-                                              color: const Color(0xffffffff),
-                                              fontWeight: FontWeight.w700,
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                11.0, 25.0, 159.0, 21.0),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child: Text(
+                                              values.values.toList()[index]
+                                                  ['event_name'],
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 18,
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                              textAlign: TextAlign.left,
                                             ),
-                                            textAlign: TextAlign.left,
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          } else {
-                            return SizedBox();
+                                  ],
+                                ),
+                              );
+                            } else {
+                              return SizedBox();
+                            }
                           }
                         });
                   }
