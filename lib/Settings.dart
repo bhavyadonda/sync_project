@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import './SignIn.dart';
 import './PrivacyPolicy.dart';
 import 'package:adobe_xd/page_link.dart';
@@ -98,20 +100,34 @@ class Settings extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(23.0, 9.0, 69.0, 25.0),
-                      size: Size(349.0, 45.0),
-                      fixedWidth: true,
-                      fixedHeight: true,
-                      child: Text(
-                        'Log Out',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                          color: const Color(0xbfff0000),
-                          fontWeight: FontWeight.w500,
+                    GestureDetector(
+                      onTap: () async {
+                        try {
+                          await FirebaseAuth.instance.signOut();
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          prefs.setBool('my_bool_key', false);
+                          Navigator.of(context).pushReplacementNamed('/SignIn');
+                        } catch (e) {
+                          print(e);
+                          print('there was some error logging you out');
+                        }
+                      },
+                      child: Pinned.fromSize(
+                        bounds: Rect.fromLTWH(23.0, 9.0, 69.0, 25.0),
+                        size: Size(349.0, 45.0),
+                        fixedWidth: true,
+                        fixedHeight: true,
+                        child: Text(
+                          'Log Out',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 18,
+                            color: const Color(0xbfff0000),
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.left,
                         ),
-                        textAlign: TextAlign.left,
                       ),
                     ),
                   ],

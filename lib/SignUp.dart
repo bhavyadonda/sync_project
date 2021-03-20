@@ -107,7 +107,10 @@ class _RegisterViewState extends State<SignUp> {
                                 gradient: LinearGradient(
                                   begin: Alignment(0.0, -1.0),
                                   end: Alignment(0.0, 1.0),
-                                  colors: [const Color(0xfffe4f70), const Color(0xffcb6bd8)],
+                                  colors: [
+                                    const Color(0xfffe4f70),
+                                    const Color(0xffcb6bd8)
+                                  ],
                                   stops: [0.0, 1.0],
                                 ),
                               ),
@@ -135,8 +138,8 @@ class _RegisterViewState extends State<SignUp> {
                             pinTop: true,
                             pinBottom: true,
                             child:
-                            // Adobe XD layer: 'Face' (shape)
-                            Container(
+                                // Adobe XD layer: 'Face' (shape)
+                                Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(7.0),
                                 color: const Color(0xffffffff),
@@ -151,8 +154,8 @@ class _RegisterViewState extends State<SignUp> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Smile' (shape)
-                            SvgPicture.string(
+                                // Adobe XD layer: 'Smile' (shape)
+                                SvgPicture.string(
                               _svg_asnqyb,
                               allowDrawingOutsideViewBox: true,
                               fit: BoxFit.fill,
@@ -164,11 +167,11 @@ class _RegisterViewState extends State<SignUp> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Right Eye' (shape)
-                            Container(
+                                // Adobe XD layer: 'Right Eye' (shape)
+                                Container(
                               decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
                                 gradient: LinearGradient(
                                   begin: Alignment(0.0, -1.0),
                                   end: Alignment(0.0, 1.0),
@@ -187,11 +190,11 @@ class _RegisterViewState extends State<SignUp> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Left Eye' (shape)
-                            Container(
+                                // Adobe XD layer: 'Left Eye' (shape)
+                                Container(
                               decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
                                 gradient: LinearGradient(
                                   begin: Alignment(0.0, -1.0),
                                   end: Alignment(0.0, 1.0),
@@ -483,8 +486,8 @@ class _RegisterViewState extends State<SignUp> {
                     pinTop: true,
                     pinBottom: true,
                     child:
-                    // Adobe XD layer: 'Button' (shape)
-                    Container(
+                        // Adobe XD layer: 'Button' (shape)
+                        Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         gradient: LinearGradient(
@@ -513,18 +516,17 @@ class _RegisterViewState extends State<SignUp> {
                               FirebaseAuth auth = FirebaseAuth.instance;
                               FirebaseUser user =
                                   (await auth.createUserWithEmailAndPassword(
-                                    email:
-                                    _emailController.text + "@nmims.edu.in",
-                                    password: _passwordController.text,
-                                  ))
+                                email: _emailController.text + "@nmims.edu.in",
+                                password: _passwordController.text,
+                              ))
                                       .user;
                               if (user != null) {
                                 await user.sendEmailVerification();
                                 FirebaseUser currentUser =
-                                await auth.currentUser();
+                                    await auth.currentUser();
                                 final uid = currentUser.uid;
                                 SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
+                                    await SharedPreferences.getInstance();
                                 prefs.setString('uid', uid);
                                 Navigator.pop(context);
                                 showAlertDialog(
@@ -548,89 +550,10 @@ class _RegisterViewState extends State<SignUp> {
                             _passwordController.text = "";
                             _repasswordController.text = "";
                             _emailController.text = "";
-                            showAlertDialog(
-                                context,
-                                '',
-                                'Registration failed',
+                            showAlertDialog(context, '', 'Registration failed',
                                 'Passwords do not match');
                           }
                         },
-                      ),
-                    ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(102.0, 14.0, 70.0, 21.0),
-                    size: Size(273.0, 48.0),
-                    child: PageLink(
-                      links: [
-                        // PageLinkInfo(
-                        //   transition: LinkTransition.Fade,
-                        //   ease: Curves.easeOut,
-                        //   duration: 0.3,
-                        //   pageBuilder: () => CompleteProfile(),
-                        // ),
-                      ],
-                      child: InkWell(
-                        onTap: () async {
-                          if (_passwordController.text ==
-                              _repasswordController.text) {
-                            showLoaderDialog(context, "Registering...");
-                            try {
-                              FirebaseAuth auth = FirebaseAuth.instance;
-                              FirebaseUser user =
-                                  (await auth.createUserWithEmailAndPassword(
-                                    email:
-                                    _emailController.text + "@nmims.edu.in",
-                                    password: _passwordController.text,
-                                  ))
-                                      .user;
-                              if (user != null) {
-                                await user.sendEmailVerification();
-                                FirebaseUser currentUser =
-                                await auth.currentUser();
-                                final uid = currentUser.uid;
-                                SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                                prefs.setString('uid', uid);
-                                Navigator.pop(context);
-                                showAlertDialog(
-                                    context,
-                                    '/CompleteProfile',
-                                    'Id Created Successfully!',
-                                    'A verification link has been sent to your email id, please verify your email id within 24 hours.');
-                              }
-                            } catch (e) {
-                              Navigator.pop(context);
-                              _passwordController.text = "";
-                              _repasswordController.text = "";
-                              _emailController.text = "";
-                              showAlertDialog(
-                                  context,
-                                  '',
-                                  e.toString().split('(')[1].split(',')[0],
-                                  e.toString().split(', ')[1].split(',')[0]);
-                            }
-                          } else {
-                            _passwordController.text = "";
-                            _repasswordController.text = "";
-                            _emailController.text = "";
-                            showAlertDialog(
-                                context,
-                                '',
-                                'Registration failed',
-                                'Passwords do not match');
-                          }
-                        },
-                        child: Text(
-                          'Continue',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 18,
-                            color: const Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
                       ),
                     ),
                   ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:sync_project/Homepage.dart';
-import './EventDetails2.dart';
+import 'EventDetails2.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class Categories extends StatefulWidget {
   @override
@@ -14,152 +14,111 @@ class Categories extends StatefulWidget {
 
 class _CategoriesState extends State<Categories> {
   @override
+  List<String> Categories = ['P', 'Q', 'R', 'S'];
+  String selectedCategory;
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  getData() async {
+    Map events = {};
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int categoryId = prefs.getInt('category');
+    selectedCategory = Categories[categoryId];
+    Map data = json.decode(prefs.getString('data'));
+    for (var i = 0; i < data.length; i++) {
+      if (data.values.toList()[i]['subEvents'] == null) {
+        events[data.keys.toList()[i]] = data.values.toList()[i];
+      } else {
+        for (var j = 0; j < data.values.toList()[i]['subEvents'].length; j++) {
+          events[data.values.toList()[i]['subEvents'].keys.toList()[j]] =
+              data.values.toList()[i]['subEvents'].values.toList()[j];
+        }
+      }
+    }
+    print(events.length);
+    return events;
+  }
+
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
+    final events = FutureBuilder(
+        future: getData(),
+        builder: (context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            Map<dynamic, dynamic> values = snapshot.data;
+            List<int> eventNumbers = [];
+            for (int i = 0; i < values.length; i++) {
+              if (values.values
+                  .toList()[i]['categories']
+                  .contains(selectedCategory)) {
+                
+                eventNumbers.add(i);
+              }
+            }
+            print(selectedCategory);
+            print(eventNumbers);
+
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(13, 20, 0, 20),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      selectedCategory,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 22,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                ],
-                child: SvgPicture.string(
-                  _svg_ah28f4,
-                  allowDrawingOutsideViewBox: true,
                 ),
-              ),
-            ),
-            Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // enter variable
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 25,
-              height: 10,
-              child: const DecoratedBox(
-                decoration: const BoxDecoration(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(13, 20, 0, 20),
-            child: Container(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Trending',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22,
-                  color: const Color(0xff404040),
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.left,
-              ),
-            ),
-          ),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: List.generate(7, (index) {
-                return Center(
-                  child: SizedBox(
-                    width: 183.0,
-                    height: 191.0,
-                    child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
-                          size: Size(168.0, 191.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          fixedHeight: true,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('assets/Donation Image.png'),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
-                          size: Size(168.0, 191.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinBottom: true,
-                          fixedHeight: true,
-                          child:
-                          // Adobe XD layer: 'Category Background' (shape)
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(15.0),
-                                bottomLeft: Radius.circular(15.0),
-                              ),
-                              color: const Color(0xfaffffff),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x28000000),
-                                  offset: Offset(0, 3),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
-                          size: Size(168.0, 191.0),
-                          pinLeft: true,
-                          fixedWidth: true,
-                          fixedHeight: true,
-                          child:
-                          // Adobe XD layer: 'Club Logo' (group)
-                          Stack(
+                Expanded(
+                                  child: GridView.count(
+                    crossAxisCount: 2,
+                    children: List.generate(eventNumbers.length, (index) {
+                      return Center(
+                        child: SizedBox(
+                          width: 183.0,
+                          height: 191.0,
+                          child: Stack(
                             children: <Widget>[
                               Pinned.fromSize(
-                                bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                                size: Size(35.0, 35.0),
+                                bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
+                                size: Size(168.0, 191.0),
                                 pinLeft: true,
                                 pinRight: true,
                                 pinTop: true,
-                                pinBottom: true,
-                                child:
-                                // Adobe XD layer: 'Logo CIrcle' (shape)
-                                Container(
+                                fixedHeight: true,
+                                child: Container(
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(
-                                        Radius.elliptical(9999.0, 9999.0)),
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage('assets/Donation Image.png'),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
+                                size: Size(168.0, 191.0),
+                                pinLeft: true,
+                                pinRight: true,
+                                pinBottom: true,
+                                fixedHeight: true,
+                                child:
+                                    // Adobe XD layer: 'Category Background' (shape)
+                                    Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(15.0),
+                                      bottomLeft: Radius.circular(15.0),
+                                    ),
                                     color: const Color(0xfaffffff),
                                     boxShadow: [
                                       BoxShadow(
@@ -172,100 +131,390 @@ class _CategoriesState extends State<Categories> {
                                 ),
                               ),
                               Pinned.fromSize(
-                                bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                                size: Size(35.0, 35.0),
+                                bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
+                                size: Size(168.0, 191.0),
                                 pinLeft: true,
-                                pinRight: true,
-                                pinTop: true,
-                                pinBottom: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
                                 child:
-                                // Adobe XD layer: 'Tech Club Logo' (shape)
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(13.0),
-                                    image: DecorationImage(
-                                      image: const AssetImage('assets/Tech Club Logo.png'),
-                                      fit: BoxFit.cover,
-                                      colorFilter: new ColorFilter.mode(
-                                          Colors.black.withOpacity(0.98),
-                                          BlendMode.dstIn),
+                                    // Adobe XD layer: 'Club Logo' (group)
+                                    Stack(
+                                  children: <Widget>[
+                                    Pinned.fromSize(
+                                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
+                                      size: Size(35.0, 35.0),
+                                      pinLeft: true,
+                                      pinRight: true,
+                                      pinTop: true,
+                                      pinBottom: true,
+                                      child:
+                                          // Adobe XD layer: 'Logo CIrcle' (shape)
+                                          Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.elliptical(9999.0, 9999.0)),
+                                          color: const Color(0xfaffffff),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: const Color(0x28000000),
+                                              offset: Offset(0, 3),
+                                              blurRadius: 6,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ),
+                                    Pinned.fromSize(
+                                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
+                                      size: Size(35.0, 35.0),
+                                      pinLeft: true,
+                                      pinRight: true,
+                                      pinTop: true,
+                                      pinBottom: true,
+                                      child:
+                                          // Adobe XD layer: 'Tech Club Logo' (shape)
+                                          Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(13.0),
+                                          image: DecorationImage(
+                                            image: const AssetImage(
+                                                'assets/Tech Club Logo.png'),
+                                            fit: BoxFit.cover,
+                                            colorFilter: new ColorFilter.mode(
+                                                Colors.black.withOpacity(0.98),
+                                                BlendMode.dstIn),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
+                                size: Size(168.0, 191.0),
+                                child:
+                                    // Adobe XD layer: 'Continue Button' (shape)
+                                    PageLink(
+                                  links: [
+                                    PageLinkInfo(
+                                      transition: LinkTransition.Fade,
+                                      ease: Curves.linear,
+                                      duration: 0.3,
+                                      pageBuilder: () => EventDetails2(),
+                                    ),
+                                  ],
+                                  child: SvgPicture.string(
+                                    _svg_kf2adx,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
                                   ),
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(5.0, 149.0, 145.0, 20.0),
+                                size: Size(168.0, 191.0),
+                                pinLeft: true,
+                                pinBottom: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
+                                child: Text(
+                                  values.values.toList()[eventNumbers[index]]
+                                      ['event_name'],
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 16,
+                                    color: const Color(0xfa404040),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(1.0, 169.0, 84.0, 15.0),
+                                size: Size(168.0, 191.0),
+                                pinLeft: true,
+                                pinBottom: true,
+                                fixedWidth: true,
+                                fixedHeight: true,
+                                child: Text(
+                                  'By ',
+                                      // values.values.toList()[eventNumbers[index]]
+                                      //     ['club']
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                    color: const Color(0xfa9d9d9d),
+                                    height: 1.4,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
-                          size: Size(168.0, 191.0),
-                          child:
-                          // Adobe XD layer: 'Continue Button' (shape)
-                          PageLink(
-                            links: [
-                              PageLinkInfo(
-                                transition: LinkTransition.Fade,
-                                ease: Curves.linear,
-                                duration: 0.3,
-                                pageBuilder: () => EventDetails2(),
-                              ),
-                            ],
-                            child: SvgPicture.string(
-                              _svg_kf2adx,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(5.0, 149.0, 145.0, 20.0),
-                          size: Size(168.0, 191.0),
-                          pinLeft: true,
-                          pinBottom: true,
-                          fixedWidth: true,
-                          fixedHeight: true,
-                          child: Text(
-                            'Donation Drive',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                              color: const Color(0xfa404040),
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(1.0, 169.0, 84.0, 15.0),
-                          size: Size(168.0, 191.0),
-                          pinLeft: true,
-                          pinBottom: true,
-                          fixedWidth: true,
-                          fixedHeight: true,
-                          child: Text(
-                            'By RC NMIMS',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 12,
-                              color: const Color(0xfa9d9d9d),
-                              height: 1.4,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
+                      );
+                    }),
                   ),
-                );
-              }),
-            ),
+                ),
+              ],
+            );
+          }
+          return CircularProgressIndicator();
+        });
+
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                child: PageLink(
+                  links: [
+                    PageLinkInfo(
+                      transition: LinkTransition.Fade,
+                      ease: Curves.easeOut,
+                      duration: 0.3,
+                    ),
+                  ],
+                  child: SvgPicture.string(
+                    _svg_ah28f4,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                ),
+              ),
+              Container(
+                width: 64.0,
+                height: 37.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    // enter variable
+                    image: const AssetImage('assets/Sync Logo.png'),
+                    fit: BoxFit.fill,
+                    colorFilter: new ColorFilter.mode(
+                        Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x45000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 80,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 25,
+                height: 10,
+                child: const DecoratedBox(
+                  decoration: const BoxDecoration(color: Colors.white),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
+        ),
+        body: events
+        // body: Column(
+        //   children: [
+        //     Padding(
+        //       padding: const EdgeInsets.fromLTRB(13, 20, 0, 20),
+        //       child: Container(
+        //         alignment: Alignment.centerLeft,
+        //         child: Text(
+        //           'Trending',
+        //           style: TextStyle(
+        //             fontFamily: 'Poppins',
+        //             fontSize: 22,
+        //             color: const Color(0xff404040),
+        //             fontWeight: FontWeight.w600,
+        //           ),
+        //           textAlign: TextAlign.left,
+        //         ),
+        //       ),
+        //     ),
+        //     Expanded(
+        //       child: GridView.count(
+        //         crossAxisCount: 2,
+        //         children: List.generate(7, (index) {
+        //           return Center(
+        //             child: SizedBox(
+        //               width: 183.0,
+        //               height: 191.0,
+        //               child: Stack(
+        //                 children: <Widget>[
+        //                   Pinned.fromSize(
+        //                     bounds: Rect.fromLTWH(0.0, 0.0, 167.9, 142.0),
+        //                     size: Size(168.0, 191.0),
+        //                     pinLeft: true,
+        //                     pinRight: true,
+        //                     pinTop: true,
+        //                     fixedHeight: true,
+        //                     child: Container(
+        //                       decoration: BoxDecoration(
+        //                         image: DecorationImage(
+        //                           image: AssetImage('assets/Donation Image.png'),
+        //                           fit: BoxFit.fill,
+        //                         ),
+        //                       ),
+        //                     ),
+        //                   ),
+        //                   Pinned.fromSize(
+        //                     bounds: Rect.fromLTWH(0.0, 142.0, 168.0, 49.0),
+        //                     size: Size(168.0, 191.0),
+        //                     pinLeft: true,
+        //                     pinRight: true,
+        //                     pinBottom: true,
+        //                     fixedHeight: true,
+        //                     child:
+        //                     // Adobe XD layer: 'Category Background' (shape)
+        //                     Container(
+        //                       decoration: BoxDecoration(
+        //                         borderRadius: BorderRadius.only(
+        //                           bottomRight: Radius.circular(15.0),
+        //                           bottomLeft: Radius.circular(15.0),
+        //                         ),
+        //                         color: const Color(0xfaffffff),
+        //                         boxShadow: [
+        //                           BoxShadow(
+        //                             color: const Color(0x28000000),
+        //                             offset: Offset(0, 3),
+        //                             blurRadius: 6,
+        //                           ),
+        //                         ],
+        //                       ),
+        //                     ),
+        //                   ),
+        //                   Pinned.fromSize(
+        //                     bounds: Rect.fromLTWH(5.0, 114.0, 35.0, 35.0),
+        //                     size: Size(168.0, 191.0),
+        //                     pinLeft: true,
+        //                     fixedWidth: true,
+        //                     fixedHeight: true,
+        //                     child:
+        //                     // Adobe XD layer: 'Club Logo' (group)
+        //                     Stack(
+        //                       children: <Widget>[
+        //                         Pinned.fromSize(
+        //                           bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
+        //                           size: Size(35.0, 35.0),
+        //                           pinLeft: true,
+        //                           pinRight: true,
+        //                           pinTop: true,
+        //                           pinBottom: true,
+        //                           child:
+        //                           // Adobe XD layer: 'Logo CIrcle' (shape)
+        //                           Container(
+        //                             decoration: BoxDecoration(
+        //                               borderRadius: BorderRadius.all(
+        //                                   Radius.elliptical(9999.0, 9999.0)),
+        //                               color: const Color(0xfaffffff),
+        //                               boxShadow: [
+        //                                 BoxShadow(
+        //                                   color: const Color(0x28000000),
+        //                                   offset: Offset(0, 3),
+        //                                   blurRadius: 6,
+        //                                 ),
+        //                               ],
+        //                             ),
+        //                           ),
+        //                         ),
+        //                         Pinned.fromSize(
+        //                           bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
+        //                           size: Size(35.0, 35.0),
+        //                           pinLeft: true,
+        //                           pinRight: true,
+        //                           pinTop: true,
+        //                           pinBottom: true,
+        //                           child:
+        //                           // Adobe XD layer: 'Tech Club Logo' (shape)
+        //                           Container(
+        //                             decoration: BoxDecoration(
+        //                               borderRadius: BorderRadius.circular(13.0),
+        //                               image: DecorationImage(
+        //                                 image: const AssetImage('assets/Tech Club Logo.png'),
+        //                                 fit: BoxFit.cover,
+        //                                 colorFilter: new ColorFilter.mode(
+        //                                     Colors.black.withOpacity(0.98),
+        //                                     BlendMode.dstIn),
+        //                               ),
+        //                             ),
+        //                           ),
+        //                         ),
+        //                       ],
+        //                     ),
+        //                   ),
+        //                   Pinned.fromSize(
+        //                     bounds: Rect.fromLTWH(141.3, 157.7, 16.7, 16.7),
+        //                     size: Size(168.0, 191.0),
+        //                     child:
+        //                     // Adobe XD layer: 'Continue Button' (shape)
+        //                     PageLink(
+        //                       links: [
+        //                         PageLinkInfo(
+        //                           transition: LinkTransition.Fade,
+        //                           ease: Curves.linear,
+        //                           duration: 0.3,
+        //                           pageBuilder: () => EventDetails2(),
+        //                         ),
+        //                       ],
+        //                       child: SvgPicture.string(
+        //                         _svg_kf2adx,
+        //                         allowDrawingOutsideViewBox: true,
+        //                         fit: BoxFit.fill,
+        //                       ),
+        //                     ),
+        //                   ),
+        //                   Pinned.fromSize(
+        //                     bounds: Rect.fromLTWH(5.0, 149.0, 145.0, 20.0),
+        //                     size: Size(168.0, 191.0),
+        //                     pinLeft: true,
+        //                     pinBottom: true,
+        //                     fixedWidth: true,
+        //                     fixedHeight: true,
+        //                     child: Text(
+        //                       'Donation Drive',
+        //                       style: TextStyle(
+        //                         fontFamily: 'Poppins',
+        //                         fontSize: 16,
+        //                         color: const Color(0xfa404040),
+        //                         fontWeight: FontWeight.w600,
+        //                       ),
+        //                       textAlign: TextAlign.left,
+        //                     ),
+        //                   ),
+        //                   Pinned.fromSize(
+        //                     bounds: Rect.fromLTWH(1.0, 169.0, 84.0, 15.0),
+        //                     size: Size(168.0, 191.0),
+        //                     pinLeft: true,
+        //                     pinBottom: true,
+        //                     fixedWidth: true,
+        //                     fixedHeight: true,
+        //                     child: Text(
+        //                       'By RC NMIMS',
+        //                       style: TextStyle(
+        //                         fontFamily: 'Poppins',
+        //                         fontSize: 12,
+        //                         color: const Color(0xfa9d9d9d),
+        //                         height: 1.4,
+        //                       ),
+        //                       textAlign: TextAlign.center,
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //             ),
+        //           );
+        //         }),
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        );
   }
 }
-
 
 const String _svg_1pc24i =
     '<svg viewBox="144.0 503.5 167.9 142.0" ><defs><filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="6"/></filter><pattern id="image" patternUnits="userSpaceOnUse" width="5020.0" height="3347.0"><image xlink:href="null" x="0" y="0" width="5020.0" height="3347.0" /></pattern></defs><path transform="translate(144.04, 503.52)" d="M 11.09796619415283 0 L 156.8512573242188 0 C 162.9804992675781 0 167.9492340087891 6.531735897064209 167.9492340087891 14.58904075622559 L 167.9492340087891 142 L 0 142 L 0 14.58904075622559 C 0 6.531735897064209 4.968729019165039 0 11.09796619415283 0 Z" fill="url(#image)" fill-opacity="0.98" stroke="none" stroke-width="1" stroke-opacity="0.98" stroke-miterlimit="4" stroke-linecap="butt" filter="url(#shadow)"/></svg>';

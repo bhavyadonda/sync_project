@@ -170,9 +170,9 @@ class _FilterPageState extends State<FilterPage> {
             ),
           ),
           CalendarTimeline(
-            initialDate: DateTime(2020, 4, 20),
-            firstDate: DateTime(2019, 1, 15),
-            lastDate: DateTime(2020, 11, 20),
+            initialDate: DateTime(2021, 4, 1),
+            firstDate: DateTime(2021, 1, 1),
+            lastDate: DateTime(2021, 12, 31),
             onDateSelected: (date) => {
               _selecteddate = date,
               print(_selecteddate),
@@ -467,7 +467,11 @@ class _FilterPageState extends State<FilterPage> {
                 prefs.setBool('night', night);
                 prefs.setString('date', _selecteddate.toString());
                 prefs.setString('club', _selectedClub);
-                prefs.setString('categories', categories.toString());
+                for (var i = 0; i < categories.keys.toList().length; i++) {
+                  prefs.setBool(categories.keys.toList()[i],
+                      categories.values.toList()[i]);
+                }
+                // prefs.setString('categories', categories.toString());
                 prefs.setBool('filter_applied', true);
                 Navigator.of(context).pushNamed('/Calender');
               })

@@ -1,9 +1,12 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'methods.dart';
 
 class EventDetails2 extends StatefulWidget {
   EventDetails2({
@@ -15,6 +18,8 @@ class EventDetails2 extends StatefulWidget {
 }
 
 class _EventDetails2State extends State<EventDetails2> {
+  String uid;
+  String id;
   @override
   void initState() {
     super.initState();
@@ -23,13 +28,15 @@ class _EventDetails2State extends State<EventDetails2> {
 
   Future getEventData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    uid = prefs.getString('uid');
     Map data = json.decode(prefs.getString('data'));
-    String id = data[prefs.getString('eventId2')];
+    id = prefs.getString('eventId2');
     data = data[prefs.getString('eventId')];
     if (id == null) {
       return data;
     } else {
-      return data[id];
+      data = data['subEvents'][id];
+      return data;
     }
   }
 
@@ -73,18 +80,41 @@ class _EventDetails2State extends State<EventDetails2> {
                             ),
                           ),
                         ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(132.5, 14.0, 73.0, 21.0),
-                          size: Size(333.0, 48.0),
-                          child: Text(
-                            'Register',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 18,
-                              color: const Color(0xffffffff),
-                              fontWeight: FontWeight.w600,
+                        GestureDetector(
+                          onTap: () async {
+                            showLoaderDialog(
+                                context, "Registering for the event...");
+                            final databaseReference =
+                                FirebaseDatabase.instance.reference();
+                            // databaseReference
+                            //     .child('users/' + uid + '/bookmark')
+                            //     .equalTo(id);
+                            await databaseReference
+                                .child("users/" + uid + '/registeration')
+                                .push()
+                                .set({
+                              '0': id,
+                            });
+                            Navigator.pop(context);
+                            showAlertDialog(
+                                context,
+                                '/Home',
+                                'Registered Successfully for the Event',
+                                'You will now be notified for the registered event.');
+                          },
+                          child: Pinned.fromSize(
+                            bounds: Rect.fromLTWH(132.5, 14.0, 73.0, 21.0),
+                            size: Size(333.0, 48.0),
+                            child: Text(
+                              'Register',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left,
                             ),
-                            textAlign: TextAlign.left,
                           ),
                         ),
                       ],
@@ -152,8 +182,7 @@ class _EventDetails2State extends State<EventDetails2> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15.0),
                               image: DecorationImage(
-                                image: const AssetImage(
-                                    'assets/Background Image4.png'),
+                                image: NetworkImage(values['event_pic']),
                                 fit: BoxFit.cover,
                               ),
                               boxShadow: [
@@ -304,9 +333,10 @@ class _EventDetails2State extends State<EventDetails2> {
                                 fixedHeight: true,
                                 child: Text(
                                   // 'abc',
-                                  values['event_start_time'].toString(),
-                                  // .split(' ')[1]
-                                  // .substring(0, 5),
+                                  values['event_start_time']
+                                      .toString()
+                                      .split(' ')[1]
+                                      .substring(0, 5),
                                   style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14,
@@ -500,39 +530,61 @@ class _EventDetails2State extends State<EventDetails2> {
                             textAlign: TextAlign.left,
                           ),
                         ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(284.0, 38.0, 35.0, 35.0),
-                          size: Size(333.0, 185.0),
-                          child:
-                              // Adobe XD layer: 'Bookmark Button' (group)
-                              Stack(
-                            children: <Widget>[
-                              // Adobe XD layer: 'Bookmark Circle' (shape)
-                              Container(
-                                width: 35.0,
-                                height: 35.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                      Radius.elliptical(9999.0, 9999.0)),
-                                  color: const Color(0xffffffff),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color(0x29000000),
-                                      offset: Offset(0, 3),
-                                      blurRadius: 6,
-                                    ),
-                                  ],
+                        GestureDetector(
+                          onTap: () async {
+                            showLoaderDialog(context, "Creating Bookmark...");
+                            final databaseReference =
+                                FirebaseDatabase.instance.reference();
+                            // databaseReference
+                            //     .child('users/' + uid + '/bookmark')
+                            //     .equalTo(id);
+                            await databaseReference
+                                .child("users/" + uid + '/bookmark')
+                                .push()
+                                .set({
+                              '0': id,
+                            });
+                            Navigator.pop(context);
+                            showAlertDialog(
+                                context,
+                                '/Home',
+                                'Bookmark Created Successfully',
+                                'You will now be notified for the bookmarked event.');
+                          },
+                          child: Pinned.fromSize(
+                            bounds: Rect.fromLTWH(284.0, 38.0, 35.0, 35.0),
+                            size: Size(333.0, 185.0),
+                            child:
+                                // Adobe XD layer: 'Bookmark Button' (group)
+                                Stack(
+                              children: <Widget>[
+                                // Adobe XD layer: 'Bookmark Circle' (shape)
+                                Container(
+                                  width: 35.0,
+                                  height: 35.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.elliptical(9999.0, 9999.0)),
+                                    color: const Color(0xffffffff),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0x29000000),
+                                        offset: Offset(0, 3),
+                                        blurRadius: 6,
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Positioned(
-                                left: 11,
-                                top: 9,
-                                child: SvgPicture.string(
-                                  _svg_d54sjf,
-                                  allowDrawingOutsideViewBox: true,
+                                Positioned(
+                                  left: 11,
+                                  top: 9,
+                                  child: SvgPicture.string(
+                                    _svg_d54sjf,
+                                    allowDrawingOutsideViewBox: true,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         Pinned.fromSize(

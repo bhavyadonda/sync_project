@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class OpeningView extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class OpeningViewState extends State<OpeningView> {
   userState() async {
     if (displayName == false) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.pushNamedAndRemoveUntil(context, '/SingIn', (r) => false);
+        Navigator.pushNamedAndRemoveUntil(context, '/SignIn', (r) => false);
       });
     } else {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -34,9 +35,25 @@ class OpeningViewState extends State<OpeningView> {
 
   getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('filter_applied', false);
+
     FirebaseDatabase.instance.reference().child("events").once().then(
         (DataSnapshot snapshot) =>
             {prefs.setString('data', json.encode(snapshot.value))});
+
+    FirebaseDatabase.instance.reference().child("clubs").once().then(
+        (DataSnapshot snapshot) =>
+            {prefs.setString('clubs', json.encode(snapshot.value))});
+
+    FirebaseAuth auth = FirebaseAuth.instance;
+    FirebaseUser currentUser = await auth.currentUser();
+    final uid = currentUser.uid;
+    prefs.setString('uid', uid);
+
+    FirebaseDatabase.instance.reference().child("users/" + uid).once().then(
+        (DataSnapshot snapshot) =>
+            {prefs.setString('userData', json.encode(snapshot.value))});
+
     setState(() {
       displayName = prefs.getBool('my_bool_key');
     });

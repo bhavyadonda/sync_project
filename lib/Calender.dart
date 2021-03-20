@@ -56,14 +56,35 @@ class _CalenderState extends State<Calender> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       filter = prefs.getBool('filter_applied');
-      morning = prefs.getBool('morning');
-      afternoon = prefs.getBool('afternoon');
-      evening = prefs.getBool('evening');
-      night = prefs.getBool('night');
-      _selecteddate = convertDateTimeDisplay(prefs.getString('date'));
+      if (filter == true) {
+        morning = prefs.getBool('morning');
+        afternoon = prefs.getBool('afternoon');
+        evening = prefs.getBool('evening');
+        night = prefs.getBool('night');
+        _selecteddate = convertDateTimeDisplay(prefs.getString('date'));
+        _selectedClub = prefs.getString('club');
+        for (var i = 0; i < categories.keys.toList().length; i++) {
+          categories[categories.keys.toList()[i]] =
+              prefs.getBool(categories.keys.toList()[i]);
+        }
+        // print(categories);
+      }
     });
+    Map events = {};
     Map data = json.decode(prefs.getString('data'));
-    return data;
+    for (var i = 0; i < data.length; i++) {
+      if (data.values.toList()[i]['subEvents'] == null) {
+        events[data.keys.toList()[i]] = data.values.toList()[i];
+      } else {
+        for (var j = 0; j < data.values.toList()[i]['subEvents'].length; j++) {
+          events[data.values.toList()[i]['subEvents'].keys.toList()[j]] =
+              data.values.toList()[i]['subEvents'].values.toList()[j];
+        }
+      }
+    }
+    // print(events.length);
+    // print(events);
+    return events;
   }
 
   @override
@@ -172,9 +193,246 @@ class _CalenderState extends State<Calender> {
                         itemCount: values.length,
                         itemBuilder: (BuildContext context, int index) {
                           if (filter == true) {
+                            var finalCategories = [];
+                            for (var i = 0;
+                                i < categories.keys.toList().length;
+                                i++) {
+                              if (categories.values.toList()[i] == true) {
+                                finalCategories
+                                    .add(categories.keys.toList()[i]);
+                              }
+                            }
+                            // list1.any((item) => list2.contains(item))
+                            // print(finalCategories);
+                            var valueData = values.values.toList()[index];
+                            var time = valueData['event_start_time']
+                                .toString()
+                                .split(' ')[1]
+                                .substring(0, 2);
+                            // print(
+                            //     '-------------------------------------------------');
+                            // print(_selecteddate);
+                            // print(
+                            //     '-------------------------------------------------');
+                            if ((_selectedClub != null &&
+                                    valueData['club'] == _selectedClub) &&
+                                (_selecteddate != null &&
+                                    convertDateTimeDisplay(
+                                            valueData['event_start_date']) ==
+                                        _selecteddate) &&
+                                ((morning == true &&
+                                        (6 <= int.parse(time) &&
+                                            int.parse(time) < 12)) ||
+                                    (afternoon == true &&
+                                        (12 <= int.parse(time) &&
+                                            int.parse(time) < 15)) ||
+                                    (evening == true &&
+                                        (15 <= int.parse(time) &&
+                                            int.parse(time) < 19)) ||
+                                    (night == true &&
+                                        (19 <= int.parse(time) &&
+                                            int.parse(time) <= 24))) &&
+                                (finalCategories.length > 0 &&
+                                    valueData['categories'].any((item) =>
+                                        finalCategories.contains(item)))) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(30, 0, 30, 20),
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 0,
+                                    ),
+                                    SizedBox(
+                                      width: 349.0,
+                                      height: 76.0,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                11.0, 0.0, 338.0, 67.2),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            pinRight: true,
+                                            pinTop: true,
+                                            pinBottom: true,
+                                            child:
+                                                // Adobe XD layer: 'Fest Background' (group)
+                                                Stack(
+                                              children: <Widget>[
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      0.0, 0.0, 338.0, 67.2),
+                                                  size: Size(338.0, 67.2),
+                                                  pinLeft: true,
+                                                  pinRight: true,
+                                                  pinTop: true,
+                                                  pinBottom: true,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        image: AssetImage(
+                                                            'assets/Background Image1.png'),
+                                                        fit: BoxFit.fill,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      304.0, 25.0, 18.0, 18.0),
+                                                  size: Size(338.0, 67.2),
+                                                  child:
+                                                      // Adobe XD layer: 'Next Button' (shape)
+                                                      GestureDetector(
+                                                    onTap: () async {
+                                                      SharedPreferences prefs =
+                                                          await SharedPreferences
+                                                              .getInstance();
+                                                      prefs.setString(
+                                                          'eventId',
+                                                          values.keys
+                                                              .toList()[index]);
+                                                      if (values.values
+                                                                      .toList()[
+                                                                  index]
+                                                              ['subEvents'] !=
+                                                          null) {
+                                                        Navigator.of(context)
+                                                            .pushNamed(
+                                                                '/Events');
+                                                      } else {
+                                                        Navigator.of(context)
+                                                            .pushNamed(
+                                                                '/EventDetails2');
+                                                      }
+                                                    },
+                                                    child: SvgPicture.string(
+                                                      _svg_rbwtgt,
+                                                      allowDrawingOutsideViewBox:
+                                                          true,
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                0.0, 16.0, 242.0, 60.0),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            pinBottom: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child:
+                                                // Adobe XD layer: 'Gradient Background' (shape)
+                                                SvgPicture.string(
+                                              _svg_7u199j,
+                                              allowDrawingOutsideViewBox: true,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                177.5, 20.0, 67.5, 53.0),
+                                            size: Size(349.0, 76.0),
+                                            pinBottom: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child:
+                                                // Adobe XD layer: 'Logo' (group)
+                                                Stack(
+                                              children: <Widget>[
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      0.0, 14.0, 67.5, 24.0),
+                                                  size: Size(67.5, 53.0),
+                                                  pinLeft: true,
+                                                  pinRight: true,
+                                                  fixedHeight: true,
+                                                  child:
+                                                      // Adobe XD layer: 'Logo Background' (shape)
+                                                      SvgPicture.string(
+                                                    _svg_e0lvmc,
+                                                    allowDrawingOutsideViewBox:
+                                                        true,
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                ),
+                                                Pinned.fromSize(
+                                                  bounds: Rect.fromLTWH(
+                                                      1.5, 0.0, 64.0, 53.0),
+                                                  size: Size(67.5, 53.0),
+                                                  pinLeft: true,
+                                                  pinRight: true,
+                                                  pinTop: true,
+                                                  pinBottom: true,
+                                                  child:
+                                                      // Adobe XD layer: 'Club Logo' (shape)
+                                                      Container(
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        image: const AssetImage(
+                                                            'assets/Montage Logo1.png'),
+                                                        fit: BoxFit.fill,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                11.0, 50.0, 190.0, 15.0),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child: Text(
+                                              values.values.toList()[index]
+                                                  ['event_start_date'],
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 13,
+                                                color: const Color(0xffffffff),
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                          Pinned.fromSize(
+                                            bounds: Rect.fromLTWH(
+                                                11.0, 25.0, 159.0, 21.0),
+                                            size: Size(349.0, 76.0),
+                                            pinLeft: true,
+                                            fixedWidth: true,
+                                            fixedHeight: true,
+                                            child: Text(
+                                              values.values.toList()[index]
+                                                  ['event_name'],
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 18,
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            } else {
+                              return SizedBox();
+                            }
                           } else {
-                            if (values.values.toList()[index]
-                                    ['event_start_date'] ==
+                            if (convertDateTimeDisplay(values.values
+                                    .toList()[index]['event_start_date']) ==
                                 convertDateTimeDisplay(
                                     dateSelected.toLocal().toString())) {
                               return Padding(

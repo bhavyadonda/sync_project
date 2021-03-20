@@ -1,3 +1,4 @@
+// import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import './Calender.dart';
@@ -19,10 +20,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> Categories = ['P', 'Q', 'R', 'S'];
   @override
   void initState() {
     super.initState();
+    getUserData();
     getdata();
+  }
+
+  getUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    Map userData = json.decode(prefs.getString('userData'));
+    print(userData.values.toList());
   }
 
   getdata() async {
@@ -229,7 +238,11 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-                icon: Icon(Icons.menu), color: Colors.purple, onPressed: () {}),
+                icon: Icon(Icons.menu),
+                color: Colors.purple,
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/NavBar');
+                }),
             Container(
               width: 64.0,
               height: 37.0,
@@ -328,6 +341,52 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            Container(
+              height: MediaQuery.of(context).size.height - 725,
+              child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Row(
+                      children: [
+                        Card(
+                          child: Image(
+                            image: AssetImage('assets/Montage Square Logo.png'),
+                            height: 80,
+                            width: 110,
+                          ),
+                        ),
+                        Card(
+                          color: Colors.purple[300],
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(8.0, 20, 185, 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Tech Fest',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Date | ',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Text(
+                                      'Time',
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
+            ),
             Text(
               'Recommended',
               style: TextStyle(
@@ -339,47 +398,56 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height - 480,
+              height: MediaQuery.of(context).size.height - 520,
               child: ListView.builder(
-                  itemCount: 3,
+                  itemCount: Categories.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
-                    return Row(
-                      children: [
-                        Card(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image(
-                                image:
-                                    AssetImage('assets/Background Image1.png'),
-                                height: 160,
-                                width: 300,
-                                fit: BoxFit.fill,
-                              ),
-                              Text(
-                                'Trending',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18,
-                                  color: const Color(0xfa404040),
-                                  fontWeight: FontWeight.w600,
+                    return Container(
+                        child: InkWell(
+                      onTap: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setInt('category', index);
+                        Navigator.pushNamed(context, '/Categories');
+                      },
+                      child: Row(
+                        children: [
+                          Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(
+                                  image: AssetImage(
+                                      'assets/Background Image1.png'),
+                                  height: 160,
+                                  width: 300,
+                                  fit: BoxFit.fill,
                                 ),
-                              ),
-                              Text(
-                                'Check out the hottest events right now!',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
-                                  color: const Color(0xfa9d9d9d),
+                                Text(
+                                  Categories[index],
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18,
+                                    color: const Color(0xfa404040),
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Text(
+                                  'Check out the hottest events right now!',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                    color: const Color(0xfa9d9d9d),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    );
+                        ],
+                      ),
+                    ));
                   }),
             ),
             Text(
