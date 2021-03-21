@@ -31,7 +31,6 @@ class _ClubDetailsState extends State<ClubDetails> {
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             Map<dynamic, dynamic> values = snapshot.data;
-            print(values);
             return ListView(
               children: [
                 Column(

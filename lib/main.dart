@@ -1,5 +1,9 @@
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:sync_project/AboutUs.dart';
+import 'package:sync_project/Bookmarks.dart';
+import 'package:sync_project/register.dart';
 import 'package:sync_project/Categories.dart';
 import 'package:sync_project/ClubDetails.dart';
 import 'package:sync_project/Clubs.dart';
@@ -59,6 +63,8 @@ void main() {
       '/Events': (context) => Events(),
       '/OpeningScreen': (context) => OpeningView(),
       '/PrivacyPolicy': (context) => PrivacyPolicy(),
+      '/register': (context) => register(),
+      '/Bookmarks': (context) => Bookmarks(),
     },
   ));
 }

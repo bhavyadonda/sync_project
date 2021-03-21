@@ -88,472 +88,480 @@ class _FilterPageState extends State<FilterPage> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Set Filters',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22,
-                  color: const Color(0xff404040),
-                  fontWeight: FontWeight.w600,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'Set Filters',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22,
+                    color: const Color(0xff404040),
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                child: Text('Clear all'),
-                onTap: () {
-                  setState(() {
-                    _selectedClub = 'A';
-                    _selecteddate = DateTime(2021, 3, 1);
-                    if (morning == true) {
-                      morning = false;
-                    }
-                    if (afternoon == true) {
-                      afternoon = false;
-                    }
-                    if (evening == true) {
-                      evening = false;
-                    }
-                    if (night == true) {
-                      night = false;
-                    }
-                    for (var i = 0; i < categories.keys.toList().length; i++) {
-                      var element = categories[categories.keys.toList()[i]];
-                      if (element == true) {
-                        element = false;
+                GestureDetector(
+                  child: Text('Clear all'),
+                  onTap: () {
+                    setState(() {
+                      _selectedClub = 'A';
+                      _selecteddate = DateTime(2021, 3, 1);
+                      if (morning == true) {
+                        morning = false;
                       }
-                    }
-                  });
-                },
-              )
-            ],
-          ),
-          Text(
-            'Clubs',
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 20,
-              color: const Color(0xff404040),
-              fontWeight: FontWeight.w500,
+                      if (afternoon == true) {
+                        afternoon = false;
+                      }
+                      if (evening == true) {
+                        evening = false;
+                      }
+                      if (night == true) {
+                        night = false;
+                      }
+                      for (var i = 0;
+                          i < categories.keys.toList().length;
+                          i++) {
+                        var element = categories[categories.keys.toList()[i]];
+                        if (element == true) {
+                          element = false;
+                        }
+                      }
+                    });
+                  },
+                )
+              ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-            child: DropdownButton<String>(
-              isExpanded: true,
-              hint: Text('Select Clubs'),
-              value: _selectedClub,
-              onChanged: (newValue) {
-                setState(() {
-                  _selectedClub = newValue;
-                });
-                print(_selectedClub);
-              },
-              items: _Clubs.map((location) {
-                return DropdownMenuItem(
-                  child: new Text(location),
-                  value: location,
-                );
-              }).toList(),
+            Text(
+              'Clubs',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 20,
+                color: const Color(0xff404040),
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-          Text(
-            'Preffered Dates',
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 20,
-              color: const Color(0xff404040),
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          CalendarTimeline(
-            initialDate: DateTime(2021, 4, 1),
-            firstDate: DateTime(2021, 1, 1),
-            lastDate: DateTime(2021, 12, 31),
-            onDateSelected: (date) => {
-              _selecteddate = date,
-              print(_selecteddate),
-            },
-            leftMargin: 20,
-            monthColor: Colors.blueGrey,
-            dayColor: Colors.teal[200],
-            activeDayColor: Colors.white,
-            activeBackgroundDayColor: Colors.redAccent[100],
-            dotsColor: Color(0xFF333A47),
-            locale: 'en_ISO',
-          ),
-
-          Text(
-            'Preffered Time',
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 20,
-              color: const Color(0xff404040),
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SvgPicture.string(
-                _svg_5k2qjp,
-                allowDrawingOutsideViewBox: true,
-                fit: BoxFit.fill,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Morning',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 17,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    '00:00 AM - 11:59 AM',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 13,
-                      color: const Color(0xff9d9d9d),
-                      fontWeight: FontWeight.w300,
-                      height: 1.1666666666666667,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-              Checkbox(
-                value: this.morning,
-                onChanged: (bool value) {
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+              child: DropdownButton<String>(
+                isExpanded: true,
+                hint: Text('Select Clubs'),
+                value: _selectedClub,
+                onChanged: (newValue) {
                   setState(() {
-                    morning = value;
+                    _selectedClub = newValue;
                   });
-                  print(morning);
+                  print(_selectedClub);
                 },
-              ),
-              // Checkbox(
-              //   tristate: true,
-              //   checkColor: Colors.red,
-              //   onChanged: (bool newValue) {
-              //     setState(() {
-              //       checkBoxValue = newValue;
-              //     });
-              //     Text('Remember me');
-              //   },
-              // ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SvgPicture.string(
-                _svg_nahds6,
-                allowDrawingOutsideViewBox: true,
-                fit: BoxFit.fill,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Afternoon',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 17,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    '12:00 PM - 3:59 PM',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 13,
-                      color: const Color(0xff9d9d9d),
-                      fontWeight: FontWeight.w300,
-                      height: 1.1666666666666667,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-              Checkbox(
-                value: this.afternoon,
-                onChanged: (bool value) {
-                  setState(() {
-                    afternoon = value;
-                  });
-                  print(afternoon);
-                },
-              ),
-              // Checkbox(
-              //   tristate: true,
-              //   checkColor: Colors.red,
-              //   onChanged: (bool newValue) {
-              //     setState(() {
-              //       checkBoxValue = newValue;
-              //     });
-              //     Text('Remember me');
-              //   },
-              // ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // add icon here
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Evening',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 17,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    '00:00 AM - 11:59 AM',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 13,
-                      color: const Color(0xff9d9d9d),
-                      fontWeight: FontWeight.w300,
-                      height: 1.1666666666666667,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-              Checkbox(
-                value: this.evening,
-                onChanged: (bool value) {
-                  setState(() {
-                    evening = value;
-                  });
-                  print(evening);
-                },
-              ),
-            ],
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // add icon here
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Night',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 17,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    '00:00 AM - 11:59 AM',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 13,
-                      color: const Color(0xff9d9d9d),
-                      fontWeight: FontWeight.w300,
-                      height: 1.1666666666666667,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-              Checkbox(
-                value: this.night,
-                onChanged: (bool value) {
-                  setState(() {
-                    night = value;
-                  });
-                  print(night);
-                },
-              ),
-            ],
-          ),
-
-          Expanded(
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: categories.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    color: Colors.green,
-                    height: 10,
-                    width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 0, 130),
-                      child: Stack(
-                        children: <Widget>[
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
-                            size: Size(91.0, 34.0),
-                            child:
-                                // Adobe XD layer: 'Tag box' (shape)
-                                Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(17.0),
-                                gradient: LinearGradient(
-                                  begin: Alignment(-0.97, -0.82),
-                                  end: Alignment(0.97, 0.79),
-                                  colors: [
-                                    const Color(0xfffe4f70),
-                                    const Color(0xffcb6bd8)
-                                  ],
-                                  stops: [0.0, 1.0],
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: const Color(0x29000000),
-                                    offset: Offset(0, 3),
-                                    blurRadius: 6,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(17.0, 7.0, 57.0, 20.0),
-                            size: Size(91.0, 34.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  categories[categories.keys.toList()[index]] ^=
-                                      true;
-                                });
-                                print(categories);
-                              },
-                              child: Text(
-                                categories.keys.toList()[index],
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16,
-                                  color: const Color(0xffffffff),
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                items: _Clubs.map((location) {
+                  return DropdownMenuItem(
+                    child: new Text(location),
+                    value: location,
                   );
+                }).toList(),
+              ),
+            ),
+            Text(
+              'Preffered Dates',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 20,
+                color: const Color(0xff404040),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            CalendarTimeline(
+              initialDate: DateTime(2021, 4, 1),
+              firstDate: DateTime(2021, 1, 1),
+              lastDate: DateTime(2021, 12, 31),
+              onDateSelected: (date) => {
+                _selecteddate = date,
+                print(_selecteddate),
+              },
+              leftMargin: 20,
+              monthColor: Colors.blueGrey,
+              dayColor: Colors.teal[200],
+              activeDayColor: Colors.white,
+              activeBackgroundDayColor: Colors.redAccent[100],
+              dotsColor: Color(0xFF333A47),
+              locale: 'en_ISO',
+            ),
 
-                  // MaterialButton(child: Text('apply filter'), onPressed: () {
+            Text(
+              'Preffered Time',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 20,
+                color: const Color(0xff404040),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // SvgPicture.string(
+                //   _svg_5k2qjp,
+                //   allowDrawingOutsideViewBox: true,
+                //   fit: BoxFit.fill,
+                // ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Morning',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 17,
+                        color: const Color(0xff404040),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      '00:00 AM - 11:59 AM',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 13,
+                        color: const Color(0xff9d9d9d),
+                        fontWeight: FontWeight.w300,
+                        height: 1.1666666666666667,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+                Checkbox(
+                  value: this.morning,
+                  onChanged: (bool value) {
+                    setState(() {
+                      morning = value;
+                    });
+                    print(morning);
+                  },
+                ),
+                // Checkbox(
+                //   tristate: true,
+                //   checkColor: Colors.red,
+                //   onChanged: (bool newValue) {
+                //     setState(() {
+                //       checkBoxValue = newValue;
+                //     });
+                //     Text('Remember me');
+                //   },
+                // ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // SvgPicture.string(
+                //   _svg_nahds6,
+                //   allowDrawingOutsideViewBox: true,
+                //   fit: BoxFit.fill,
+                // ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Afternoon',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 17,
+                        color: const Color(0xff404040),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      '12:00 PM - 3:59 PM',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 13,
+                        color: const Color(0xff9d9d9d),
+                        fontWeight: FontWeight.w300,
+                        height: 1.1666666666666667,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+                Checkbox(
+                  value: this.afternoon,
+                  onChanged: (bool value) {
+                    setState(() {
+                      afternoon = value;
+                    });
+                    print(afternoon);
+                  },
+                ),
+                // Checkbox(
+                //   tristate: true,
+                //   checkColor: Colors.red,
+                //   onChanged: (bool newValue) {
+                //     setState(() {
+                //       checkBoxValue = newValue;
+                //     });
+                //     Text('Remember me');
+                //   },
+                // ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // add icon here
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Evening',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 17,
+                        color: const Color(0xff404040),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      '00:00 AM - 11:59 AM',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 13,
+                        color: const Color(0xff9d9d9d),
+                        fontWeight: FontWeight.w300,
+                        height: 1.1666666666666667,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+                Checkbox(
+                  value: this.evening,
+                  onChanged: (bool value) {
+                    setState(() {
+                      evening = value;
+                    });
+                    print(evening);
+                  },
+                ),
+              ],
+            ),
 
-                  // });
-                }),
-          ),
-          MaterialButton(
-              child: Text('apply filters'),
-              onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.setBool('morning', morning);
-                prefs.setBool('afternoon', afternoon);
-                prefs.setBool('evening', evening);
-                prefs.setBool('night', night);
-                prefs.setString('date', _selecteddate.toString());
-                prefs.setString('club', _selectedClub);
-                for (var i = 0; i < categories.keys.toList().length; i++) {
-                  prefs.setBool(categories.keys.toList()[i],
-                      categories.values.toList()[i]);
-                }
-                // prefs.setString('categories', categories.toString());
-                prefs.setBool('filter_applied', true);
-                Navigator.of(context).pushNamed('/Calender');
-              })
-          //paste code here
-          // Expanded(
-          //   child: Stack(
-          //     children: <Widget>[
-          //       Pinned.fromSize(
-          //         bounds: Rect.fromLTWH(0.0, 8.9, 15.1, 10.4),
-          //         size: Size(len, wid),
-          //         child: SvgPicture.string(
-          //           _svg_5k2qjp,
-          //           allowDrawingOutsideViewBox: true,
-          //           fit: BoxFit.fill,
-          //         ),
-          //       ),
-          //       Pinned.fromSize(
-          //         bounds: Rect.fromLTWH(6.3, 4.1, 13.7, 10.7),
-          //         size: Size(len, wid),
-          //         child: SvgPicture.string(
-          //           _svg_8wfb7x,
-          //           allowDrawingOutsideViewBox: true,
-          //           fit: BoxFit.fill,
-          //         ),
-          //       ),
-          //       Pinned.fromSize(
-          //         bounds: Rect.fromLTWH(9.5, 0.0, 1.3, 2.8),
-          //         size: Size(len, wid),
-          //         child: SvgPicture.string(
-          //           _svg_j3vz3q,
-          //           allowDrawingOutsideViewBox: true,
-          //           fit: BoxFit.fill,
-          //         ),
-          //       ),
-          //       Pinned.fromSize(
-          //         bounds: Rect.fromLTWH(2.1, 7.4, 2.8, 1.3),
-          //         size: Size(len, wid),
-          //         child: SvgPicture.string(
-          //           _svg_4z4jwi,
-          //           allowDrawingOutsideViewBox: true,
-          //           fit: BoxFit.fill,
-          //         ),
-          //       ),
-          //       Pinned.fromSize(
-          //         bounds: Rect.fromLTWH(13.7, 2.1, 2.3, 2.3),
-          //         size: Size(len, wid),
-          //         child: SvgPicture.string(
-          //           _svg_1qbi84,
-          //           allowDrawingOutsideViewBox: true,
-          //           fit: BoxFit.fill,
-          //         ),
-          //       ),
-          //       Pinned.fromSize(
-          //         bounds: Rect.fromLTWH(4.3, 2.1, 2.3, 2.3),
-          //         size: Size(len, wid),
-          //         child: SvgPicture.string(
-          //           _svg_s6n209,
-          //           allowDrawingOutsideViewBox: true,
-          //           fit: BoxFit.fill,
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // Expanded(
-          //   child: Stack(
-          //     children: [
-          //       Pinned.fromSize(
-          //         bounds: Rect.fromLTWH(0.0, 12.0, 20.0, 20.0),
-          //         size: Size(len, wid),
-          //         child:
-          //             // Adobe XD layer: 'Sunny icon' (shape)
-          //             SvgPicture.string(
-          //           _svg_nahds6,
-          //           allowDrawingOutsideViewBox: true,
-          //           fit: BoxFit.fill,
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // add icon here
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Night',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 17,
+                        color: const Color(0xff404040),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      '00:00 AM - 11:59 AM',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 13,
+                        color: const Color(0xff9d9d9d),
+                        fontWeight: FontWeight.w300,
+                        height: 1.1666666666666667,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+                Checkbox(
+                  value: this.night,
+                  onChanged: (bool value) {
+                    setState(() {
+                      night = value;
+                    });
+                    print(night);
+                  },
+                ),
+              ],
+            ),
+
+            Container(
+              height: MediaQuery.of(context).size.height - 758,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      // color: Colors.green,
+                      height: 10,
+                      width: 100,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 30),
+                        child: Stack(
+                          children: <Widget>[
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
+                              size: Size(91.0, 34.0),
+                              child:
+                                  // Adobe XD layer: 'Tag box' (shape)
+                                  Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(17.0),
+                                  gradient: LinearGradient(
+                                    begin: Alignment(-0.97, -0.82),
+                                    end: Alignment(0.97, 0.79),
+                                    colors: [
+                                      const Color(0xfffe4f70),
+                                      const Color(0xffcb6bd8)
+                                    ],
+                                    stops: [0.0, 1.0],
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: const Color(0x29000000),
+                                      offset: Offset(0, 3),
+                                      blurRadius: 6,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(17.0, 7.0, 57.0, 20.0),
+                              size: Size(91.0, 34.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    categories[categories.keys
+                                        .toList()[index]] ^= true;
+                                  });
+                                  print(categories);
+                                },
+                                child: Text(
+                                  categories.keys.toList()[index],
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 16,
+                                    color: const Color(0xffffffff),
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+
+                    // MaterialButton(child: Text('apply filter'), onPressed: () {
+
+                    // });
+                  }),
+            ),
+            MaterialButton(
+                child: Text('apply filters'),
+                onPressed: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.setBool('morning', morning);
+                  prefs.setBool('afternoon', afternoon);
+                  prefs.setBool('evening', evening);
+                  prefs.setBool('night', night);
+                  prefs.setString('date', _selecteddate.toString());
+                  prefs.setString('club', _selectedClub);
+                  for (var i = 0; i < categories.keys.toList().length; i++) {
+                    prefs.setBool(categories.keys.toList()[i],
+                        categories.values.toList()[i]);
+                  }
+                  // prefs.setString('categories', categories.toString());
+                  prefs.setBool('filter_applied', true);
+                  Navigator.of(context).pushNamed('/Calender');
+                })
+            //paste code here
+            // Expanded(
+            //   child: Stack(
+            //     children: <Widget>[
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(0.0, 8.9, 15.1, 10.4),
+            //         size: Size(len, wid),
+            //         child: SvgPicture.string(
+            //           _svg_5k2qjp,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(6.3, 4.1, 13.7, 10.7),
+            //         size: Size(len, wid),
+            //         child: SvgPicture.string(
+            //           _svg_8wfb7x,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(9.5, 0.0, 1.3, 2.8),
+            //         size: Size(len, wid),
+            //         child: SvgPicture.string(
+            //           _svg_j3vz3q,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(2.1, 7.4, 2.8, 1.3),
+            //         size: Size(len, wid),
+            //         child: SvgPicture.string(
+            //           _svg_4z4jwi,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(13.7, 2.1, 2.3, 2.3),
+            //         size: Size(len, wid),
+            //         child: SvgPicture.string(
+            //           _svg_1qbi84,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(4.3, 2.1, 2.3, 2.3),
+            //         size: Size(len, wid),
+            //         child: SvgPicture.string(
+            //           _svg_s6n209,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // Expanded(
+            //   child: Stack(
+            //     children: [
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(0.0, 12.0, 20.0, 20.0),
+            //         size: Size(len, wid),
+            //         child:
+            //             // Adobe XD layer: 'Sunny icon' (shape)
+            //             SvgPicture.string(
+            //           _svg_nahds6,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+          ],
+        ),
       ),
     );
   }

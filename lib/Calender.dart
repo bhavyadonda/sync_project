@@ -290,22 +290,12 @@ class _CalenderState extends State<Calender> {
                                                           await SharedPreferences
                                                               .getInstance();
                                                       prefs.setString(
-                                                          'eventId',
+                                                          'eventId2',
                                                           values.keys
                                                               .toList()[index]);
-                                                      if (values.values
-                                                                      .toList()[
-                                                                  index]
-                                                              ['subEvents'] !=
-                                                          null) {
-                                                        Navigator.of(context)
-                                                            .pushNamed(
-                                                                '/Events');
-                                                      } else {
-                                                        Navigator.of(context)
-                                                            .pushNamed(
-                                                                '/EventDetails2');
-                                                      }
+                                                      Navigator.of(context)
+                                                          .pushNamed(
+                                                              '/EventDetails2');
                                                     },
                                                     child: SvgPicture.string(
                                                       _svg_rbwtgt,
@@ -490,22 +480,12 @@ class _CalenderState extends State<Calender> {
                                                           await SharedPreferences
                                                               .getInstance();
                                                       prefs.setString(
-                                                          'eventId',
+                                                          'eventId2',
                                                           values.keys
                                                               .toList()[index]);
-                                                      if (values.values
-                                                                      .toList()[
-                                                                  index]
-                                                              ['subEvents'] !=
-                                                          null) {
-                                                        Navigator.of(context)
-                                                            .pushNamed(
-                                                                '/Events');
-                                                      } else {
-                                                        Navigator.of(context)
-                                                            .pushNamed(
-                                                                '/EventDetails2');
-                                                      }
+                                                      Navigator.of(context)
+                                                          .pushNamed(
+                                                              '/EventDetails2');
                                                     },
                                                     child: SvgPicture.string(
                                                       _svg_rbwtgt,
