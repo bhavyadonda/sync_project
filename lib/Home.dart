@@ -1,16 +1,9 @@
-// import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import './Calender.dart';
 import 'package:adobe_xd/page_link.dart';
-import './ProfilePage.dart';
-// import './EventDetails2.dart';
-// import './Categories.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:convert';
-// import 'package:firebase_database/firebase_database.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -24,14 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    getUserData();
     getdata();
-  }
-
-  getUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map userData = json.decode(prefs.getString('userData'));
-    print(userData.values.toList());
   }
 
   getdata() async {
@@ -265,14 +251,10 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                  ),
-                ],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/Notifications');
+                },
                 child: SvgPicture.string(
                   _svg_t3qb8j,
                   allowDrawingOutsideViewBox: true,
@@ -627,15 +609,10 @@ class _HomePageState extends State<HomePage> {
               fixedHeight: true,
               child:
                   // Adobe XD layer: 'Profile Button' (group)
-                  PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                    pageBuilder: () => ProfilePage(),
-                  ),
-                ],
+                  GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/ProfilePage');
+                },
                 child: Stack(
                   children: <Widget>[
                     Pinned.fromSize(

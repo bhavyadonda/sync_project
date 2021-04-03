@@ -86,7 +86,10 @@ class _SignInState extends State<SignIn> {
                                 gradient: LinearGradient(
                                   begin: Alignment(0.0, -1.0),
                                   end: Alignment(0.0, 1.0),
-                                  colors: [const Color(0xfffe4f70), const Color(0xffcb6bd8)],
+                                  colors: [
+                                    const Color(0xfffe4f70),
+                                    const Color(0xffcb6bd8)
+                                  ],
                                   stops: [0.0, 1.0],
                                 ),
                               ),
@@ -136,8 +139,8 @@ class _SignInState extends State<SignIn> {
                             pinTop: true,
                             pinBottom: true,
                             child:
-                            // Adobe XD layer: 'Face' (shape)
-                            Container(
+                                // Adobe XD layer: 'Face' (shape)
+                                Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(7.0),
                                 color: const Color(0xffffffff),
@@ -152,8 +155,8 @@ class _SignInState extends State<SignIn> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Smile' (shape)
-                            SvgPicture.string(
+                                // Adobe XD layer: 'Smile' (shape)
+                                SvgPicture.string(
                               _svg_asnqyb,
                               allowDrawingOutsideViewBox: true,
                               fit: BoxFit.fill,
@@ -165,11 +168,11 @@ class _SignInState extends State<SignIn> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Right Eye' (shape)
-                            Container(
+                                // Adobe XD layer: 'Right Eye' (shape)
+                                Container(
                               decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
                                 gradient: LinearGradient(
                                   begin: Alignment(0.0, -1.0),
                                   end: Alignment(0.0, 1.0),
@@ -188,11 +191,11 @@ class _SignInState extends State<SignIn> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Left Eye' (shape)
-                            Container(
+                                // Adobe XD layer: 'Left Eye' (shape)
+                                Container(
                               decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
                                 gradient: LinearGradient(
                                   begin: Alignment(0.0, -1.0),
                                   end: Alignment(0.0, 1.0),
@@ -277,8 +280,8 @@ class _SignInState extends State<SignIn> {
                           fixedWidth: true,
                           fixedHeight: true,
                           child:
-                          // Adobe XD layer: 'Mail Placeholder' (text)
-                          TextFormField(
+                              // Adobe XD layer: 'Mail Placeholder' (text)
+                              TextFormField(
                             controller: _emailController,
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
@@ -331,8 +334,8 @@ class _SignInState extends State<SignIn> {
                           fixedWidth: true,
                           fixedHeight: true,
                           child:
-                          // Adobe XD layer: 'Password Placeholder' (text)
-                          TextFormField(
+                              // Adobe XD layer: 'Password Placeholder' (text)
+                              TextFormField(
                             obscureText: true,
                             controller: _passwordController,
                             decoration: InputDecoration(
@@ -472,8 +475,8 @@ class _SignInState extends State<SignIn> {
                     pinTop: true,
                     pinBottom: true,
                     child:
-                    // Adobe XD layer: 'Button' (shape)
-                    Container(
+                        // Adobe XD layer: 'Button' (shape)
+                        Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         gradient: LinearGradient(
@@ -498,21 +501,20 @@ class _SignInState extends State<SignIn> {
                           showLoaderDialog(context, "Authenticating...");
 
                           try {
-                            FirebaseUser user = (await FirebaseAuth.instance
+                            UserCredential userCredential = await FirebaseAuth
+                                .instance
                                 .signInWithEmailAndPassword(
                               email: _emailController.text,
                               password: _passwordController.text,
-                            ))
-                                .user;
-                            if (user != null) {
-                              if (user.isEmailVerified) {
-                                SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                                prefs.setBool('my_bool_key', true);
-                                Navigator.pop(context);
-                                Navigator.pushNamedAndRemoveUntil(
-                                    context, '/Home', (r) => false);
-                              }
+                            );
+                            User user = FirebaseAuth.instance.currentUser;
+                            if (user.emailVerified) {
+                              SharedPreferences prefs =
+                                  await SharedPreferences.getInstance();
+                              prefs.setBool('my_bool_key', true);
+                              Navigator.pop(context);
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, '/Home', (r) => false);
                             }
                           } catch (e) {
                             Navigator.pop(context);

@@ -514,27 +514,23 @@ class _RegisterViewState extends State<SignUp> {
                             showLoaderDialog(context, "Registering...");
                             try {
                               FirebaseAuth auth = FirebaseAuth.instance;
-                              FirebaseUser user =
-                                  (await auth.createUserWithEmailAndPassword(
-                                email: _emailController.text + "@nmims.edu.in",
+                              UserCredential userCredential =
+                                  await auth.createUserWithEmailAndPassword(
+                                email: _emailController.text,
                                 password: _passwordController.text,
-                              ))
-                                      .user;
-                              if (user != null) {
-                                await user.sendEmailVerification();
-                                FirebaseUser currentUser =
-                                    await auth.currentUser();
-                                final uid = currentUser.uid;
-                                SharedPreferences prefs =
-                                    await SharedPreferences.getInstance();
-                                prefs.setString('uid', uid);
-                                Navigator.pop(context);
-                                showAlertDialog(
-                                    context,
-                                    '/CompleteProfile',
-                                    'Id Created Successfully!',
-                                    'A verification link has been sent to your email id, please verify your email id within 24 hours.');
-                              }
+                              );
+                              User user = FirebaseAuth.instance.currentUser;
+                              await user.sendEmailVerification();
+                              final uid = user.uid;
+                              SharedPreferences prefs =
+                                  await SharedPreferences.getInstance();
+                              prefs.setString('uid', uid);
+                              Navigator.pop(context);
+                              showAlertDialog(
+                                  context,
+                                  '/CompleteProfile',
+                                  'Id Created Successfully!',
+                                  'A verification link has been sent to your email id, please verify your email id within 24 hours.');
                             } catch (e) {
                               Navigator.pop(context);
                               _passwordController.text = "";

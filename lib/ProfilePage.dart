@@ -1636,18 +1636,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                           size: Size(469.0, 191.0),
                                           child:
                                               // Adobe XD layer: 'Followed' (group)
-                                              PageLink(
-                                            links: [
-                                              PageLinkInfo(
-                                                transition: LinkTransition.Fade,
-                                                ease: Curves.linear,
-                                                duration: 0.3,
-                                                pageBuilder: () => {
-                                                  Navigator.pushNamed(
-                                                      context, '/Bookmarks')
-                                                },
-                                              ),
-                                            ],
+                                              GestureDetector(
+                                            onTap: () {
+                                              Navigator.pushNamed(
+                                                  context, '/Bookmarks');
+                                            },
                                             child: Stack(
                                               children: <Widget>[
                                                 Container(

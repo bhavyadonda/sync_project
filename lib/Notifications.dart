@@ -1,7 +1,9 @@
+import 'dart:convert';
+// import 'dart:js_util';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Notifications extends StatefulWidget {
   @override
@@ -9,6 +11,13 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
+  getdata() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List messages = json.decode(prefs.getString('messages') ?? '');
+    print(messages);
+    return messages;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +42,8 @@ class _NotificationsState extends State<Notifications> {
                         pinTop: true,
                         pinBottom: true,
                         child:
-                        // Adobe XD layer: 'Bell Gradient Circle' (shape)
-                        SvgPicture.string(
+                            // Adobe XD layer: 'Bell Gradient Circle' (shape)
+                            SvgPicture.string(
                           _svg_bmep7c,
                           allowDrawingOutsideViewBox: true,
                           fit: BoxFit.fill,
@@ -44,8 +53,8 @@ class _NotificationsState extends State<Notifications> {
                         bounds: Rect.fromLTWH(12.6, 30.0, 27.0, 29.3),
                         size: Size(88.2, 89.3),
                         child:
-                        // Adobe XD layer: 'Bell Icon' (shape)
-                        SvgPicture.string(
+                            // Adobe XD layer: 'Bell Icon' (shape)
+                            SvgPicture.string(
                           _svg_kcgqpm,
                           allowDrawingOutsideViewBox: true,
                           fit: BoxFit.fill,
@@ -60,26 +69,24 @@ class _NotificationsState extends State<Notifications> {
               ],
             ),
           ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Container(
-                width: 272,//272
-                height: MediaQuery.of(context).size.height,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50.0),
-                    bottomLeft: Radius.circular(50.0),
-                  ),
-                  color: const Color(0xffffffff),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0x29000000),
-                      offset: Offset(0, 3),
-                      blurRadius: 6,
-                    ),
-                  ],
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              width: 272, //272
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50.0),
+                  bottomLeft: Radius.circular(50.0),
                 ),
+                color: const Color(0xffffffff),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x29000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 6,
+                  ),
+                ],
               ),
             ),
           ),
@@ -105,125 +112,48 @@ class _NotificationsState extends State<Notifications> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: SizedBox(
-                    width: 260,
-                    height: MediaQuery.of(context).size.height - 250,
-                    child: ListView.builder(
-                        itemCount: 10,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-                            child: SizedBox(
-                              width: 239.0,
-                              height: 120.0,
-                              child: Stack(
-                                children: <Widget>[
-                                  Pinned.fromSize(
-                                    bounds: Rect.fromLTWH(0.0, 18.0, 239.0, 100.0),
-                                    size: Size(239.0, 120.0),
-                                    pinLeft: true,
-                                    pinRight: true,
-                                    pinTop: true,
-                                    pinBottom: true,
-                                    child:
-                                    // Adobe XD layer: 'Notification Rectan…' (shape)
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15.0),
-                                        color: const Color(0xffffffff),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: const Color(0x29000000),
-                                            offset: Offset(0, 3),
-                                            blurRadius: 6,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Pinned.fromSize(
-                                    bounds: Rect.fromLTWH(35.0, 75.0, 187.0, 38.0),
-                                    size: Size(239.0, 120.0),
-                                    pinLeft: true,
-                                    pinRight: true,
-                                    pinBottom: true,
-                                    fixedHeight: true,
-                                    child: SingleChildScrollView(
-                                        child: Text(
-                                          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed',
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 13,
-                                            color: const Color(0xff9d9d9d),
-                                          ),
-                                          textAlign: TextAlign.right,
-                                        )),
-                                  ),
-                                  Pinned.fromSize(
-                                    bounds: Rect.fromLTWH(131.0, 45.0, 91.0, 25.0),
-                                    size: Size(239.0, 120.0),
-                                    pinRight: true,
-                                    fixedWidth: true,
-                                    fixedHeight: true,
-                                    child: Text(
-                                      'Tech Club',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                        color: const Color(0xff404040),
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                      textAlign: TextAlign.left,
-                                    ),
-                                  ),
-                                  Pinned.fromSize(
-                                    bounds: Rect.fromLTWH(0.0, 27.0, 47.0, 17.0),
-                                    size: Size(239.0, 120.0),
-                                    pinLeft: true,
-                                    fixedWidth: true,
-                                    fixedHeight: true,
-                                    child: Text(
-                                      '11:00 AM',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14,
-                                        color: const Color(0xff9d9d9d),
-                                      ),
-                                      textAlign: TextAlign.right,
-                                    ),
-                                  ),
-                                  Pinned.fromSize(
-                                    bounds: Rect.fromLTWH(187.0, 0.0, 35.0, 35.0),
-                                    size: Size(239.0, 120.0),
-                                    pinRight: true,
-                                    pinTop: true,
-                                    fixedWidth: true,
-                                    fixedHeight: true,
-                                    child:
-                                    // Adobe XD layer: 'Club Logo' (group)
-                                    Stack(
+              FutureBuilder(
+                future: getdata(),
+                builder: (context, AsyncSnapshot snapshot) {
+                  if (snapshot.hasData) {
+                    List<dynamic> values = snapshot.data;
+                    return new Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: SizedBox(
+                          width: 260,
+                          height: MediaQuery.of(context).size.height - 250,
+                          child: ListView.builder(
+                              itemCount: values.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  child: SizedBox(
+                                    width: 239.0,
+                                    height: 120.0,
+                                    child: Stack(
                                       children: <Widget>[
                                         Pinned.fromSize(
-                                          bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
-                                          size: Size(35.0, 35.0),
+                                          bounds: Rect.fromLTWH(
+                                              0.0, 18.0, 239.0, 100.0),
+                                          size: Size(239.0, 120.0),
                                           pinLeft: true,
                                           pinRight: true,
                                           pinTop: true,
                                           pinBottom: true,
                                           child:
-                                          // Adobe XD layer: 'Logo CIrcle' (shape)
-                                          Container(
+                                              // Adobe XD layer: 'Notification Rectan…' (shape)
+                                              Container(
                                             decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.elliptical(9999.0, 9999.0)),
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
                                               color: const Color(0xffffffff),
                                               boxShadow: [
                                                 BoxShadow(
-                                                  color: const Color(0x29000000),
+                                                  color:
+                                                      const Color(0x29000000),
                                                   offset: Offset(0, 3),
                                                   blurRadius: 6,
                                                 ),
@@ -232,34 +162,136 @@ class _NotificationsState extends State<Notifications> {
                                           ),
                                         ),
                                         Pinned.fromSize(
-                                          bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
-                                          size: Size(35.0, 35.0),
+                                          bounds: Rect.fromLTWH(
+                                              35.0, 75.0, 187.0, 38.0),
+                                          size: Size(239.0, 120.0),
                                           pinLeft: true,
                                           pinRight: true,
-                                          pinTop: true,
                                           pinBottom: true,
-                                          child:
-                                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: const AssetImage('assets/Tech Club Logo.png'),
-                                                fit: BoxFit.fill,
-                                              ),
+                                          fixedHeight: true,
+                                          child: SingleChildScrollView(
+                                              child: Text(
+                                            values[index]['body'],
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 13,
+                                              color: const Color(0xff9d9d9d),
                                             ),
+                                            textAlign: TextAlign.right,
+                                          )),
+                                        ),
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(
+                                              131.0, 45.0, 91.0, 25.0),
+                                          size: Size(239.0, 120.0),
+                                          pinRight: true,
+                                          fixedWidth: true,
+                                          fixedHeight: true,
+                                          child: Text(
+                                            values[index]['title'],
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 20,
+                                              color: const Color(0xff404040),
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                        ),
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(
+                                              0.0, 27.0, 47.0, 17.0),
+                                          size: Size(239.0, 120.0),
+                                          pinLeft: true,
+                                          fixedWidth: true,
+                                          fixedHeight: true,
+                                          child: Text(
+                                            '11:00 AM',
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 14,
+                                              color: const Color(0xff9d9d9d),
+                                            ),
+                                            textAlign: TextAlign.right,
+                                          ),
+                                        ),
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(
+                                              187.0, 0.0, 35.0, 35.0),
+                                          size: Size(239.0, 120.0),
+                                          pinRight: true,
+                                          pinTop: true,
+                                          fixedWidth: true,
+                                          fixedHeight: true,
+                                          child:
+                                              // Adobe XD layer: 'Club Logo' (group)
+                                              Stack(
+                                            children: <Widget>[
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(
+                                                    0.0, 0.0, 35.0, 35.0),
+                                                size: Size(35.0, 35.0),
+                                                pinLeft: true,
+                                                pinRight: true,
+                                                pinTop: true,
+                                                pinBottom: true,
+                                                child:
+                                                    // Adobe XD layer: 'Logo CIrcle' (shape)
+                                                    Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.elliptical(
+                                                                9999.0,
+                                                                9999.0)),
+                                                    color:
+                                                        const Color(0xffffffff),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: const Color(
+                                                            0x29000000),
+                                                        offset: Offset(0, 3),
+                                                        blurRadius: 6,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(
+                                                    5.0, 5.0, 25.0, 25.0),
+                                                size: Size(35.0, 35.0),
+                                                pinLeft: true,
+                                                pinRight: true,
+                                                pinTop: true,
+                                                pinBottom: true,
+                                                child:
+                                                    // Adobe XD layer: 'Tech Club Logo' (shape)
+                                                    Container(
+                                                  decoration: BoxDecoration(
+                                                    image: DecorationImage(
+                                                      image: const AssetImage(
+                                                          'assets/Tech Club Logo.png'),
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
-                                ],
-                              ),
-                            ),
-                          );
-                        }
-                    ),
-                  ),
-                ),
+                                );
+                              }),
+                        ),
+                      ),
+                    );
+                  } else {
+                    return SizedBox();
+                  }
+                },
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 25, 20, 0),
@@ -282,7 +314,8 @@ class _NotificationsState extends State<Notifications> {
                         height: 45.0,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: const AssetImage('assets/Tech Club Logo Horizontal.png'),
+                            image: const AssetImage(
+                                'assets/Tech Club Logo Horizontal.png'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -298,7 +331,6 @@ class _NotificationsState extends State<Notifications> {
     );
   }
 }
-
 
 const String _svg_bmep7c =
     '<svg viewBox="58.9 361.4 88.2 89.3" ><defs><linearGradient id="gradient" x1="0.017181" y1="0.087972" x2="0.984024" y2="0.895426"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="matrix(-1.0, 0.0, 0.0, -1.0, 147.12, 450.63)" d="M 44.11832809448242 89.26658630371094 C 68.48420715332031 89.26658630371094 88.23665618896484 69.28357696533203 88.23665618896484 44.63329315185547 C 88.23665618896484 19.98300933837891 68.48420715332031 0 44.11832809448242 0 C 19.75245094299316 0 0 19.98300933837891 0 44.63329315185547 C 0 69.28357696533203 19.75245094299316 89.26658630371094 44.11832809448242 89.26658630371094 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';

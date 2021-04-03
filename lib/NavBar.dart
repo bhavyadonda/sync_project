@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:sync_project/ContactUs.dart';
 import './Settings.dart';
 import 'package:adobe_xd/page_link.dart';
 import './ContactUs.dart';
@@ -8,615 +11,1265 @@ import './Clubs.dart';
 import './ProfilePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class NavBar extends StatelessWidget {
-  NavBar({
-    Key key,
-  }) : super(key: key);
+class NavBar extends StatefulWidget {
+  @override
+  _NavBarState createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xb3000000),
+      backgroundColor: Colors.black,
       body: Stack(
-        children: <Widget>[
-          Positioned(
-            left: 226.8,
-            top: 361.4,
-            child: SizedBox(
-                width: 88.0,
-                height: 89.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 88.2, 89.3),
-                size: Size(88.2, 89.3),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Burger Gradient Cir…' (shape)
-                    SvgPicture.string(
-                  _svg_zicyw5,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(50.2, 32.7, 30.0, 23.8),
-                size: Size(88.2, 89.3),
-                pinRight: true,
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Burger Menu' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
-                      size: Size(30.0, 23.8),
-                      child:
-                          // Adobe XD layer: 'Bottom Line' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
-                      size: Size(30.0, 23.8),
-                      child:
-                          // Adobe XD layer: 'Mid Line' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
-                      size: Size(30.0, 23.8),
-                      child:
-                          // Adobe XD layer: 'Upper Line' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3.0),
-                          color: const Color(0xffffffff),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 0,
-            top: 0,
+        children: [
+          Padding(
+            padding: EdgeInsets.fromLTRB(230, 0, 0, 0),
             child: Container(
-              width: 272.0,
-              height: 812.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(50.0),
-                  bottomRight: Radius.circular(50.0),
-                ),
-                color: const Color(0xffffffff),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 88.0,
+                    height: 89.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 88.2, 89.3),
+                          size: Size(88.2, 89.3),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child:
+                              // Adobe XD layer: 'Burger Gradient Cir…' (shape)
+                              SvgPicture.string(
+                            _svg_zicyw5,
+                            allowDrawingOutsideViewBox: true,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(50.2, 32.7, 30.0, 23.8),
+                          size: Size(88.2, 89.3),
+                          pinRight: true,
+                          fixedWidth: true,
+                          fixedHeight: true,
+                          child:
+                              // Adobe XD layer: 'Burger Menu' (group)
+                              Stack(
+                            children: <Widget>[
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
+                                size: Size(30.0, 23.8),
+                                child:
+                                    // Adobe XD layer: 'Bottom Line' (shape)
+                                    Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4.0),
+                                    color: const Color(0xffffffff),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0x29000000),
+                                        offset: Offset(0, 3),
+                                        blurRadius: 6,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
+                                size: Size(30.0, 23.8),
+                                child:
+                                    // Adobe XD layer: 'Mid Line' (shape)
+                                    Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3.0),
+                                    color: const Color(0xffffffff),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0x29000000),
+                                        offset: Offset(0, 3),
+                                        blurRadius: 6,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
+                                size: Size(30.0, 23.8),
+                                child:
+                                    // Adobe XD layer: 'Upper Line' (shape)
+                                    Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3.0),
+                                    color: const Color(0xffffffff),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0x29000000),
+                                        offset: Offset(0, 3),
+                                        blurRadius: 6,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
           ),
-          Positioned(
-            left: 13,
-            top: 743,
-            child: Container(
-                width: 160.0,
-                height: 45.0,
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                width: 272, //272
+                height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Tech Club Logo Horizontal.png'),
-              fit: BoxFit.fill,
-            ),
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 712,
-            child: Text(
-              'Developed by',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 17,
-                color: const Color(0xff9d9d9d),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Positioned(
-            left: 152,
-            top: 654,
-            child: SizedBox(
-                width: 36.0,
-                height: 36.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'YouTube Circle' (shape)
-                    SvgPicture.string(
-                  _svg_vg42yg,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(7.0, 10.0, 22.8, 16.0),
-                size: Size(36.0, 36.0),
-                child:
-                    // Adobe XD layer: 'Youtube Logo' (shape)
-                    SvgPicture.string(
-                  _svg_xbairv,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 83,
-            top: 654,
-            child: SizedBox(
-                width: 36.0,
-                height: 36.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Facebook Circle' (shape)
-                    SvgPicture.string(
-                  _svg_2hom8a,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
-                size: Size(36.0, 36.0),
-                fixedWidth: true,
-                fixedHeight: true,
-                child:
-                    // Adobe XD layer: 'Facebook Logo' (group)
-                    Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 16.0, 16.0),
-                      size: Size(16.0, 16.0),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child: Container(
-                        decoration: BoxDecoration(),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(4.0, 0.0, 8.4, 16.0),
-                      size: Size(16.0, 16.0),
-                      pinTop: true,
-                      pinBottom: true,
-                      fixedWidth: true,
-                      child: SvgPicture.string(
-                        _svg_t9k0ox,
-                        allowDrawingOutsideViewBox: true,
-                        fit: BoxFit.fill,
-                      ),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(50.0),
+                    bottomRight: Radius.circular(50.0),
+                  ),
+                  color: const Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
                     ),
                   ],
                 ),
               ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 654,
-            child: SizedBox(
-                width: 36.0,
-                height: 36.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Instagram Circle' (shape)
-                    SvgPicture.string(
-                  _svg_3k9cdm,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
-                size: Size(36.0, 36.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Instagram Logo' (shape)
-                    SvgPicture.string(
-                  _svg_i2487t,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 435,
-            child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => Settings(),
             ),
-                ],
+          ),
+          Column(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
                 child: SizedBox(
-            width: 149.0,
-            height: 25.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(34.0, 0.0, 115.0, 25.0),
-                  size: Size(149.0, 25.0),
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  fixedWidth: true,
-                  child: Text(
-                    'S E T T I N G S',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 3.2, 16.0, 16.8),
-                  size: Size(149.0, 25.0),
-                  child:
-                      // Adobe XD layer: 'Settings Icon' (shape)
-                      SvgPicture.string(
-                    _svg_5hxx43,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ],
-            ),
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 370,
-            child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => ContactUs(),
-            ),
-                ],
-                child: SizedBox(
-            width: 186.0,
-            height: 25.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(34.0, 0.0, 152.0, 25.0),
-                  size: Size(186.0, 25.0),
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  fixedWidth: true,
-                  child: Text(
-                    'C O N T A C T  U S',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
-                  size: Size(186.0, 25.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'Contact Us Icon' (shape)
-                      SvgPicture.string(
-                    _svg_s5ghc3,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ],
-            ),
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 305,
-            child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => AboutUs(),
-            ),
-                ],
-                child: SizedBox(
-            width: 150.0,
-            height: 25.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(34.0, 0.0, 116.0, 25.0),
-                  size: Size(150.0, 25.0),
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  fixedWidth: true,
-                  child: Text(
-                    'A B O U T  U S',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
-                  size: Size(150.0, 25.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'About Us Icon' (shape)
-                      SvgPicture.string(
-                    _svg_fpdumm,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ],
-            ),
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 240,
-            child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => Clubs(),
-            ),
-                ],
-                child: SizedBox(
-            width: 109.0,
-            height: 25.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(34.0, 0.0, 75.0, 25.0),
-                  size: Size(109.0, 25.0),
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  fixedWidth: true,
-                  child: Text(
-                    'C L U B S',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
-                  size: Size(109.0, 25.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'Club Icon' (shape)
-                      SvgPicture.string(
-                    _svg_bnazwc,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ],
-            ),
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 175,
-            child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => ProfilePage(),
-            ),
-                ],
-                child: SizedBox(
-            width: 150.0,
-            height: 25.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(34.0, 0.0, 116.0, 25.0),
-                  size: Size(150.0, 25.0),
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  fixedWidth: true,
-                  child: Text(
-                    'P R O F I L E',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xff404040),
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
-                  size: Size(129.0, 25.0),
-                  pinLeft: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child:
-                      // Adobe XD layer: 'Profile Icon' (group)
-                      Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(4.0, 0.0, 8.0, 8.0),
-                        size: Size(16.0, 16.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            gradient: LinearGradient(
-                              begin: Alignment(-0.97, -0.82),
-                              end: Alignment(0.97, 0.79),
-                              colors: [
-                                const Color(0xfffe4f70),
-                                const Color(0xffcb6bd8)
+                  width: 272.0,
+                  height: MediaQuery.of(context).size.height - 160,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 70, 170, 0),
+                        child: Text(
+                          'Menu',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 23,
+                            color: const Color(0xff404040),
+                            fontWeight: FontWeight.w600,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 40, 80, 0),
+                        child: PageLink(
+                          links: [
+                            PageLinkInfo(
+                              transition: LinkTransition.Fade,
+                              ease: Curves.easeOut,
+                              duration: 0.3,
+                              pageBuilder: () => ProfilePage(),
+                            ),
+                          ],
+                          child: SizedBox(
+                            width: 150.0,
+                            height: 25.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(34.0, 0.0, 116.0, 25.0),
+                                  size: Size(150.0, 25.0),
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  fixedWidth: true,
+                                  child: Text(
+                                    'P R O F I L E',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 18,
+                                      color: const Color(0xff404040),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+                                  size: Size(129.0, 25.0),
+                                  pinLeft: true,
+                                  fixedWidth: true,
+                                  fixedHeight: true,
+                                  child:
+                                      // Adobe XD layer: 'Profile Icon' (group)
+                                      Stack(
+                                    children: <Widget>[
+                                      Pinned.fromSize(
+                                        bounds:
+                                            Rect.fromLTWH(4.0, 0.0, 8.0, 8.0),
+                                        size: Size(16.0, 16.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.elliptical(
+                                                    9999.0, 9999.0)),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(-0.97, -0.82),
+                                              end: Alignment(0.97, 0.79),
+                                              colors: [
+                                                const Color(0xfffe4f70),
+                                                const Color(0xffcb6bd8)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Pinned.fromSize(
+                                        bounds:
+                                            Rect.fromLTWH(0.0, 10.0, 16.0, 6.0),
+                                        size: Size(16.0, 16.0),
+                                        child: SvgPicture.string(
+                                          _svg_qlpfar,
+                                          allowDrawingOutsideViewBox: true,
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ],
-                              stops: [0.0, 1.0],
                             ),
                           ),
                         ),
                       ),
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 10.0, 16.0, 6.0),
-                        size: Size(16.0, 16.0),
-                        child: SvgPicture.string(
-                          _svg_qlpfar,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 40, 120, 0),
+                        child: PageLink(
+                          links: [
+                            PageLinkInfo(
+                              transition: LinkTransition.Fade,
+                              ease: Curves.easeOut,
+                              duration: 0.3,
+                              pageBuilder: () => Clubs(),
+                            ),
+                          ],
+                          child: SizedBox(
+                            width: 109.0,
+                            height: 25.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(34.0, 0.0, 75.0, 25.0),
+                                  size: Size(109.0, 25.0),
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  fixedWidth: true,
+                                  child: Text(
+                                    'C L U B S',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 18,
+                                      color: const Color(0xff404040),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+                                  size: Size(109.0, 25.0),
+                                  pinLeft: true,
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  child:
+                                      // Adobe XD layer: 'Club Icon' (shape)
+                                      SvgPicture.string(
+                                    _svg_bnazwc,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 40, 80, 0),
+                        child: PageLink(
+                          links: [
+                            PageLinkInfo(
+                              transition: LinkTransition.Fade,
+                              ease: Curves.easeOut,
+                              duration: 0.3,
+                              pageBuilder: () => AboutUs(),
+                            ),
+                          ],
+                          child: SizedBox(
+                            width: 150.0,
+                            height: 25.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(34.0, 0.0, 116.0, 25.0),
+                                  size: Size(150.0, 25.0),
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  fixedWidth: true,
+                                  child: Text(
+                                    'A B O U T  U S',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 18,
+                                      color: const Color(0xff404040),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+                                  size: Size(150.0, 25.0),
+                                  pinLeft: true,
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  child:
+                                      // Adobe XD layer: 'About Us Icon' (shape)
+                                      SvgPicture.string(
+                                    _svg_fpdumm,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(20, 40, 60, 0),
+                        child: PageLink(
+                          links: [
+                            PageLinkInfo(
+                              transition: LinkTransition.Fade,
+                              ease: Curves.easeOut,
+                              duration: 0.3,
+                              pageBuilder: () => ContactUs(),
+                            ),
+                          ],
+                          child: SizedBox(
+                            width: 186.0,
+                            height: 25.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(34.0, 0.0, 152.0, 25.0),
+                                  size: Size(186.0, 25.0),
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  fixedWidth: true,
+                                  child: Text(
+                                    'C O N T A C T  U S',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 18,
+                                      color: const Color(0xff404040),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+                                  size: Size(186.0, 25.0),
+                                  pinLeft: true,
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  child:
+                                      // Adobe XD layer: 'Contact Us Icon' (shape)
+                                      SvgPicture.string(
+                                    _svg_s5ghc3,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 40, 80, 0),
+                        child: PageLink(
+                          links: [
+                            PageLinkInfo(
+                              transition: LinkTransition.Fade,
+                              ease: Curves.easeOut,
+                              duration: 0.3,
+                              pageBuilder: () => Settings(),
+                            ),
+                          ],
+                          child: SizedBox(
+                            width: 149.0,
+                            height: 25.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(34.0, 0.0, 115.0, 25.0),
+                                  size: Size(149.0, 25.0),
+                                  pinRight: true,
+                                  pinTop: true,
+                                  pinBottom: true,
+                                  fixedWidth: true,
+                                  child: Text(
+                                    'S E T T I N G S',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 18,
+                                      color: const Color(0xff404040),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 3.2, 16.0, 16.8),
+                                  size: Size(149.0, 25.0),
+                                  child:
+                                      // Adobe XD layer: 'Settings Icon' (shape)
+                                      SvgPicture.string(
+                                    _svg_5hxx43,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                            child: SizedBox(
+                              width: 36.0,
+                              height: 36.0,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                                    size: Size(36.0, 36.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinTop: true,
+                                    pinBottom: true,
+                                    child:
+                                        // Adobe XD layer: 'Facebook Circle' (shape)
+                                        SvgPicture.string(
+                                      _svg_2hom8a,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds:
+                                        Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+                                    size: Size(36.0, 36.0),
+                                    fixedWidth: true,
+                                    fixedHeight: true,
+                                    child:
+                                        // Adobe XD layer: 'Facebook Logo' (group)
+                                        Stack(
+                                      children: <Widget>[
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(
+                                              0.0, 0.0, 16.0, 16.0),
+                                          size: Size(16.0, 16.0),
+                                          pinLeft: true,
+                                          pinRight: true,
+                                          pinTop: true,
+                                          pinBottom: true,
+                                          child: Container(
+                                            decoration: BoxDecoration(),
+                                          ),
+                                        ),
+                                        Pinned.fromSize(
+                                          bounds: Rect.fromLTWH(
+                                              4.0, 0.0, 8.4, 16.0),
+                                          size: Size(16.0, 16.0),
+                                          pinTop: true,
+                                          pinBottom: true,
+                                          fixedWidth: true,
+                                          child: SvgPicture.string(
+                                            _svg_t9k0ox,
+                                            allowDrawingOutsideViewBox: true,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                            child: SizedBox(
+                              width: 36.0,
+                              height: 36.0,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                                    size: Size(36.0, 36.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinTop: true,
+                                    pinBottom: true,
+                                    child:
+                                        // Adobe XD layer: 'YouTube Circle' (shape)
+                                        SvgPicture.string(
+                                      _svg_vg42yg,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds:
+                                        Rect.fromLTWH(7.0, 10.0, 22.8, 16.0),
+                                    size: Size(36.0, 36.0),
+                                    child:
+                                        // Adobe XD layer: 'Youtube Logo' (shape)
+                                        SvgPicture.string(
+                                      _svg_xbairv,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                            child: SizedBox(
+                              width: 36.0,
+                              height: 36.0,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+                                    size: Size(36.0, 36.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinTop: true,
+                                    pinBottom: true,
+                                    child:
+                                        // Adobe XD layer: 'Instagram Circle' (shape)
+                                        SvgPicture.string(
+                                      _svg_3k9cdm,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds:
+                                        Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+                                    size: Size(36.0, 36.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinTop: true,
+                                    pinBottom: true,
+                                    child:
+                                        // Adobe XD layer: 'Instagram Logo' (shape)
+                                        SvgPicture.string(
+                                      _svg_i2487t,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                          child: Text(
+                            'Developed by',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff9d9d9d),
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                        Container(
+                          width: 160.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: const AssetImage(
+                                  'assets/Tech Club Logo Horizontal.png'),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-          ),
-          Positioned(
-            left: 13,
-            top: 110,
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 18,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.left,
-            ),
+            ],
           ),
         ],
       ),
     );
   }
 }
+
+// class NavBar extends StatelessWidget {
+//   NavBar({
+//     Key key,
+//   }) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xb3000000),
+//       body: Stack(
+//         children: <Widget>[
+//           Positioned(
+//             left: 226.8,
+//             top: 361.4,
+//             child: SizedBox(
+//               width: 88.0,
+//               height: 89.0,
+//               child: Stack(
+//                 children: <Widget>[
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(0.0, 0.0, 88.2, 89.3),
+//                     size: Size(88.2, 89.3),
+//                     pinLeft: true,
+//                     pinRight: true,
+//                     pinTop: true,
+//                     pinBottom: true,
+//                     child:
+//                     // Adobe XD layer: 'Burger Gradient Cir…' (shape)
+//                     SvgPicture.string(
+//                       _svg_zicyw5,
+//                       allowDrawingOutsideViewBox: true,
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(50.2, 32.7, 30.0, 23.8),
+//                     size: Size(88.2, 89.3),
+//                     pinRight: true,
+//                     fixedWidth: true,
+//                     fixedHeight: true,
+//                     child:
+//                     // Adobe XD layer: 'Burger Menu' (group)
+//                     Stack(
+//                       children: <Widget>[
+//                         Pinned.fromSize(
+//                           bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
+//                           size: Size(30.0, 23.8),
+//                           child:
+//                           // Adobe XD layer: 'Bottom Line' (shape)
+//                           Container(
+//                             decoration: BoxDecoration(
+//                               borderRadius: BorderRadius.circular(4.0),
+//                               color: const Color(0xffffffff),
+//                               boxShadow: [
+//                                 BoxShadow(
+//                                   color: const Color(0x29000000),
+//                                   offset: Offset(0, 3),
+//                                   blurRadius: 6,
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                         ),
+//                         Pinned.fromSize(
+//                           bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
+//                           size: Size(30.0, 23.8),
+//                           child:
+//                           // Adobe XD layer: 'Mid Line' (shape)
+//                           Container(
+//                             decoration: BoxDecoration(
+//                               borderRadius: BorderRadius.circular(3.0),
+//                               color: const Color(0xffffffff),
+//                               boxShadow: [
+//                                 BoxShadow(
+//                                   color: const Color(0x29000000),
+//                                   offset: Offset(0, 3),
+//                                   blurRadius: 6,
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                         ),
+//                         Pinned.fromSize(
+//                           bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
+//                           size: Size(30.0, 23.8),
+//                           child:
+//                           // Adobe XD layer: 'Upper Line' (shape)
+//                           Container(
+//                             decoration: BoxDecoration(
+//                               borderRadius: BorderRadius.circular(3.0),
+//                               color: const Color(0xffffffff),
+//                               boxShadow: [
+//                                 BoxShadow(
+//                                   color: const Color(0x29000000),
+//                                   offset: Offset(0, 3),
+//                                   blurRadius: 6,
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 0,
+//             top: 0,
+//             child: Container(
+//               width: 272.0,
+//               height: 812.0,
+//               decoration: BoxDecoration(
+//                 borderRadius: BorderRadius.only(
+//                   topRight: Radius.circular(50.0),
+//                   bottomRight: Radius.circular(50.0),
+//                 ),
+//                 color: const Color(0xffffffff),
+//                 boxShadow: [
+//                   BoxShadow(
+//                     color: const Color(0x29000000),
+//                     offset: Offset(0, 3),
+//                     blurRadius: 6,
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 743,
+//             child: Container(
+//               width: 160.0,
+//               height: 45.0,
+//               decoration: BoxDecoration(
+//                 image: DecorationImage(
+//                   image: const AssetImage('assets/Tech Club Logo Horizontal.png'),
+//                   fit: BoxFit.fill,
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 712,
+//             child: Text(
+//               'Developed by',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 17,
+//                 color: const Color(0xff9d9d9d),
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           Positioned(
+//             left: 152,
+//             top: 654,
+//             child: SizedBox(
+//               width: 36.0,
+//               height: 36.0,
+//               child: Stack(
+//                 children: <Widget>[
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+//                     size: Size(36.0, 36.0),
+//                     pinLeft: true,
+//                     pinRight: true,
+//                     pinTop: true,
+//                     pinBottom: true,
+//                     child:
+//                     // Adobe XD layer: 'YouTube Circle' (shape)
+//                     SvgPicture.string(
+//                       _svg_vg42yg,
+//                       allowDrawingOutsideViewBox: true,
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(7.0, 10.0, 22.8, 16.0),
+//                     size: Size(36.0, 36.0),
+//                     child:
+//                     // Adobe XD layer: 'Youtube Logo' (shape)
+//                     SvgPicture.string(
+//                       _svg_xbairv,
+//                       allowDrawingOutsideViewBox: true,
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 83,
+//             top: 654,
+//             child: SizedBox(
+//               width: 36.0,
+//               height: 36.0,
+//               child: Stack(
+//                 children: <Widget>[
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+//                     size: Size(36.0, 36.0),
+//                     pinLeft: true,
+//                     pinRight: true,
+//                     pinTop: true,
+//                     pinBottom: true,
+//                     child:
+//                     // Adobe XD layer: 'Facebook Circle' (shape)
+//                     SvgPicture.string(
+//                       _svg_2hom8a,
+//                       allowDrawingOutsideViewBox: true,
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+//                     size: Size(36.0, 36.0),
+//                     fixedWidth: true,
+//                     fixedHeight: true,
+//                     child:
+//                     // Adobe XD layer: 'Facebook Logo' (group)
+//                     Stack(
+//                       children: <Widget>[
+//                         Pinned.fromSize(
+//                           bounds: Rect.fromLTWH(0.0, 0.0, 16.0, 16.0),
+//                           size: Size(16.0, 16.0),
+//                           pinLeft: true,
+//                           pinRight: true,
+//                           pinTop: true,
+//                           pinBottom: true,
+//                           child: Container(
+//                             decoration: BoxDecoration(),
+//                           ),
+//                         ),
+//                         Pinned.fromSize(
+//                           bounds: Rect.fromLTWH(4.0, 0.0, 8.4, 16.0),
+//                           size: Size(16.0, 16.0),
+//                           pinTop: true,
+//                           pinBottom: true,
+//                           fixedWidth: true,
+//                           child: SvgPicture.string(
+//                             _svg_t9k0ox,
+//                             allowDrawingOutsideViewBox: true,
+//                             fit: BoxFit.fill,
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 654,
+//             child: SizedBox(
+//               width: 36.0,
+//               height: 36.0,
+//               child: Stack(
+//                 children: <Widget>[
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(0.0, 0.0, 36.0, 36.0),
+//                     size: Size(36.0, 36.0),
+//                     pinLeft: true,
+//                     pinRight: true,
+//                     pinTop: true,
+//                     pinBottom: true,
+//                     child:
+//                     // Adobe XD layer: 'Instagram Circle' (shape)
+//                     SvgPicture.string(
+//                       _svg_3k9cdm,
+//                       allowDrawingOutsideViewBox: true,
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                   Pinned.fromSize(
+//                     bounds: Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+//                     size: Size(36.0, 36.0),
+//                     pinLeft: true,
+//                     pinRight: true,
+//                     pinTop: true,
+//                     pinBottom: true,
+//                     child:
+//                     // Adobe XD layer: 'Instagram Logo' (shape)
+//                     SvgPicture.string(
+//                       _svg_i2487t,
+//                       allowDrawingOutsideViewBox: true,
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 435,
+//             child: PageLink(
+//               links: [
+//                 PageLinkInfo(
+//                   transition: LinkTransition.Fade,
+//                   ease: Curves.easeOut,
+//                   duration: 0.3,
+//                   pageBuilder: () => Settings(),
+//                 ),
+//               ],
+//               child: SizedBox(
+//                 width: 149.0,
+//                 height: 25.0,
+//                 child: Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(34.0, 0.0, 115.0, 25.0),
+//                       size: Size(149.0, 25.0),
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       fixedWidth: true,
+//                       child: Text(
+//                         'S E T T I N G S',
+//                         style: TextStyle(
+//                           fontFamily: 'Poppins',
+//                           fontSize: 18,
+//                           color: const Color(0xff404040),
+//                         ),
+//                         textAlign: TextAlign.left,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 3.2, 16.0, 16.8),
+//                       size: Size(149.0, 25.0),
+//                       child:
+//                       // Adobe XD layer: 'Settings Icon' (shape)
+//                       SvgPicture.string(
+//                         _svg_5hxx43,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 370,
+//             child: PageLink(
+//               links: [
+//                 PageLinkInfo(
+//                   transition: LinkTransition.Fade,
+//                   ease: Curves.easeOut,
+//                   duration: 0.3,
+//                   pageBuilder: () => ContactUs(),
+//                 ),
+//               ],
+//               child: SizedBox(
+//                 width: 186.0,
+//                 height: 25.0,
+//                 child: Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(34.0, 0.0, 152.0, 25.0),
+//                       size: Size(186.0, 25.0),
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       fixedWidth: true,
+//                       child: Text(
+//                         'C O N T A C T  U S',
+//                         style: TextStyle(
+//                           fontFamily: 'Poppins',
+//                           fontSize: 18,
+//                           color: const Color(0xff404040),
+//                         ),
+//                         textAlign: TextAlign.left,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+//                       size: Size(186.0, 25.0),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       child:
+//                       // Adobe XD layer: 'Contact Us Icon' (shape)
+//                       SvgPicture.string(
+//                         _svg_s5ghc3,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 305,
+//             child: PageLink(
+//               links: [
+//                 PageLinkInfo(
+//                   transition: LinkTransition.Fade,
+//                   ease: Curves.easeOut,
+//                   duration: 0.3,
+//                   pageBuilder: () => AboutUs(),
+//                 ),
+//               ],
+//               child: SizedBox(
+//                 width: 150.0,
+//                 height: 25.0,
+//                 child: Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(34.0, 0.0, 116.0, 25.0),
+//                       size: Size(150.0, 25.0),
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       fixedWidth: true,
+//                       child: Text(
+//                         'A B O U T  U S',
+//                         style: TextStyle(
+//                           fontFamily: 'Poppins',
+//                           fontSize: 18,
+//                           color: const Color(0xff404040),
+//                         ),
+//                         textAlign: TextAlign.left,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+//                       size: Size(150.0, 25.0),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       child:
+//                       // Adobe XD layer: 'About Us Icon' (shape)
+//                       SvgPicture.string(
+//                         _svg_fpdumm,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 240,
+//             child: PageLink(
+//               links: [
+//                 PageLinkInfo(
+//                   transition: LinkTransition.Fade,
+//                   ease: Curves.easeOut,
+//                   duration: 0.3,
+//                   pageBuilder: () => Clubs(),
+//                 ),
+//               ],
+//               child: SizedBox(
+//                 width: 109.0,
+//                 height: 25.0,
+//                 child: Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(34.0, 0.0, 75.0, 25.0),
+//                       size: Size(109.0, 25.0),
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       fixedWidth: true,
+//                       child: Text(
+//                         'C L U B S',
+//                         style: TextStyle(
+//                           fontFamily: 'Poppins',
+//                           fontSize: 18,
+//                           color: const Color(0xff404040),
+//                         ),
+//                         textAlign: TextAlign.left,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+//                       size: Size(109.0, 25.0),
+//                       pinLeft: true,
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       child:
+//                       // Adobe XD layer: 'Club Icon' (shape)
+//                       SvgPicture.string(
+//                         _svg_bnazwc,
+//                         allowDrawingOutsideViewBox: true,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 175,
+//             child: PageLink(
+//               links: [
+//                 PageLinkInfo(
+//                   transition: LinkTransition.Fade,
+//                   ease: Curves.easeOut,
+//                   duration: 0.3,
+//                   pageBuilder: () => ProfilePage(),
+//                 ),
+//               ],
+//               child: SizedBox(
+//                 width: 150.0,
+//                 height: 25.0,
+//                 child: Stack(
+//                   children: <Widget>[
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(34.0, 0.0, 116.0, 25.0),
+//                       size: Size(150.0, 25.0),
+//                       pinRight: true,
+//                       pinTop: true,
+//                       pinBottom: true,
+//                       fixedWidth: true,
+//                       child: Text(
+//                         'P R O F I L E',
+//                         style: TextStyle(
+//                           fontFamily: 'Poppins',
+//                           fontSize: 18,
+//                           color: const Color(0xff404040),
+//                         ),
+//                         textAlign: TextAlign.left,
+//                       ),
+//                     ),
+//                     Pinned.fromSize(
+//                       bounds: Rect.fromLTWH(0.0, 4.0, 16.0, 16.0),
+//                       size: Size(129.0, 25.0),
+//                       pinLeft: true,
+//                       fixedWidth: true,
+//                       fixedHeight: true,
+//                       child:
+//                       // Adobe XD layer: 'Profile Icon' (group)
+//                       Stack(
+//                         children: <Widget>[
+//                           Pinned.fromSize(
+//                             bounds: Rect.fromLTWH(4.0, 0.0, 8.0, 8.0),
+//                             size: Size(16.0, 16.0),
+//                             child: Container(
+//                               decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.all(
+//                                     Radius.elliptical(9999.0, 9999.0)),
+//                                 gradient: LinearGradient(
+//                                   begin: Alignment(-0.97, -0.82),
+//                                   end: Alignment(0.97, 0.79),
+//                                   colors: [
+//                                     const Color(0xfffe4f70),
+//                                     const Color(0xffcb6bd8)
+//                                   ],
+//                                   stops: [0.0, 1.0],
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                           Pinned.fromSize(
+//                             bounds: Rect.fromLTWH(0.0, 10.0, 16.0, 6.0),
+//                             size: Size(16.0, 16.0),
+//                             child: SvgPicture.string(
+//                               _svg_qlpfar,
+//                               allowDrawingOutsideViewBox: true,
+//                               fit: BoxFit.fill,
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 110,
+//             child: Text(
+//               'Menu',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 18,
+//                 color: const Color(0xff404040),
+//                 fontWeight: FontWeight.w600,
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 const String _svg_zicyw5 =
     '<svg viewBox="226.8 361.4 88.2 89.3" ><defs><linearGradient id="gradient" x1="0.017181" y1="0.087972" x2="0.984024" y2="0.895426"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(226.76, 361.37)" d="M 44.11841583251953 0 C 68.48434448242188 0 88.23683166503906 19.98300743103027 88.23683166503906 44.63329315185547 C 88.23683166503906 69.28357696533203 68.48434448242188 89.26658630371094 44.11841583251953 89.26658630371094 C 19.75248908996582 89.26658630371094 0 69.28357696533203 0 44.63329315185547 C 0 19.98300743103027 19.75248908996582 0 44.11841583251953 0 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="10" stroke-linecap="butt" /></svg>';

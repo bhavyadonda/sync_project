@@ -1,6 +1,8 @@
-// import 'dart:js';
-
+import 'dart:convert';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sync_project/AboutUs.dart';
 import 'package:sync_project/Bookmarks.dart';
 import 'package:sync_project/register.dart';
@@ -22,7 +24,6 @@ import 'package:sync_project/Intro2.dart';
 import 'package:sync_project/Intro3.dart';
 import 'package:sync_project/Intro4.dart';
 import 'package:sync_project/Intro5.dart';
-import 'package:sync_project/main.dart';
 import 'package:sync_project/NavBar.dart';
 import 'package:sync_project/Notifications.dart';
 import 'package:sync_project/TermsAndConditions.dart';
@@ -32,7 +33,53 @@ import 'package:sync_project/SignIn.dart';
 import 'package:sync_project/SignUp.dart';
 import 'package:sync_project/opening_screen.dart';
 
-void main() {
+List messages = [];
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  // print("Handling a background message: ${message.data}");
+  messages.add({
+    'title': message.notification.title,
+    'body': message.notification.body,
+    'data': message.data
+  });
+  prefs.setString('messages', json.encode(messages));
+  print(messages);
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await Firebase.initializeApp();
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  // For IOS
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+
+  print('User granted permission: ${settings.authorizationStatus}');
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    // print('Message data: ${message.data}');
+
+    if (message.notification != null) {
+      // print('Message also contained a notification: ${message.notification.body}');
+      messages.add({
+        'title': message.notification.title,
+        'body': message.notification.body,
+        'data': message.data
+      });
+    }
+    prefs.setString('messages', json.encode(messages));
+    print(messages);
+  });
+
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(MaterialApp(
     initialRoute: '/OpeningScreen',
     routes: {
@@ -68,3 +115,28 @@ void main() {
     },
   ));
 }
+
+// void main() => runApp(MyApp());
+
+// class MyApp extends StatelessWidget {
+//   final String appTitle = 'Firebase messaging';
+//   @override
+//   Widget build(BuildContext context) => MaterialApp(
+//         title: appTitle,
+//         home: MainPage(appTitle: appTitle),
+//       );
+// }
+
+// class MainPage extends StatelessWidget {
+//   final String appTitle;
+
+//   const MainPage({this.appTitle});
+
+//   @override
+//   Widget build(BuildContext context) => Scaffold(
+//         appBar: AppBar(
+//           title: Text(appTitle),
+//         ),
+//         body: MessagingWidget(),
+//       );
+// }
