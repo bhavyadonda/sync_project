@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:adobe_xd/adobe_xd.dart';
 
 class Notifications extends StatefulWidget {
   @override
@@ -24,6 +25,24 @@ class _NotificationsState extends State<Notifications> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
+          PageLink(
+            links: [
+              PageLinkInfo(
+                transition: LinkTransition.PushRight,
+                ease: Curves.easeOut,
+                duration: 0.3,
+              ),
+            ],
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: const DecoratedBox(
+                decoration: const BoxDecoration(
+                    color: Colors.black12
+                ),
+              ),
+            ),
+          ),
           Container(
             alignment: Alignment.center,
             child: Row(
