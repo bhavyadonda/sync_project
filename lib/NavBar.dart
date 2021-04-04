@@ -23,6 +23,24 @@ class _NavBarState extends State<NavBar> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
+          PageLink(
+            links: [
+              PageLinkInfo(
+                transition: LinkTransition.PushLeft,
+                ease: Curves.easeOut,
+                duration: 0.3,
+              ),
+            ],
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: const DecoratedBox(
+                decoration: const BoxDecoration(
+                    color: Colors.black12
+                ),
+              ),
+            ),
+          ),
           Padding(
             padding: EdgeInsets.fromLTRB(230, 0, 0, 0),
             child: Container(
