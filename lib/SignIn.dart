@@ -501,8 +501,7 @@ class _SignInState extends State<SignIn> {
                           showLoaderDialog(context, "Authenticating...");
 
                           try {
-                            UserCredential userCredential = await FirebaseAuth
-                                .instance
+                            await FirebaseAuth.instance
                                 .signInWithEmailAndPassword(
                               email: _emailController.text,
                               password: _passwordController.text,
@@ -516,15 +515,11 @@ class _SignInState extends State<SignIn> {
                               Navigator.pushNamedAndRemoveUntil(
                                   context, '/Home', (r) => false);
                             }
-                          } catch (e) {
+                          } on FirebaseAuthException catch (e) {
                             Navigator.pop(context);
                             _emailController.text = "";
                             _passwordController.text = "";
-                            showAlertDialog(
-                                context,
-                                '',
-                                e.toString().split('(')[1].split(',')[0],
-                                e.toString().split(', ')[1].split(',')[0]);
+                            showAlertDialog(context, '', e.code, e.message);
                           }
                         },
                       ),

@@ -514,8 +514,7 @@ class _RegisterViewState extends State<SignUp> {
                             showLoaderDialog(context, "Registering...");
                             try {
                               FirebaseAuth auth = FirebaseAuth.instance;
-                              UserCredential userCredential =
-                                  await auth.createUserWithEmailAndPassword(
+                              await auth.createUserWithEmailAndPassword(
                                 email: _emailController.text,
                                 password: _passwordController.text,
                               );
@@ -531,16 +530,12 @@ class _RegisterViewState extends State<SignUp> {
                                   '/CompleteProfile',
                                   'Id Created Successfully!',
                                   'A verification link has been sent to your email id, please verify your email id within 24 hours.');
-                            } catch (e) {
+                            } on FirebaseAuthException catch (e) {
                               Navigator.pop(context);
                               _passwordController.text = "";
                               _repasswordController.text = "";
                               _emailController.text = "";
-                              showAlertDialog(
-                                  context,
-                                  '',
-                                  e.toString().split('(')[1].split(',')[0],
-                                  e.toString().split(', ')[1].split(',')[0]);
+                              showAlertDialog(context, '', e.code, e.message);
                             }
                           } else {
                             _passwordController.text = "";
