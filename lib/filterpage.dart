@@ -38,140 +38,187 @@ class _FilterPageState extends State<FilterPage> {
     initializeDateFormatting('az');
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
         backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          // On pressing Clear All, Club A is being selected
+          // After selecting the date, when selecting the time, the date is reversed, so it has to be selected again
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
+            Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                  child: PageLink(
+                    links: [
+                      PageLinkInfo(
+                        transition: LinkTransition.Fade,
+                        ease: Curves.easeOut,
+                        duration: 0.3,
+                      ),
+                    ],
+                    child: SvgPicture.string(
+                      _svg_ah28f4,
+                      allowDrawingOutsideViewBox: true,
+                    ),
                   ),
+                ),
+                Center(
+                  child: Container(
+                    width: 64.0,
+                    height: 37.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: const AssetImage('assets/Sync Logo.png'),
+                        fit: BoxFit.fill,
+                        colorFilter: new ColorFilter.mode(
+                            Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                      ),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: const Color(0x45000000),
+                      //     offset: Offset(0, 3),
+                      //     blurRadius: 80,
+                      //   ),
+                      // ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Stack(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.fromLTRB(13, 0, 0, 0),
+                    child: Text(
+                      'Set Filters',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 22,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    padding: EdgeInsets.fromLTRB(0, 2.5, 21, 0),
+                    child: GestureDetector(
+                      child: Text(
+                        'Clear all',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 16,
+                          color: const Color(0xff9d9d9d),
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          _selectedClub = 'A';
+                          _selecteddate = DateTime(2021, 3, 1);
+                          if (morning == true) {
+                            morning = false;
+                          }
+                          if (afternoon == true) {
+                            afternoon = false;
+                          }
+                          if (evening == true) {
+                            evening = false;
+                          }
+                          if (night == true) {
+                            night = false;
+                          }
+                          for (var i = 0;
+                              i < categories.keys.toList().length;
+                              i++) {
+                            var element = categories[categories.keys.toList()[i]];
+                            if (element == true) {
+                              element = false;
+                            }
+                          }
+                        });
+                      },
+                    ),
+                  )
                 ],
-                child: SvgPicture.string(
-                  _svg_ah28f4,
-                  allowDrawingOutsideViewBox: true,
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.fromLTRB(21, 15, 0, 0),
+              child: Text(
+                'Clubs',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.90,
+                height: 48.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(24.0),
+                  color: const Color(0x1a9d9d9d),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 25, 0),
+                  child: DropdownButton<String>(
+                    isExpanded: true,
+                    icon: SvgPicture.string(
+                      _svg_2a2k3i,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                      ),
+                    underline: SizedBox(),
+                    hint:  Text(
+                      'Select Clubs',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: const Color(0xffb6b6b6),
+                        fontWeight: FontWeight.w300,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                    value: _selectedClub,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _selectedClub = newValue;
+                      });
+                      print(_selectedClub);
+                    },
+                    items: _Clubs.map((location) {
+                      return DropdownMenuItem(
+                        child: new Text(location),
+                        value: location,
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
             ),
             Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // enter variable
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.fromLTRB(21, 25, 0, 0),
+              child: Text(
+                'Preffered Dates',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w500,
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 25,
-              height: 10,
-              child: const DecoratedBox(
-                decoration: const BoxDecoration(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'Set Filters',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 22,
-                    color: const Color(0xff404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                GestureDetector(
-                  child: Text('Clear all'),
-                  onTap: () {
-                    setState(() {
-                      _selectedClub = 'A';
-                      _selecteddate = DateTime(2021, 3, 1);
-                      if (morning == true) {
-                        morning = false;
-                      }
-                      if (afternoon == true) {
-                        afternoon = false;
-                      }
-                      if (evening == true) {
-                        evening = false;
-                      }
-                      if (night == true) {
-                        night = false;
-                      }
-                      for (var i = 0;
-                          i < categories.keys.toList().length;
-                          i++) {
-                        var element = categories[categories.keys.toList()[i]];
-                        if (element == true) {
-                          element = false;
-                        }
-                      }
-                    });
-                  },
-                )
-              ],
-            ),
-            Text(
-              'Clubs',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 20,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-              child: DropdownButton<String>(
-                isExpanded: true,
-                hint: Text('Select Clubs'),
-                value: _selectedClub,
-                onChanged: (newValue) {
-                  setState(() {
-                    _selectedClub = newValue;
-                  });
-                  print(_selectedClub);
-                },
-                items: _Clubs.map((location) {
-                  return DropdownMenuItem(
-                    child: new Text(location),
-                    value: location,
-                  );
-                }).toList(),
-              ),
-            ),
-            Text(
-              'Preffered Dates',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 20,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w500,
               ),
             ),
             CalendarTimeline(
@@ -183,383 +230,345 @@ class _FilterPageState extends State<FilterPage> {
                 print(_selecteddate),
               },
               leftMargin: 20,
-              monthColor: Colors.blueGrey,
-              dayColor: Colors.teal[200],
-              activeDayColor: Colors.white,
-              activeBackgroundDayColor: Colors.redAccent[100],
-              dotsColor: Color(0xFF333A47),
+              monthColor: Color(0xff404040),//Colors.blueGrey,
+              dayColor: Color(0xff404040),
+              activeDayColor: Color(0xff404040), //Color(0xffffffff),
+              activeBackgroundDayColor: Color(0x1a9d9d9d), //Colors.black12,// Colour!!!!!!!!!!!
+              dotsColor: Color(0x1a9d9d9d), //Color(0xff404040),
               locale: 'en_ISO',
             ),
-
-            Text(
-              'Preffered Time',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 20,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w500,
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.fromLTRB(21, 20, 0, 0),
+              child: Text(
+                'Preffered Time',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // SvgPicture.string(
-                //   _svg_5k2qjp,
-                //   allowDrawingOutsideViewBox: true,
-                //   fit: BoxFit.fill,
-                // ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Morning',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 17,
-                        color: const Color(0xff404040),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(50, 5, 30, 0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Morning',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            '00:00 AM - 11:59 AM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      '00:00 AM - 11:59 AM',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 13,
-                        color: const Color(0xff9d9d9d),
-                        fontWeight: FontWeight.w300,
-                        height: 1.1666666666666667,
+                      Checkbox(
+                        value: this.morning,
+                        onChanged: (bool value) {
+                          setState(() {
+                            morning = value;
+                          });
+                          print(morning);
+                        },
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-                Checkbox(
-                  value: this.morning,
-                  onChanged: (bool value) {
-                    setState(() {
-                      morning = value;
-                    });
-                    print(morning);
-                  },
-                ),
-                // Checkbox(
-                //   tristate: true,
-                //   checkColor: Colors.red,
-                //   onChanged: (bool newValue) {
-                //     setState(() {
-                //       checkBoxValue = newValue;
-                //     });
-                //     Text('Remember me');
-                //   },
-                // ),
-              ],
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Afternoon',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            '12:00 PM - 3:59 PM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      Checkbox(
+                        value: this.afternoon,
+                        onChanged: (bool value) {
+                          setState(() {
+                            afternoon = value;
+                          });
+                          print(afternoon);
+                        },
+                      ),
+                      // Checkbox(
+                      //   tristate: true,
+                      //   checkColor: Colors.red,
+                      //   onChanged: (bool newValue) {
+                      //     setState(() {
+                      //       checkBoxValue = newValue;
+                      //     });
+                      //     Text('Remember me');
+                      //   },
+                      // ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Evening',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            '00:00 AM - 11:59 AM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      Checkbox(
+                        value: this.evening,
+                        onChanged: (bool value) {
+                          setState(() {
+                            evening = value;
+                          });
+                          print(evening);
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Night',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 17,
+                              color: const Color(0xff404040),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            '00:00 AM - 11:59 AM',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              color: const Color(0xff9d9d9d),
+                              fontWeight: FontWeight.w300,
+                              height: 1.1666666666666667,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      Checkbox(
+                        value: this.night,
+                        onChanged: (bool value) {
+                          setState(() {
+                            night = value;
+                          });
+                          print(night);
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // SvgPicture.string(
-                //   _svg_nahds6,
-                //   allowDrawingOutsideViewBox: true,
-                //   fit: BoxFit.fill,
-                // ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Afternoon',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 17,
-                        color: const Color(0xff404040),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      '12:00 PM - 3:59 PM',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 13,
-                        color: const Color(0xff9d9d9d),
-                        fontWeight: FontWeight.w300,
-                        height: 1.1666666666666667,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-                Checkbox(
-                  value: this.afternoon,
-                  onChanged: (bool value) {
-                    setState(() {
-                      afternoon = value;
-                    });
-                    print(afternoon);
-                  },
-                ),
-                // Checkbox(
-                //   tristate: true,
-                //   checkColor: Colors.red,
-                //   onChanged: (bool newValue) {
-                //     setState(() {
-                //       checkBoxValue = newValue;
-                //     });
-                //     Text('Remember me');
-                //   },
-                // ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // add icon here
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Evening',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 17,
-                        color: const Color(0xff404040),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      '00:00 AM - 11:59 AM',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 13,
-                        color: const Color(0xff9d9d9d),
-                        fontWeight: FontWeight.w300,
-                        height: 1.1666666666666667,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-                Checkbox(
-                  value: this.evening,
-                  onChanged: (bool value) {
-                    setState(() {
-                      evening = value;
-                    });
-                    print(evening);
-                  },
-                ),
-              ],
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // add icon here
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Night',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 17,
-                        color: const Color(0xff404040),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      '00:00 AM - 11:59 AM',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 13,
-                        color: const Color(0xff9d9d9d),
-                        fontWeight: FontWeight.w300,
-                        height: 1.1666666666666667,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-                Checkbox(
-                  value: this.night,
-                  onChanged: (bool value) {
-                    setState(() {
-                      night = value;
-                    });
-                    print(night);
-                  },
-                ),
-              ],
-            ),
-
             Container(
-              height: MediaQuery.of(context).size.height - 758,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      // color: Colors.green,
-                      height: 10,
-                      width: 100,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 30),
-                        child: Stack(
-                          children: <Widget>[
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
-                              size: Size(91.0, 34.0),
-                              child:
-                                  // Adobe XD layer: 'Tag box' (shape)
-                                  Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  gradient: LinearGradient(
-                                    begin: Alignment(-0.97, -0.82),
-                                    end: Alignment(0.97, 0.79),
-                                    colors: [
-                                      const Color(0xfffe4f70),
-                                      const Color(0xffcb6bd8)
-                                    ],
-                                    stops: [0.0, 1.0],
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color(0x29000000),
-                                      offset: Offset(0, 3),
-                                      blurRadius: 6,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Pinned.fromSize(
-                              bounds: Rect.fromLTWH(17.0, 7.0, 57.0, 20.0),
-                              size: Size(91.0, 34.0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    categories[categories.keys
-                                        .toList()[index]] ^= true;
-                                  });
-                                  print(categories);
-                                },
-                                child: Text(
-                                  categories.keys.toList()[index],
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16,
-                                    color: const Color(0xffffffff),
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-
-                    // MaterialButton(child: Text('apply filter'), onPressed: () {
-
-                    // });
-                  }),
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.fromLTRB(21, 10, 0, 0),
+              child: Text(
+                'Tags',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.left,
+              ),
             ),
-            MaterialButton(
-                child: Text('apply filters'),
-                onPressed: () async {
-                  SharedPreferences prefs =
-                      await SharedPreferences.getInstance();
-                  prefs.setBool('morning', morning);
-                  prefs.setBool('afternoon', afternoon);
-                  prefs.setBool('evening', evening);
-                  prefs.setBool('night', night);
-                  prefs.setString('date', _selecteddate.toString());
-                  prefs.setString('club', _selectedClub);
-                  for (var i = 0; i < categories.keys.toList().length; i++) {
-                    prefs.setBool(categories.keys.toList()[i],
-                        categories.values.toList()[i]);
+            Padding(
+              padding: const EdgeInsets.fromLTRB(13, 5, 0, 0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.07,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+                        child: Container(
+                          width: 100,
+                          child: Stack(
+                            children: <Widget>[
+                              Pinned.fromSize(
+                                bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
+                                size: Size(91.0, 34.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                    gradient: LinearGradient(
+                                      begin: Alignment(-0.97, -0.82),
+                                      end: Alignment(0.97, 0.79),
+                                      colors: [
+                                        const Color(0xfffe4f70),
+                                        const Color(0xffcb6bd8)
+                                      ],
+                                      stops: [0.0, 1.0],
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0x29000000),
+                                        offset: Offset(0, 3),
+                                        blurRadius: 6,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Center(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      categories[categories.keys
+                                          .toList()[index]] ^= true;
+                                    });
+                                    print(categories);
+                                  },
+                                  child: Text(
+                                    categories.keys.toList()[index],
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16,
+                                      color: const Color(0xffffffff),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 50, 0, 50),
+              child: MaterialButton(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.80,
+                    height: 48.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(0.0, 0.0, 333.0, 48.0),
+                          size: Size(333.0, 48.0),
+                          pinLeft: true,
+                          pinRight: true,
+                          pinTop: true,
+                          pinBottom: true,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              gradient: LinearGradient(
+                                begin: Alignment(-0.97, -0.82),
+                                end: Alignment(0.97, 0.79),
+                                colors: [
+                                  const Color(0xfffe4f70),
+                                  const Color(0xffcb6bd8)
+                                ],
+                                stops: [0.0, 1.0],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Pinned.fromSize(
+                          bounds: Rect.fromLTWH(145.0, 12.0, 54.0, 21.0),
+                          size: Size(333.0, 48.0),
+                          child: Text(
+                            'Apply',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              color: const Color(0xffffffff),
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  onPressed: () async {
+                    SharedPreferences prefs =
+                    await SharedPreferences.getInstance();
+                    prefs.setBool('morning', morning);
+                    prefs.setBool('afternoon', afternoon);
+                    prefs.setBool('evening', evening);
+                    prefs.setBool('night', night);
+                    prefs.setString('date', _selecteddate.toString());
+                    prefs.setString('club', _selectedClub);
+                    for (var i = 0; i < categories.keys.toList().length; i++) {
+                      prefs.setBool(categories.keys.toList()[i],
+                          categories.values.toList()[i]);
+                    }
+                    // prefs.setString('categories', categories.toString());
+                    prefs.setBool('filter_applied', true);
+                    Navigator.of(context).pushNamed('/Calender');
                   }
-                  // prefs.setString('categories', categories.toString());
-                  prefs.setBool('filter_applied', true);
-                  Navigator.of(context).pushNamed('/Calender');
-                })
-            //paste code here
-            // Expanded(
-            //   child: Stack(
-            //     children: <Widget>[
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(0.0, 8.9, 15.1, 10.4),
-            //         size: Size(len, wid),
-            //         child: SvgPicture.string(
-            //           _svg_5k2qjp,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(6.3, 4.1, 13.7, 10.7),
-            //         size: Size(len, wid),
-            //         child: SvgPicture.string(
-            //           _svg_8wfb7x,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(9.5, 0.0, 1.3, 2.8),
-            //         size: Size(len, wid),
-            //         child: SvgPicture.string(
-            //           _svg_j3vz3q,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(2.1, 7.4, 2.8, 1.3),
-            //         size: Size(len, wid),
-            //         child: SvgPicture.string(
-            //           _svg_4z4jwi,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(13.7, 2.1, 2.3, 2.3),
-            //         size: Size(len, wid),
-            //         child: SvgPicture.string(
-            //           _svg_1qbi84,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(4.3, 2.1, 2.3, 2.3),
-            //         size: Size(len, wid),
-            //         child: SvgPicture.string(
-            //           _svg_s6n209,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // Expanded(
-            //   child: Stack(
-            //     children: [
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(0.0, 12.0, 20.0, 20.0),
-            //         size: Size(len, wid),
-            //         child:
-            //             // Adobe XD layer: 'Sunny icon' (shape)
-            //             SvgPicture.string(
-            //           _svg_nahds6,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
+              ),
+            ),
           ],
         ),
       ),
@@ -585,3 +594,5 @@ const String _svg_nahds6 =
     '<svg viewBox="21.0 422.0 20.0 20.0" ><defs><linearGradient id="gradient" x1="0.017181" y1="0.087972" x2="0.984024" y2="0.895426"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(21.0, 422.0)" d="M 2.5 9.375 L 0.625 9.375 C 0.2800000011920929 9.375 0 9.655000686645508 0 10 C 0 10.34500026702881 0.2800000011920929 10.625 0.625 10.625 L 2.5 10.625 C 2.845000028610229 10.625 3.125000238418579 10.34500026702881 3.125000238418579 10 C 3.125000238418579 9.655000686645508 2.845000028610229 9.375 2.5 9.375 Z M 10 3.125000238418579 C 10.34500026702881 3.125000238418579 10.625 2.845000028610229 10.625 2.5 L 10.625 0.625 C 10.625 0.2800000011920929 10.34500026702881 0 10 0 C 9.655000686645508 0 9.375 0.2800000011920929 9.375 0.625 L 9.375 2.5 C 9.375 2.845000028610229 9.655000686645508 3.125000238418579 10 3.125000238418579 Z M 16.01313781738281 4.862483978271484 L 17.3262767791748 3.549346923828125 C 17.56813812255859 3.307484149932861 17.56813812255859 2.915588855743408 17.3262767791748 2.673725843429565 C 17.08441352844238 2.431863069534302 16.69248580932617 2.431863069534302 16.45062065124512 2.673725843429565 L 15.13748455047607 3.986863374710083 C 14.89562129974365 4.228725910186768 14.89562129974365 4.620621204376221 15.13748455047607 4.862483978271484 C 15.37937927246094 5.104379177093506 15.77127552032471 5.104379177093506 16.01313781738281 4.862483978271484 Z M 4.631242275238037 14.49375915527344 L 3.318104982376099 15.80689716339111 C 3.076242208480835 16.04875946044922 3.076242208480835 16.44065475463867 3.318104982376099 16.68251800537109 C 3.559967517852783 16.92437934875488 3.951863050460815 16.92437934875488 4.1937255859375 16.68251800537109 L 5.506863594055176 15.36937999725342 C 5.748725891113281 15.12751770019531 5.748725891113281 14.73562145233154 5.506863594055176 14.49375915527344 C 5.265000820159912 14.25189685821533 4.873137474060059 14.25186347961426 4.631242275238037 14.49375915527344 Z M 4.255000591278076 5.138758659362793 C 4.499379634857178 5.383137702941895 4.894999980926514 5.383137702941895 5.138725757598877 5.138758659362793 C 5.382483959197998 4.894379615783691 5.382483959197998 4.498758316040039 5.138725757598877 4.255033016204834 L 3.813137531280518 2.928758382797241 C 3.568758487701416 2.68437933921814 3.173137426376343 2.68437933921814 2.929379224777222 2.928758382797241 C 2.68500018119812 3.173137426376343 2.68500018119812 3.568758487701416 2.929379224777222 3.812516450881958 L 4.255000591278076 5.138758659362793 Z M 10 16.875 C 9.655000686645508 16.875 9.375 17.15500068664551 9.375 17.5 L 9.375 19.375 C 9.375 19.72000122070313 9.655000686645508 20 10 20 C 10.34500026702881 20 10.625 19.72000122070313 10.625 19.375 L 10.625 17.5 C 10.625 17.15500068664551 10.34500026702881 16.875 10 16.875 Z M 15.74499988555908 14.86124324798584 C 15.50062084197998 14.61686229705811 15.10500049591064 14.61686229705811 14.86124324798584 14.86124324798584 C 14.61686229705811 15.10565376281738 14.61686229705811 15.50124263763428 14.86124324798584 15.74499988555908 L 16.18686485290527 17.07062339782715 C 16.43124198913574 17.31500244140625 16.82686424255371 17.31500244140625 17.07062149047852 17.07062339782715 C 17.31437873840332 16.82621002197266 17.31500053405762 16.43062400817871 17.07062149047852 16.18686485290527 L 15.74499988555908 14.86124324798584 Z M 19.375 9.375 L 17.5 9.375 C 17.15500068664551 9.375 16.875 9.655000686645508 16.875 10 C 16.875 10.34500026702881 17.15500068664551 10.625 17.5 10.625 L 19.375 10.625 C 19.72000122070313 10.625 20 10.34500026702881 20 10 C 20 9.655000686645508 19.72000122070313 9.375 19.375 9.375 Z M 10 4.371242046356201 C 6.891242504119873 4.371242046356201 4.371242046356201 6.891242504119873 4.371242046356201 10 C 4.371242046356201 13.1087589263916 6.891242504119873 15.62875843048096 10 15.62875843048096 C 13.1087589263916 15.62875843048096 15.62875843048096 13.1087589263916 15.62875843048096 10 C 15.62875843048096 6.891242504119873 13.1087589263916 4.371242046356201 10 4.371242046356201 Z M 10 14.37375926971436 C 7.58437967300415 14.37375926971436 5.626241683959961 12.41562175750732 5.626241683959961 10 C 5.626241683959961 7.58437967300415 7.58437967300415 5.626241683959961 10 5.626241683959961 C 12.41562175750732 5.626241683959961 14.37375926971436 7.58437967300415 14.37375926971436 10 C 14.37375926971436 12.41562175750732 12.41562175750732 14.37375926971436 10 14.37375926971436 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
 const String _svg_dko6b1 =
     '<svg viewBox="289.0 414.0 10.3 6.8" ><path transform="translate(289.0, 411.42)" d="M 0 6 L 3.41796875 9.41796875" fill="none" stroke="#ffffff" stroke-width="3" stroke-miterlimit="4" stroke-linecap="round" /><path transform="translate(286.42, 414.0)" d="M 6 6.8359375 L 12.8359375 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-miterlimit="4" stroke-linecap="round" /></svg>';
+const String _svg_2a2k3i =
+    '<svg viewBox="360.0 363.0 9.4 6.1" ><path transform="translate(358.0, 361.0)" d="M 6.699999809265137 8.100000381469727 L 2 3.400000095367432 L 3.400000095367432 2 L 6.699999809265137 5.300000190734863 L 10 2 L 11.39999961853027 3.400000095367432 L 6.699999809265137 8.100000381469727 Z" fill="#9d9d9d" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
