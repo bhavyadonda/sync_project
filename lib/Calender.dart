@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
@@ -102,36 +103,176 @@ class _CalenderState extends State<Calender> {
         toolbarHeight: 30,
         backgroundColor: Colors.white,
       ),
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(13, 0, 0, 0),
-                child: PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.PushRight,
-                      ease: Curves.easeOut,
-                      duration: 0.3,
-                      pageBuilder: () => NavBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(13, 0, 0, 0),
+                  child: PageLink(
+                    links: [
+                      PageLinkInfo(
+                        transition: LinkTransition.PushRight,
+                        ease: Curves.easeOut,
+                        duration: 0.3,
+                        pageBuilder: () => NavBar(),
+                      ),
+                    ],
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: SizedBox(
+                        width: 30.0,
+                        height: 24.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
+                              size: Size(30.0, 23.8),
+                              child:
+                              // Adobe XD layer: 'Bottom Line' (shape)
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  gradient: LinearGradient(
+                                    begin: Alignment(-0.97, -0.82),
+                                    end: Alignment(0.97, 0.79),
+                                    colors: [
+                                      const Color(0xfffe4f70),
+                                      const Color(0xffcb6bd8)
+                                    ],
+                                    stops: [0.0, 1.0],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
+                              size: Size(30.0, 23.8),
+                              child:
+                              // Adobe XD layer: 'Mid Line' (shape)
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(3.0),
+                                  gradient: LinearGradient(
+                                    begin: Alignment(-0.97, -0.82),
+                                    end: Alignment(0.97, 0.79),
+                                    colors: [
+                                      const Color(0xfffe4f70),
+                                      const Color(0xffcb6bd8)
+                                    ],
+                                    stops: [0.0, 1.0],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Pinned.fromSize(
+                              bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
+                              size: Size(30.0, 23.8),
+                              child:
+                              // Adobe XD layer: 'Upper Line' (shape)
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(3.0),
+                                  gradient: LinearGradient(
+                                    begin: Alignment(-0.97, -0.82),
+                                    end: Alignment(0.97, 0.79),
+                                    colors: [
+                                      const Color(0xfffe4f70),
+                                      const Color(0xffcb6bd8)
+                                    ],
+                                    stops: [0.0, 1.0],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ],
+                  ),
+                ),
+                Center(
                   child: Container(
-                    alignment: Alignment.centerLeft,
+                    width: 64.0,
+                    height: 37.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: const AssetImage('assets/Sync Logo.png'),
+                        fit: BoxFit.fill,
+                        colorFilter: new ColorFilter.mode(
+                            Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                      ),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: const Color(0x45000000),
+                      //     offset: Offset(0, 3),
+                      //     blurRadius: 80,
+                      //   ),
+                      // ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                  child: PageLink(
+                    links: [
+                      PageLinkInfo(
+                        transition: LinkTransition.PushLeft,
+                        ease: Curves.easeOut,
+                        duration: 0.3,
+                        pageBuilder: () => Notifications(),
+                      ),
+                    ],
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: SvgPicture.string(
+                        _svg_t3qb8j,
+                        allowDrawingOutsideViewBox: true,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Stack(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.fromLTRB(13, 20, 0, 0),
+                  child: Text(
+                    'Our Events',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      color: const Color(0xff404040),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerRight,
+                  padding: EdgeInsets.fromLTRB(0, 20, 30, 0),
+                  child: PageLink(
+                    links: [
+                      PageLinkInfo(
+                        transition: LinkTransition.Fade,
+                        ease: Curves.linear,
+                        duration: 0.3,
+                        pageBuilder: () => FilterPage(),
+                      ),
+                    ],
                     child: SizedBox(
-                      width: 30.0,
-                      height: 24.0,
+                      width: 37.0,
+                      height: 37.0,
                       child: Stack(
                         children: <Widget>[
                           Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
-                            size: Size(30.0, 23.8),
-                            child:
-                            // Adobe XD layer: 'Bottom Line' (shape)
-                            Container(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 37.0, 37.0),
+                            size: Size(37.0, 37.0),
+                            child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4.0),
+                                borderRadius: BorderRadius.circular(19.0),
                                 gradient: LinearGradient(
                                   begin: Alignment(-0.97, -0.82),
                                   end: Alignment(0.97, 0.79),
@@ -141,47 +282,80 @@ class _CalenderState extends State<Calender> {
                                   ],
                                   stops: [0.0, 1.0],
                                 ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x1a000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                           Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
-                            size: Size(30.0, 23.8),
+                            bounds: Rect.fromLTWH(8.8, 10.9, 19.4, 15.2),
+                            size: Size(37.0, 37.0),
+                            fixedWidth: true,
+                            fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Mid Line' (shape)
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(3.0),
-                                gradient: LinearGradient(
-                                  begin: Alignment(-0.97, -0.82),
-                                  end: Alignment(0.97, 0.79),
-                                  colors: [
-                                    const Color(0xfffe4f70),
-                                    const Color(0xffcb6bd8)
-                                  ],
-                                  stops: [0.0, 1.0],
+                            // Adobe XD layer: 'Filter Icon' (group)
+                            Stack(
+                              children: <Widget>[
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(8.9, 1.7, 10.6, 1.7),
+                                  size: Size(19.4, 15.2),
+                                  child: SvgPicture.string(
+                                    _svg_apf3b6,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
-                            size: Size(30.0, 23.8),
-                            child:
-                            // Adobe XD layer: 'Upper Line' (shape)
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(3.0),
-                                gradient: LinearGradient(
-                                  begin: Alignment(-0.97, -0.82),
-                                  end: Alignment(0.97, 0.79),
-                                  colors: [
-                                    const Color(0xfffe4f70),
-                                    const Color(0xffcb6bd8)
-                                  ],
-                                  stops: [0.0, 1.0],
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 0.0, 8.0, 5.1),
+                                  size: Size(19.4, 15.2),
+                                  child: SvgPicture.string(
+                                    _svg_2ln8c3,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
-                              ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(10.6, 5.1, 8.9, 5.1),
+                                  size: Size(19.4, 15.2),
+                                  child: SvgPicture.string(
+                                    _svg_hr4vl4,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 6.8, 9.7, 1.7),
+                                  size: Size(19.4, 15.2),
+                                  child: SvgPicture.string(
+                                    _svg_ri8ooj,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(10.6, 11.8, 8.9, 1.7),
+                                  size: Size(19.4, 15.2),
+                                  child: SvgPicture.string(
+                                    _svg_q90pw0,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Pinned.fromSize(
+                                  bounds: Rect.fromLTWH(0.0, 10.1, 9.7, 5.1),
+                                  size: Size(19.4, 15.2),
+                                  child: SvgPicture.string(
+                                    _svg_h5ay6j,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -189,598 +363,486 @@ class _CalenderState extends State<Calender> {
                     ),
                   ),
                 ),
-              ),
-              Center(
-                child: Container(
-                  width: 64.0,
-                  height: 37.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: const AssetImage('assets/Sync Logo.png'),
-                      fit: BoxFit.fill,
-                      colorFilter: new ColorFilter.mode(
-                          Colors.black.withOpacity(0.7), BlendMode.dstIn),
+              ],
+            ),
+            TableCalendar(
+              builders: CalendarBuilders(
+                selectedDayBuilder: (context, date, events) => Container(
+                    margin: const EdgeInsets.all(5.0),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(8.0)
                     ),
-                    // boxShadow: [
-                    //   BoxShadow(
-                    //     color: const Color(0x45000000),
-                    //     offset: Offset(0, 3),
-                    //     blurRadius: 80,
-                    //   ),
-                    // ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 13, 0),
-                child: PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.PushLeft,
-                      ease: Curves.easeOut,
-                      duration: 0.3,
-                      pageBuilder: () => Notifications(),
-                    ),
-                  ],
-                  child: Container(
-                    alignment: Alignment.centerRight,
-                    child: SvgPicture.string(
-                      _svg_t3qb8j,
-                      allowDrawingOutsideViewBox: true,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Stack(
-            children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.fromLTRB(13, 20, 0, 0),
-                child: Text(
-                  'Our Events',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    color: const Color(0xff404040),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerRight,
-                padding: EdgeInsets.fromLTRB(0, 20, 30, 0),
-                child: PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => FilterPage(),
-                    ),
-                  ],
-                  child: SizedBox(
-                    width: 37.0,
-                    height: 37.0,
                     child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 37.0, 37.0),
-                          size: Size(37.0, 37.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(19.0),
-                              gradient: LinearGradient(
-                                begin: Alignment(-0.97, -0.82),
-                                end: Alignment(0.97, 0.79),
-                                colors: [
-                                  const Color(0xfffe4f70),
-                                  const Color(0xffcb6bd8)
-                                ],
-                                stops: [0.0, 1.0],
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x1a000000),
-                                  offset: Offset(0, 3),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                          ),
+                      children: [
+                        SvgPicture.string(
+                          _svg_cl2nvh,
+                          allowDrawingOutsideViewBox: true,
+                          fit: BoxFit.fill,
                         ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(8.8, 10.9, 19.4, 15.2),
-                          size: Size(37.0, 37.0),
-                          fixedWidth: true,
-                          fixedHeight: true,
-                          child:
-                          // Adobe XD layer: 'Filter Icon' (group)
-                          Stack(
-                            children: <Widget>[
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(8.9, 1.7, 10.6, 1.7),
-                                size: Size(19.4, 15.2),
-                                child: SvgPicture.string(
-                                  _svg_apf3b6,
-                                  allowDrawingOutsideViewBox: true,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(0.0, 0.0, 8.0, 5.1),
-                                size: Size(19.4, 15.2),
-                                child: SvgPicture.string(
-                                  _svg_2ln8c3,
-                                  allowDrawingOutsideViewBox: true,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(10.6, 5.1, 8.9, 5.1),
-                                size: Size(19.4, 15.2),
-                                child: SvgPicture.string(
-                                  _svg_hr4vl4,
-                                  allowDrawingOutsideViewBox: true,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(0.0, 6.8, 9.7, 1.7),
-                                size: Size(19.4, 15.2),
-                                child: SvgPicture.string(
-                                  _svg_ri8ooj,
-                                  allowDrawingOutsideViewBox: true,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(10.6, 11.8, 8.9, 1.7),
-                                size: Size(19.4, 15.2),
-                                child: SvgPicture.string(
-                                  _svg_q90pw0,
-                                  allowDrawingOutsideViewBox: true,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(0.0, 10.1, 9.7, 5.1),
-                                size: Size(19.4, 15.2),
-                                child: SvgPicture.string(
-                                  _svg_h5ay6j,
-                                  allowDrawingOutsideViewBox: true,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ],
+                        Center(
+                          child: Text(
+                            date.day.toString(),
+                            style: TextStyle(color: Colors.white),
                           ),
-                        ),
+                        )
                       ],
                     ),
-                  ),
                 ),
               ),
-            ],
-          ),
-          TableCalendar(
-            calendarController: _controller,
-            onDaySelected: (date, event, _) {
-              setState(() {
-                dateSelected = date;
-              });
-            },
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.fromLTRB(13, 3, 0, 0),
-            child: Text(
-              'Upcoming Events',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 18,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
+              initialCalendarFormat: CalendarFormat.month,
+              headerStyle: HeaderStyle(
+                formatButtonDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                  gradient: LinearGradient(
+                  begin: Alignment(-0.97, -0.82),
+                  end: Alignment(0.97, 0.79),
+                  colors: [
+                    const Color(0xfffe4f70),
+                    const Color(0xffcb6bd8)
+                  ],
+                  stops: [0.0, 1.0],
+                  ),
+                ),
+                //formatButtonVisible: false, //Button wont be visible with this
+                formatButtonTextStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 15,
+                  color: const Color(0xffffffff),
+                  fontWeight: FontWeight.w400,
+                ),
+                formatButtonShowsNext: false,
+              ),
+              calendarStyle: CalendarStyle(
+                  todayColor: Color(0x1a9d9d9d),
+                  selectedColor: const Color(0xfffe4f70),
+                  selectedStyle: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 13,
+                    color: const Color(0xff2e2e2e),
+                    fontWeight: FontWeight.w500,
+                  ),
+                  todayStyle: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 13,
+                    color: const Color(0xff2e2e2e),
+                    fontWeight: FontWeight.w500,
+                  ),
+              ),
+              calendarController: _controller,
+              onDaySelected: (date, event, _) {
+                setState(() {
+                  dateSelected = date;
+                });
+              },
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.fromLTRB(13, 3, 0, 0),
+              child: Text(
+                'Upcoming Events',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 18,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-            child: Container(
-              height: MediaQuery.of(context).size.height*0.214,//different heights for different situations - week, 2 weeks, month
-              width: MediaQuery.of(context).size.width,
-              child: FutureBuilder(
-                  future: getdata(),
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData) {
-                      Map<dynamic, dynamic> values = snapshot.data;
-                      return new ListView.builder(
-                          itemCount: values.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            if (filter == true) {
-                              var finalCategories = [];
-                              for (var i = 0;
-                                  i < categories.keys.toList().length;
-                                  i++) {
-                                if (categories.values.toList()[i] == true) {
-                                  finalCategories
-                                      .add(categories.keys.toList()[i]);
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Container(
+                height: MediaQuery.of(context).size.height*0.52,//different heights for different situations - week, 2 weeks, month
+                width: MediaQuery.of(context).size.width,
+                child: FutureBuilder(
+                    future: getdata(),
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasData) {
+                        Map<dynamic, dynamic> values = snapshot.data;
+                        return new ListView.builder(
+                            itemCount: values.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              if (filter == true) {
+                                var finalCategories = [];
+                                for (var i = 0;
+                                    i < categories.keys.toList().length;
+                                    i++) {
+                                  if (categories.values.toList()[i] == true) {
+                                    finalCategories
+                                        .add(categories.keys.toList()[i]);
+                                  }
+                                }
+                                // list1.any((item) => list2.contains(item))
+                                // print(finalCategories);
+                                var valueData = values.values.toList()[index];
+                                var time = valueData['event_start_time']
+                                    .toString()
+                                    .split(' ')[1]
+                                    .substring(0, 2);
+                                // print(
+                                //     '-------------------------------------------------');
+                                // print(_selecteddate);
+                                // print(
+                                //     '-------------------------------------------------');
+                                if ((_selectedClub != null &&
+                                        valueData['club'] == _selectedClub) &&
+                                    (_selecteddate != null &&
+                                        convertDateTimeDisplay(
+                                                valueData['event_start_date']) ==
+                                            _selecteddate) &&
+                                    ((morning == true &&
+                                            (6 <= int.parse(time) &&
+                                                int.parse(time) < 12)) ||
+                                        (afternoon == true &&
+                                            (12 <= int.parse(time) &&
+                                                int.parse(time) < 15)) ||
+                                        (evening == true &&
+                                            (15 <= int.parse(time) &&
+                                                int.parse(time) < 19)) ||
+                                        (night == true &&
+                                            (19 <= int.parse(time) &&
+                                                int.parse(time) <= 24))) &&
+                                    (finalCategories.length > 0 &&
+                                        valueData['categories'].any((item) =>
+                                            finalCategories.contains(item)))) {
+                                  return Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 0,
+                                        ),
+                                        SizedBox(
+                                          width: MediaQuery.of(context).size.width * 0.845,
+                                          //width: 349.0,
+                                          height: 76.0,
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                pinRight: true,
+                                                pinTop: true,
+                                                pinBottom: true,
+                                                child: Stack(
+                                                  children: <Widget>[
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
+                                                      size: Size(338.0, 67.2),
+                                                      pinLeft: true,
+                                                      pinRight: true,
+                                                      pinTop: true,
+                                                      pinBottom: true,
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          image: DecorationImage(
+                                                            image: AssetImage(
+                                                                'assets/Background Image1.png'),
+                                                            fit: BoxFit.fill,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
+                                                      size: Size(338.0, 67.2),
+                                                      child: GestureDetector(
+                                                        onTap: () async {
+                                                          SharedPreferences prefs = await SharedPreferences.getInstance();
+                                                          prefs.setString(
+                                                              'eventId2',
+                                                              values.keys.toList()[index]);
+                                                          Navigator.of(context).pushNamed('/EventDetails2');
+                                                        },
+                                                        child: SvgPicture.string(
+                                                          _svg_rbwtgt,
+                                                          allowDrawingOutsideViewBox:
+                                                              true,
+                                                          fit: BoxFit.fill,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                pinBottom: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: SvgPicture.string(
+                                                  _svg_7u199j,
+                                                  allowDrawingOutsideViewBox: true,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
+                                                size: Size(349.0, 76.0),
+                                                pinBottom: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: Stack(
+                                                  children: <Widget>[
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
+                                                      size: Size(67.5, 53.0),
+                                                      pinLeft: true,
+                                                      pinRight: true,
+                                                      fixedHeight: true,
+                                                      child: SvgPicture.string(
+                                                        _svg_e0lvmc,
+                                                        allowDrawingOutsideViewBox:
+                                                            true,
+                                                        fit: BoxFit.fill,
+                                                      ),
+                                                    ),
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
+                                                      size: Size(67.5, 53.0),
+                                                      pinLeft: true,
+                                                      pinRight: true,
+                                                      pinTop: true,
+                                                      pinBottom: true,
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          image: DecorationImage(
+                                                            image: const AssetImage(
+                                                                'assets/Montage Logo1.png'),
+                                                            fit: BoxFit.fill,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: Text(
+                                                  values.values.toList()[index]
+                                                      ['event_start_date'],
+                                                  style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 13,
+                                                    color: const Color(0xffffffff),
+                                                  ),
+                                                  textAlign: TextAlign.left,
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(11.0, 25.0, 159.0, 21.0),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: Text(
+                                                  values.values.toList()[index]
+                                                      ['event_name'],
+                                                  style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 18,
+                                                    color: const Color(0xffffffff),
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+                                                  textAlign: TextAlign.left,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                } else {
+                                  return SizedBox();
+                                }
+                              } else {
+                                if (convertDateTimeDisplay(values.values
+                                        .toList()[index]['event_start_date']) ==
+                                    convertDateTimeDisplay(
+                                        dateSelected.toLocal().toString())) {
+                                  return Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 0,
+                                        ),
+                                        SizedBox(
+                                          width: 349.0,
+                                          height: 76.0,
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                pinRight: true,
+                                                pinTop: true,
+                                                pinBottom: true,
+                                                child: Stack(
+                                                  children: <Widget>[
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
+                                                      size: Size(338.0, 67.2),
+                                                      pinLeft: true,
+                                                      pinRight: true,
+                                                      pinTop: true,
+                                                      pinBottom: true,
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          image: DecorationImage(
+                                                            image: AssetImage(
+                                                                'assets/Background Image1.png'),
+                                                            fit: BoxFit.fill,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
+                                                      size: Size(338.0, 67.2),
+                                                      child: GestureDetector(
+                                                        onTap: () async {
+                                                          SharedPreferences prefs =
+                                                              await SharedPreferences
+                                                                  .getInstance();
+                                                          prefs.setString(
+                                                              'eventId2',
+                                                              values.keys
+                                                                  .toList()[index]);
+                                                          Navigator.of(context)
+                                                              .pushNamed(
+                                                                  '/EventDetails2');
+                                                        },
+                                                        child: SvgPicture.string(
+                                                          _svg_rbwtgt,
+                                                          allowDrawingOutsideViewBox:
+                                                              true,
+                                                          fit: BoxFit.fill,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                pinBottom: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: SvgPicture.string(
+                                                  _svg_7u199j,
+                                                  allowDrawingOutsideViewBox: true,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
+                                                size: Size(349.0, 76.0),
+                                                pinBottom: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: Stack(
+                                                  children: <Widget>[
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
+                                                      size: Size(67.5, 53.0),
+                                                      pinLeft: true,
+                                                      pinRight: true,
+                                                      fixedHeight: true,
+                                                      child: SvgPicture.string(
+                                                        _svg_e0lvmc,
+                                                        allowDrawingOutsideViewBox:
+                                                            true,
+                                                        fit: BoxFit.fill,
+                                                      ),
+                                                    ),
+                                                    Pinned.fromSize(
+                                                      bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
+                                                      size: Size(67.5, 53.0),
+                                                      pinLeft: true,
+                                                      pinRight: true,
+                                                      pinTop: true,
+                                                      pinBottom: true,
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          image: DecorationImage(
+                                                            image: const AssetImage(
+                                                                'assets/Montage Logo1.png'),
+                                                            fit: BoxFit.fill,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: Text(
+                                                  values.values.toList()[index]
+                                                      ['event_start_date'],
+                                                  style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 13,
+                                                    color: const Color(0xffffffff),
+                                                  ),
+                                                  textAlign: TextAlign.left,
+                                                ),
+                                              ),
+                                              Pinned.fromSize(
+                                                bounds: Rect.fromLTWH(11.0, 25.0, 159.0, 21.0),
+                                                size: Size(349.0, 76.0),
+                                                pinLeft: true,
+                                                fixedWidth: true,
+                                                fixedHeight: true,
+                                                child: Text(
+                                                  values.values.toList()[index]
+                                                      ['event_name'],
+                                                  style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 18,
+                                                    color: const Color(0xffffffff),
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+                                                  textAlign: TextAlign.left,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                } else {
+                                  return SizedBox();
                                 }
                               }
-                              // list1.any((item) => list2.contains(item))
-                              // print(finalCategories);
-                              var valueData = values.values.toList()[index];
-                              var time = valueData['event_start_time']
-                                  .toString()
-                                  .split(' ')[1]
-                                  .substring(0, 2);
-                              // print(
-                              //     '-------------------------------------------------');
-                              // print(_selecteddate);
-                              // print(
-                              //     '-------------------------------------------------');
-                              if ((_selectedClub != null &&
-                                      valueData['club'] == _selectedClub) &&
-                                  (_selecteddate != null &&
-                                      convertDateTimeDisplay(
-                                              valueData['event_start_date']) ==
-                                          _selecteddate) &&
-                                  ((morning == true &&
-                                          (6 <= int.parse(time) &&
-                                              int.parse(time) < 12)) ||
-                                      (afternoon == true &&
-                                          (12 <= int.parse(time) &&
-                                              int.parse(time) < 15)) ||
-                                      (evening == true &&
-                                          (15 <= int.parse(time) &&
-                                              int.parse(time) < 19)) ||
-                                      (night == true &&
-                                          (19 <= int.parse(time) &&
-                                              int.parse(time) <= 24))) &&
-                                  (finalCategories.length > 0 &&
-                                      valueData['categories'].any((item) =>
-                                          finalCategories.contains(item)))) {
-                                return Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(30, 0, 30, 20),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 0,
-                                      ),
-                                      SizedBox(
-                                        width: 349.0,
-                                        height: 76.0,
-                                        child: Stack(
-                                          children: <Widget>[
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              pinRight: true,
-                                              pinTop: true,
-                                              pinBottom: true,
-                                              child: Stack(
-                                                children: <Widget>[
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
-                                                    size: Size(338.0, 67.2),
-                                                    pinLeft: true,
-                                                    pinRight: true,
-                                                    pinTop: true,
-                                                    pinBottom: true,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        image: DecorationImage(
-                                                          image: AssetImage(
-                                                              'assets/Background Image1.png'),
-                                                          fit: BoxFit.fill,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
-                                                    size: Size(338.0, 67.2),
-                                                    child: GestureDetector(
-                                                      onTap: () async {
-                                                        SharedPreferences prefs =
-                                                            await SharedPreferences
-                                                                .getInstance();
-                                                        prefs.setString(
-                                                            'eventId2',
-                                                            values.keys
-                                                                .toList()[index]);
-                                                        Navigator.of(context)
-                                                            .pushNamed(
-                                                                '/EventDetails2');
-                                                      },
-                                                      child: SvgPicture.string(
-                                                        _svg_rbwtgt,
-                                                        allowDrawingOutsideViewBox:
-                                                            true,
-                                                        fit: BoxFit.fill,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              pinBottom: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: SvgPicture.string(
-                                                _svg_7u199j,
-                                                allowDrawingOutsideViewBox: true,
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
-                                              size: Size(349.0, 76.0),
-                                              pinBottom: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: Stack(
-                                                children: <Widget>[
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
-                                                    size: Size(67.5, 53.0),
-                                                    pinLeft: true,
-                                                    pinRight: true,
-                                                    fixedHeight: true,
-                                                    child: SvgPicture.string(
-                                                      _svg_e0lvmc,
-                                                      allowDrawingOutsideViewBox:
-                                                          true,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
-                                                    size: Size(67.5, 53.0),
-                                                    pinLeft: true,
-                                                    pinRight: true,
-                                                    pinTop: true,
-                                                    pinBottom: true,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        image: DecorationImage(
-                                                          image: const AssetImage(
-                                                              'assets/Montage Logo1.png'),
-                                                          fit: BoxFit.fill,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: Text(
-                                                values.values.toList()[index]
-                                                    ['event_start_date'],
-                                                style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 13,
-                                                  color: const Color(0xffffffff),
-                                                ),
-                                                textAlign: TextAlign.left,
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(11.0, 25.0, 159.0, 21.0),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: Text(
-                                                values.values.toList()[index]
-                                                    ['event_name'],
-                                                style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18,
-                                                  color: const Color(0xffffffff),
-                                                  fontWeight: FontWeight.w700,
-                                                ),
-                                                textAlign: TextAlign.left,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              } else {
-                                return SizedBox();
-                              }
-                            } else {
-                              if (convertDateTimeDisplay(values.values
-                                      .toList()[index]['event_start_date']) ==
-                                  convertDateTimeDisplay(
-                                      dateSelected.toLocal().toString())) {
-                                return Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(30, 0, 30, 20),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 0,
-                                      ),
-                                      SizedBox(
-                                        width: 349.0,
-                                        height: 76.0,
-                                        child: Stack(
-                                          children: <Widget>[
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(11.0, 0.0, 338.0, 67.2),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              pinRight: true,
-                                              pinTop: true,
-                                              pinBottom: true,
-                                              child: Stack(
-                                                children: <Widget>[
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(0.0, 0.0, 338.0, 67.2),
-                                                    size: Size(338.0, 67.2),
-                                                    pinLeft: true,
-                                                    pinRight: true,
-                                                    pinTop: true,
-                                                    pinBottom: true,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        image: DecorationImage(
-                                                          image: AssetImage(
-                                                              'assets/Background Image1.png'),
-                                                          fit: BoxFit.fill,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(304.0, 25.0, 18.0, 18.0),
-                                                    size: Size(338.0, 67.2),
-                                                    child: GestureDetector(
-                                                      onTap: () async {
-                                                        SharedPreferences prefs =
-                                                            await SharedPreferences
-                                                                .getInstance();
-                                                        prefs.setString(
-                                                            'eventId2',
-                                                            values.keys
-                                                                .toList()[index]);
-                                                        Navigator.of(context)
-                                                            .pushNamed(
-                                                                '/EventDetails2');
-                                                      },
-                                                      child: SvgPicture.string(
-                                                        _svg_rbwtgt,
-                                                        allowDrawingOutsideViewBox:
-                                                            true,
-                                                        fit: BoxFit.fill,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(0.0, 16.0, 242.0, 60.0),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              pinBottom: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: SvgPicture.string(
-                                                _svg_7u199j,
-                                                allowDrawingOutsideViewBox: true,
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(177.5, 20.0, 67.5, 53.0),
-                                              size: Size(349.0, 76.0),
-                                              pinBottom: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: Stack(
-                                                children: <Widget>[
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(0.0, 14.0, 67.5, 24.0),
-                                                    size: Size(67.5, 53.0),
-                                                    pinLeft: true,
-                                                    pinRight: true,
-                                                    fixedHeight: true,
-                                                    child: SvgPicture.string(
-                                                      _svg_e0lvmc,
-                                                      allowDrawingOutsideViewBox:
-                                                          true,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                  Pinned.fromSize(
-                                                    bounds: Rect.fromLTWH(1.5, 0.0, 64.0, 53.0),
-                                                    size: Size(67.5, 53.0),
-                                                    pinLeft: true,
-                                                    pinRight: true,
-                                                    pinTop: true,
-                                                    pinBottom: true,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        image: DecorationImage(
-                                                          image: const AssetImage(
-                                                              'assets/Montage Logo1.png'),
-                                                          fit: BoxFit.fill,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(11.0, 50.0, 190.0, 15.0),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: Text(
-                                                values.values.toList()[index]
-                                                    ['event_start_date'],
-                                                style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 13,
-                                                  color: const Color(0xffffffff),
-                                                ),
-                                                textAlign: TextAlign.left,
-                                              ),
-                                            ),
-                                            Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(11.0, 25.0, 159.0, 21.0),
-                                              size: Size(349.0, 76.0),
-                                              pinLeft: true,
-                                              fixedWidth: true,
-                                              fixedHeight: true,
-                                              child: Text(
-                                                values.values.toList()[index]
-                                                    ['event_name'],
-                                                style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18,
-                                                  color: const Color(0xffffffff),
-                                                  fontWeight: FontWeight.w700,
-                                                ),
-                                                textAlign: TextAlign.left,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              } else {
-                                return SizedBox();
-                              }
-                            }
-                          });
-                    }
-                    return CircularProgressIndicator();
-                  }),
+                            });
+                      }
+                      return CircularProgressIndicator();
+                    }),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       bottomNavigationBar: SizedBox(
         width: MediaQuery.of(context).size.width,
