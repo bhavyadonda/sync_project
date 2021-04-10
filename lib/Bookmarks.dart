@@ -25,22 +25,19 @@ class _BookmarksState extends State<Bookmarks> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map userdata = json.decode(prefs.getString('userData'));
     Map data = json.decode(prefs.getString('data'));
-    print(data);
-    print(userdata['bookmark'][userdata['bookmark'].keys.toList()[0]][0]);
 
     for (var k = 0; k < userdata['bookmark'].keys.toList().length; k++) {
       for (var i = 0; i < data.length; i++) {
         if (data.values.toList()[i]['subEvents'] == null &&
             data.keys.toList()[i] ==
-                userdata['bookmark'][userdata['bookmark'].keys.toList()[k]]
-                    [0]) {
+                userdata['bookmark'][userdata['bookmark'].keys.toList()[k]]) {
           events[data.keys.toList()[i]] = data.values.toList()[i];
         } else {
           for (var j = 0;
               j < data.values.toList()[i]['subEvents'].length;
               j++) {
             if (data.values.toList()[i]['subEvents'].keys.toList()[j] ==
-                userdata['bookmark'].values.toList()[k][0]) {
+                userdata['bookmark'].values.toList()[k]) {
               events[data.values.toList()[i]['subEvents'].keys.toList()[j]] =
                   data.values.toList()[i]['subEvents'].values.toList()[j];
             }
@@ -208,15 +205,15 @@ class _BookmarksState extends State<Bookmarks> {
                                 size: Size(168.0, 191.0),
                                 child:
                                     // Adobe XD layer: 'Continue Button' (shape)
-                                    PageLink(
-                                  links: [
-                                    PageLinkInfo(
-                                      transition: LinkTransition.Fade,
-                                      ease: Curves.linear,
-                                      duration: 0.3,
-                                      pageBuilder: () => EventDetails2(),
-                                    ),
-                                  ],
+                                    GestureDetector(
+                                  onTap: () async {
+                                    SharedPreferences prefs =
+                                        await SharedPreferences.getInstance();
+                                    prefs.setString('eventId2',
+                                        values.keys.toList()[index]);
+                                    Navigator.of(context)
+                                        .pushNamed('/EventDetails2');
+                                  },
                                   child: SvgPicture.string(
                                     _svg_kf2adx,
                                     allowDrawingOutsideViewBox: true,

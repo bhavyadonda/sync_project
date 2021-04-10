@@ -25,22 +25,20 @@ class _registerState extends State<register> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map userdata = json.decode(prefs.getString('userData'));
     Map data = json.decode(prefs.getString('data'));
-    print(data);
-    print(userdata['registeration'][userdata['registeration'].keys.toList()[0]][0]);
-
+    print(userdata);
     for (var k = 0; k < userdata['registeration'].keys.toList().length; k++) {
       for (var i = 0; i < data.length; i++) {
         if (data.values.toList()[i]['subEvents'] == null &&
             data.keys.toList()[i] ==
-                userdata['registeration'][userdata['registeration'].keys.toList()[k]]
-                    [0]) {
+                userdata['registeration']
+                    [userdata['registeration'].keys.toList()[k]]) {
           events[data.keys.toList()[i]] = data.values.toList()[i];
         } else {
           for (var j = 0;
               j < data.values.toList()[i]['subEvents'].length;
               j++) {
             if (data.values.toList()[i]['subEvents'].keys.toList()[j] ==
-                userdata['registeration'].values.toList()[k][0]) {
+                userdata['registeration'].values.toList()[k]) {
               events[data.values.toList()[i]['subEvents'].keys.toList()[j]] =
                   data.values.toList()[i]['subEvents'].values.toList()[j];
             }
@@ -48,6 +46,7 @@ class _registerState extends State<register> {
         }
       }
     }
+    print(events);
     return events;
   }
 

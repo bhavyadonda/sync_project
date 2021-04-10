@@ -82,25 +82,71 @@ class _EventDetails2State extends State<EventDetails2> {
                         ),
                         GestureDetector(
                           onTap: () async {
-                            showLoaderDialog(
-                                context, "Registering for the event...");
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            Map userdata =
+                                json.decode(prefs.getString('userData'));
+
                             final databaseReference =
                                 FirebaseDatabase.instance.reference();
-                            // databaseReference
-                            //     .child('users/' + uid + '/bookmark')
-                            //     .equalTo(id);
-                            await databaseReference
-                                .child("users/" + uid + '/registeration')
-                                .push()
-                                .set({
-                              '0': id,
-                            });
-                            Navigator.pop(context);
-                            showAlertDialog(
-                                context,
-                                '/Home',
-                                'Registered Successfully for the Event',
-                                'You will now be notified for the registered event.');
+
+                            if (userdata.keys.toList().contains('registeration')) {
+                              if (userdata['registeration']
+                                  .values
+                                  .toList()
+                                  .contains(id)) {
+                                showLoaderDialog(
+                                    context, "removing registered event...");
+
+                                await databaseReference
+                                    .child("users/" + uid + '/registeration')
+                                    .child(id)
+                                    .remove();
+                                userdata['registeration'].remove(id);
+
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '/Home',
+                                    'registered event Deleted Successfully',
+                                    'You will now not be notified for the event.');
+                              } else {
+                                showLoaderDialog(
+                                    context, "registering...");
+                                await databaseReference
+                                    .child("users/" + uid + '/registeration')
+                                    .child(id)
+                                    .set(id);
+                                userdata['registeration'] = {id: id};
+
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '/Home',
+                                    'registered Successfully',
+                                    'You will now be notified for the registered event.');
+                              }
+
+                              prefs.setString(
+                                  'userData', json.encode(userdata));
+                            } else {
+                              showLoaderDialog(context, "registering...");
+                              await databaseReference
+                                  .child("users/" + uid + '/registeration')
+                                  .child(id)
+                                  .set(id);
+                              userdata['registeration'] = {id: id};
+
+                              Navigator.pop(context);
+                              showAlertDialog(
+                                  context,
+                                  '/Home',
+                                  'registered Successfully',
+                                  'You will now be notified for the registered event.');
+                            }
+
+                            prefs.setString('userData', json.encode(userdata));
+                          
                           },
                           child: Pinned.fromSize(
                             bounds: Rect.fromLTWH(132.5, 14.0, 73.0, 21.0),
@@ -532,24 +578,70 @@ class _EventDetails2State extends State<EventDetails2> {
                         ),
                         GestureDetector(
                           onTap: () async {
-                            showLoaderDialog(context, "Creating Bookmark...");
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            Map userdata =
+                                json.decode(prefs.getString('userData'));
+
                             final databaseReference =
                                 FirebaseDatabase.instance.reference();
-                            // databaseReference
-                            //     .child('users/' + uid + '/bookmark')
-                            //     .equalTo(id);
-                            await databaseReference
-                                .child("users/" + uid + '/bookmark')
-                                .push()
-                                .set({
-                              '0': id,
-                            });
-                            Navigator.pop(context);
-                            showAlertDialog(
-                                context,
-                                '/Home',
-                                'Bookmark Created Successfully',
-                                'You will now be notified for the bookmarked event.');
+
+                            if (userdata.keys.toList().contains('bookmark')) {
+                              if (userdata['bookmark']
+                                  .values
+                                  .toList()
+                                  .contains(id)) {
+                                showLoaderDialog(
+                                    context, "removing Bookmark...");
+
+                                await databaseReference
+                                    .child("users/" + uid + '/bookmark')
+                                    .child(id)
+                                    .remove();
+                                userdata['bookmark'].remove(id);
+
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '/Home',
+                                    'Bookmark Deleted Successfully',
+                                    'You will now not be notified for the event.');
+                              } else {
+                                showLoaderDialog(
+                                    context, "Creating Bookmark...");
+                                await databaseReference
+                                    .child("users/" + uid + '/bookmark')
+                                    .child(id)
+                                    .set(id);
+                                userdata['bookmark'] = {id: id};
+
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '/Home',
+                                    'Bookmark Created Successfully',
+                                    'You will now be notified for the bookmarked event.');
+                              }
+
+                              prefs.setString(
+                                  'userData', json.encode(userdata));
+                            } else {
+                              showLoaderDialog(context, "Creating Bookmark...");
+                              await databaseReference
+                                  .child("users/" + uid + '/bookmark')
+                                  .child(id)
+                                  .set(id);
+                              userdata['bookmark'] = {id: id};
+
+                              Navigator.pop(context);
+                              showAlertDialog(
+                                  context,
+                                  '/Home',
+                                  'Bookmark Created Successfully',
+                                  'You will now be notified for the bookmarked event.');
+                            }
+
+                            prefs.setString('userData', json.encode(userdata));
                           },
                           child: Pinned.fromSize(
                             bounds: Rect.fromLTWH(284.0, 38.0, 35.0, 35.0),

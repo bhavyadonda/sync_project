@@ -140,24 +140,70 @@ class _ClubDetailsState extends State<ClubDetails> {
                           ),
                           GestureDetector(
                             onTap: () async {
-                              showLoaderDialog(context, "Please wait...");
-                              final databaseReference =
-                                  FirebaseDatabase.instance.reference();
-                              // databaseReference
-                              //     .child('users/' + uid + '/bookmark')
-                              //     .equalTo(id);
+                             SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            Map userdata =
+                                json.decode(prefs.getString('userData'));
+
+                            final databaseReference =
+                                FirebaseDatabase.instance.reference();
+
+                            if (userdata.keys.toList().contains('following')) {
+                              if (userdata['following']
+                                  .values
+                                  .toList()
+                                  .contains(clubkey)) {
+                                showLoaderDialog(
+                                    context, "unfollowing...");
+
+                                await databaseReference
+                                    .child("users/" + uid + '/following')
+                                    .child(clubkey)
+                                    .remove();
+                                userdata['following'].remove(clubkey);
+
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '/Home',
+                                    'unfollowed Successfully',
+                                    'You will now not be notified for the club.');
+                              } else {
+                                showLoaderDialog(
+                                    context, "following...");
+                                await databaseReference
+                                    .child("users/" + uid + '/following')
+                                    .child(clubkey)
+                                    .set(clubkey);
+                                userdata['following'] = {clubkey: clubkey};
+
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '/Home',
+                                    'following Created Successfully',
+                                    'You will now be notified for the club.');
+                              }
+
+                              prefs.setString(
+                                  'userData', json.encode(userdata));
+                            } else {
+                              showLoaderDialog(context, "following...");
                               await databaseReference
                                   .child("users/" + uid + '/following')
-                                  .push()
-                                  .set({
-                                '0': clubkey,
-                              });
+                                  .child(clubkey)
+                                  .set(clubkey);
+                              userdata['following'] = {clubkey: clubkey};
+
                               Navigator.pop(context);
                               showAlertDialog(
                                   context,
-                                  '/Clubs',
-                                  'Successfully added this club to your following list.',
-                                  'You will now be notified regarding the club activities.');
+                                  '/Home',
+                                  ' following',
+                                  'You will now be notified for the club.');
+                            }
+
+                            prefs.setString('userData', json.encode(userdata));
                             },
                             child: SizedBox(
                               width: 87.0,
