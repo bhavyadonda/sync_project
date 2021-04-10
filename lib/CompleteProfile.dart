@@ -29,7 +29,6 @@ class _CompleteProfileState extends State<CompleteProfile> {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context);
     Future createProfile() async {
       try {
         SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -738,9 +737,14 @@ class _CompleteProfileState extends State<CompleteProfile> {
                                         _image,
                                         fit: BoxFit.fill,
                                       )
-                                    : SvgPicture.string(
-                                        _svg_maxgtd,
-                                        allowDrawingOutsideViewBox: true,
+                                    : GestureDetector(
+                                        onTap: () {
+                                          getImage();
+                                        },
+                                        child: SvgPicture.string(
+                                          _svg_maxgtd,
+                                          allowDrawingOutsideViewBox: true,
+                                        ),
                                       )),
                           ),
                         ),
