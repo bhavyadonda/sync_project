@@ -30,14 +30,20 @@ class _EventDetails2State extends State<EventDetails2> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     uid = prefs.getString('uid');
     Map data = json.decode(prefs.getString('data'));
-    id = prefs.getString('eventId2');
-    data = data[prefs.getString('eventId')];
-    if (id == null) {
-      return data;
-    } else {
-      data = data['subEvents'][id];
-      return data;
+    Map events = {};
+    
+    for (var i = 0; i < data.length; i++) {
+      if (data.values.toList()[i]['subEvents'] == null) {
+        events[data.keys.toList()[i]] = data.values.toList()[i];
+      } else {
+        for (var j = 0; j < data.values.toList()[i]['subEvents'].length; j++) {
+          events[data.values.toList()[i]['subEvents'].keys.toList()[j]] =
+              data.values.toList()[i]['subEvents'].values.toList()[j];
+        }
+      }
     }
+    events = events[prefs.getString('eventId')];
+    return events;
   }
 
   Widget build(BuildContext context) {

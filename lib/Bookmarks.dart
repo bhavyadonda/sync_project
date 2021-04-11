@@ -26,6 +26,7 @@ class _BookmarksState extends State<Bookmarks> {
     Map userdata = json.decode(prefs.getString('userData'));
     Map data = json.decode(prefs.getString('data'));
 
+    if(userdata.containsKey('bookmark')){
     for (var k = 0; k < userdata['bookmark'].keys.toList().length; k++) {
       for (var i = 0; i < data.length; i++) {
         if (data.values.toList()[i]['subEvents'] == null &&
@@ -44,7 +45,7 @@ class _BookmarksState extends State<Bookmarks> {
           }
         }
       }
-    }
+    }}
     return events;
   }
 
@@ -208,11 +209,16 @@ class _BookmarksState extends State<Bookmarks> {
                                     GestureDetector(
                                   onTap: () async {
                                     SharedPreferences prefs =
-                                        await SharedPreferences.getInstance();
-                                    prefs.setString('eventId2',
-                                        values.keys.toList()[index]);
-                                    Navigator.of(context)
-                                        .pushNamed('/EventDetails2');
+                                                      await SharedPreferences
+                                                          .getInstance();
+                                                  prefs.setString(
+                                                      'eventId',
+                                                      values.keys
+                                                          .toList()[index]);
+                                                          print(prefs.getString('eventId'));
+                                                  Navigator.of(context)
+                                                      .pushNamed(
+                                                          '/EventDetails2');
                                   },
                                   child: SvgPicture.string(
                                     _svg_kf2adx,

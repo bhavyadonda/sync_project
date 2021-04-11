@@ -93,7 +93,7 @@ class _EventsState extends State<Events> {
                                                       await SharedPreferences
                                                           .getInstance();
                                                   prefs.setString(
-                                                      'eventId2',
+                                                      'eventId',
                                                       values.keys
                                                           .toList()[index]);
                                                   Navigator.of(context)

@@ -15,6 +15,7 @@ class OpeningViewState extends State<OpeningView> {
   OpeningViewState();
 
   bool displayName;
+  bool firstOpen;
 
   @override
   void initState() {
@@ -52,19 +53,26 @@ class OpeningViewState extends State<OpeningView> {
 
     setState(() {
       displayName = prefs.getBool('my_bool_key');
+      firstOpen = prefs.getBool('firstOpen');
     });
     userState();
   }
 
   userState() async {
-    if (displayName == null) {
+    if (firstOpen == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.pushNamedAndRemoveUntil(context, '/SignIn', (r) => false);
+        Navigator.pushNamedAndRemoveUntil(context, '/Intro1', (r) => false);
       });
     } else {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.pushNamedAndRemoveUntil(context, '/Home', (r) => false);
-      });
+      if (displayName == null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          Navigator.pushNamedAndRemoveUntil(context, '/SignIn', (r) => false);
+        });
+      } else {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          Navigator.pushNamedAndRemoveUntil(context, '/Home', (r) => false);
+        });
+      }
     }
   }
 

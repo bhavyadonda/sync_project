@@ -56,9 +56,6 @@ class _CategoriesState extends State<Categories> {
                 eventNumbers.add(i);
               }
             }
-            print(selectedCategory);
-            print(eventNumbers);
-
             return Column(
               children: [
                 Padding(
@@ -196,21 +193,26 @@ class _CategoriesState extends State<Categories> {
                                 size: Size(168.0, 191.0),
                                 child:
                                     // Adobe XD layer: 'Continue Button' (shape)
-                                    PageLink(
-                                  links: [
-                                    PageLinkInfo(
-                                      transition: LinkTransition.Fade,
-                                      ease: Curves.linear,
-                                      duration: 0.3,
-                                      pageBuilder: () => EventDetails2(),
+                                    GestureDetector(
+                                      onTap:()async{
+                                        SharedPreferences prefs =
+                                                      await SharedPreferences
+                                                          .getInstance();
+                                                  prefs.setString(
+                                                      'eventId',
+                                                      values.keys
+                                                          .toList()[eventNumbers[index]]);
+                                                          print(prefs.getString('eventId'));
+                                                  Navigator.of(context)
+                                                      .pushNamed(
+                                                          '/EventDetails2');
+                                      },
+                                      child: SvgPicture.string(
+                                        _svg_kf2adx,
+                                        allowDrawingOutsideViewBox: true,
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
-                                  ],
-                                  child: SvgPicture.string(
-                                    _svg_kf2adx,
-                                    allowDrawingOutsideViewBox: true,
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
                               ),
                               Pinned.fromSize(
                                 bounds: Rect.fromLTWH(5.0, 149.0, 145.0, 20.0),

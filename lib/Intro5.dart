@@ -1,10 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import './SignUp.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'methods.dart';
+
 class Intro5 extends StatelessWidget {
+  bool displayName;
   Intro5({
     Key key,
   }) : super(key: key);
@@ -13,87 +21,96 @@ class Intro5 extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
-        children: <Widget>[ //51, 206
+        children: <Widget>[
+          //51, 206
           Positioned(
             left: 188,
             top: 730,
             child: Text(
-                '(5/5)',
-                style: TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
-            color: const Color(0xffb6b6b6),
-            fontWeight: FontWeight.w300,
-                ),
-                textAlign: TextAlign.left,
+              '(5/5)',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 16,
+                color: const Color(0xffb6b6b6),
+                fontWeight: FontWeight.w300,
               ),
+              textAlign: TextAlign.left,
+            ),
           ),
           Positioned(
             left: 68,
             top: 667,
             child: SizedBox(
-                width: 273.0,
-                height: 48.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-                size: Size(273.0, 48.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Button' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.linear,
-                      duration: 0.3,
-                      pageBuilder: () => SignUp(),
-                    ),
-                  ],
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      gradient: LinearGradient(
-                        begin: Alignment(-0.97, -0.82),
-                        end: Alignment(0.97, 0.79),
-                        colors: [
-                          const Color(0xfffe4f70),
-                          const Color(0xffcb6bd8)
-                        ],
-                        stops: [0.0, 1.0],
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x29000000),
-                          offset: Offset(0, 3),
-                          blurRadius: 6,
+              width: 273.0,
+              height: 48.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
+                    size: Size(273.0, 48.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                        // Adobe XD layer: 'Button' (shape)
+                        GestureDetector(
+                      onTap: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setBool('firstOpen', true);
+                        showAlertDialog(context, 'exit', 'Restart App',
+                            'Please close this App runnig in Background and Re-launch the App to continue');
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          gradient: LinearGradient(
+                            begin: Alignment(-0.97, -0.82),
+                            end: Alignment(0.97, 0.79),
+                            colors: [
+                              const Color(0xfffe4f70),
+                              const Color(0xffcb6bd8)
+                            ],
+                            stops: [0.0, 1.0],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0x29000000),
+                              offset: Offset(0, 3),
+                              blurRadius: 6,
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(117.0, 12.0, 44.0, 21.0),
-                size: Size(273.0, 48.0),
-                child: Text(
-                  'Next',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    color: const Color(0xffffffff),
-                    fontWeight: FontWeight.w600,
+                  GestureDetector(
+                    onTap: () async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setBool('firstOpen', true);
+                      showAlertDialog(context, 'exit', 'Restart App',
+                          'Please close this App runnig in Background and Re-launch the App to continue');
+                    },
+                    child: Pinned.fromSize(
+                      bounds: Rect.fromLTWH(117.0, 12.0, 44.0, 21.0),
+                      size: Size(273.0, 48.0),
+                      child: Text(
+                        'Next',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
+                          color: const Color(0xffffffff),
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
                   ),
-                  textAlign: TextAlign.left,
-                ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 55,
@@ -126,924 +143,924 @@ class Intro5 extends StatelessWidget {
             left: 13,
             top: 108,
             child: SizedBox(
-                width: 385.0,
-                height: 7.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
-                size: Size(349.0, 7.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Bar' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    color: const Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x1a000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
+              width: 385.0,
+              height: 7.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
+                    size: Size(349.0, 7.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                        // Adobe XD layer: 'Bar' (shape)
+                        Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.0),
+                        color: const Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x1a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
-                size: Size(349.0, 7.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Progress' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x1a000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
                   ),
-                ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
+                    size: Size(349.0, 7.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                        // Adobe XD layer: 'Progress' (shape)
+                        Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.0),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x1a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-                ),
-              ),
+            ),
           ),
           Positioned(
             left: 173,
             top: 39,
             child: Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Sync Logo.png'),
-              fit: BoxFit.fill,
-              colorFilter: new ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.dstIn),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0x45000000),
-                offset: Offset(0, 3),
-                blurRadius: 80,
-              ),
-            ],
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x45000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 80,
+                  ),
+                ],
               ),
+            ),
           ),
           Positioned(
             left: 71,
             top: 206.6,
             child: SizedBox(
-                width: 273.0,
-                height: 226.0,
-                child: Stack(
-            children: <Widget>[
-              Transform.translate(
-                offset: Offset(72.4, 60.4),
-                child: SizedBox(
-                  width: 9.0,
-                  height: 10.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 9.0,
-                        height: 10.0,
-                        child: Stack(
-                          children: <Widget>[
-                            SvgPicture.string(
-                              _svg_gmvn7n,
-                              allowDrawingOutsideViewBox: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(0.0, 0.1),
-                        child: SvgPicture.string(
-                          _svg_i3wedy,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(181.3, 58.6),
-                child: SizedBox(
-                  width: 11.0,
-                  height: 13.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 11.0,
-                        height: 13.0,
-                        child: Stack(
-                          children: <Widget>[
-                            SvgPicture.string(
-                              _svg_fygbiv,
-                              allowDrawingOutsideViewBox: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(0.2, 0.3),
-                        child: SvgPicture.string(
-                          _svg_5cikhz,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(165.2, 5.6),
-                child: SizedBox(
-                  width: 18.0,
-                  height: 20.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 18.0,
-                        height: 20.0,
-                        child: Stack(
-                          children: <Widget>[
-                            SvgPicture.string(
-                              _svg_2yqh4c,
-                              allowDrawingOutsideViewBox: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(0.3, 0.4),
-                        child: SvgPicture.string(
-                          _svg_cjvv8b,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(88.8, 4.8),
-                child: SizedBox(
-                  width: 19.0,
-                  height: 20.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 19.0,
-                        height: 20.0,
-                        child: Stack(
-                          children: <Widget>[
-                            SvgPicture.string(
-                              _svg_wcpl2u,
-                              allowDrawingOutsideViewBox: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(0.4, 0.4),
-                        child: SvgPicture.string(
-                          _svg_xws4ws,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(0.0, 157.1),
-                child: Container(
-                  width: 75.5,
-                  height: 69.3,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, 1.0),
-                      end: Alignment(0.0, -1.0),
-                      colors: [
-                        const Color(0x40808080),
-                        const Color(0x1f808080),
-                        const Color(0x1a808080)
-                      ],
-                      stops: [0.0, 0.54, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(0.4, 157.6),
-                child: Container(
-                  width: 74.8,
-                  height: 68.2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(8.0, 163.3),
-                child: Container(
-                  width: 59.6,
-                  height: 43.3,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(11.6, 211.2),
-                child: Container(
-                  width: 52.6,
-                  height: 2.3,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe0e0e0),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(20.0, 215.8),
-                child: Container(
-                  width: 35.8,
-                  height: 2.3,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe0e0e0),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(122.0, 47.0),
-                child: SizedBox(
-                  width: 27.0,
-                  height: 28.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Container(
-                        width: 26.7,
-                        height: 28.4,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment(0.0, 1.0),
-                            end: Alignment(0.0, -1.0),
-                            colors: [
-                              const Color(0x20808080),
-                              const Color(0x010808080),
-                              const Color(0x0d808080)
-                            ],
-                            stops: [0.0, 0.54, 1.0],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(122.8, 47.4),
-                child: Container(
-                  width: 25.2,
-                  height: 28.0,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe6e6e6),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(130.5, 56.3),
-                child: Container(
-                  width: 9.3,
-                  height: 8.7,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(130.9, 58.1),
-                child: Container(
-                  width: 8.5,
-                  height: 7.9,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(134.2, 64.4),
-                child: Container(
-                  width: 2.0,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(129.3, 55.3),
-                child: SvgPicture.string(
-                  _svg_fqhgxq,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(73.6, 15.1),
-                child: SizedBox(
-                  width: 23.0,
-                  height: 24.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Container(
-                        width: 22.8,
-                        height: 24.3,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment(0.0, 1.0),
-                            end: Alignment(0.0, -1.0),
-                            colors: [
-                              const Color(0x20808080),
-                              const Color(0x010808080),
-                              const Color(0x0d808080)
-                            ],
-                            stops: [0.0, 0.54, 1.0],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(74.3, 15.5),
-                child: Container(
-                  width: 21.6,
-                  height: 23.9,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe6e6e6),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(80.9, 23.0),
-                child: Container(
-                  width: 8.0,
-                  height: 7.5,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(81.2, 24.6),
-                child: Container(
-                  width: 7.2,
-                  height: 6.8,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(84.0, 30.0),
-                child: Container(
-                  width: 1.7,
-                  height: 2.7,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(79.8, 22.2),
-                child: SvgPicture.string(
-                  _svg_uqrkll,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(234.6, 48.5),
-                child: SizedBox(
-                  width: 25.0,
-                  height: 28.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SvgPicture.string(
-                        _svg_hizih2,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(235.0, 49.3),
-                child: SvgPicture.string(
-                  _svg_ivp8lq,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(39.3, 27.7),
-                child: SizedBox(
-                  width: 22.0,
-                  height: 24.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SvgPicture.string(
-                        _svg_8b28lf,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(39.6, 28.3),
-                child: SvgPicture.string(
-                  _svg_6uzyuo,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(1.4, 50.9),
-                child: SizedBox(
-                  width: 26.0,
-                  height: 28.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SvgPicture.string(
-                        _svg_2zge6,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(1.9, 51.5),
-                child: SvgPicture.string(
-                  _svg_urbsmd,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(176.2, 16.1),
-                child: SizedBox(
-                  width: 22.0,
-                  height: 23.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SvgPicture.string(
-                        _svg_410wr0,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(176.6, 16.5),
-                child: SvgPicture.string(
-                  _svg_pzg0so,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(114.4, 111.4),
-                child: SizedBox(
-                  width: 34.0,
-                  height: 38.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SvgPicture.string(
-                        _svg_b07zj9,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(114.7, 111.6),
-                child: Container(
-                  width: 33.3,
-                  height: 0.5,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcfd8dc),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(114.7, 111.6),
-                child: Container(
-                  width: 33.3,
-                  height: 0.5,
-                  decoration: BoxDecoration(
-                    color: const Color(0x1a000000),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(114.7, 112.2),
-                child: SvgPicture.string(
-                  _svg_xdf9i0,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(197.5, 156.1),
-                child: Container(
-                  width: 75.5,
-                  height: 69.3,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, 1.0),
-                      end: Alignment(0.0, -1.0),
-                      colors: [
-                        const Color(0x40808080),
-                        const Color(0x1f808080),
-                        const Color(0x1a808080)
-                      ],
-                      stops: [0.0, 0.54, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(197.9, 156.6),
-                child: Container(
-                  width: 74.8,
-                  height: 68.2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(205.5, 162.3),
-                child: Container(
-                  width: 59.6,
-                  height: 43.3,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(209.7, 211.7),
-                child: Container(
-                  width: 52.6,
-                  height: 2.3,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe0e0e0),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(218.1, 216.3),
-                child: Container(
-                  width: 35.8,
-                  height: 2.3,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe0e0e0),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(98.2, 155.9),
-                child: Container(
-                  width: 76.1,
-                  height: 69.8,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, 1.0),
-                      end: Alignment(0.0, -1.0),
-                      colors: [
-                        const Color(0x40808080),
-                        const Color(0x1f808080),
-                        const Color(0x1a808080)
-                      ],
-                      stops: [0.0, 0.54, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(98.6, 156.4),
-                child: Container(
-                  width: 75.3,
-                  height: 68.7,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(106.3, 162.1),
-                child: Container(
-                  width: 60.0,
-                  height: 43.6,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(108.5, 211.0),
-                child: Container(
-                  width: 53.0,
-                  height: 2.3,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe0e0e0),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(117.0, 215.6),
-                child: Container(
-                  width: 36.1,
-                  height: 2.3,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe0e0e0),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(13.4, 45.8),
-                child: SvgPicture.string(
-                  _svg_81z7m6,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(126.3, 0.0),
-                child: SizedBox(
-                  width: 19.0,
-                  height: 20.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 19.0,
-                        height: 20.0,
-                        child: Stack(
-                          children: <Widget>[
-                            Container(
-                              width: 19.1,
-                              height: 20.3,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment(0.0, 1.0),
-                                  end: Alignment(0.0, -1.0),
-                                  colors: [
-                                    const Color(0x10808080),
-                                    const Color(0x08808080),
-                                    const Color(0x07808080)
-                                  ],
-                                  stops: [0.0, 0.54, 1.0],
+              width: 273.0,
+              height: 226.0,
+              child: Stack(
+                children: <Widget>[
+                  Transform.translate(
+                    offset: Offset(72.4, 60.4),
+                    child: SizedBox(
+                      width: 9.0,
+                      height: 10.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 9.0,
+                            height: 10.0,
+                            child: Stack(
+                              children: <Widget>[
+                                SvgPicture.string(
+                                  _svg_gmvn7n,
+                                  allowDrawingOutsideViewBox: true,
                                 ),
+                              ],
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(0.0, 0.1),
+                            child: SvgPicture.string(
+                              _svg_i3wedy,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(181.3, 58.6),
+                    child: SizedBox(
+                      width: 11.0,
+                      height: 13.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 11.0,
+                            height: 13.0,
+                            child: Stack(
+                              children: <Widget>[
+                                SvgPicture.string(
+                                  _svg_fygbiv,
+                                  allowDrawingOutsideViewBox: true,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(0.2, 0.3),
+                            child: SvgPicture.string(
+                              _svg_5cikhz,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(165.2, 5.6),
+                    child: SizedBox(
+                      width: 18.0,
+                      height: 20.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 18.0,
+                            height: 20.0,
+                            child: Stack(
+                              children: <Widget>[
+                                SvgPicture.string(
+                                  _svg_2yqh4c,
+                                  allowDrawingOutsideViewBox: true,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(0.3, 0.4),
+                            child: SvgPicture.string(
+                              _svg_cjvv8b,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(88.8, 4.8),
+                    child: SizedBox(
+                      width: 19.0,
+                      height: 20.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 19.0,
+                            height: 20.0,
+                            child: Stack(
+                              children: <Widget>[
+                                SvgPicture.string(
+                                  _svg_wcpl2u,
+                                  allowDrawingOutsideViewBox: true,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(0.4, 0.4),
+                            child: SvgPicture.string(
+                              _svg_xws4ws,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(0.0, 157.1),
+                    child: Container(
+                      width: 75.5,
+                      height: 69.3,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, 1.0),
+                          end: Alignment(0.0, -1.0),
+                          colors: [
+                            const Color(0x40808080),
+                            const Color(0x1f808080),
+                            const Color(0x1a808080)
+                          ],
+                          stops: [0.0, 0.54, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(0.4, 157.6),
+                    child: Container(
+                      width: 74.8,
+                      height: 68.2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(8.0, 163.3),
+                    child: Container(
+                      width: 59.6,
+                      height: 43.3,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(11.6, 211.2),
+                    child: Container(
+                      width: 52.6,
+                      height: 2.3,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe0e0e0),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(20.0, 215.8),
+                    child: Container(
+                      width: 35.8,
+                      height: 2.3,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe0e0e0),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(122.0, 47.0),
+                    child: SizedBox(
+                      width: 27.0,
+                      height: 28.0,
+                      child: Stack(
+                        children: <Widget>[
+                          Container(
+                            width: 26.7,
+                            height: 28.4,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment(0.0, 1.0),
+                                end: Alignment(0.0, -1.0),
+                                colors: [
+                                  const Color(0x20808080),
+                                  const Color(0x010808080),
+                                  const Color(0x0d808080)
+                                ],
+                                stops: [0.0, 0.54, 1.0],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(0.6, 0.3),
-                        child: Container(
-                          width: 18.1,
-                          height: 20.0,
-                          decoration: BoxDecoration(
-                            color: const Color(0x80e6e6e6),
                           ),
-                        ),
+                        ],
                       ),
-                      Transform.translate(
-                        offset: Offset(6.1, 6.6),
-                        child: Container(
-                          width: 6.7,
-                          height: 6.2,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            color: const Color(0x80ffffff),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(6.4, 7.9),
-                        child: Container(
-                          width: 6.1,
-                          height: 5.7,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            color: const Color(0x80ffffff),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(8.7, 12.5),
-                        child: Container(
-                          width: 1.4,
-                          height: 2.3,
-                          decoration: BoxDecoration(
-                            color: const Color(0x80ffffff),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(5.2, 5.9),
-                        child: SvgPicture.string(
-                          _svg_jsuwhc,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(217.8, 21.2),
-                child: SizedBox(
-                  width: 19.0,
-                  height: 20.0,
-                  child: Stack(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 19.0,
-                        height: 20.0,
-                        child: Stack(
-                          children: <Widget>[
-                            Container(
-                              width: 19.1,
-                              height: 20.3,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment(0.0, 1.0),
-                                  end: Alignment(0.0, -1.0),
-                                  colors: [
-                                    const Color(0x10808080),
-                                    const Color(0x08808080),
-                                    const Color(0x07808080)
-                                  ],
-                                  stops: [0.0, 0.54, 1.0],
-                                ),
+                  Transform.translate(
+                    offset: Offset(122.8, 47.4),
+                    child: Container(
+                      width: 25.2,
+                      height: 28.0,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe6e6e6),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(130.5, 56.3),
+                    child: Container(
+                      width: 9.3,
+                      height: 8.7,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(130.9, 58.1),
+                    child: Container(
+                      width: 8.5,
+                      height: 7.9,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(134.2, 64.4),
+                    child: Container(
+                      width: 2.0,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(129.3, 55.3),
+                    child: SvgPicture.string(
+                      _svg_fqhgxq,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(73.6, 15.1),
+                    child: SizedBox(
+                      width: 23.0,
+                      height: 24.0,
+                      child: Stack(
+                        children: <Widget>[
+                          Container(
+                            width: 22.8,
+                            height: 24.3,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment(0.0, 1.0),
+                                end: Alignment(0.0, -1.0),
+                                colors: [
+                                  const Color(0x20808080),
+                                  const Color(0x010808080),
+                                  const Color(0x0d808080)
+                                ],
+                                stops: [0.0, 0.54, 1.0],
                               ),
                             ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(74.3, 15.5),
+                    child: Container(
+                      width: 21.6,
+                      height: 23.9,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe6e6e6),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(80.9, 23.0),
+                    child: Container(
+                      width: 8.0,
+                      height: 7.5,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(81.2, 24.6),
+                    child: Container(
+                      width: 7.2,
+                      height: 6.8,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(84.0, 30.0),
+                    child: Container(
+                      width: 1.7,
+                      height: 2.7,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(79.8, 22.2),
+                    child: SvgPicture.string(
+                      _svg_uqrkll,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(234.6, 48.5),
+                    child: SizedBox(
+                      width: 25.0,
+                      height: 28.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SvgPicture.string(
+                            _svg_hizih2,
+                            allowDrawingOutsideViewBox: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(235.0, 49.3),
+                    child: SvgPicture.string(
+                      _svg_ivp8lq,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(39.3, 27.7),
+                    child: SizedBox(
+                      width: 22.0,
+                      height: 24.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SvgPicture.string(
+                            _svg_8b28lf,
+                            allowDrawingOutsideViewBox: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(39.6, 28.3),
+                    child: SvgPicture.string(
+                      _svg_6uzyuo,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(1.4, 50.9),
+                    child: SizedBox(
+                      width: 26.0,
+                      height: 28.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SvgPicture.string(
+                            _svg_2zge6,
+                            allowDrawingOutsideViewBox: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(1.9, 51.5),
+                    child: SvgPicture.string(
+                      _svg_urbsmd,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(176.2, 16.1),
+                    child: SizedBox(
+                      width: 22.0,
+                      height: 23.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SvgPicture.string(
+                            _svg_410wr0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(176.6, 16.5),
+                    child: SvgPicture.string(
+                      _svg_pzg0so,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(114.4, 111.4),
+                    child: SizedBox(
+                      width: 34.0,
+                      height: 38.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SvgPicture.string(
+                            _svg_b07zj9,
+                            allowDrawingOutsideViewBox: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(114.7, 111.6),
+                    child: Container(
+                      width: 33.3,
+                      height: 0.5,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffcfd8dc),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(114.7, 111.6),
+                    child: Container(
+                      width: 33.3,
+                      height: 0.5,
+                      decoration: BoxDecoration(
+                        color: const Color(0x1a000000),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(114.7, 112.2),
+                    child: SvgPicture.string(
+                      _svg_xdf9i0,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(197.5, 156.1),
+                    child: Container(
+                      width: 75.5,
+                      height: 69.3,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, 1.0),
+                          end: Alignment(0.0, -1.0),
+                          colors: [
+                            const Color(0x40808080),
+                            const Color(0x1f808080),
+                            const Color(0x1a808080)
                           ],
+                          stops: [0.0, 0.54, 1.0],
                         ),
                       ),
-                      Transform.translate(
-                        offset: Offset(0.6, 0.3),
-                        child: Container(
-                          width: 18.1,
-                          height: 20.0,
-                          decoration: BoxDecoration(
-                            color: const Color(0x80e6e6e6),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(6.1, 6.6),
-                        child: Container(
-                          width: 6.7,
-                          height: 6.2,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            color: const Color(0x80ffffff),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(6.4, 7.9),
-                        child: Container(
-                          width: 6.1,
-                          height: 5.7,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            color: const Color(0x80ffffff),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(8.7, 12.5),
-                        child: Container(
-                          width: 1.4,
-                          height: 2.3,
-                          decoration: BoxDecoration(
-                            color: const Color(0x80ffffff),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(5.2, 5.9),
-                        child: SvgPicture.string(
-                          _svg_tycl6t,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(127.6, 170.8),
-                child: SvgPicture.string(
-                  _svg_plgc7y,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(229.6, 175.8),
-                child: Container(
-                  width: 14.6,
-                  height: 13.7,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffffff),
+                  Transform.translate(
+                    offset: Offset(197.9, 156.6),
+                    child: Container(
+                      width: 74.8,
+                      height: 68.2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(235.2, 186.8),
-                child: Container(
-                  width: 3.4,
-                  height: 5.5,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
+                  Transform.translate(
+                    offset: Offset(205.5, 162.3),
+                    child: Container(
+                      width: 59.6,
+                      height: 43.3,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                  Transform.translate(
+                    offset: Offset(209.7, 211.7),
+                    child: Container(
+                      width: 52.6,
+                      height: 2.3,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe0e0e0),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(218.1, 216.3),
+                    child: Container(
+                      width: 35.8,
+                      height: 2.3,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe0e0e0),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(98.2, 155.9),
+                    child: Container(
+                      width: 76.1,
+                      height: 69.8,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, 1.0),
+                          end: Alignment(0.0, -1.0),
+                          colors: [
+                            const Color(0x40808080),
+                            const Color(0x1f808080),
+                            const Color(0x1a808080)
+                          ],
+                          stops: [0.0, 0.54, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(98.6, 156.4),
+                    child: Container(
+                      width: 75.3,
+                      height: 68.7,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(106.3, 162.1),
+                    child: Container(
+                      width: 60.0,
+                      height: 43.6,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(108.5, 211.0),
+                    child: Container(
+                      width: 53.0,
+                      height: 2.3,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe0e0e0),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(117.0, 215.6),
+                    child: Container(
+                      width: 36.1,
+                      height: 2.3,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe0e0e0),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(13.4, 45.8),
+                    child: SvgPicture.string(
+                      _svg_81z7m6,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(126.3, 0.0),
+                    child: SizedBox(
+                      width: 19.0,
+                      height: 20.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 19.0,
+                            height: 20.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Container(
+                                  width: 19.1,
+                                  height: 20.3,
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      begin: Alignment(0.0, 1.0),
+                                      end: Alignment(0.0, -1.0),
+                                      colors: [
+                                        const Color(0x10808080),
+                                        const Color(0x08808080),
+                                        const Color(0x07808080)
+                                      ],
+                                      stops: [0.0, 0.54, 1.0],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(0.6, 0.3),
+                            child: Container(
+                              width: 18.1,
+                              height: 20.0,
+                              decoration: BoxDecoration(
+                                color: const Color(0x80e6e6e6),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(6.1, 6.6),
+                            child: Container(
+                              width: 6.7,
+                              height: 6.2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0x80ffffff),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(6.4, 7.9),
+                            child: Container(
+                              width: 6.1,
+                              height: 5.7,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0x80ffffff),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(8.7, 12.5),
+                            child: Container(
+                              width: 1.4,
+                              height: 2.3,
+                              decoration: BoxDecoration(
+                                color: const Color(0x80ffffff),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(5.2, 5.9),
+                            child: SvgPicture.string(
+                              _svg_jsuwhc,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(217.8, 21.2),
+                    child: SizedBox(
+                      width: 19.0,
+                      height: 20.0,
+                      child: Stack(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 19.0,
+                            height: 20.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Container(
+                                  width: 19.1,
+                                  height: 20.3,
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      begin: Alignment(0.0, 1.0),
+                                      end: Alignment(0.0, -1.0),
+                                      colors: [
+                                        const Color(0x10808080),
+                                        const Color(0x08808080),
+                                        const Color(0x07808080)
+                                      ],
+                                      stops: [0.0, 0.54, 1.0],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(0.6, 0.3),
+                            child: Container(
+                              width: 18.1,
+                              height: 20.0,
+                              decoration: BoxDecoration(
+                                color: const Color(0x80e6e6e6),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(6.1, 6.6),
+                            child: Container(
+                              width: 6.7,
+                              height: 6.2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0x80ffffff),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(6.4, 7.9),
+                            child: Container(
+                              width: 6.1,
+                              height: 5.7,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0x80ffffff),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(8.7, 12.5),
+                            child: Container(
+                              width: 1.4,
+                              height: 2.3,
+                              decoration: BoxDecoration(
+                                color: const Color(0x80ffffff),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(5.2, 5.9),
+                            child: SvgPicture.string(
+                              _svg_tycl6t,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(127.6, 170.8),
+                    child: SvgPicture.string(
+                      _svg_plgc7y,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(229.6, 175.8),
+                    child: Container(
+                      width: 14.6,
+                      height: 13.7,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(235.2, 186.8),
+                    child: Container(
+                      width: 3.4,
+                      height: 5.5,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(228.9, 171.7),
+                    child: SvgPicture.string(
+                      _svg_s5ltzo,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                ],
               ),
-              Transform.translate(
-                offset: Offset(228.9, 171.7),
-                child: SvgPicture.string(
-                  _svg_s5ltzo,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-            ],
-                ),
-              ),
+            ),
           ),
         ],
       ),

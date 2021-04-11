@@ -27,7 +27,7 @@ dependencies:
   adobe_xd: ^1.0.0+1
   flutter:
     sdk: flutter
-  firebase_auth: ^1.0.1
+  firebase_auth: ^1.0.3
   shared_preferences: ^2.0.5
   calendar_timeline: ^0.7,1
   firebase_storage: ^8.0.1
@@ -43,6 +43,7 @@ dependencies:
   http: ^0.13.0
   shared_preferences_windows: ^2.0.0
   flutter_svg: ^0.19.3
+  font_awesome_flutter: ^8.2.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

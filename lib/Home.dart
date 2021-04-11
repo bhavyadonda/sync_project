@@ -4,7 +4,7 @@ import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
-
+import 'package:intl/intl.dart';
 import 'package:sync_project/NavBar.dart';
 import 'package:sync_project/Notifications.dart';
 
@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String> Categories = ['P', 'Q', 'R', 'S'];
+  var user = "";
   @override
   void initState() {
     super.initState();
@@ -28,7 +29,9 @@ class _HomePageState extends State<HomePage> {
     Map events = {};
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map userdata = json.decode(prefs.getString('userData'));
+    print(userdata);
     Map data = json.decode(prefs.getString('data'));
+    user = userdata['name'];
 
     if (userdata.containsKey('registeration')) {
       for (var k = 0; k < userdata['registeration'].keys.toList().length; k++) {
@@ -416,7 +419,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hi, Jay',
+                        'Hi, ' + user,
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 22,
@@ -425,7 +428,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        'Sunday, May 1',
+                        DateFormat('EEEE, MMMM dd').format(DateTime.now()),
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 16,
@@ -566,44 +569,58 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              Stack(
-                                children: [
-                                  SvgPicture.string(
-                                    _svg_pdp23n,
-                                    allowDrawingOutsideViewBox: true,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          values.values.toList()[index]
-                                              ['event_name'],
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 18,
-                                            color: const Color(0xffffffff),
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                        Text(
-                                          'May 09th, 2021  |  05:00 PM',
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 14,
-                                            color: const Color(0xffffffff),
-                                          ),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                      ],
+                              GestureDetector(
+                                onTap: () async {
+                                  SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  prefs.setString(
+                                      'eventId', values.keys.toList()[index]);
+                                  print(prefs.getString('eventId'));
+                                  Navigator.of(context)
+                                      .pushNamed('/EventDetails2');
+                                },
+                                child: Stack(
+                                  children: [
+                                    SvgPicture.string(
+                                      _svg_pdp23n,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 10, 0, 0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            values.values.toList()[index]
+                                                ['event_name'],
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 18,
+                                              color: const Color(0xffffffff),
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                          Text(
+                                            values.values
+                                                .toList()[index]
+                                                    ['event_start_date']
+                                                .split(' ')[0],
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 14,
+                                              color: const Color(0xffffffff),
+                                            ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

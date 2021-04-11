@@ -25,7 +25,8 @@ class _registerState extends State<register> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map userdata = json.decode(prefs.getString('userData'));
     Map data = json.decode(prefs.getString('data'));
-    print(userdata);
+
+    if(userdata.containsKey('registeration')){
     for (var k = 0; k < userdata['registeration'].keys.toList().length; k++) {
       for (var i = 0; i < data.length; i++) {
         if (data.values.toList()[i]['subEvents'] == null &&
@@ -45,7 +46,7 @@ class _registerState extends State<register> {
           }
         }
       }
-    }
+    }}
     print(events);
     return events;
   }
@@ -74,7 +75,7 @@ class _registerState extends State<register> {
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Bookmarks',
+                      'Registered',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 22,
@@ -207,21 +208,26 @@ class _registerState extends State<register> {
                                 size: Size(168.0, 191.0),
                                 child:
                                     // Adobe XD layer: 'Continue Button' (shape)
-                                    PageLink(
-                                  links: [
-                                    PageLinkInfo(
-                                      transition: LinkTransition.Fade,
-                                      ease: Curves.linear,
-                                      duration: 0.3,
-                                      pageBuilder: () => EventDetails2(),
+                                    GestureDetector(
+                                      onTap: () async{
+                                        SharedPreferences prefs =
+                                                      await SharedPreferences
+                                                          .getInstance();
+                                                  prefs.setString(
+                                                      'eventId',
+                                                      values.keys
+                                                          .toList()[index]);
+                                                          print(prefs.getString('eventId'));
+                                                  Navigator.of(context)
+                                                      .pushNamed(
+                                                          '/EventDetails2');
+                                      },
+                                         child: SvgPicture.string(
+                                        _svg_kf2adx,
+                                        allowDrawingOutsideViewBox: true,
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
-                                  ],
-                                  child: SvgPicture.string(
-                                    _svg_kf2adx,
-                                    allowDrawingOutsideViewBox: true,
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
                               ),
                               Pinned.fromSize(
                                 bounds: Rect.fromLTWH(5.0, 149.0, 145.0, 20.0),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 showLoaderDialog(BuildContext context, String message) {
@@ -24,10 +26,14 @@ showAlertDialog(
   Widget okButton = FlatButton(
     child: Text("OK"),
     onPressed: () {
-      if (path != '') {
-        Navigator.pushNamedAndRemoveUntil(context, path, (r) => false);
+      if (path == 'exit') {
+        exit(0);
       } else {
-        Navigator.pop(context);
+        if (path != '') {
+          Navigator.pushNamedAndRemoveUntil(context, path, (r) => false);
+        } else {
+          Navigator.pop(context);
+        }
       }
     },
   );
