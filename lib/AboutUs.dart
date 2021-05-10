@@ -14,59 +14,53 @@ class _AboutUsState extends State<AboutUs> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                  ),
-                ],
-                child: SvgPicture.string(
-                  _svg_ah28f4,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-            ),
-            Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // enter variable
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: const Color(0x45000000),
-                //     offset: Offset(0, 3),
-                //     blurRadius: 80,
-                //   ),
-                // ],
-              ),
-            ),
-            SizedBox(
-              width: 25,
-              height: 10,
-              child: const DecoratedBox(
-                decoration: const BoxDecoration(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
+        toolbarHeight: 30,
+        backgroundColor: const Color(0xffffffff),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                  child: PageLink(
+                    links: [
+                      PageLinkInfo(
+                        transition: LinkTransition.Fade,
+                        ease: Curves.easeOut,
+                        duration: 0.3,
+                      ),
+                    ],
+                    child: SvgPicture.string(
+                      _svg_ah28f4,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: 64.0,
+                    height: 37.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: const AssetImage('assets/Sync Logo.png'),
+                        fit: BoxFit.fill,
+                        colorFilter: new ColorFilter.mode(
+                            Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                      ),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: const Color(0x45000000),
+                      //     offset: Offset(0, 3),
+                      //     blurRadius: 80,
+                      //   ),
+                      // ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(13, 20, 0, 0),
               child: Container(
