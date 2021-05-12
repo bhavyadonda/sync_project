@@ -14,154 +14,174 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                  ),
-                ],
-                child: SvgPicture.string(
-                  _svg_ah28f4,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-            ),
-            Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // enter variable
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 25,
-              height: 10,
-              child: const DecoratedBox(
-                decoration: const BoxDecoration(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: const Color(0xffffffff),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                  child: PageLink(
+                    links: [
+                      PageLinkInfo(
+                        transition: LinkTransition.Fade,
+                        ease: Curves.easeOut,
+                        duration: 0.3,
+                      ),
+                    ],
+                    child: SvgPicture.string(
+                      _svg_ah28f4,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: 64.0,
+                    height: 37.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: const AssetImage('assets/Sync Logo.png'),
+                        fit: BoxFit.fill,
+                        colorFilter: new ColorFilter.mode(
+                            Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                      ),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: const Color(0x45000000),
+                      //     offset: Offset(0, 3),
+                      //     blurRadius: 80,
+                      //   ),
+                      // ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+              child: Text(
+                'Forgot Password',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 22,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.80,
+                child: Text(
+                  'We will send a password reset link to your \nregistered mail ID.',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 17,
+                    color: const Color(0xff9d9d9d),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            // SizedBox(
+            //   width: MediaQuery.of(context).size.width * 0.67,
+            //   height: 48.0,
+            //   child: Stack(
+            //     children: <Widget>[
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
+            //         size: Size(273.0, 48.0),
+            //         pinLeft: true,
+            //         pinRight: true,
+            //         pinTop: true,
+            //         pinBottom: true,
+            //         child:
+            //         // Adobe XD layer: 'Mail ID Input' (shape)
+            //         Container(
+            //           decoration: BoxDecoration(
+            //             borderRadius: BorderRadius.circular(10.0),
+            //             color: const Color(0x1a9d9d9d),
+            //           ),
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(50.0, 14.0, 45.0, 20.0),
+            //         size: Size(273.0, 48.0),
+            //         fixedWidth: true,
+            //         fixedHeight: true,
+            //         child:
+            //         // Adobe XD layer: 'Mail ID Placeholder' (text)
+            //         Text(
+            //           'Mail ID',
+            //           style: TextStyle(
+            //             fontFamily: 'Poppins',
+            //             fontSize: 16,
+            //             color: const Color(0xffb6b6b6),
+            //             fontWeight: FontWeight.w300,
+            //           ),
+            //           textAlign: TextAlign.left,
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(14.5, 15.0, 25.0, 17.6),
+            //         size: Size(273.0, 48.0),
+            //         child:
+            //         // Adobe XD layer: 'Mail Icon' (shape)
+            //         SvgPicture.string(
+            //           _svg_wiv4v2,
+            //           allowDrawingOutsideViewBox: true,
+            //           fit: BoxFit.fill,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // SvgPicture.string(
+            //   _svg_wiv4v2,
+            //   allowDrawingOutsideViewBox: true,
+            //   fit: BoxFit.fill,
+            // ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.67,
+                height: 48.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: const Color(0x1a9d9d9d),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: TextFormField(
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      fillColor: const Color(0x1a9d9d9d),
+                      hintText: 'Mail',
+                      hintStyle: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: const Color(0xffb6b6b6),
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height - 200,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      'Forgot Password',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 22,
-                        color: const Color(0xff404040),
-                        fontWeight: FontWeight.w600,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: SizedBox(
-                      width: 315.0, //original - 377
-                      child: Text(
-                        'We will send a password reset link to your \nregistered mail ID.',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 17,
-                          color: const Color(0xff9d9d9d),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: SizedBox(
-                      width: 273.0,
-                      height: 48.0,
-                      child: Stack(
-                        children: <Widget>[
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-                            size: Size(273.0, 48.0),
-                            pinLeft: true,
-                            pinRight: true,
-                            pinTop: true,
-                            pinBottom: true,
-                            child:
-                            // Adobe XD layer: 'Mail ID Input' (shape)
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: const Color(0x1a9d9d9d),
-                              ),
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(50.0, 14.0, 45.0, 20.0),
-                            size: Size(273.0, 48.0),
-                            fixedWidth: true,
-                            fixedHeight: true,
-                            child:
-                            // Adobe XD layer: 'Mail ID Placeholder' (text)
-                            Text(
-                              'Mail ID',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                color: const Color(0xffb6b6b6),
-                                fontWeight: FontWeight.w300,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Pinned.fromSize(
-                            bounds: Rect.fromLTWH(14.5, 15.0, 25.0, 17.6),
-                            size: Size(273.0, 48.0),
-                            child:
-                            // Adobe XD layer: 'Mail Icon' (shape)
-                            SvgPicture.string(
-                              _svg_wiv4v2,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              height: MediaQuery.of(context).size.height * 0.55,
             ),
             SizedBox(
-              width: 273.0,
+              width: MediaQuery.of(context).size.width * 0.67,
               height: 48.0,
               child: Stack(
                 children: <Widget>[
