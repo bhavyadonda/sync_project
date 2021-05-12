@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:sync_project/NavBar.dart';
+import 'package:sync_project/Notifications.dart';
 import './EventsPage.dart';
 import 'package:adobe_xd/page_link.dart';
 import './Home.dart';
@@ -36,9 +38,139 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Center(
                   child: Column(
                     children: [
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(13, 0, 0, 0),
+                            child: PageLink(
+                              links: [
+                                PageLinkInfo(
+                                  transition: LinkTransition.PushRight,
+                                  ease: Curves.easeOut,
+                                  duration: 0.3,
+                                  pageBuilder: () => NavBar(),
+                                ),
+                              ],
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: SizedBox(
+                                  width: 30.0,
+                                  height: 24.0,
+                                  child: Stack(
+                                    children: <Widget>[
+                                      Pinned.fromSize(
+                                        bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
+                                        size: Size(30.0, 23.8),
+                                        child:
+                                        // Adobe XD layer: 'Bottom Line' (shape)
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(4.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(-0.97, -0.82),
+                                              end: Alignment(0.97, 0.79),
+                                              colors: [
+                                                const Color(0xfffe4f70),
+                                                const Color(0xffcb6bd8)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Pinned.fromSize(
+                                        bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
+                                        size: Size(30.0, 23.8),
+                                        child:
+                                        // Adobe XD layer: 'Mid Line' (shape)
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(3.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(-0.97, -0.82),
+                                              end: Alignment(0.97, 0.79),
+                                              colors: [
+                                                const Color(0xfffe4f70),
+                                                const Color(0xffcb6bd8)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Pinned.fromSize(
+                                        bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
+                                        size: Size(30.0, 23.8),
+                                        child:
+                                        // Adobe XD layer: 'Upper Line' (shape)
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(3.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(-0.97, -0.82),
+                                              end: Alignment(0.97, 0.79),
+                                              colors: [
+                                                const Color(0xfffe4f70),
+                                                const Color(0xffcb6bd8)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Container(
+                              width: 64.0,
+                              height: 37.0,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: const AssetImage('assets/Sync Logo.png'),
+                                  fit: BoxFit.fill,
+                                  colorFilter: new ColorFilter.mode(
+                                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                                ),
+                                // boxShadow: [
+                                //   BoxShadow(
+                                //     color: const Color(0x45000000),
+                                //     offset: Offset(0, 3),
+                                //     blurRadius: 80,
+                                //   ),
+                                // ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                            child: PageLink(
+                              links: [
+                                PageLinkInfo(
+                                  transition: LinkTransition.PushLeft,
+                                  ease: Curves.easeOut,
+                                  duration: 0.3,
+                                  pageBuilder: () => Notifications(),
+                                ),
+                              ],
+                              child: Container(
+                                alignment: Alignment.centerRight,
+                                child: SvgPicture.string(
+                                  _svg_t3qb8j,
+                                  allowDrawingOutsideViewBox: true,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                         child: SizedBox(
+                          //width: MediaQuery.of(context).size.width * 0.45,
                           width: 181.0,
                           height: 181.0,
                           child: Stack(
@@ -69,8 +201,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     // Adobe XD layer: 'Add Button' (group)
                                     RaisedButton(
                                   onPressed: () async {
-                                    dynamic result = await Navigator.pushNamed(
-                                        context, '/Home');
+                                    dynamic result = await Navigator.pushNamed(context, '/Home');
                                   },
                                   shape: CircleBorder(),
                                   child: SizedBox(
@@ -169,7 +300,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(13, 10, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(13, 10, 0, 5),
                         child: Container(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -186,14 +317,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       SizedBox(
                         height: 210,
+                        //height: MediaQuery.of(context).size.height * 0.30,
                         width: MediaQuery.of(context).size.width,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: 1,
                             itemBuilder: (BuildContext context, int index) {
                               return Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(13, 0, 13, 0),
+                                padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -204,12 +335,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                         children: <Widget>[
                                           InkWell(
                                             onTap: () {
-                                              Navigator.pushNamed(
-                                                  context, '/register');
+                                              Navigator.pushNamed(context, '/register');
                                             },
                                             child: Pinned.fromSize(
-                                              bounds: Rect.fromLTWH(
-                                                  242.0, 2.0, 227.0, 189.0),
+                                              bounds: Rect.fromLTWH(242.0, 2.0, 227.0, 189.0),
                                               size: Size(469.0, 191.0),
                                               child:
                                                   // Adobe XD layer: 'Registered' (group)
@@ -219,8 +348,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     decoration: BoxDecoration(
                                                       boxShadow: [
                                                         BoxShadow(
-                                                          color: const Color(
-                                                              0x45000000),
+                                                          color: const Color(0x45000000),
                                                           offset: Offset(0, 3),
                                                           spreadRadius: -7,
                                                           blurRadius: 15,
@@ -229,8 +357,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     ),
                                                     child: SvgPicture.string(
                                                       _svg_n6g982,
-                                                      allowDrawingOutsideViewBox:
-                                                          true,
+                                                      allowDrawingOutsideViewBox:true,
                                                     ),
                                                   ),
                                                   Transform.translate(
@@ -244,12 +371,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                                         children: <Widget>[
                                                           SvgPicture.string(
                                                             _svg_5t89m8,
-                                                            allowDrawingOutsideViewBox:
-                                                                true,
+                                                            allowDrawingOutsideViewBox:true,
                                                           ),
                                                           Transform.translate(
-                                                            offset: Offset(
-                                                                15.6, 10.5),
+                                                            offset: Offset(15.6, 10.5),
                                                             child: Container(
                                                               width: 1.4,
                                                               height: 1.4,
@@ -1984,6 +2109,135 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Center(
                   child: Column(
                     children: [
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(13, 0, 0, 0),
+                            child: PageLink(
+                              links: [
+                                PageLinkInfo(
+                                  transition: LinkTransition.PushRight,
+                                  ease: Curves.easeOut,
+                                  duration: 0.3,
+                                  pageBuilder: () => NavBar(),
+                                ),
+                              ],
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: SizedBox(
+                                  width: 30.0,
+                                  height: 24.0,
+                                  child: Stack(
+                                    children: <Widget>[
+                                      Pinned.fromSize(
+                                        bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
+                                        size: Size(30.0, 23.8),
+                                        child:
+                                        // Adobe XD layer: 'Bottom Line' (shape)
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(4.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(-0.97, -0.82),
+                                              end: Alignment(0.97, 0.79),
+                                              colors: [
+                                                const Color(0xfffe4f70),
+                                                const Color(0xffcb6bd8)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Pinned.fromSize(
+                                        bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
+                                        size: Size(30.0, 23.8),
+                                        child:
+                                        // Adobe XD layer: 'Mid Line' (shape)
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(3.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(-0.97, -0.82),
+                                              end: Alignment(0.97, 0.79),
+                                              colors: [
+                                                const Color(0xfffe4f70),
+                                                const Color(0xffcb6bd8)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Pinned.fromSize(
+                                        bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
+                                        size: Size(30.0, 23.8),
+                                        child:
+                                        // Adobe XD layer: 'Upper Line' (shape)
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(3.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(-0.97, -0.82),
+                                              end: Alignment(0.97, 0.79),
+                                              colors: [
+                                                const Color(0xfffe4f70),
+                                                const Color(0xffcb6bd8)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Container(
+                              width: 64.0,
+                              height: 37.0,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: const AssetImage('assets/Sync Logo.png'),
+                                  fit: BoxFit.fill,
+                                  colorFilter: new ColorFilter.mode(
+                                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                                ),
+                                // boxShadow: [
+                                //   BoxShadow(
+                                //     color: const Color(0x45000000),
+                                //     offset: Offset(0, 3),
+                                //     blurRadius: 80,
+                                //   ),
+                                // ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                            child: PageLink(
+                              links: [
+                                PageLinkInfo(
+                                  transition: LinkTransition.PushLeft,
+                                  ease: Curves.easeOut,
+                                  duration: 0.3,
+                                  pageBuilder: () => Notifications(),
+                                ),
+                              ],
+                              child: Container(
+                                alignment: Alignment.centerRight,
+                                child: SvgPicture.string(
+                                  _svg_t3qb8j,
+                                  allowDrawingOutsideViewBox: true,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                         child: SizedBox(
@@ -2206,7 +2460,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(13, 10, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(13, 10, 0, 5),
                         child: Container(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -2229,8 +2483,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             itemCount: 1,
                             itemBuilder: (BuildContext context, int index) {
                               return Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(13, 0, 13, 0),
+                                padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -4022,121 +4275,13 @@ class _ProfilePageState extends State<ProfilePage> {
         });
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
         backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            FlatButton(
-              onPressed: () async {
-                dynamic result = await Navigator.pushNamed(context, '/NavBar');
-              },
-              //shape: CircleBorder(),
-              child: SizedBox(
-                width: 30.0,
-                height: 24.0,
-                child: Stack(
-                  children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
-                      size: Size(30.0, 23.8),
-                      child:
-                          // Adobe XD layer: 'Bottom Line' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4.0),
-                          gradient: LinearGradient(
-                            begin: Alignment(-0.97, -0.82),
-                            end: Alignment(0.97, 0.79),
-                            colors: [
-                              const Color(0xfffe4f70),
-                              const Color(0xffcb6bd8)
-                            ],
-                            stops: [0.0, 1.0],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
-                      size: Size(30.0, 23.8),
-                      child:
-                          // Adobe XD layer: 'Mid Line' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3.0),
-                          gradient: LinearGradient(
-                            begin: Alignment(-0.97, -0.82),
-                            end: Alignment(0.97, 0.79),
-                            colors: [
-                              const Color(0xfffe4f70),
-                              const Color(0xffcb6bd8)
-                            ],
-                            stops: [0.0, 1.0],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
-                      size: Size(30.0, 23.8),
-                      child:
-                          // Adobe XD layer: 'Upper Line' (shape)
-                          Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3.0),
-                          gradient: LinearGradient(
-                            begin: Alignment(-0.97, -0.82),
-                            end: Alignment(0.97, 0.79),
-                            colors: [
-                              const Color(0xfffe4f70),
-                              const Color(0xffcb6bd8)
-                            ],
-                            stops: [0.0, 1.0],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // enter variable
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-            FlatButton(
-              onPressed: () async {
-                dynamic result =
-                    await Navigator.pushNamed(context, '/Notifications');
-              },
-              //shape: CircleBorder(),
-              child: SvgPicture.string(
-                _svg_t3qb8j,
-                allowDrawingOutsideViewBox: true,
-              ),
-            ),
-          ],
-        ),
       ),
       body: profile,
       bottomNavigationBar: SizedBox(
-        width: 412.0,
+        width: MediaQuery.of(context).size.width,
         height: 78.0,
         child: Stack(
           children: <Widget>[
