@@ -68,8 +68,49 @@ class _BookmarksState extends State<Bookmarks> {
 
             return Column(
               children: [
+                Stack(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                      child: PageLink(
+                        links: [
+                          PageLinkInfo(
+                            transition: LinkTransition.Fade,
+                            ease: Curves.easeOut,
+                            duration: 0.3,
+                          ),
+                        ],
+                        child: SvgPicture.string(
+                          _svg_ah28f4,
+                          allowDrawingOutsideViewBox: true,
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        width: 64.0,
+                        height: 37.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: const AssetImage('assets/Sync Logo.png'),
+                            fit: BoxFit.fill,
+                            colorFilter: new ColorFilter.mode(
+                                Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                          ),
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: const Color(0x45000000),
+                          //     offset: Offset(0, 3),
+                          //     blurRadius: 80,
+                          //   ),
+                          // ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(13, 20, 0, 20),
+                  padding: const EdgeInsets.fromLTRB(13, 20, 0, 10),
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -104,8 +145,7 @@ class _BookmarksState extends State<Bookmarks> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/Donation Image.png'),
+                                      image: AssetImage('assets/Donation Image.png'),
                                       fit: BoxFit.fill,
                                     ),
                                   ),
@@ -148,8 +188,7 @@ class _BookmarksState extends State<Bookmarks> {
                                     Stack(
                                   children: <Widget>[
                                     Pinned.fromSize(
-                                      bounds:
-                                          Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
+                                      bounds: Rect.fromLTWH(0.0, 0.0, 35.0, 35.0),
                                       size: Size(35.0, 35.0),
                                       pinLeft: true,
                                       pinRight: true,
@@ -160,8 +199,7 @@ class _BookmarksState extends State<Bookmarks> {
                                           Container(
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(
-                                              Radius.elliptical(
-                                                  9999.0, 9999.0)),
+                                              Radius.elliptical(9999.0, 9999.0)),
                                           color: const Color(0xfaffffff),
                                           boxShadow: [
                                             BoxShadow(
@@ -174,8 +212,7 @@ class _BookmarksState extends State<Bookmarks> {
                                       ),
                                     ),
                                     Pinned.fromSize(
-                                      bounds:
-                                          Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
+                                      bounds: Rect.fromLTWH(5.0, 5.0, 25.0, 25.0),
                                       size: Size(35.0, 35.0),
                                       pinLeft: true,
                                       pinRight: true,
@@ -185,11 +222,9 @@ class _BookmarksState extends State<Bookmarks> {
                                           // Adobe XD layer: 'Tech Club Logo' (shape)
                                           Container(
                                         decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(13.0),
+                                          borderRadius: BorderRadius.circular(13.0),
                                           image: DecorationImage(
-                                            image: const AssetImage(
-                                                'assets/Tech Club Logo.png'),
+                                            image: const AssetImage('assets/Tech Club Logo.png'),
                                             fit: BoxFit.cover,
                                             colorFilter: new ColorFilter.mode(
                                                 Colors.black.withOpacity(0.98),
@@ -208,17 +243,12 @@ class _BookmarksState extends State<Bookmarks> {
                                     // Adobe XD layer: 'Continue Button' (shape)
                                     GestureDetector(
                                   onTap: () async {
-                                    SharedPreferences prefs =
-                                                      await SharedPreferences
-                                                          .getInstance();
+                                    SharedPreferences prefs = await SharedPreferences.getInstance();
                                                   prefs.setString(
                                                       'eventId',
-                                                      values.keys
-                                                          .toList()[index]);
+                                                      values.keys.toList()[index]);
                                                           print(prefs.getString('eventId'));
-                                                  Navigator.of(context)
-                                                      .pushNamed(
-                                                          '/EventDetails2');
+                                                  Navigator.of(context).pushNamed('/EventDetails2');
                                   },
                                   child: SvgPicture.string(
                                     _svg_kf2adx,
@@ -280,55 +310,9 @@ class _BookmarksState extends State<Bookmarks> {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                child: PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.easeOut,
-                      duration: 0.3,
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_ah28f4,
-                    allowDrawingOutsideViewBox: true,
-                  ),
-                ),
-              ),
-              Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    // enter variable
-                    image: const AssetImage('assets/Sync Logo.png'),
-                    fit: BoxFit.fill,
-                    colorFilter: new ColorFilter.mode(
-                        Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0x45000000),
-                      offset: Offset(0, 3),
-                      blurRadius: 80,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 25,
-                height: 10,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.white),
-                ),
-              ),
-            ],
-          ),
+          elevation: 0,
+          toolbarHeight: 30,
+          backgroundColor: const Color(0xffffffff),
         ),
         body: events
         // body: Column(
