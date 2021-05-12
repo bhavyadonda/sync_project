@@ -14,62 +14,58 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                  ),
-                ],
-                child: SvgPicture.string(
-                  _svg_ah28f4,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-            ),
-            Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // enter variable
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 25,
-              height: 10,
-              child: const DecoratedBox(
-                decoration: const BoxDecoration(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: const Color(0xffffffff),
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30, 40, 0, 0),
+            Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                  child: PageLink(
+                    links: [
+                      PageLinkInfo(
+                        transition: LinkTransition.Fade,
+                        ease: Curves.easeOut,
+                        duration: 0.3,
+                      ),
+                    ],
+                    child: SvgPicture.string(
+                      _svg_ah28f4,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: 64.0,
+                    height: 37.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: const AssetImage('assets/Sync Logo.png'),
+                        fit: BoxFit.fill,
+                        colorFilter: new ColorFilter.mode(
+                            Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                      ),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: const Color(0x45000000),
+                      //     offset: Offset(0, 3),
+                      //     blurRadius: 80,
+                      //   ),
+                      // ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.fromLTRB(13, 20, 0, 0),
               child: Text(
                 'Privacy Policy',
                 style: TextStyle(
@@ -82,15 +78,19 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(35, 30, 35, 0),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
-                  color: const Color(0xff9d9d9d),
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                //height: 48.0,
+                child: Text(
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 16,
+                    color: const Color(0xff9d9d9d),
+                  ),
+                  textAlign: TextAlign.left,
                 ),
-                textAlign: TextAlign.left,
               ),
             ),
           ],
