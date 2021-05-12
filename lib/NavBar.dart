@@ -23,6 +23,24 @@ class _NavBarState extends State<NavBar> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
+          PageLink(
+            links: [
+              PageLinkInfo(
+                transition: LinkTransition.PushLeft,
+                ease: Curves.easeOut,
+                duration: 0.3,
+              ),
+            ],
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: const DecoratedBox(
+                decoration: const BoxDecoration(
+                    color: Colors.black12
+                ),
+              ),
+            ),
+          ),
           Padding(
             padding: EdgeInsets.fromLTRB(230, 0, 0, 0),
             child: Container(
@@ -43,8 +61,8 @@ class _NavBarState extends State<NavBar> {
                           pinTop: true,
                           pinBottom: true,
                           child:
-                              // Adobe XD layer: 'Burger Gradient Cir…' (shape)
-                              SvgPicture.string(
+                          // Adobe XD layer: 'Burger Gradient Cir…' (shape)
+                          SvgPicture.string(
                             _svg_zicyw5,
                             allowDrawingOutsideViewBox: true,
                             fit: BoxFit.fill,
@@ -57,15 +75,15 @@ class _NavBarState extends State<NavBar> {
                           fixedWidth: true,
                           fixedHeight: true,
                           child:
-                              // Adobe XD layer: 'Burger Menu' (group)
-                              Stack(
+                          // Adobe XD layer: 'Burger Menu' (group)
+                          Stack(
                             children: <Widget>[
                               Pinned.fromSize(
                                 bounds: Rect.fromLTWH(0.0, 17.8, 15.0, 6.0),
                                 size: Size(30.0, 23.8),
                                 child:
-                                    // Adobe XD layer: 'Bottom Line' (shape)
-                                    Container(
+                                // Adobe XD layer: 'Bottom Line' (shape)
+                                Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(4.0),
                                     color: const Color(0xffffffff),
@@ -83,8 +101,8 @@ class _NavBarState extends State<NavBar> {
                                 bounds: Rect.fromLTWH(0.0, 9.0, 30.0, 6.0),
                                 size: Size(30.0, 23.8),
                                 child:
-                                    // Adobe XD layer: 'Mid Line' (shape)
-                                    Container(
+                                // Adobe XD layer: 'Mid Line' (shape)
+                                Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(3.0),
                                     color: const Color(0xffffffff),
@@ -102,8 +120,8 @@ class _NavBarState extends State<NavBar> {
                                 bounds: Rect.fromLTWH(11.0, 0.0, 19.0, 6.0),
                                 size: Size(30.0, 23.8),
                                 child:
-                                    // Adobe XD layer: 'Upper Line' (shape)
-                                    Container(
+                                // Adobe XD layer: 'Upper Line' (shape)
+                                Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(3.0),
                                     color: const Color(0xffffffff),
@@ -212,12 +230,12 @@ class _NavBarState extends State<NavBar> {
                                   fixedWidth: true,
                                   fixedHeight: true,
                                   child:
-                                      // Adobe XD layer: 'Profile Icon' (group)
-                                      Stack(
+                                  // Adobe XD layer: 'Profile Icon' (group)
+                                  Stack(
                                     children: <Widget>[
                                       Pinned.fromSize(
                                         bounds:
-                                            Rect.fromLTWH(4.0, 0.0, 8.0, 8.0),
+                                        Rect.fromLTWH(4.0, 0.0, 8.0, 8.0),
                                         size: Size(16.0, 16.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -238,7 +256,7 @@ class _NavBarState extends State<NavBar> {
                                       ),
                                       Pinned.fromSize(
                                         bounds:
-                                            Rect.fromLTWH(0.0, 10.0, 16.0, 6.0),
+                                        Rect.fromLTWH(0.0, 10.0, 16.0, 6.0),
                                         size: Size(16.0, 16.0),
                                         child: SvgPicture.string(
                                           _svg_qlpfar,
@@ -295,8 +313,8 @@ class _NavBarState extends State<NavBar> {
                                   pinTop: true,
                                   pinBottom: true,
                                   child:
-                                      // Adobe XD layer: 'Club Icon' (shape)
-                                      SvgPicture.string(
+                                  // Adobe XD layer: 'Club Icon' (shape)
+                                  SvgPicture.string(
                                     _svg_bnazwc,
                                     allowDrawingOutsideViewBox: true,
                                     fit: BoxFit.fill,
@@ -348,8 +366,8 @@ class _NavBarState extends State<NavBar> {
                                   pinTop: true,
                                   pinBottom: true,
                                   child:
-                                      // Adobe XD layer: 'About Us Icon' (shape)
-                                      SvgPicture.string(
+                                  // Adobe XD layer: 'About Us Icon' (shape)
+                                  SvgPicture.string(
                                     _svg_fpdumm,
                                     allowDrawingOutsideViewBox: true,
                                     fit: BoxFit.fill,
@@ -401,8 +419,8 @@ class _NavBarState extends State<NavBar> {
                                   pinTop: true,
                                   pinBottom: true,
                                   child:
-                                      // Adobe XD layer: 'Contact Us Icon' (shape)
-                                      SvgPicture.string(
+                                  // Adobe XD layer: 'Contact Us Icon' (shape)
+                                  SvgPicture.string(
                                     _svg_s5ghc3,
                                     allowDrawingOutsideViewBox: true,
                                     fit: BoxFit.fill,
@@ -450,8 +468,8 @@ class _NavBarState extends State<NavBar> {
                                   bounds: Rect.fromLTWH(0.0, 3.2, 16.0, 16.8),
                                   size: Size(149.0, 25.0),
                                   child:
-                                      // Adobe XD layer: 'Settings Icon' (shape)
-                                      SvgPicture.string(
+                                  // Adobe XD layer: 'Settings Icon' (shape)
+                                  SvgPicture.string(
                                     _svg_5hxx43,
                                     allowDrawingOutsideViewBox: true,
                                     fit: BoxFit.fill,
@@ -490,8 +508,8 @@ class _NavBarState extends State<NavBar> {
                                     pinTop: true,
                                     pinBottom: true,
                                     child:
-                                        // Adobe XD layer: 'Facebook Circle' (shape)
-                                        SvgPicture.string(
+                                    // Adobe XD layer: 'Facebook Circle' (shape)
+                                    SvgPicture.string(
                                       _svg_2hom8a,
                                       allowDrawingOutsideViewBox: true,
                                       fit: BoxFit.fill,
@@ -499,13 +517,13 @@ class _NavBarState extends State<NavBar> {
                                   ),
                                   Pinned.fromSize(
                                     bounds:
-                                        Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+                                    Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
                                     size: Size(36.0, 36.0),
                                     fixedWidth: true,
                                     fixedHeight: true,
                                     child:
-                                        // Adobe XD layer: 'Facebook Logo' (group)
-                                        Stack(
+                                    // Adobe XD layer: 'Facebook Logo' (group)
+                                    Stack(
                                       children: <Widget>[
                                         Pinned.fromSize(
                                           bounds: Rect.fromLTWH(
@@ -554,8 +572,8 @@ class _NavBarState extends State<NavBar> {
                                     pinTop: true,
                                     pinBottom: true,
                                     child:
-                                        // Adobe XD layer: 'YouTube Circle' (shape)
-                                        SvgPicture.string(
+                                    // Adobe XD layer: 'YouTube Circle' (shape)
+                                    SvgPicture.string(
                                       _svg_vg42yg,
                                       allowDrawingOutsideViewBox: true,
                                       fit: BoxFit.fill,
@@ -563,11 +581,11 @@ class _NavBarState extends State<NavBar> {
                                   ),
                                   Pinned.fromSize(
                                     bounds:
-                                        Rect.fromLTWH(7.0, 10.0, 22.8, 16.0),
+                                    Rect.fromLTWH(7.0, 10.0, 22.8, 16.0),
                                     size: Size(36.0, 36.0),
                                     child:
-                                        // Adobe XD layer: 'Youtube Logo' (shape)
-                                        SvgPicture.string(
+                                    // Adobe XD layer: 'Youtube Logo' (shape)
+                                    SvgPicture.string(
                                       _svg_xbairv,
                                       allowDrawingOutsideViewBox: true,
                                       fit: BoxFit.fill,
@@ -592,8 +610,8 @@ class _NavBarState extends State<NavBar> {
                                     pinTop: true,
                                     pinBottom: true,
                                     child:
-                                        // Adobe XD layer: 'Instagram Circle' (shape)
-                                        SvgPicture.string(
+                                    // Adobe XD layer: 'Instagram Circle' (shape)
+                                    SvgPicture.string(
                                       _svg_3k9cdm,
                                       allowDrawingOutsideViewBox: true,
                                       fit: BoxFit.fill,
@@ -601,15 +619,15 @@ class _NavBarState extends State<NavBar> {
                                   ),
                                   Pinned.fromSize(
                                     bounds:
-                                        Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
+                                    Rect.fromLTWH(10.0, 10.0, 16.0, 16.0),
                                     size: Size(36.0, 36.0),
                                     pinLeft: true,
                                     pinRight: true,
                                     pinTop: true,
                                     pinBottom: true,
                                     child:
-                                        // Adobe XD layer: 'Instagram Logo' (shape)
-                                        SvgPicture.string(
+                                    // Adobe XD layer: 'Instagram Logo' (shape)
+                                    SvgPicture.string(
                                       _svg_i2487t,
                                       allowDrawingOutsideViewBox: true,
                                       fit: BoxFit.fill,
