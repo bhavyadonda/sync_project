@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:adobe_xd/page_link.dart';
@@ -52,368 +53,487 @@ class _EventDetails2State extends State<EventDetails2> {
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             Map<dynamic, dynamic> values = snapshot.data;
-            return Column(
-              children: [
-                Stack(
-                  children: [
-                    Container(
-                      width: 433.0,
-                      height: 242.0,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: const AssetImage('assets/Background Image4.png'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    RaisedButton(
-                      onPressed: () async {
-                        dynamic result =
-                        await Navigator.pushNamed(context, '/Home');
-                      },
-                      child: SvgPicture.string(
-                        _svg_see9ki,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    // SizedBox(
-                    //     width: MediaQuery.of(context).size.width * 0.80,
-                    //     height: MediaQuery.of(context).size.height * 0.03,
-                    //     child: DecoratedBox(
-                    //       decoration: BoxDecoration(
-                    //           color: Colors.red
-                    //       ),
-                    //     )
-                    // ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.80,
-                      height: MediaQuery.of(context).size.height * 0.182,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: const Color(0xffffffff),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0x26000000),
-                            offset: Offset(0, 5),
-                            blurRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Column(
                         children: [
                           Stack(
-                            alignment: Alignment.center,
                             children: [
                               Container(
-                                height: 55,
-                                width: 55,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                                  color: const Color(0xffffffff),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color(0x29000000),
-                                      offset: Offset(0, 3),
-                                      blurRadius: 6,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                height: 45,
-                                width: 45,
+                                width: 433.0,
+                                height: 242.0,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: const AssetImage('assets/Tech Club Logo Big.png'),
-                                    fit: BoxFit.fill,
+                                    image: const AssetImage('assets/Background Image4.png'),
+                                    fit: BoxFit.cover,
                                   ),
+                                ),
+                              ),
+                              RaisedButton(
+                                onPressed: () async {
+                                  dynamic result =
+                                  await Navigator.pushNamed(context, '/Home');
+                                },
+                                child: SvgPicture.string(
+                                  _svg_see9ki,
+                                  allowDrawingOutsideViewBox: true,
                                 ),
                               ),
                             ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height * 0.09,
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        children: [
+                          Column(
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    values['event_name'].toString(),
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 22,
-                                      color: const Color(0xff404040),
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  Text(
-                                    'By' + values['club'].toString(),
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14,
-                                      color: const Color(0xff9d9d9d),
-                                      fontWeight: FontWeight.w500,
-                                      height: 1.1666666666666667,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.90,
+                                height: MediaQuery.of(context).size.height * 0.03,
                               ),
-                              GestureDetector(
-                                onTap: () async {
-                                  SharedPreferences prefs =
-                                  await SharedPreferences.getInstance();
-                                  Map userdata =
-                                  json.decode(prefs.getString('userData'));
-
-                                  final databaseReference =
-                                  FirebaseDatabase.instance.reference();
-
-                                  if (userdata.keys.toList().contains('bookmark')) {
-                                    if (userdata['bookmark']
-                                        .values
-                                        .toList()
-                                        .contains(id)) {
-                                      showLoaderDialog(
-                                          context, "removing Bookmark...");
-
-                                      await databaseReference
-                                          .child("users/" + uid + '/bookmark')
-                                          .child(id)
-                                          .remove();
-                                      userdata['bookmark'].remove(id);
-
-                                      Navigator.pop(context);
-                                      showAlertDialog(
-                                          context,
-                                          '/Home',
-                                          'Bookmark Deleted Successfully',
-                                          'You will now not be notified for the event.');
-                                    } else {
-                                      showLoaderDialog(
-                                          context, "Creating Bookmark...");
-                                      await databaseReference
-                                          .child("users/" + uid + '/bookmark')
-                                          .child(id)
-                                          .set(id);
-                                      userdata['bookmark'] = {id: id};
-
-                                      Navigator.pop(context);
-                                      showAlertDialog(
-                                          context,
-                                          '/Home',
-                                          'Bookmark Created Successfully',
-                                          'You will now be notified for the bookmarked event.');
-                                    }
-
-                                    prefs.setString(
-                                        'userData', json.encode(userdata));
-                                  } else {
-                                    showLoaderDialog(context, "Creating Bookmark...");
-                                    await databaseReference
-                                        .child("users/" + uid + '/bookmark')
-                                        .child(id)
-                                        .set(id);
-                                    userdata['bookmark'] = {id: id};
-
-                                    Navigator.pop(context);
-                                    showAlertDialog(
-                                        context,
-                                        '/Home',
-                                        'Bookmark Created Successfully',
-                                        'You will now be notified for the bookmarked event.');
-                                  }
-
-                                  prefs.setString('userData', json.encode(userdata));
-                                },
-                                child: Stack(
-                                  alignment: Alignment.center,
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.90,
+                                height: MediaQuery.of(context).size.height * 0.182,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  color: const Color(0xffffffff),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: const Color(0x26000000),
+                                      offset: Offset(0, 5),
+                                      blurRadius: 10,
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      width: 35.0,
-                                      height: 35.0,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.elliptical(9999.0, 9999.0)),
-                                        color: const Color(0xffffffff),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: const Color(0x29000000),
-                                            offset: Offset(0, 3),
-                                            blurRadius: 6,
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width * 0.80,
+                                      height: MediaQuery.of(context).size.height * 0.03,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                values['event_name'].toString(),
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 22,
+                                                  color: const Color(0xff404040),
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                textAlign: TextAlign.left,
+                                              ),
+                                              Text(
+                                                'By' + values['club'].toString(),
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 14,
+                                                  color: const Color(0xff9d9d9d),
+                                                  fontWeight: FontWeight.w500,
+                                                  height: 1.1666666666666667,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ],
+                                          ),
+                                          GestureDetector(
+                                            onTap: () async {
+                                              SharedPreferences prefs =
+                                              await SharedPreferences.getInstance();
+                                              Map userdata =
+                                              json.decode(prefs.getString('userData'));
+
+                                              final databaseReference =
+                                              FirebaseDatabase.instance.reference();
+
+                                              if (userdata.keys.toList().contains('bookmark')) {
+                                                if (userdata['bookmark']
+                                                    .values
+                                                    .toList()
+                                                    .contains(id)) {
+                                                  showLoaderDialog(
+                                                      context, "removing Bookmark...");
+
+                                                  await databaseReference
+                                                      .child("users/" + uid + '/bookmark')
+                                                      .child(id)
+                                                      .remove();
+                                                  userdata['bookmark'].remove(id);
+
+                                                  Navigator.pop(context);
+                                                  showAlertDialog(
+                                                      context,
+                                                      '/Home',
+                                                      'Bookmark Deleted Successfully',
+                                                      'You will now not be notified for the event.');
+                                                } else {
+                                                  showLoaderDialog(
+                                                      context, "Creating Bookmark...");
+                                                  await databaseReference
+                                                      .child("users/" + uid + '/bookmark')
+                                                      .child(id)
+                                                      .set(id);
+                                                  userdata['bookmark'] = {id: id};
+
+                                                  Navigator.pop(context);
+                                                  showAlertDialog(
+                                                      context,
+                                                      '/Home',
+                                                      'Bookmark Created Successfully',
+                                                      'You will now be notified for the bookmarked event.');
+                                                }
+
+                                                prefs.setString(
+                                                    'userData', json.encode(userdata));
+                                              } else {
+                                                showLoaderDialog(context, "Creating Bookmark...");
+                                                await databaseReference
+                                                    .child("users/" + uid + '/bookmark')
+                                                    .child(id)
+                                                    .set(id);
+                                                userdata['bookmark'] = {id: id};
+
+                                                Navigator.pop(context);
+                                                showAlertDialog(
+                                                    context,
+                                                    '/Home',
+                                                    'Bookmark Created Successfully',
+                                                    'You will now be notified for the bookmarked event.');
+                                              }
+
+                                              prefs.setString('userData', json.encode(userdata));
+                                            },
+                                            child: Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Container(
+                                                  width: 35.0,
+                                                  height: 35.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.all(
+                                                        Radius.elliptical(9999.0, 9999.0)),
+                                                    color: const Color(0xffffffff),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: const Color(0x29000000),
+                                                        offset: Offset(0, 3),
+                                                        blurRadius: 6,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SvgPicture.string(
+                                                  _svg_d54sjf,
+                                                  allowDrawingOutsideViewBox: true,
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                    SvgPicture.string(
-                                      _svg_d54sjf,
-                                      allowDrawingOutsideViewBox: true,
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Image.asset('assets/Calendar Icon.png'),
+                                          Image.asset('assets/Time Icon.png'),
+                                          SvgPicture.string(
+                                            _svg_w4c8pt,
+                                            allowDrawingOutsideViewBox: true,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          values['event_start_date'].toString(),
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 14,
+                                            color: const Color(0xff9d9d9d),
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.1666666666666667,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        Text(
+                                          values['event_start_time']
+                                              .toString()
+                                              .split(' ')[1]
+                                              .substring(0, 5),
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 14,
+                                            color: const Color(0xff9d9d9d),
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.1666666666666667,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        Text(
+                                          'Santokba\nFoyer',
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 14,
+                                            color: const Color(0xff9d9d9d),
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.1666666666666667,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
                               ),
                             ],
                           ),
-                          Row( // Date, Time, Location
-                            children: [
-                              // Column(
-                              //   children: [
-                              //     Stack(
-                              //       children: <Widget>[
-                              //         Pinned.fromSize(
-                              //           bounds: Rect.fromLTWH(0.0, 1.9, 25.0, 23.1),
-                              //           size: Size(25.0, 25.0),
-                              //           child: SvgPicture.string(
-                              //             _svg_2fua5o,
-                              //             allowDrawingOutsideViewBox: true,
-                              //             fit: BoxFit.fill,
-                              //           ),
-                              //         ),
-                              //         Pinned.fromSize(
-                              //           bounds: Rect.fromLTWH(15.4, 15.4, 5.8, 5.8),
-                              //           size: Size(25.0, 25.0),
-                              //           child: SvgPicture.string(
-                              //             _svg_16syn8,
-                              //             allowDrawingOutsideViewBox: true,
-                              //             fit: BoxFit.fill,
-                              //           ),
-                              //         ),
-                              //         Pinned.fromSize(
-                              //           bounds:
-                              //           Rect.fromLTWH(0.0, 7.7, 25.0, 1.9),
-                              //           size: Size(25.0, 25.0),
-                              //           child: SvgPicture.string(
-                              //             _svg_l0a8re,
-                              //             allowDrawingOutsideViewBox: true,
-                              //             fit: BoxFit.fill,
-                              //           ),
-                              //         ),
-                              //         Pinned.fromSize(
-                              //           bounds: Rect.fromLTWH(6.7, 0.0, 1.9, 5.8),
-                              //           size: Size(25.0, 25.0),
-                              //           child: SvgPicture.string(
-                              //             _svg_9yqjhj,
-                              //             allowDrawingOutsideViewBox: true,
-                              //             fit: BoxFit.fill,
-                              //           ),
-                              //         ),
-                              //         Pinned.fromSize(
-                              //           bounds:
-                              //           Rect.fromLTWH(16.3, 0.0, 1.9, 5.8),
-                              //           size: Size(25.0, 25.0),
-                              //           child: SvgPicture.string(
-                              //             _svg_9n2cnq,
-                              //             allowDrawingOutsideViewBox: true,
-                              //             fit: BoxFit.fill,
-                              //           ),
-                              //         ),
-                              //         Pinned.fromSize(
-                              //           bounds:
-                              //           Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
-                              //           size: Size(25.0, 25.0),
-                              //           child: Container(
-                              //             decoration: BoxDecoration(),
-                              //           ),
-                              //         ),
-                              //       ],
-                              //     ),
-                              //     Text(
-                              //       values['event_start_date'].toString(),
-                              //       style: TextStyle(
-                              //         fontFamily: 'Poppins',
-                              //         fontSize: 14,
-                              //         color: const Color(0xff9d9d9d),
-                              //         fontWeight: FontWeight.w500,
-                              //         height: 1.1666666666666667,
-                              //       ),
-                              //       textAlign: TextAlign.center,
-                              //     ),
-                              //   ],
-                              // ),
-                              // Column(
-                              //   children: [
-                              //     Stack(
-                              //       children: <Widget>[
-                              //         Pinned.fromSize(
-                              //           bounds:
-                              //           Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
-                              //           size: Size(25.0, 25.0),
-                              //           child: SvgPicture.string(
-                              //             _svg_zgo1ml,
-                              //             allowDrawingOutsideViewBox: true,
-                              //             fit: BoxFit.fill,
-                              //           ),
-                              //         ),
-                              //         Pinned.fromSize(
-                              //           bounds:
-                              //           Rect.fromLTWH(11.5, 3.8, 7.2, 14.9),
-                              //           size: Size(25.0, 25.0),
-                              //           child: SvgPicture.string(
-                              //             _svg_coyz6r,
-                              //             allowDrawingOutsideViewBox: true,
-                              //             fit: BoxFit.fill,
-                              //           ),
-                              //         ),
-                              //         Pinned.fromSize(
-                              //           bounds:
-                              //           Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
-                              //           size: Size(25.0, 25.0),
-                              //           child: Container(
-                              //             decoration: BoxDecoration(),
-                              //           ),
-                              //         ),
-                              //       ],
-                              //     ),
-                              //     Text(
-                              //       values['event_start_time']
-                              //           .toString()
-                              //           .split(' ')[1]
-                              //           .substring(0, 5),
-                              //       style: TextStyle(
-                              //         fontFamily: 'Poppins',
-                              //         fontSize: 14,
-                              //         color: const Color(0xff9d9d9d),
-                              //         fontWeight: FontWeight.w500,
-                              //         height: 1.1666666666666667,
-                              //       ),
-                              //       textAlign: TextAlign.center,
-                              //     ),
-                              //   ],
-                              // ),
-                              Column(
-                                children: [
-                                  SvgPicture.string(
-                                    _svg_w4c8pt,
-                                    allowDrawingOutsideViewBox: true,
-                                    fit: BoxFit.fill,
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Container(
+                                  height: 55,
+                                  width: 55,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                                    color: const Color(0xffffffff),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0x29000000),
+                                        offset: Offset(0, 3),
+                                        blurRadius: 6,
+                                      ),
+                                    ],
                                   ),
-                                  Text(
-                                    'Santokba\nFoyer',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14,
-                                      color: const Color(0xff9d9d9d),
-                                      fontWeight: FontWeight.w500,
-                                      height: 1.1666666666666667,
+                                ),
+                                Container(
+                                  height: 45,
+                                  width: 45,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: const AssetImage('assets/Tech Club Logo Big.png'),
+                                      fit: BoxFit.fill,
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
-                                ],
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      //height: 120.0,
+                      child: Text(
+                        values['description'].toString(),
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 17,
+                          color: const Color(0xff9d9d9d),
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.fromLTRB(13, 10, 0, 10),
+                    child: Text(
+                      'Gallery',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 22,
+                        color: const Color(0xff404040),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.25,
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            image: DecorationImage(
+                              image: NetworkImage(values['event_pic']),
+                              fit: BoxFit.cover,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0x29000000),
+                                offset: Offset(7, 7),
+                                blurRadius: 80,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Container(
+                                height: MediaQuery.of(context).size.height * 0.12,
+                                width: MediaQuery.of(context).size.width * 0.40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  image: DecorationImage(
+                                    image: const AssetImage('assets/Background Image3.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+                              child: Container(
+                                height: MediaQuery.of(context).size.height * 0.12,
+                                width: MediaQuery.of(context).size.width * 0.40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  image: DecorationImage(
+                                    image: const AssetImage('assets/Background Image3.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: GestureDetector(
+                      onTap: () async {
+                        SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                        Map userdata =
+                        json.decode(prefs.getString('userData'));
+
+                        final databaseReference =
+                        FirebaseDatabase.instance.reference();
+
+                        if (userdata.keys.toList().contains('registeration')) {
+                          if (userdata['registeration']
+                              .values
+                              .toList()
+                              .contains(id)) {
+                            showLoaderDialog(
+                                context, "removing registered event...");
+
+                            await databaseReference
+                                .child("users/" + uid + '/registeration')
+                                .child(id)
+                                .remove();
+                            userdata['registeration'].remove(id);
+
+                            Navigator.pop(context);
+                            showAlertDialog(
+                                context,
+                                '/Home',
+                                'registered event Deleted Successfully',
+                                'You will now not be notified for the event.');
+                          } else {
+                            showLoaderDialog(
+                                context, "registering...");
+                            await databaseReference
+                                .child("users/" + uid + '/registeration')
+                                .child(id)
+                                .set(id);
+                            userdata['registeration'] = {id: id};
+
+                            Navigator.pop(context);
+                            showAlertDialog(
+                                context,
+                                '/Home',
+                                'registered Successfully',
+                                'You will now be notified for the registered event.');
+                          }
+
+                          prefs.setString(
+                              'userData', json.encode(userdata));
+                        } else {
+                          showLoaderDialog(context, "registering...");
+                          await databaseReference
+                              .child("users/" + uid + '/registeration')
+                              .child(id)
+                              .set(id);
+                          userdata['registeration'] = {id: id};
+
+                          Navigator.pop(context);
+                          showAlertDialog(
+                              context,
+                              '/Home',
+                              'registered Successfully',
+                              'You will now be notified for the registered event.');
+                        }
+
+                        prefs.setString('userData', json.encode(userdata));
+
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.90,
+                        height: 48.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          gradient: LinearGradient(
+                            begin: Alignment(-0.97, -0.82),
+                            end: Alignment(0.97, 0.79),
+                            colors: [
+                              const Color(0xfffe4f70),
+                              const Color(0xffcb6bd8)
+                            ],
+                            stops: [0.0, 1.0],
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Register',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              color: const Color(0xffffffff),
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             );
               Stack(
               children: <Widget>[
