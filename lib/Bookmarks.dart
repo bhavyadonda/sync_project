@@ -276,7 +276,7 @@ class _BookmarksState extends State<Bookmarks> {
                                 ),
                               ),
                               Pinned.fromSize(
-                                bounds: Rect.fromLTWH(1.0, 169.0, 84.0, 15.0),
+                                bounds: Rect.fromLTWH(-30.0, 169.0, 84.0, 15.0),
                                 size: Size(168.0, 191.0),
                                 pinLeft: true,
                                 pinBottom: true,
