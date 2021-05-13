@@ -141,14 +141,13 @@ class _SignInState extends State<SignIn> {
                         pinTop: true,
                         pinBottom: true,
                         child:
-                        // Adobe XD layer: 'Face' (shape)
-                        Container(
+                            // Adobe XD layer: 'Face' (shape)
+                            Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(7.0),
                             color: const Color(0xffffffff),
                             border: Border.all(
-                                width: 3.0,
-                                color: const Color(0xfffe4f70)),
+                                width: 3.0, color: const Color(0xfffe4f70)),
                           ),
                         ),
                       ),
@@ -158,8 +157,8 @@ class _SignInState extends State<SignIn> {
                         fixedWidth: true,
                         fixedHeight: true,
                         child:
-                        // Adobe XD layer: 'Smile' (shape)
-                        SvgPicture.string(
+                            // Adobe XD layer: 'Smile' (shape)
+                            SvgPicture.string(
                           _svg_asnqyb,
                           allowDrawingOutsideViewBox: true,
                           fit: BoxFit.fill,
@@ -171,8 +170,8 @@ class _SignInState extends State<SignIn> {
                         fixedWidth: true,
                         fixedHeight: true,
                         child:
-                        // Adobe XD layer: 'Right Eye' (shape)
-                        Container(
+                            // Adobe XD layer: 'Right Eye' (shape)
+                            Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                                 Radius.elliptical(9999.0, 9999.0)),
@@ -194,8 +193,8 @@ class _SignInState extends State<SignIn> {
                         fixedWidth: true,
                         fixedHeight: true,
                         child:
-                        // Adobe XD layer: 'Left Eye' (shape)
-                        Container(
+                            // Adobe XD layer: 'Left Eye' (shape)
+                            Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                                 Radius.elliptical(9999.0, 9999.0)),
@@ -366,7 +365,33 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () async {
+                      showLoaderDialog(
+                          context, "Checking Verification Status...");
+                      try {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        );
+                        User user = FirebaseAuth.instance.currentUser;
+                        if (user.emailVerified) {
+                          Navigator.pop(context);
+                          showAlertDialog(context, '', 'Verification Status',
+                              'Email already verified. Please continue with Login.');
+                        } else {
+                          await user.sendEmailVerification();
+                          showAlertDialog(context, '', 'Success',
+                              'A new verification link has been sent.');
+                          _emailController.text = "";
+                          _passwordController.text = "";
+                        }
+                      } on FirebaseAuthException catch (e) {
+                        Navigator.pop(context);
+                        _emailController.text = "";
+                        _passwordController.text = "";
+                        showAlertDialog(context, '', e.code, e.message);
+                      }
+                    },
                     child: Text(
                       'Send Verification Link',
                       style: TextStyle(
@@ -450,17 +475,14 @@ class _SignInState extends State<SignIn> {
               onTap: () async {
                 showLoaderDialog(context, "Authenticating...");
                 try {
-                  await FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
                     email: _emailController.text,
                     password: _passwordController.text,
                   );
                   User user = FirebaseAuth.instance.currentUser;
-                  print('------------');
-                  print(user);
                   if (user.emailVerified) {
                     SharedPreferences prefs =
-                    await SharedPreferences.getInstance();
+                        await SharedPreferences.getInstance();
                     prefs.setBool('my_bool_key', true);
                     Navigator.pop(context);
                     Navigator.pushNamedAndRemoveUntil(
@@ -482,10 +504,7 @@ class _SignInState extends State<SignIn> {
                   gradient: LinearGradient(
                     begin: Alignment(-0.97, -0.82),
                     end: Alignment(0.97, 0.79),
-                    colors: [
-                      const Color(0xfffe4f70),
-                      const Color(0xffcb6bd8)
-                    ],
+                    colors: [const Color(0xfffe4f70), const Color(0xffcb6bd8)],
                     stops: [0.0, 1.0],
                   ),
                   boxShadow: [

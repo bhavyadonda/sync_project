@@ -32,6 +32,7 @@ import 'package:sync_project/Settings.dart';
 import 'package:sync_project/SignIn.dart';
 import 'package:sync_project/SignUp.dart';
 import 'package:sync_project/opening_screen.dart';
+import 'package:sync_project/updateProfile.dart';
 
 List messages = [];
 
@@ -112,6 +113,7 @@ void main() async {
       '/PrivacyPolicy': (context) => PrivacyPolicy(),
       '/register': (context) => register(),
       '/Bookmarks': (context) => Bookmarks(),
+      '/updateProfile': (context) => UpdateProfile(),
     },
   ));
 }
