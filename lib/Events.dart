@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'methods.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:adobe_xd/pinned.dart';
+import 'package:adobe_xd/page_link.dart';
 
 class Events extends StatefulWidget {
   @override
@@ -11,10 +15,32 @@ class Events extends StatefulWidget {
 }
 
 class _EventsState extends State<Events> {
+  String uid;
+  String id;
   @override
   void initState() {
     super.initState();
     getdata();
+  }
+
+  Future getEventData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    uid = prefs.getString('uid');
+    Map data = json.decode(prefs.getString('data'));
+    Map events = {};
+
+    for (var i = 0; i < data.length; i++) {
+      if (data.values.toList()[i]['subEvents'] == null) {
+        events[data.keys.toList()[i]] = data.values.toList()[i];
+      } else {
+        for (var j = 0; j < data.values.toList()[i]['subEvents'].length; j++) {
+          events[data.values.toList()[i]['subEvents'].keys.toList()[j]] =
+          data.values.toList()[i]['subEvents'].values.toList()[j];
+        }
+      }
+    }
+    events = events[prefs.getString('eventId')];
+    return events;
   }
 
   getdata() async {
@@ -38,7 +64,7 @@ class _EventsState extends State<Events> {
                     child: Column(
                       children: [
                         Container(
-                          height: MediaQuery.of(context).size.height - 700,
+                          height: MediaQuery.of(context).size.height * 0.11,
                           width: MediaQuery.of(context).size.width,
                           child: Stack(
                             children: [
@@ -249,150 +275,192 @@ class _EventsState extends State<Events> {
         });
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                  ),
-                ],
-                child: SvgPicture.string(
-                  _svg_ah28f4,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-            ),
-            Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // enter variable
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 25,
-              height: 10,
-              child: const DecoratedBox(
-                decoration: const BoxDecoration(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: const Color(0xffffffff),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 25, 0, 25),
-            child: Container(
-              width: MediaQuery.of(context).size.width - 40,
-              height: MediaQuery.of(context).size.height - 560,
-              child: Card(
-                elevation: 10,
-                shadowColor: Colors.black38,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+          Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                child: PageLink(
+                  links: [
+                    PageLinkInfo(
+                      transition: LinkTransition.Fade,
+                      ease: Curves.easeOut,
+                      duration: 0.3,
+                    ),
+                  ],
+                  child: SvgPicture.string(
+                    _svg_ah28f4,
+                    allowDrawingOutsideViewBox: true,
+                  ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Logo
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                  Radius.elliptical(9999.0, 9999.0)),
-                              color: const Color(0xffffffff),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x29000000),
-                                  offset: Offset(0, 3),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                            child: Image.asset(
-                              // Enter Variable
-                              'assets/Tech Club Logo Big.png',
-                              height: 60,
-                              width: 60,
-                            ),
+              ),
+              Center(
+                child: Container(
+                  width: 64.0,
+                  height: 37.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: const AssetImage('assets/Sync Logo.png'),
+                      fit: BoxFit.fill,
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                    ),
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //     color: const Color(0x45000000),
+                    //     offset: Offset(0, 3),
+                    //     blurRadius: 80,
+                    //   ),
+                    // ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 30),
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.90,
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.90,
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: const Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x26000000),
+                            offset: Offset(0, 5),
+                            blurRadius: 10,
                           ),
-                          // Card 2
-                          Container(
-                            width: 317,
-                            height: 170,
-                            child: Card(
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.90,
+                            height: MediaQuery.of(context).size.height * 0.03,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(25, 20, 25, 0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'The Tech Week',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 23,
+                                        color: const Color(0xff404040),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                    Text(
+                                      'By The Tech Club',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 17,
+                                        color: const Color(0xff9d9d9d),
+                                        fontWeight: FontWeight.w500,
+                                        height: 1.1666666666666667,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                                GestureDetector(
+                                  onTap: () async {
+                                    SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
+                                    Map userdata =
+                                    json.decode(prefs.getString('userData'));
+
+                                    final databaseReference =
+                                    FirebaseDatabase.instance.reference();
+
+                                    if (userdata.keys.toList().contains('bookmark')) {
+                                      if (userdata['bookmark']
+                                          .values
+                                          .toList()
+                                          .contains(id)) {
+                                        showLoaderDialog(
+                                            context, "removing Bookmark...");
+
+                                        await databaseReference
+                                            .child("users/" + uid + '/bookmark')
+                                            .child(id)
+                                            .remove();
+                                        userdata['bookmark'].remove(id);
+
+                                        Navigator.pop(context);
+                                        showAlertDialog(
+                                            context,
+                                            '/Home',
+                                            'Bookmark Deleted Successfully',
+                                            'You will now not be notified for the event.');
+                                      } else {
+                                        showLoaderDialog(
+                                            context, "Creating Bookmark...");
+                                        await databaseReference
+                                            .child("users/" + uid + '/bookmark')
+                                            .child(id)
+                                            .set(id);
+                                        userdata['bookmark'] = {id: id};
+
+                                        Navigator.pop(context);
+                                        showAlertDialog(
+                                            context,
+                                            '/Home',
+                                            'Bookmark Created Successfully',
+                                            'You will now be notified for the bookmarked event.');
+                                      }
+
+                                      prefs.setString(
+                                          'userData', json.encode(userdata));
+                                    } else {
+                                      showLoaderDialog(context, "Creating Bookmark...");
+                                      await databaseReference
+                                          .child("users/" + uid + '/bookmark')
+                                          .child(id)
+                                          .set(id);
+                                      userdata['bookmark'] = {id: id};
+
+                                      Navigator.pop(context);
+                                      showAlertDialog(
+                                          context,
+                                          '/Home',
+                                          'Bookmark Created Successfully',
+                                          'You will now be notified for the bookmarked event.');
+                                    }
+
+                                    prefs.setString('userData', json.encode(userdata));
+                                  },
+                                  child: Stack(
+                                    alignment: Alignment.center,
                                     children: [
-                                      Text(
-                                        'The Tech Week',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 23,
-                                          color: const Color(0xff404040),
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                      Text(
-                                        'By The Tech Club',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 17,
-                                          color: const Color(0xff9d9d9d),
-                                          fontWeight: FontWeight.w500,
-                                          height: 1.1666666666666667,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ],
-                                  ),
-                                  Stack(
-                                    children: <Widget>[
-                                      // Adobe XD layer: 'Bookmark Circle' (shape)
                                       Container(
-                                        width: 50.0, // og = 35 x 35
-                                        height: 50.0,
+                                        width: 35.0,
+                                        height: 35.0,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(
-                                              Radius.elliptical(
-                                                  9999.0, 9999.0)),
+                                              Radius.elliptical(9999.0, 9999.0)),
                                           color: const Color(0xffffffff),
                                           boxShadow: [
                                             BoxShadow(
@@ -403,30 +471,55 @@ class _EventsState extends State<Events> {
                                           ],
                                         ),
                                       ),
-                                      Positioned(
-                                        left: 16,
-                                        top: 13,
-                                        child: SvgPicture.string(
-                                          _svg_d54sjf,
-                                          width: 25,
-                                          height: 25,
-                                          fit: BoxFit.fitWidth,
-                                          allowDrawingOutsideViewBox: true,
-                                          matchTextDirection: true,
-                                        ),
+                                      SvgPicture.string(
+                                        _svg_d54sjf,
+                                        allowDrawingOutsideViewBox: true,
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        height: 55,
+                        width: 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                          color: const Color(0xffffffff),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0x29000000),
+                              offset: Offset(0, 3),
+                              blurRadius: 6,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 45,
+                        width: 45,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: const AssetImage('assets/Tech Club Logo Big.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
-              ),
+              ],
             ),
           ),
           Expanded(child: events),
