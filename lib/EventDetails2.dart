@@ -73,14 +73,20 @@ class _EventDetails2State extends State<EventDetails2> {
                                   ),
                                 ),
                               ),
-                              RaisedButton(
-                                onPressed: () async {
-                                  dynamic result =
-                                  await Navigator.pushNamed(context, '/Home');
-                                },
-                                child: SvgPicture.string(
-                                  _svg_see9ki,
-                                  allowDrawingOutsideViewBox: true,
+                              Container(
+                                padding: EdgeInsets.fromLTRB(20, 40, 0, 0),
+                                child: PageLink(
+                                  links: [
+                                    PageLinkInfo(
+                                      transition: LinkTransition.Fade,
+                                      ease: Curves.easeOut,
+                                      duration: 0.3,
+                                    ),
+                                  ],
+                                  child: SvgPicture.string(
+                                    _svg_see9ki,
+                                    allowDrawingOutsideViewBox: true,
+                                  ),
                                 ),
                               ),
                             ],
