@@ -52,14 +52,54 @@ class _CategoriesState extends State<Categories> {
               if (values.values
                   .toList()[i]['categories']
                   .contains(selectedCategory)) {
-                
                 eventNumbers.add(i);
               }
             }
             return Column(
               children: [
+                Stack(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                      child: PageLink(
+                        links: [
+                          PageLinkInfo(
+                            transition: LinkTransition.Fade,
+                            ease: Curves.easeOut,
+                            duration: 0.3,
+                          ),
+                        ],
+                        child: SvgPicture.string(
+                          _svg_ah28f4,
+                          allowDrawingOutsideViewBox: true,
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        width: 64.0,
+                        height: 37.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: const AssetImage('assets/Sync Logo.png'),
+                            fit: BoxFit.fill,
+                            colorFilter: new ColorFilter.mode(
+                                Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                          ),
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: const Color(0x45000000),
+                          //     offset: Offset(0, 3),
+                          //     blurRadius: 80,
+                          //   ),
+                          // ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(13, 20, 0, 20),
+                  padding: const EdgeInsets.fromLTRB(13, 20, 0, 10),
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -75,7 +115,7 @@ class _CategoriesState extends State<Categories> {
                   ),
                 ),
                 Expanded(
-                                  child: GridView.count(
+                  child: GridView.count(
                     crossAxisCount: 2,
                     children: List.generate(eventNumbers.length, (index) {
                       return Center(
@@ -94,8 +134,7 @@ class _CategoriesState extends State<Categories> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/Donation Image.png'),
+                                      image: AssetImage('assets/Donation Image.png'),
                                       fit: BoxFit.fill,
                                     ),
                                   ),
@@ -234,7 +273,7 @@ class _CategoriesState extends State<Categories> {
                                 ),
                               ),
                               Pinned.fromSize(
-                                bounds: Rect.fromLTWH(1.0, 169.0, 84.0, 15.0),
+                                bounds: Rect.fromLTWH(-30.0, 169.0, 84.0, 15.0),
                                 size: Size(168.0, 191.0),
                                 pinLeft: true,
                                 pinBottom: true,
@@ -268,55 +307,9 @@ class _CategoriesState extends State<Categories> {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                child: PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.easeOut,
-                      duration: 0.3,
-                    ),
-                  ],
-                  child: SvgPicture.string(
-                    _svg_ah28f4,
-                    allowDrawingOutsideViewBox: true,
-                  ),
-                ),
-              ),
-              Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    // enter variable
-                    image: const AssetImage('assets/Sync Logo.png'),
-                    fit: BoxFit.fill,
-                    colorFilter: new ColorFilter.mode(
-                        Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0x45000000),
-                      offset: Offset(0, 3),
-                      blurRadius: 80,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 25,
-                height: 10,
-                child: const DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.white),
-                ),
-              ),
-            ],
-          ),
+          elevation: 0,
+          toolbarHeight: 30,
+          backgroundColor: const Color(0xffffffff),
         ),
         body: events
         // body: Column(
