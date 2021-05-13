@@ -8,487 +8,8 @@ import 'package:adobe_xd/page_link.dart';
 import './ForgotPassword.dart';
 import './TermsAndConditions.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'dart:convert';
 
-// class Settings extends StatelessWidget {
-//   Settings({
-//     Key key,
-//   }) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: const Color(0xffffffff),
-//       body: Stack(
-//         children: <Widget>[
-//           Positioned(
-//             left: 30,
-//             top: 355,
-//             child: PageLink(
-//               links: [
-//                 PageLinkInfo(
-//                   transition: LinkTransition.Fade,
-//                   ease: Curves.easeOut,
-//                   duration: 0.3,
-//                   pageBuilder: () => SignIn(),
-//                 ),
-//               ],
-//               child: SizedBox(
-//                 width: 349.0,
-//                 height: 45.0,
-//                 child: Stack(
-//                   children: <Widget>[
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-//                       size: Size(349.0, 45.0),
-//                       pinLeft: true,
-//                       pinRight: true,
-//                       pinTop: true,
-//                       pinBottom: true,
-//                       child: Stack(
-//                         children: <Widget>[
-//                           Pinned.fromSize(
-//                             bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-//                             size: Size(349.0, 45.0),
-//                             pinLeft: true,
-//                             pinRight: true,
-//                             pinTop: true,
-//                             pinBottom: true,
-//                             child: SvgPicture.string(
-//                               _svg_9wjj3m,
-//                               allowDrawingOutsideViewBox: true,
-//                               fit: BoxFit.fill,
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(319.0, 18.0, 10.0, 10.0),
-//                       size: Size(349.0, 45.0),
-//                       pinRight: true,
-//                       fixedWidth: true,
-//                       fixedHeight: true,
-//                       child: Transform.rotate(
-//                         angle: 1.5708,
-//                         child: Stack(
-//                           children: <Widget>[
-//                             Pinned.fromSize(
-//                               bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-//                               size: Size(10.0, 10.0),
-//                               pinLeft: true,
-//                               pinRight: true,
-//                               pinTop: true,
-//                               pinBottom: true,
-//                               child: SvgPicture.string(
-//                                 _svg_5aru5n,
-//                                 allowDrawingOutsideViewBox: true,
-//                                 fit: BoxFit.fill,
-//                               ),
-//                             ),
-//                             Pinned.fromSize(
-//                               bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-//                               size: Size(10.0, 10.0),
-//                               pinLeft: true,
-//                               pinRight: true,
-//                               pinTop: true,
-//                               pinBottom: true,
-//                               child: Container(
-//                                 decoration: BoxDecoration(),
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                     GestureDetector(
-//                       onTap: () async {
-//                         try {
-//                           await FirebaseAuth.instance.signOut();
-//                           SharedPreferences prefs =
-//                           await SharedPreferences.getInstance();
-//                           prefs.setBool('my_bool_key', false);
-//                           Navigator.of(context).pushReplacementNamed('/SignIn');
-//                         } catch (e) {
-//                           print(e);
-//                           print('there was some error logging you out');
-//                         }
-//                       },
-//                       child: Pinned.fromSize(
-//                         bounds: Rect.fromLTWH(23.0, 9.0, 69.0, 25.0),
-//                         size: Size(349.0, 45.0),
-//                         fixedWidth: true,
-//                         fixedHeight: true,
-//                         child: Text(
-//                           'Log Out',
-//                           style: TextStyle(
-//                             fontFamily: 'Poppins',
-//                             fontSize: 18,
-//                             color: const Color(0xbfff0000),
-//                             fontWeight: FontWeight.w500,
-//                           ),
-//                           textAlign: TextAlign.left,
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 30,
-//             top: 290,
-//             child: PageLink(
-//               links: [
-//                 PageLinkInfo(
-//                   transition: LinkTransition.Fade,
-//                   ease: Curves.easeOut,
-//                   duration: 0.3,
-//                   pageBuilder: () => ForgotPassword(),
-//                 ),
-//               ],
-//               child: SizedBox(
-//                 width: 349.0,
-//                 height: 45.0,
-//                 child: Stack(
-//                   children: <Widget>[
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-//                       size: Size(349.0, 45.0),
-//                       pinLeft: true,
-//                       pinRight: true,
-//                       pinTop: true,
-//                       pinBottom: true,
-//                       child: Stack(
-//                         children: <Widget>[
-//                           Pinned.fromSize(
-//                             bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-//                             size: Size(349.0, 45.0),
-//                             pinLeft: true,
-//                             pinRight: true,
-//                             pinTop: true,
-//                             pinBottom: true,
-//                             child: SvgPicture.string(
-//                               _svg_feqhip,
-//                               allowDrawingOutsideViewBox: true,
-//                               fit: BoxFit.fill,
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(25.0, 10.0, 165.0, 25.0),
-//                       size: Size(349.0, 45.0),
-//                       fixedWidth: true,
-//                       fixedHeight: true,
-//                       child: Text(
-//                         'Change Password',
-//                         style: TextStyle(
-//                           fontFamily: 'Poppins',
-//                           fontSize: 18,
-//                           color: const Color(0xff404040),
-//                           fontWeight: FontWeight.w500,
-//                         ),
-//                         textAlign: TextAlign.left,
-//                       ),
-//                     ),
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(319.0, 18.0, 10.0, 10.0),
-//                       size: Size(349.0, 45.0),
-//                       pinRight: true,
-//                       fixedWidth: true,
-//                       fixedHeight: true,
-//                       child: Transform.rotate(
-//                         angle: 1.5708,
-//                         child: Stack(
-//                           children: <Widget>[
-//                             Pinned.fromSize(
-//                               bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-//                               size: Size(10.0, 10.0),
-//                               pinLeft: true,
-//                               pinRight: true,
-//                               pinTop: true,
-//                               pinBottom: true,
-//                               child: SvgPicture.string(
-//                                 _svg_5aru5n,
-//                                 allowDrawingOutsideViewBox: true,
-//                                 fit: BoxFit.fill,
-//                               ),
-//                             ),
-//                             Pinned.fromSize(
-//                               bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-//                               size: Size(10.0, 10.0),
-//                               pinLeft: true,
-//                               pinRight: true,
-//                               pinTop: true,
-//                               pinBottom: true,
-//                               child: Container(
-//                                 decoration: BoxDecoration(),
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 30,
-//             top: 225,
-//             child: SizedBox(
-//               width: 349.0,
-//               height: 45.0,
-//               child: Stack(
-//                 children: <Widget>[
-//                   Pinned.fromSize(
-//                     bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-//                     size: Size(349.0, 45.0),
-//                     pinLeft: true,
-//                     pinRight: true,
-//                     pinTop: true,
-//                     pinBottom: true,
-//                     child: SvgPicture.string(
-//                       _svg_w7aonn,
-//                       allowDrawingOutsideViewBox: true,
-//                       fit: BoxFit.fill,
-//                     ),
-//                   ),
-//                   Pinned.fromSize(
-//                     bounds: Rect.fromLTWH(25.0, 10.0, 178.0, 25.0),
-//                     size: Size(349.0, 45.0),
-//                     fixedWidth: true,
-//                     fixedHeight: true,
-//                     child: Text(
-//                       'Terms & Conditions',
-//                       style: TextStyle(
-//                         fontFamily: 'Poppins',
-//                         fontSize: 18,
-//                         color: const Color(0xff404040),
-//                         fontWeight: FontWeight.w500,
-//                       ),
-//                       textAlign: TextAlign.left,
-//                     ),
-//                   ),
-//                   Pinned.fromSize(
-//                     bounds: Rect.fromLTWH(319.0, 20.0, 10.0, 10.0),
-//                     size: Size(349.0, 45.0),
-//                     pinRight: true,
-//                     fixedWidth: true,
-//                     fixedHeight: true,
-//                     child: Transform.rotate(
-//                       angle: 1.5708,
-//                       child: Stack(
-//                         children: <Widget>[
-//                           Pinned.fromSize(
-//                             bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-//                             size: Size(10.0, 10.0),
-//                             pinLeft: true,
-//                             pinRight: true,
-//                             pinTop: true,
-//                             pinBottom: true,
-//                             child: SvgPicture.string(
-//                               _svg_5aru5n,
-//                               allowDrawingOutsideViewBox: true,
-//                               fit: BoxFit.fill,
-//                             ),
-//                           ),
-//                           Pinned.fromSize(
-//                             bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-//                             size: Size(10.0, 10.0),
-//                             pinLeft: true,
-//                             pinRight: true,
-//                             pinTop: true,
-//                             pinBottom: true,
-//                             child: Container(
-//                               decoration: BoxDecoration(),
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 30,
-//             top: 160,
-//             child: PageLink(
-//               links: [
-//                 PageLinkInfo(
-//                   transition: LinkTransition.Fade,
-//                   ease: Curves.easeOut,
-//                   duration: 0.3,
-//                   pageBuilder: () => PrivacyPolicy(),
-//                 ),
-//               ],
-//               child: SizedBox(
-//                 width: 349.0,
-//                 height: 45.0,
-//                 child: Stack(
-//                   children: <Widget>[
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-//                       size: Size(349.0, 45.0),
-//                       pinLeft: true,
-//                       pinRight: true,
-//                       pinTop: true,
-//                       pinBottom: true,
-//                       child: Stack(
-//                         children: <Widget>[
-//                           Pinned.fromSize(
-//                             bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 45.0),
-//                             size: Size(349.0, 45.0),
-//                             pinLeft: true,
-//                             pinRight: true,
-//                             pinTop: true,
-//                             pinBottom: true,
-//                             child: SvgPicture.string(
-//                               _svg_feqhip,
-//                               allowDrawingOutsideViewBox: true,
-//                               fit: BoxFit.fill,
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(319.0, 20.0, 10.0, 10.0),
-//                       size: Size(349.0, 45.0),
-//                       pinRight: true,
-//                       fixedWidth: true,
-//                       fixedHeight: true,
-//                       child: Transform.rotate(
-//                         angle: 1.5708,
-//                         child: Stack(
-//                           children: <Widget>[
-//                             Pinned.fromSize(
-//                               bounds: Rect.fromLTWH(0.6, 1.9, 9.4, 6.1),
-//                               size: Size(10.0, 10.0),
-//                               pinLeft: true,
-//                               pinRight: true,
-//                               pinTop: true,
-//                               pinBottom: true,
-//                               child: SvgPicture.string(
-//                                 _svg_5aru5n,
-//                                 allowDrawingOutsideViewBox: true,
-//                                 fit: BoxFit.fill,
-//                               ),
-//                             ),
-//                             Pinned.fromSize(
-//                               bounds: Rect.fromLTWH(0.0, 0.0, 10.0, 10.0),
-//                               size: Size(10.0, 10.0),
-//                               pinLeft: true,
-//                               pinRight: true,
-//                               pinTop: true,
-//                               pinBottom: true,
-//                               child: Container(
-//                                 decoration: BoxDecoration(),
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(31.0, 10.0, 124.0, 25.0),
-//                       size: Size(349.0, 45.0),
-//                       fixedWidth: true,
-//                       fixedHeight: true,
-//                       child: Text(
-//                         'Privacy Policy',
-//                         style: TextStyle(
-//                           fontFamily: 'Poppins',
-//                           fontSize: 18,
-//                           color: const Color(0xff404040),
-//                           fontWeight: FontWeight.w500,
-//                         ),
-//                         textAlign: TextAlign.left,
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 25,
-//             top: 110,
-//             child: Text(
-//               'Settings',
-//               style: TextStyle(
-//                 fontFamily: 'Poppins',
-//                 fontSize: 22,
-//                 color: const Color(0xff404040),
-//                 fontWeight: FontWeight.w700,
-//               ),
-//               textAlign: TextAlign.left,
-//             ),
-//           ),
-//           Positioned(
-//             left: 173,
-//             top: 39,
-//             child: Container(
-//               width: 64.0,
-//               height: 37.0,
-//               decoration: BoxDecoration(
-//                 image: DecorationImage(
-//                   image: const AssetImage('assets/Sync Logo.png'),
-//                   fit: BoxFit.fill,
-//                   colorFilter: new ColorFilter.mode(
-//                       Colors.black.withOpacity(0.7), BlendMode.dstIn),
-//                 ),
-//                 boxShadow: [
-//                   BoxShadow(
-//                     color: const Color(0x45000000),
-//                     offset: Offset(0, 3),
-//                     blurRadius: 80,
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 0,
-//             top: 35,
-//             child: FlatButton(
-//               onPressed: () async {
-//                 dynamic result = await Navigator.pushNamed(context, '/');
-//               },
-//               child: SizedBox(
-//                 width: 13.0,
-//                 height: 18.0,
-//                 child: Stack(
-//                   children: <Widget>[
-//                     Pinned.fromSize(
-//                       bounds: Rect.fromLTWH(0.0, 0.0, 12.6, 18.0),
-//                       size: Size(12.6, 18.0),
-//                       pinLeft: true,
-//                       pinRight: true,
-//                       pinTop: true,
-//                       pinBottom: true,
-//                       child:
-//                       // Adobe XD layer: 'Back Arrow' (shape)
-//                       SvgPicture.string(
-//                         _svg_nytea6,
-//                         allowDrawingOutsideViewBox: true,
-//                         fit: BoxFit.fill,
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class Settings extends StatefulWidget {
   const Settings({Key key}) : super(key: key);
@@ -499,15 +20,356 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   @override
+
+  String uid;
+  getdata() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    uid = prefs.getString('uid');
+    Map data = json.decode(prefs.getString('userData'));
+    print(data);
+    return data;
+  }
+
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      appBar: AppBar(
-        elevation: 0,
-        toolbarHeight: 30,
-        backgroundColor: const Color(0xffffffff),
-      ),
-      body: Column(
+    final settings = FutureBuilder(
+        future: getdata(),
+    builder: (context, AsyncSnapshot snapshot) {
+    if (snapshot.hasData) {
+    Map<dynamic, dynamic> values = snapshot.data;
+    if (values['following'] == null) {
+      return Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                child: PageLink(
+                  links: [
+                    PageLinkInfo(
+                      transition: LinkTransition.Fade,
+                      ease: Curves.easeOut,
+                      duration: 0.3,
+                    ),
+                  ],
+                  child: SvgPicture.string(
+                    _svg_ah28f4,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                ),
+              ),
+              Center(
+                child: Container(
+                  width: 64.0,
+                  height: 37.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: const AssetImage('assets/Sync Logo.png'),
+                      fit: BoxFit.fill,
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                    ),
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //     color: const Color(0x45000000),
+                    //     offset: Offset(0, 3),
+                    //     blurRadius: 80,
+                    //   ),
+                    // ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: EdgeInsets.fromLTRB(13, 20, 0, 10),
+            child: Text(
+              'Settings',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 22,
+                color: const Color(0xff404040),
+                fontWeight: FontWeight.w700,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          GestureDetector(
+            onTap: () async {
+              dynamic result = await Navigator.pushNamed(context, '/Home');// change path
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.90,
+              height: 120.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24.0),
+                color: const Color(0x1a9d9d9d),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 80.0,
+                      height: 80.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                            Radius.elliptical(9999.0, 9999.0)),
+                        image: DecorationImage(
+                          image: NetworkImage(values['profile_pic']),
+                          fit: BoxFit.cover,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x7a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            values['name'],
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: const Color(0xff404040),
+                            ),
+                          ),
+                          Text(
+                            values['course'],
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              color: const Color(0xff9d9d9d),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            child: GestureDetector(
+              onTap: () async{
+                dynamic result = await Navigator.pushNamed(context, '/PrivacyPolicy');
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: 45.0,
+                child: Stack(
+                  children: [
+                    SvgPicture.string(
+                      _svg_feqhip,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Privacy Policy',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                                color: const Color(0xff404040),
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            Transform.rotate(
+                              angle: 1.5708,
+                              child: SvgPicture.string(
+                                _svg_5aru5n,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            child: GestureDetector(
+              onTap: () async{
+                dynamic result = await Navigator.pushNamed(context, '/TermsAndConditions');
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: 45.0,
+                child: Stack(
+                  children: [
+                    SvgPicture.string(
+                      _svg_feqhip,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Terms & Conditions',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                                color: const Color(0xff404040),
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            Transform.rotate(
+                              angle: 1.5708,
+                              child: SvgPicture.string(
+                                _svg_5aru5n,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            child: GestureDetector(
+              onTap: () async{
+                dynamic result = await Navigator.pushNamed(context, '/ForgotPassword');
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: 45.0,
+                child: Stack(
+                  children: [
+                    SvgPicture.string(
+                      _svg_feqhip,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Change Password',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                                color: const Color(0xff404040),
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            Transform.rotate(
+                              angle: 1.5708,
+                              child: SvgPicture.string(
+                                _svg_5aru5n,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+            child: GestureDetector(
+              onTap: () async{
+                try {
+                  await FirebaseAuth.instance.signOut();
+                  SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+                  prefs.setBool('my_bool_key', false);
+                  Navigator.of(context).pushReplacementNamed('/SignIn');
+                } catch (e) {
+                  print(e);
+                  print('there was some error logging you out');
+                }
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: 45.0,
+                child: Stack(
+                  children: [
+                    SvgPicture.string(
+                      _svg_feqhip,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Log Out',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                                color: const Color(0xbfff0000),
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            Transform.rotate(
+                              angle: 1.5708,
+                              child: SvgPicture.string(
+                                _svg_5aru5n,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+    else {
+      return Column(
         children: [
           Stack(
             children: [
@@ -770,7 +632,21 @@ class _SettingsState extends State<Settings> {
             ),
           ),
         ],
+      );
+    }
+    }
+    return CircularProgressIndicator();
+    }
+    );
+
+    return Scaffold(
+      backgroundColor: const Color(0xffffffff),
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: const Color(0xffffffff),
       ),
+      body: settings,
     );
   }
 }
