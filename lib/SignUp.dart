@@ -411,132 +411,77 @@ class _RegisterViewState extends State<SignUp> {
                 ),
               ),
             ),
-            PageLink(
-              links: [
-                // PageLinkInfo(
-                //   transition: LinkTransition.Fade,
-                //   ease: Curves.easeOut,
-                //   duration: 0.3,
-                //   pageBuilder: () => CompleteProfile(),
-                // ),
-              ],
-              child: SizedBox(
-                width: 300.0,
+            InkWell(
+              onTap: () async {
+                if (_passwordController.text ==
+                    _repasswordController.text) {
+                  showLoaderDialog(context, "Registering...");
+                  try {
+                    FirebaseAuth auth = FirebaseAuth.instance;
+                    await auth.createUserWithEmailAndPassword(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                    );
+                    User user = FirebaseAuth.instance.currentUser;
+                    await user.sendEmailVerification();
+                    final uid = user.uid;
+                    SharedPreferences prefs =
+                    await SharedPreferences.getInstance();
+                    prefs.setString('uid', uid);
+                    Navigator.pop(context);
+                    showAlertDialog(
+                        context,
+                        '/CompleteProfile',
+                        'Id Created Successfully!',
+                        'A verification link has been sent to your email id, please verify your email id within 24 hours.');
+                  } on FirebaseAuthException catch (e) {
+                    Navigator.pop(context);
+                    _passwordController.text = "";
+                    _repasswordController.text = "";
+                    _emailController.text = "";
+                    showAlertDialog(context, '', e.code, e.message);
+                  }
+                } else {
+                  _passwordController.text = "";
+                  _repasswordController.text = "";
+                  _emailController.text = "";
+                  showAlertDialog(context, '', 'Registration failed',
+                      'Passwords do not match');
+                }
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.73,
                 height: 53.0,
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        gradient: LinearGradient(
-                          begin: Alignment(-0.97, -0.82),
-                          end: Alignment(0.97, 0.79),
-                          colors: [
-                            const Color(0xfffe4f70),
-                            const Color(0xffcb6bd8)
-                          ],
-                          stops: [0.0, 1.0],
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0x29000000),
-                            offset: Offset(0, 3),
-                            blurRadius: 6,
-                          ),
-                        ],
-                      ),
-                      child: InkWell(
-                        onTap: () async {
-                          if (_passwordController.text ==
-                              _repasswordController.text) {
-                            showLoaderDialog(context, "Registering...");
-                            try {
-                              FirebaseAuth auth = FirebaseAuth.instance;
-                              await auth.createUserWithEmailAndPassword(
-                                email: _emailController.text,
-                                password: _passwordController.text,
-                              );
-                              User user = FirebaseAuth.instance.currentUser;
-                              await user.sendEmailVerification();
-                              final uid = user.uid;
-                              SharedPreferences prefs =
-                                  await SharedPreferences.getInstance();
-                              prefs.setString('uid', uid);
-                              Navigator.pop(context);
-                              showAlertDialog(
-                                  context,
-                                  '/CompleteProfile',
-                                  'Id Created Successfully!',
-                                  'A verification link has been sent to your email id, please verify your email id within 24 hours.');
-                            } on FirebaseAuthException catch (e) {
-                              Navigator.pop(context);
-                              _passwordController.text = "";
-                              _repasswordController.text = "";
-                              _emailController.text = "";
-                              showAlertDialog(context, '', e.code, e.message);
-                            }
-                          } else {
-                            _passwordController.text = "";
-                            _repasswordController.text = "";
-                            _emailController.text = "";
-                            showAlertDialog(context, '', 'Registration failed',
-                                'Passwords do not match');
-                          }
-                        },
-                      ),
-                    ),
-                    Center(
-                      child: InkWell(
-                        onTap: () async {
-                          if (_passwordController.text ==
-                              _repasswordController.text) {
-                            showLoaderDialog(context, "Registering...");
-                            try {
-                              FirebaseAuth auth = FirebaseAuth.instance;
-                              await auth.createUserWithEmailAndPassword(
-                                email: _emailController.text,
-                                password: _passwordController.text,
-                              );
-                              User user = FirebaseAuth.instance.currentUser;
-                              await user.sendEmailVerification();
-                              final uid = user.uid;
-                              SharedPreferences prefs =
-                                  await SharedPreferences.getInstance();
-                              prefs.setString('uid', uid);
-                              Navigator.pop(context);
-                              showAlertDialog(
-                                  context,
-                                  '/CompleteProfile',
-                                  'Id Created Successfully!',
-                                  'A verification link has been sent to your email id, please verify your email id within 24 hours.');
-                            } on FirebaseAuthException catch (e) {
-                              Navigator.pop(context);
-                              _passwordController.text = "";
-                              _repasswordController.text = "";
-                              _emailController.text = "";
-                              showAlertDialog(context, '', e.code, e.message);
-                            }
-                          } else {
-                            _passwordController.text = "";
-                            _repasswordController.text = "";
-                            _emailController.text = "";
-                            showAlertDialog(context, '', 'Registration failed',
-                                'Passwords do not match');
-                          }
-                        },
-                        child: Text(
-                          'Continue',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 18,
-                            color: const Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  gradient: LinearGradient(
+                    begin: Alignment(-0.97, -0.82),
+                    end: Alignment(0.97, 0.79),
+                    colors: [
+                      const Color(0xfffe4f70),
+                      const Color(0xffcb6bd8)
+                    ],
+                    stops: [0.0, 1.0],
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
                     ),
                   ],
+                ),
+                child: Center(
+                  child: Text(
+                    'Continue',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      color: const Color(0xffffffff),
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
               ),
             ),
