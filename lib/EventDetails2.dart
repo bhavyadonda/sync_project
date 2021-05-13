@@ -52,205 +52,557 @@ class _EventDetails2State extends State<EventDetails2> {
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             Map<dynamic, dynamic> values = snapshot.data;
-            return Stack(
-              children: <Widget>[
-                Positioned(
-                  left: 38,
-                  top: 744,
-                  child: SizedBox(
-                    width: 333.0,
-                    height: 48.0,
-                    child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 333.0, 48.0),
-                          size: Size(333.0, 48.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child:
-                              // Adobe XD layer: 'Button' (shape)
+            return Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      width: 433.0,
+                      height: 242.0,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: const AssetImage('assets/Background Image4.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    RaisedButton(
+                      onPressed: () async {
+                        dynamic result =
+                        await Navigator.pushNamed(context, '/Home');
+                      },
+                      child: SvgPicture.string(
+                        _svg_see9ki,
+                        allowDrawingOutsideViewBox: true,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    // SizedBox(
+                    //     width: MediaQuery.of(context).size.width * 0.80,
+                    //     height: MediaQuery.of(context).size.height * 0.03,
+                    //     child: DecoratedBox(
+                    //       decoration: BoxDecoration(
+                    //           color: Colors.red
+                    //       ),
+                    //     )
+                    // ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.80,
+                      height: MediaQuery.of(context).size.height * 0.182,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: const Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x26000000),
+                            offset: Offset(0, 5),
+                            blurRadius: 10,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
                               Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
-                              gradient: LinearGradient(
-                                begin: Alignment(-0.97, -0.82),
-                                end: Alignment(0.97, 0.79),
-                                colors: [
-                                  const Color(0xfffe4f70),
-                                  const Color(0xffcb6bd8)
+                                height: 55,
+                                width: 55,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                                  color: const Color(0xffffffff),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: const Color(0x29000000),
+                                      offset: Offset(0, 3),
+                                      blurRadius: 6,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 45,
+                                width: 45,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: const AssetImage('assets/Tech Club Logo Big.png'),
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    values['event_name'].toString(),
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 22,
+                                      color: const Color(0xff404040),
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    'By' + values['club'].toString(),
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14,
+                                      color: const Color(0xff9d9d9d),
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.1666666666666667,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ],
-                                stops: [0.0, 1.0],
                               ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () async {
-                            SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                            Map userdata =
-                                json.decode(prefs.getString('userData'));
+                              GestureDetector(
+                                onTap: () async {
+                                  SharedPreferences prefs =
+                                  await SharedPreferences.getInstance();
+                                  Map userdata =
+                                  json.decode(prefs.getString('userData'));
 
-                            final databaseReference =
-                                FirebaseDatabase.instance.reference();
+                                  final databaseReference =
+                                  FirebaseDatabase.instance.reference();
 
-                            if (userdata.keys.toList().contains('registeration')) {
-                              if (userdata['registeration']
-                                  .values
-                                  .toList()
-                                  .contains(id)) {
-                                showLoaderDialog(
-                                    context, "removing registered event...");
+                                  if (userdata.keys.toList().contains('bookmark')) {
+                                    if (userdata['bookmark']
+                                        .values
+                                        .toList()
+                                        .contains(id)) {
+                                      showLoaderDialog(
+                                          context, "removing Bookmark...");
 
-                                await databaseReference
-                                    .child("users/" + uid + '/registeration')
-                                    .child(id)
-                                    .remove();
-                                userdata['registeration'].remove(id);
+                                      await databaseReference
+                                          .child("users/" + uid + '/bookmark')
+                                          .child(id)
+                                          .remove();
+                                      userdata['bookmark'].remove(id);
 
-                                Navigator.pop(context);
-                                showAlertDialog(
-                                    context,
-                                    '/Home',
-                                    'registered event Deleted Successfully',
-                                    'You will now not be notified for the event.');
-                              } else {
-                                showLoaderDialog(
-                                    context, "registering...");
-                                await databaseReference
-                                    .child("users/" + uid + '/registeration')
-                                    .child(id)
-                                    .set(id);
-                                userdata['registeration'] = {id: id};
+                                      Navigator.pop(context);
+                                      showAlertDialog(
+                                          context,
+                                          '/Home',
+                                          'Bookmark Deleted Successfully',
+                                          'You will now not be notified for the event.');
+                                    } else {
+                                      showLoaderDialog(
+                                          context, "Creating Bookmark...");
+                                      await databaseReference
+                                          .child("users/" + uid + '/bookmark')
+                                          .child(id)
+                                          .set(id);
+                                      userdata['bookmark'] = {id: id};
 
-                                Navigator.pop(context);
-                                showAlertDialog(
-                                    context,
-                                    '/Home',
-                                    'registered Successfully',
-                                    'You will now be notified for the registered event.');
-                              }
+                                      Navigator.pop(context);
+                                      showAlertDialog(
+                                          context,
+                                          '/Home',
+                                          'Bookmark Created Successfully',
+                                          'You will now be notified for the bookmarked event.');
+                                    }
 
-                              prefs.setString(
-                                  'userData', json.encode(userdata));
-                            } else {
-                              showLoaderDialog(context, "registering...");
-                              await databaseReference
-                                  .child("users/" + uid + '/registeration')
-                                  .child(id)
-                                  .set(id);
-                              userdata['registeration'] = {id: id};
+                                    prefs.setString(
+                                        'userData', json.encode(userdata));
+                                  } else {
+                                    showLoaderDialog(context, "Creating Bookmark...");
+                                    await databaseReference
+                                        .child("users/" + uid + '/bookmark')
+                                        .child(id)
+                                        .set(id);
+                                    userdata['bookmark'] = {id: id};
 
-                              Navigator.pop(context);
-                              showAlertDialog(
-                                  context,
-                                  '/Home',
-                                  'registered Successfully',
-                                  'You will now be notified for the registered event.');
-                            }
+                                    Navigator.pop(context);
+                                    showAlertDialog(
+                                        context,
+                                        '/Home',
+                                        'Bookmark Created Successfully',
+                                        'You will now be notified for the bookmarked event.');
+                                  }
 
-                            prefs.setString('userData', json.encode(userdata));
-                          
-                          },
-                          child: Pinned.fromSize(
-                            bounds: Rect.fromLTWH(132.5, 14.0, 73.0, 21.0),
-                            size: Size(333.0, 48.0),
-                            child: Text(
-                              'Register',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 18,
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
+                                  prefs.setString('userData', json.encode(userdata));
+                                },
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Container(
+                                      width: 35.0,
+                                      height: 35.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.elliptical(9999.0, 9999.0)),
+                                        color: const Color(0xffffffff),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0x29000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SvgPicture.string(
+                                      _svg_d54sjf,
+                                      allowDrawingOutsideViewBox: true,
+                                    ),
+                                  ],
+                                ),
                               ),
-                              textAlign: TextAlign.left,
-                            ),
+                            ],
                           ),
+                          Row( // Date, Time, Location
+                            children: [
+                              // Column(
+                              //   children: [
+                              //     Stack(
+                              //       children: <Widget>[
+                              //         Pinned.fromSize(
+                              //           bounds: Rect.fromLTWH(0.0, 1.9, 25.0, 23.1),
+                              //           size: Size(25.0, 25.0),
+                              //           child: SvgPicture.string(
+                              //             _svg_2fua5o,
+                              //             allowDrawingOutsideViewBox: true,
+                              //             fit: BoxFit.fill,
+                              //           ),
+                              //         ),
+                              //         Pinned.fromSize(
+                              //           bounds: Rect.fromLTWH(15.4, 15.4, 5.8, 5.8),
+                              //           size: Size(25.0, 25.0),
+                              //           child: SvgPicture.string(
+                              //             _svg_16syn8,
+                              //             allowDrawingOutsideViewBox: true,
+                              //             fit: BoxFit.fill,
+                              //           ),
+                              //         ),
+                              //         Pinned.fromSize(
+                              //           bounds:
+                              //           Rect.fromLTWH(0.0, 7.7, 25.0, 1.9),
+                              //           size: Size(25.0, 25.0),
+                              //           child: SvgPicture.string(
+                              //             _svg_l0a8re,
+                              //             allowDrawingOutsideViewBox: true,
+                              //             fit: BoxFit.fill,
+                              //           ),
+                              //         ),
+                              //         Pinned.fromSize(
+                              //           bounds: Rect.fromLTWH(6.7, 0.0, 1.9, 5.8),
+                              //           size: Size(25.0, 25.0),
+                              //           child: SvgPicture.string(
+                              //             _svg_9yqjhj,
+                              //             allowDrawingOutsideViewBox: true,
+                              //             fit: BoxFit.fill,
+                              //           ),
+                              //         ),
+                              //         Pinned.fromSize(
+                              //           bounds:
+                              //           Rect.fromLTWH(16.3, 0.0, 1.9, 5.8),
+                              //           size: Size(25.0, 25.0),
+                              //           child: SvgPicture.string(
+                              //             _svg_9n2cnq,
+                              //             allowDrawingOutsideViewBox: true,
+                              //             fit: BoxFit.fill,
+                              //           ),
+                              //         ),
+                              //         Pinned.fromSize(
+                              //           bounds:
+                              //           Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
+                              //           size: Size(25.0, 25.0),
+                              //           child: Container(
+                              //             decoration: BoxDecoration(),
+                              //           ),
+                              //         ),
+                              //       ],
+                              //     ),
+                              //     Text(
+                              //       values['event_start_date'].toString(),
+                              //       style: TextStyle(
+                              //         fontFamily: 'Poppins',
+                              //         fontSize: 14,
+                              //         color: const Color(0xff9d9d9d),
+                              //         fontWeight: FontWeight.w500,
+                              //         height: 1.1666666666666667,
+                              //       ),
+                              //       textAlign: TextAlign.center,
+                              //     ),
+                              //   ],
+                              // ),
+                              // Column(
+                              //   children: [
+                              //     Stack(
+                              //       children: <Widget>[
+                              //         Pinned.fromSize(
+                              //           bounds:
+                              //           Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
+                              //           size: Size(25.0, 25.0),
+                              //           child: SvgPicture.string(
+                              //             _svg_zgo1ml,
+                              //             allowDrawingOutsideViewBox: true,
+                              //             fit: BoxFit.fill,
+                              //           ),
+                              //         ),
+                              //         Pinned.fromSize(
+                              //           bounds:
+                              //           Rect.fromLTWH(11.5, 3.8, 7.2, 14.9),
+                              //           size: Size(25.0, 25.0),
+                              //           child: SvgPicture.string(
+                              //             _svg_coyz6r,
+                              //             allowDrawingOutsideViewBox: true,
+                              //             fit: BoxFit.fill,
+                              //           ),
+                              //         ),
+                              //         Pinned.fromSize(
+                              //           bounds:
+                              //           Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
+                              //           size: Size(25.0, 25.0),
+                              //           child: Container(
+                              //             decoration: BoxDecoration(),
+                              //           ),
+                              //         ),
+                              //       ],
+                              //     ),
+                              //     Text(
+                              //       values['event_start_time']
+                              //           .toString()
+                              //           .split(' ')[1]
+                              //           .substring(0, 5),
+                              //       style: TextStyle(
+                              //         fontFamily: 'Poppins',
+                              //         fontSize: 14,
+                              //         color: const Color(0xff9d9d9d),
+                              //         fontWeight: FontWeight.w500,
+                              //         height: 1.1666666666666667,
+                              //       ),
+                              //       textAlign: TextAlign.center,
+                              //     ),
+                              //   ],
+                              // ),
+                              Column(
+                                children: [
+                                  SvgPicture.string(
+                                    _svg_w4c8pt,
+                                    allowDrawingOutsideViewBox: true,
+                                    fit: BoxFit.fill,
+                                  ),
+                                  Text(
+                                    'Santokba\nFoyer',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14,
+                                      color: const Color(0xff9d9d9d),
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.1666666666666667,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            );
+              Stack(
+              children: <Widget>[
+                //Register Button
+                Positioned(
+                  top: 770,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.90,
+                    height: 48.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      gradient: LinearGradient(
+                        begin: Alignment(-0.97, -0.82),
+                        end: Alignment(0.97, 0.79),
+                        colors: [
+                          const Color(0xfffe4f70),
+                          const Color(0xffcb6bd8)
+                        ],
+                        stops: [0.0, 1.0],
+                      ),
+                    ),
+                    child: GestureDetector(
+                      onTap: () async {
+                        SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                        Map userdata =
+                        json.decode(prefs.getString('userData'));
+
+                        final databaseReference =
+                        FirebaseDatabase.instance.reference();
+
+                        if (userdata.keys.toList().contains('registeration')) {
+                          if (userdata['registeration']
+                              .values
+                              .toList()
+                              .contains(id)) {
+                            showLoaderDialog(
+                                context, "removing registered event...");
+
+                            await databaseReference
+                                .child("users/" + uid + '/registeration')
+                                .child(id)
+                                .remove();
+                            userdata['registeration'].remove(id);
+
+                            Navigator.pop(context);
+                            showAlertDialog(
+                                context,
+                                '/Home',
+                                'registered event Deleted Successfully',
+                                'You will now not be notified for the event.');
+                          } else {
+                            showLoaderDialog(
+                                context, "registering...");
+                            await databaseReference
+                                .child("users/" + uid + '/registeration')
+                                .child(id)
+                                .set(id);
+                            userdata['registeration'] = {id: id};
+
+                            Navigator.pop(context);
+                            showAlertDialog(
+                                context,
+                                '/Home',
+                                'registered Successfully',
+                                'You will now be notified for the registered event.');
+                          }
+
+                          prefs.setString(
+                              'userData', json.encode(userdata));
+                        } else {
+                          showLoaderDialog(context, "registering...");
+                          await databaseReference
+                              .child("users/" + uid + '/registeration')
+                              .child(id)
+                              .set(id);
+                          userdata['registeration'] = {id: id};
+
+                          Navigator.pop(context);
+                          showAlertDialog(
+                              context,
+                              '/Home',
+                              'registered Successfully',
+                              'You will now be notified for the registered event.');
+                        }
+
+                        prefs.setString('userData', json.encode(userdata));
+
+                      },
+                      child: Center(
+                        child: Text(
+                          'Register',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 18,
+                            color: const Color(0xffffffff),
+                            fontWeight: FontWeight.w600,
+                          ),
+                          textAlign: TextAlign.left,
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
+                // Gallery Images
                 Positioned(
                   left: 38,
                   top: 498,
-                  child: SizedBox(
-                    width: 333.0,
-                    height: 211.0,
-                    child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(176.0, 105.0, 157.0, 121.0),
-                          size: Size(333.0, 211.0),
-                          pinRight: true,
-                          pinBottom: true,
-                          fixedWidth: true,
-                          fixedHeight: true,
-                          child:
-                              // Adobe XD layer: 'Image 3' (shape)
-                              Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0),
-                              image: DecorationImage(
-                                image: const AssetImage(
-                                    'assets/Background Image3.png'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(176.0, 0.0, 157.0, 97.0),
-                          size: Size(333.0, 211.0),
-                          pinRight: true,
-                          pinTop: true,
-                          fixedWidth: true,
-                          fixedHeight: true,
-                          child:
-                              // Adobe XD layer: 'Image 2' (shape)
-                              Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0),
-                              image: DecorationImage(
-                                image: const AssetImage(
-                                    'assets/Background Image3.png'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 167.0, 215.0),
-                          size: Size(333.0, 200.0),
-                          pinLeft: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          fixedWidth: true,
-                          child:
-                              // Adobe XD layer: 'Image 1' (shape)
-                              Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0),
-                              image: DecorationImage(
-                                image: NetworkImage(values['event_pic']),
-                                fit: BoxFit.cover,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x29000000),
-                                  offset: Offset(7, 7),
-                                  blurRadius: 80,
+                  child: DecoratedBox(
+                    decoration: const BoxDecoration(
+                      color: Colors.red
+          ),
+                    child: SizedBox(
+                      width: 333.0,
+                      height: 211.0, //211
+                      child: Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(176.0, 105.0, 157.0, 121.0),
+                            size: Size(333.0, 211.0),
+                            pinRight: true,
+                            pinBottom: true,
+                            fixedWidth: true,
+                            fixedHeight: true,
+                            child:
+                                // Adobe XD layer: 'Image 3' (shape)
+                                Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                image: DecorationImage(
+                                  image: const AssetImage(
+                                      'assets/Background Image3.png'),
+                                  fit: BoxFit.cover,
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(176.0, 0.0, 157.0, 97.0),
+                            size: Size(333.0, 211.0),
+                            pinRight: true,
+                            pinTop: true,
+                            fixedWidth: true,
+                            fixedHeight: true,
+                            child:
+                                // Adobe XD layer: 'Image 2' (shape)
+                                Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                image: DecorationImage(
+                                  image: const AssetImage(
+                                      'assets/Background Image3.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 167.0, 215.0),
+                            size: Size(333.0, 200.0),
+                            pinLeft: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            fixedWidth: true,
+                            child:
+                                // Adobe XD layer: 'Image 1' (shape)
+                                Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                image: DecorationImage(
+                                  image: NetworkImage(values['event_pic']),
+                                  fit: BoxFit.cover,
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x29000000),
+                                    offset: Offset(7, 7),
+                                    blurRadius: 80,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
+                // Gallery Text
                 Positioned(
                   left: 38,
                   top: 460,
@@ -265,6 +617,7 @@ class _EventDetails2State extends State<EventDetails2> {
                     textAlign: TextAlign.left,
                   ),
                 ),
+                // DEscription Text
                 Positioned(
                   left: 57,
                   top: 334,
@@ -293,6 +646,7 @@ class _EventDetails2State extends State<EventDetails2> {
                     ),
                   ),
                 ),
+                // Info Card
                 Positioned(
                   left: 38,
                   top: 127,
@@ -456,7 +810,7 @@ class _EventDetails2State extends State<EventDetails2> {
                               Stack(
                             children: <Widget>[
                               Pinned.fromSize(
-                                bounds: Rect.fromLTWH(-3.0, 28.0, 66.0, 31.0),
+                                bounds: Rect.fromLTWH(-3.0, 28.0, 73.0, 31.0), //width = 66
                                 size: Size(56.0, 59.0),
                                 pinLeft: true,
                                 pinRight: true,
@@ -485,8 +839,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                     Stack(
                                   children: <Widget>[
                                     Pinned.fromSize(
-                                      bounds:
-                                          Rect.fromLTWH(0.0, 1.9, 25.0, 23.1),
+                                      bounds: Rect.fromLTWH(0.0, 1.9, 25.0, 23.1),
                                       size: Size(25.0, 25.0),
                                       child: SvgPicture.string(
                                         _svg_2fua5o,
@@ -495,8 +848,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                       ),
                                     ),
                                     Pinned.fromSize(
-                                      bounds:
-                                          Rect.fromLTWH(15.4, 15.4, 5.8, 5.8),
+                                      bounds: Rect.fromLTWH(15.4, 15.4, 5.8, 5.8),
                                       size: Size(25.0, 25.0),
                                       child: SvgPicture.string(
                                         _svg_16syn8,
@@ -548,7 +900,7 @@ class _EventDetails2State extends State<EventDetails2> {
                           ),
                         ),
                         Pinned.fromSize(
-                          bounds: Rect.fromLTWH(-16.0, 86.0, 204.0, 17.0),
+                          bounds: Rect.fromLTWH(0.0, 86.0, 204.0, 17.0), //-16
                           size: Size(333.0, 185.0),
                           pinLeft: true,
                           fixedWidth: true,
@@ -747,6 +1099,89 @@ class _EventDetails2State extends State<EventDetails2> {
                   ),
                 ),
                 Positioned(
+                  top: 350,
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.80,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                    color: Colors.red
+                                ),
+                              )
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.80,
+                            height: MediaQuery.of(context).size.height * 0.182,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x26000000),
+                                  offset: Offset(0, 5),
+                                  blurRadius: 10,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        children: <Widget>[
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(0.0, 0.0, 55.0, 55.0),
+                            size: Size(55.0, 55.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child:
+                            // Adobe XD layer: 'Logo Circle' (shape)
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0xffffffff),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x29000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Pinned.fromSize(
+                            bounds: Rect.fromLTWH(5.0, 5.0, 45.0, 45.0),
+                            size: Size(55.0, 55.0),
+                            pinLeft: true,
+                            pinRight: true,
+                            pinTop: true,
+                            pinBottom: true,
+                            child:
+                            // Adobe XD layer: 'Tech Club Logo' (shape)
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: const AssetImage(
+                                      'assets/Tech Club Logo Big.png'),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                // Back Button
+                Positioned(
                   left: 0,
                   top: 35,
                   child: FlatButton(
@@ -762,17 +1197,17 @@ class _EventDetails2State extends State<EventDetails2> {
                 ),
               ],
             );
-            // return new Column(
-            //   children: [
-            //     Text('Club: ' + values['club'].toString()),
-            //     Text('Name: ' + values['event_name'].toString()),
-            //     Image.network(values['event_pic'].toString(),
-            //         width: 300, height: 150, fit: BoxFit.fill),
-            //     Text('Description: ' + values['description'].toString()),
-            //     Text('Date: ' + values['event_date'].toString()),
-            //     Text('Time: ' + values['event_time'].toString()),
-            //   ],
-            // );
+            return new Column(
+              children: [
+                Text('Club: ' + values['club'].toString()),
+                Text('Name: ' + values['event_name'].toString()),
+                Image.network(values['event_pic'].toString(),
+                    width: 300, height: 150, fit: BoxFit.fill),
+                Text('Description: ' + values['description'].toString()),
+                Text('Date: ' + values['event_date'].toString()),
+                Text('Time: ' + values['event_time'].toString()),
+              ],
+            );
           }
           return CircularProgressIndicator();
         });
