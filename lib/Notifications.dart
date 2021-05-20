@@ -14,9 +14,14 @@ class Notifications extends StatefulWidget {
 class _NotificationsState extends State<Notifications> {
   getdata() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List messages = json.decode(prefs.getString('messages') ?? '');
-    print(messages);
-    return messages;
+    String data = prefs.getString('messages') ?? '';
+    List messages = [];
+    if (data != '') {
+      messages = json.decode(data);
+      return messages;
+    } else {
+      return [];
+    }
   }
 
   @override
@@ -37,9 +42,7 @@ class _NotificationsState extends State<Notifications> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: const DecoratedBox(
-                decoration: const BoxDecoration(
-                    color: Colors.black12
-                ),
+                decoration: const BoxDecoration(color: Colors.black12),
               ),
             ),
           ),
@@ -61,8 +64,8 @@ class _NotificationsState extends State<Notifications> {
                         pinTop: true,
                         pinBottom: true,
                         child:
-                        // Adobe XD layer: 'Bell Gradient Circle' (shape)
-                        SvgPicture.string(
+                            // Adobe XD layer: 'Bell Gradient Circle' (shape)
+                            SvgPicture.string(
                           _svg_bmep7c,
                           allowDrawingOutsideViewBox: true,
                           fit: BoxFit.fill,
@@ -72,8 +75,8 @@ class _NotificationsState extends State<Notifications> {
                         bounds: Rect.fromLTWH(12.6, 30.0, 27.0, 29.3),
                         size: Size(88.2, 89.3),
                         child:
-                        // Adobe XD layer: 'Bell Icon' (shape)
-                        SvgPicture.string(
+                            // Adobe XD layer: 'Bell Icon' (shape)
+                            SvgPicture.string(
                           _svg_kcgqpm,
                           allowDrawingOutsideViewBox: true,
                           fit: BoxFit.fill,
@@ -148,7 +151,7 @@ class _NotificationsState extends State<Notifications> {
                               itemBuilder: (BuildContext context, int index) {
                                 return Padding(
                                   padding:
-                                  const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
                                   child: SizedBox(
                                     width: 239.0,
                                     height: 120.0,
@@ -163,16 +166,16 @@ class _NotificationsState extends State<Notifications> {
                                           pinTop: true,
                                           pinBottom: true,
                                           child:
-                                          // Adobe XD layer: 'Notification Rectan…' (shape)
-                                          Container(
+                                              // Adobe XD layer: 'Notification Rectan…' (shape)
+                                              Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                              BorderRadius.circular(15.0),
+                                                  BorderRadius.circular(15.0),
                                               color: const Color(0xffffffff),
                                               boxShadow: [
                                                 BoxShadow(
                                                   color:
-                                                  const Color(0x29000000),
+                                                      const Color(0x29000000),
                                                   offset: Offset(0, 3),
                                                   blurRadius: 6,
                                                 ),
@@ -190,14 +193,14 @@ class _NotificationsState extends State<Notifications> {
                                           fixedHeight: true,
                                           child: SingleChildScrollView(
                                               child: Text(
-                                                values[index]['body'],
-                                                style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 13,
-                                                  color: const Color(0xff9d9d9d),
-                                                ),
-                                                textAlign: TextAlign.right,
-                                              )),
+                                            values[index]['body'],
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 13,
+                                              color: const Color(0xff9d9d9d),
+                                            ),
+                                            textAlign: TextAlign.right,
+                                          )),
                                         ),
                                         Pinned.fromSize(
                                           bounds: Rect.fromLTWH(
@@ -243,8 +246,8 @@ class _NotificationsState extends State<Notifications> {
                                           fixedWidth: true,
                                           fixedHeight: true,
                                           child:
-                                          // Adobe XD layer: 'Club Logo' (group)
-                                          Stack(
+                                              // Adobe XD layer: 'Club Logo' (group)
+                                              Stack(
                                             children: <Widget>[
                                               Pinned.fromSize(
                                                 bounds: Rect.fromLTWH(
@@ -255,16 +258,16 @@ class _NotificationsState extends State<Notifications> {
                                                 pinTop: true,
                                                 pinBottom: true,
                                                 child:
-                                                // Adobe XD layer: 'Logo CIrcle' (shape)
-                                                Container(
+                                                    // Adobe XD layer: 'Logo CIrcle' (shape)
+                                                    Container(
                                                   decoration: BoxDecoration(
                                                     borderRadius:
-                                                    BorderRadius.all(
-                                                        Radius.elliptical(
-                                                            9999.0,
-                                                            9999.0)),
+                                                        BorderRadius.all(
+                                                            Radius.elliptical(
+                                                                9999.0,
+                                                                9999.0)),
                                                     color:
-                                                    const Color(0xffffffff),
+                                                        const Color(0xffffffff),
                                                     boxShadow: [
                                                       BoxShadow(
                                                         color: const Color(
@@ -285,8 +288,8 @@ class _NotificationsState extends State<Notifications> {
                                                 pinTop: true,
                                                 pinBottom: true,
                                                 child:
-                                                // Adobe XD layer: 'Tech Club Logo' (shape)
-                                                Container(
+                                                    // Adobe XD layer: 'Tech Club Logo' (shape)
+                                                    Container(
                                                   decoration: BoxDecoration(
                                                     image: DecorationImage(
                                                       image: const AssetImage(

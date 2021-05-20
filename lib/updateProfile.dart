@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import './Homepage.dart';
@@ -23,6 +22,8 @@ class UpdateProfile extends StatefulWidget {
 
 class _UpdateProfileState extends State<UpdateProfile> {
   File _image;
+  String img_name;
+  List listData;
   TextEditingController _name = TextEditingController();
   TextEditingController _course = TextEditingController();
   TextEditingController _sapID = TextEditingController();
@@ -34,10 +35,16 @@ class _UpdateProfileState extends State<UpdateProfile> {
     getdata();
   }
 
-  getdata() async {
+  Future getdata() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map data = json.decode(prefs.getString('userData'));
-    print(data);
+    listData = data.values.toList();
+    _name.text = data['name'];
+    _course.text = data['course'];
+    _yearOfStudy.text = data['year'];
+    _sapID.text = data['SAP'];
+    _phoneNumber.text = data['phone'];
+    img_name = data['profile_pic'].split('%2F')[1].split('?alt')[0];
     return data;
   }
 
@@ -47,40 +54,68 @@ class _UpdateProfileState extends State<UpdateProfile> {
       try {
         SharedPreferences prefs = await SharedPreferences.getInstance();
         final uid = prefs.getString('uid') ?? '';
-
-        String fileName = basename(_image.path);
-        firebase_storage.Reference firebaseStorageRef = firebase_storage
-            .FirebaseStorage.instance
-            .ref()
-            .child('profile_pictures/' + fileName);
-        firebase_storage.UploadTask uploadTask =
-            firebaseStorageRef.putFile(_image);
-        firebase_storage.TaskSnapshot taskSnapshot =
-            await uploadTask.whenComplete(() => null);
-        String downloadUrl = await taskSnapshot.ref.getDownloadURL();
-
-        final databaseReference = FirebaseDatabase.instance.reference();
-        await databaseReference.child("users/" + uid).set({
-          'profile_pic': downloadUrl,
-          'name': _name.text,
-          'course': _course.text,
-          'year': _yearOfStudy.text,
-          'SAP': _sapID.text,
-          'phone': _phoneNumber.text,
-        });
+        if (_image != null) {
+          var desertRef = firebase_storage.FirebaseStorage.instance
+              .ref()
+              .child('profile_pictures/' + img_name);
+          await desertRef
+              .delete()
+              .then((value) => print('deleted successfully.'));
+          String fileName = basename(_image.path);
+          firebase_storage.Reference firebaseStorageRef = firebase_storage
+              .FirebaseStorage.instance
+              .ref()
+              .child('profile_pictures/' + fileName);
+          firebase_storage.UploadTask uploadTask =
+              firebaseStorageRef.putFile(_image);
+          firebase_storage.TaskSnapshot taskSnapshot =
+              await uploadTask.whenComplete(() => null);
+          String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+          final databaseReference = FirebaseDatabase.instance.reference();
+          await databaseReference
+              .child("users/" + uid)
+              .update({
+                'profile_pic': downloadUrl,
+                'name': _name.text,
+                'course': _course.text,
+                'year': _yearOfStudy.text,
+                'SAP': _sapID.text,
+                'phone': _phoneNumber.text,
+              })
+              .then((value) => print('success'))
+              .catchError((error) {
+                print(error);
+              });
+        } else {
+          final databaseReference = FirebaseDatabase.instance.reference();
+          await databaseReference
+              .child("users/" + uid)
+              .update({
+                'name': _name.text,
+                'course': _course.text,
+                'year': _yearOfStudy.text,
+                'SAP': _sapID.text,
+                'phone': _phoneNumber.text,
+              })
+              .then((value) => print('success'))
+              .catchError((error) {
+                print(error);
+              });
+        }
 
         Navigator.pop(context);
-        showAlertDialog(context, '/SignIn', 'Profile Created Successfully',
-            'You can now login to start using the application.');
+        showAlertDialog(
+            context, '/Home', 'Success', 'Profile Updated Successfully');
       } catch (e) {
+        print(e);
         Navigator.pop(context);
         _name.text = '';
         _course.text = '';
         _yearOfStudy.text = '';
         _sapID.text = '';
         _phoneNumber.text = '';
-        showAlertDialog(context, '', e.toString().split('(')[1].split(',')[0],
-            e.toString().split(', ')[1].split(',')[0]);
+        // showAlertDialog(context, '', e.toString().split('(')[1].split(',')[0],
+        //     e.toString().split(', ')[1].split(',')[0]);
       }
     }
 
@@ -740,28 +775,36 @@ class _UpdateProfileState extends State<UpdateProfile> {
                             ),
                           ),
                         ),
-                        Transform.translate(
-                          offset: Offset(0.0, 19.3),
-                          child: ClipOval(
-                            child: new SizedBox(
-                                // width: 180.0,
-                                // height: 180.0,
-                                child: (_image != null)
-                                    ? Image.file(
-                                        _image,
-                                        fit: BoxFit.fill,
-                                      )
-                                    : GestureDetector(
-                                        onTap: () {
-                                          getImage();
-                                        },
-                                        child: SvgPicture.string(
-                                          _svg_maxgtd,
-                                          allowDrawingOutsideViewBox: true,
-                                        ),
-                                      )),
-                          ),
-                        ),
+                        FutureBuilder(
+                            future: getdata(),
+                            builder: (context, AsyncSnapshot snapshot) {
+                              if (snapshot.hasData) {
+                                Map<dynamic, dynamic> values = snapshot.data;
+                                return Transform.translate(
+                                  offset: Offset(0.0, 19.3),
+                                  child: ClipOval(
+                                    child: new SizedBox(
+                                        // width: 180.0,
+                                        // height: 180.0,
+                                        child: (_image != null)
+                                            ? Image.file(
+                                                _image,
+                                                fit: BoxFit.fill,
+                                              )
+                                            : GestureDetector(
+                                                onTap: () {
+                                                  getImage();
+                                                },
+                                                child: Image.network(
+                                                  values['profile_pic'],
+                                                ),
+                                              )),
+                                  ),
+                                );
+                              } else {
+                                return Container();
+                              }
+                            }),
                       ],
                     ),
                   ),
