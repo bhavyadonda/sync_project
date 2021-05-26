@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter/services.dart';
@@ -7,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import './SignUp.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'methods.dart';
 
 class Intro5 extends StatelessWidget {
@@ -18,131 +16,40 @@ class Intro5 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: <Widget>[
-          //51, 206
-          Positioned(
-            left: 188,
-            top: 730,
-            child: Text(
-              '(5/5)',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
-                color: const Color(0xffb6b6b6),
-                fontWeight: FontWeight.w300,
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: Colors.white,
+      ),
+      body: Column(
+        children: [
+          Center(
+            //Sync Logo
+            child: Container(
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  // enter variable
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                ),
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: const Color(0x45000000),
+                //     offset: Offset(0, 3),
+                //     blurRadius: 80,
+                //   ),
+                // ],
               ),
-              textAlign: TextAlign.left,
             ),
           ),
-          Positioned(
-            left: 68,
-            top: 667,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
             child: SizedBox(
-              width: 273.0,
-              height: 48.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-                    size: Size(273.0, 48.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                        // Adobe XD layer: 'Button' (shape)
-                        GestureDetector(
-                      onTap: () async {
-                        SharedPreferences prefs =
-                            await SharedPreferences.getInstance();
-                        prefs.setBool('firstOpen', true);
-                        showAlertDialog(context, 'exit', 'Restart App',
-                            'Please close this App runnig in Background and Re-launch the App to continue');
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          gradient: LinearGradient(
-                            begin: Alignment(-0.97, -0.82),
-                            end: Alignment(0.97, 0.79),
-                            colors: [
-                              const Color(0xfffe4f70),
-                              const Color(0xffcb6bd8)
-                            ],
-                            stops: [0.0, 1.0],
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () async {
-                      SharedPreferences prefs =
-                          await SharedPreferences.getInstance();
-                      prefs.setBool('firstOpen', true);
-                      showAlertDialog(context, 'exit', 'Restart App',
-                          'Please close this App runnig in Background and Re-launch the App to continue');
-                    },
-                    child: Pinned.fromSize(
-                      bounds: Rect.fromLTWH(117.0, 12.0, 44.0, 21.0),
-                      size: Size(273.0, 48.0),
-                      child: Text(
-                        'Next',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                          color: const Color(0xffffffff),
-                          fontWeight: FontWeight.w600,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 55,
-            top: 540,
-            child: Text(
-              'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 17,
-                color: const Color(0xff9d9d9d),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Positioned(
-            left: 93,
-            top: 497,
-            child: Text(
-              'Use advanced filters!',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 24,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Positioned(
-            left: 13,
-            top: 108,
-            child: SizedBox(
-              width: 385.0,
+              width: MediaQuery.of(context).size.width * 0.90,
               height: 7.0,
               child: Stack(
                 children: <Widget>[
@@ -154,8 +61,8 @@ class Intro5 extends StatelessWidget {
                     pinTop: true,
                     pinBottom: true,
                     child:
-                        // Adobe XD layer: 'Bar' (shape)
-                        Container(
+                    // Adobe XD layer: 'Bar' (shape)
+                    Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4.0),
                         color: const Color(0xffffffff),
@@ -177,8 +84,8 @@ class Intro5 extends StatelessWidget {
                     pinTop: true,
                     pinBottom: true,
                     child:
-                        // Adobe XD layer: 'Progress' (shape)
-                        Container(
+                    // Adobe XD layer: 'Progress' (shape)
+                    Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4.0),
                         gradient: LinearGradient(
@@ -204,32 +111,10 @@ class Intro5 extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            left: 173,
-            top: 39,
-            child: Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 71,
-            top: 206.6,
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.475,
+            alignment: Alignment.center,
             child: SizedBox(
               width: 273.0,
               height: 226.0,
@@ -466,7 +351,7 @@ class Intro5 extends StatelessWidget {
                       height: 8.7,
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -478,7 +363,7 @@ class Intro5 extends StatelessWidget {
                       height: 7.9,
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -544,7 +429,7 @@ class Intro5 extends StatelessWidget {
                       height: 7.5,
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -556,7 +441,7 @@ class Intro5 extends StatelessWidget {
                       height: 6.8,
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -1035,7 +920,7 @@ class Intro5 extends StatelessWidget {
                       height: 13.7,
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -1061,11 +946,95 @@ class Intro5 extends StatelessWidget {
               ),
             ),
           ),
+          Text(
+            'Use advanced filters!',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 24,
+              color: const Color(0xff404040),
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.left,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+            child: Text(
+              'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 17,
+                color: const Color(0xff9d9d9d),
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
+          GestureDetector(
+            onTap: () async {
+              SharedPreferences prefs =
+              await SharedPreferences.getInstance();
+              prefs.setBool('firstOpen', true);
+              showAlertDialog(context, 'exit', 'Restart App',
+                  'Please close this App runnig in Background and Re-launch the App to continue');
+            },
+            child: Container(
+              height: 48,
+              width: MediaQuery.of(context).size.width * 0.70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                gradient: LinearGradient(
+                  begin: Alignment(-0.97, -0.82),
+                  end: Alignment(0.97, 0.79),
+                  colors: [
+                    const Color(0xfffe4f70),
+                    const Color(0xffcb6bd8)
+                  ],
+                  stops: [0.0, 1.0],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x29000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 6,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                    color: const Color(0xffffffff),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+            child: Text(
+              '(5/5)',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 16,
+                color: const Color(0xffb6b6b6),
+                fontWeight: FontWeight.w300,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
         ],
       ),
     );
   }
 }
+
 
 const String _svg_gmvn7n =
     '<svg viewBox="0.0 0.0 8.5 9.5" ><defs><linearGradient id="gradient" x1="10.537167" y1="8.57607" x2="10.537167" y2="7.03511"><stop offset="0.0" stop-color="#40808080" stop-opacity="0.25" /><stop offset="0.54" stop-color="#1f808080" stop-opacity="0.12" /><stop offset="1.0" stop-color="#1a808080" stop-opacity="0.1" /></linearGradient></defs><path transform="matrix(0.01, -1.0, 1.0, 0.01, 0.0, 9.44)" d="M 0 0 L 9.43112850189209 0.006371594965457916 L 9.436469078063965 8.443804740905762 L 0.005339561961591244 8.437433242797852 L 0 0 Z" fill="url(#gradient)" fill-opacity="0.25" stroke="none" stroke-width="1" stroke-opacity="0.25" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
