@@ -406,69 +406,33 @@ class _SignInState extends State<SignIn> {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.23,
+              height: MediaQuery.of(context).size.height * 0.13,
             ),
-            // SizedBox(
-            //   width: MediaQuery.of(context).size.width,
-            //   height: MediaQuery.of(context).size.height * 0.73,
-            //   child: Column(
-            //     children: [
-            //
-            //     ],
-            //   ),
-            // ),
             Padding(
-              // Don't Have an Account
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-              child: PageLink(
-                links: [
-                  PageLinkInfo(
-                    transition: LinkTransition.Fade,
-                    ease: Curves.easeOut,
-                    duration: 0.3,
-                    pageBuilder: () => SignUp(),
+              child: Text.rich(
+                TextSpan(
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 15,
+                    color: const Color(0xff9d9d9d),
                   ),
-                ],
-                child: SizedBox(
-                  width: 207.0,
-                  height: 17.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 210.0, 17.0),
-                        size: Size(190.0, 17.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child: Text.rich(
-                          TextSpan(
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 15,
-                              color: const Color(0xff9d9d9d),
-                            ),
-                            children: [
-                              TextSpan(
-                                text: 'Don\'t have an account? ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'Sign Up',
-                                style: TextStyle(
-                                  color: const Color(0xff000000),
-                                ),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
+                  children: [
+                    TextSpan(
+                      text: 'Don\'t have an account? ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w300,
                       ),
-                    ],
-                  ),
+                    ),
+                    TextSpan(
+                      text: 'Sign Up',
+                      style: TextStyle(
+                        color: const Color(0xff000000),
+                      ),
+                    ),
+                  ],
                 ),
+                textAlign: TextAlign.left,
               ),
             ),
             InkWell(
