@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.017" y1="0.088" x2="0.984" y2="0.895" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fe4f70"/>
+      <stop offset="1" stop-color="#cb6bd8"/>
+    </linearGradient>
+  </defs>
+  <g id="Time_Icon" data-name="Time Icon" transform="translate(-175 -242)">
+    <path id="Circle" d="M15.5,28A12.5,12.5,0,1,1,28,15.5,12.5,12.5,0,0,1,15.5,28Zm0-23.077A10.577,10.577,0,1,0,26.077,15.5,10.577,10.577,0,0,0,15.5,4.923Z" transform="translate(172 239)" fill="url(#linear-gradient)"/>
+    <path id="Time_Hand" data-name="Time Hand" d="M21.25,21.9a.962.962,0,0,1-.683-.279l-5.288-5.288A.962.962,0,0,1,15,15.654V7.962a.962.962,0,1,1,1.923,0v7.3l5.01,5A.962.962,0,0,1,21.25,21.9Z" transform="translate(171.539 238.846)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
