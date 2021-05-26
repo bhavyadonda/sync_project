@@ -35,7 +35,7 @@ dependencies:
   table_calendar: ^2.3.3
   image_picker: ^0.5.3+1
   intl: ^0.17.0
-  firebase_messaging: ^9.1.0
+  firebase_messaging: ^10.0.0
   firebase_core: ^1.0.2
   firebase_core_platform_interface: ^4.0.0
   firebase_storage_web: ^1.0.2
@@ -72,6 +72,8 @@ flutter:
     - assets/Background Image4.png
     - assets/Background Image1.png
     - assets/Profile Circle.png
+    - assets/Time Icon.png
+    - assets/Calendar Icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
