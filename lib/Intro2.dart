@@ -4,100 +4,818 @@ import './Intro3.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Intro2 extends StatelessWidget {
-  Intro2({
-    Key key,
-  }) : super(key: key);
+// class Intro2 extends StatelessWidget {
+//   Intro2({
+//     Key key,
+//   }) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xffffffff),
+//       body: Stack(
+//         children: <Widget>[
+//           Positioned(
+//             left: 188,
+//             top: 730,
+//             child: Text(
+//                 '(2/5)',
+//                 style: TextStyle(
+//             fontFamily: 'Poppins',
+//             fontSize: 16,
+//             color: const Color(0xffb6b6b6),
+//             fontWeight: FontWeight.w300,
+//                 ),
+//                 textAlign: TextAlign.left,
+//               ),
+//           ),
+//           Positioned(
+//             left: 68,
+//             top: 667,
+//             child: PageLink(
+//                 links: [
+//             PageLinkInfo(
+//               transition: LinkTransition.Fade,
+//               ease: Curves.easeOut,
+//               duration: 0.3,
+//               pageBuilder: () => Intro3(),
+//             ),
+//                 ],
+//                 child: SizedBox(
+//             width: 273.0,
+//             height: 48.0,
+//             child: Stack(
+//               children: <Widget>[
+//                 Pinned.fromSize(
+//                   bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
+//                   size: Size(273.0, 48.0),
+//                   pinLeft: true,
+//                   pinRight: true,
+//                   pinTop: true,
+//                   pinBottom: true,
+//                   child:
+//                       // Adobe XD layer: 'Button' (shape)
+//                       Container(
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.circular(10.0),
+//                       gradient: LinearGradient(
+//                         begin: Alignment(-0.97, -0.82),
+//                         end: Alignment(0.97, 0.79),
+//                         colors: [
+//                           const Color(0xfffe4f70),
+//                           const Color(0xffcb6bd8)
+//                         ],
+//                         stops: [0.0, 1.0],
+//                       ),
+//                       boxShadow: [
+//                         BoxShadow(
+//                           color: const Color(0x29000000),
+//                           offset: Offset(0, 3),
+//                           blurRadius: 6,
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//                 Pinned.fromSize(
+//                   bounds: Rect.fromLTWH(117.0, 12.0, 44.0, 21.0),
+//                   size: Size(273.0, 48.0),
+//                   child: Text(
+//                     'Next',
+//                     style: TextStyle(
+//                       fontFamily: 'Poppins',
+//                       fontSize: 18,
+//                       color: const Color(0xffffffff),
+//                       fontWeight: FontWeight.w600,
+//                     ),
+//                     textAlign: TextAlign.left,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 55,
+//             top: 540,
+//             child: Text(
+//               'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 17,
+//                 color: const Color(0xff9d9d9d),
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           Positioned(
+//             left: 87,
+//             top: 497,
+//             child: Text(
+//               'Get notified Instantly!',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 24,
+//                 color: const Color(0xff404040),
+//                 fontWeight: FontWeight.w600,
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           Positioned(
+//             left: 71,
+//             top: 206.6,
+//             child: SizedBox(
+//                 width: 273.0,
+//                 height: 226.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Transform.translate(
+//                 offset: Offset(78.7, 2.3),
+//                 child: SvgPicture.string(
+//                   _svg_y68b4v,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(113.0, 146.1),
+//                 child: Container(
+//                   width: 17.2,
+//                   height: 20.5,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(22.0, 221.0),
+//                 child: SvgPicture.string(
+//                   _svg_13929g,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(93.5, 67.7),
+//                 child: Container(
+//                   width: 90.9,
+//                   height: 21.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffe6e6e6),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(93.5, 33.9),
+//                 child: Container(
+//                   width: 90.9,
+//                   height: 21.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffe6e6e6),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(93.5, 0.0),
+//                 child: Container(
+//                   width: 90.9,
+//                   height: 21.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffe6e6e6),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(95.4, 2.3),
+//                 child: SvgPicture.string(
+//                   _svg_3bj4xp,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(97.7, 4.2),
+//                 child: Container(
+//                   width: 10.7,
+//                   height: 12.8,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(115.9, 8.1),
+//                 child: Container(
+//                   width: 52.9,
+//                   height: 1.4,
+//                   decoration: BoxDecoration(
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(115.9, 11.7),
+//                 child: Container(
+//                   width: 52.9,
+//                   height: 1.4,
+//                   decoration: BoxDecoration(
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(97.7, 38.4),
+//                 child: Container(
+//                   width: 10.7,
+//                   height: 12.8,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     color: const Color(0xffcccccc),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(115.9, 42.3),
+//                 child: Container(
+//                   width: 52.9,
+//                   height: 1.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffcccccc),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(115.9, 45.9),
+//                 child: Container(
+//                   width: 52.9,
+//                   height: 1.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffcccccc),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(97.7, 72.2),
+//                 child: Container(
+//                   width: 10.7,
+//                   height: 12.8,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     color: const Color(0xffcccccc),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(115.9, 76.1),
+//                 child: Container(
+//                   width: 52.9,
+//                   height: 1.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffcccccc),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(115.9, 79.7),
+//                 child: Container(
+//                   width: 52.9,
+//                   height: 1.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffcccccc),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(0.0, 51.2),
+//                 child: SizedBox(
+//                   width: 51.0,
+//                   height: 175.0,
+//                   child: Stack(
+//                     children: <Widget>[
+//                       Transform.translate(
+//                         offset: Offset(0.0, 78.5),
+//                         child: SvgPicture.string(
+//                           _svg_bitp8k,
+//                           allowDrawingOutsideViewBox: true,
+//                         ),
+//                       ),
+//                       Transform.translate(
+//                         offset: Offset(11.8, 1.6),
+//                         child: Container(
+//                           width: 19.8,
+//                           height: 21.5,
+//                           decoration: BoxDecoration(
+//                             borderRadius: BorderRadius.all(
+//                                 Radius.elliptical(9999.0, 9999.0)),
+//                             color: const Color(0xffffb8b8),
+//                           ),
+//                         ),
+//                       ),
+//                       Transform.translate(
+//                         offset: Offset(2.9, 0.0),
+//                         child: SvgPicture.string(
+//                           _svg_x4wha6,
+//                           allowDrawingOutsideViewBox: true,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 108,
+//             child: SizedBox(
+//                 width: 385.0,
+//                 height: 7.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
+//                 size: Size(349.0, 7.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Bar' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(4.0),
+//                     color: const Color(0xffffffff),
+//                     boxShadow: [
+//                       BoxShadow(
+//                         color: const Color(0x1a000000),
+//                         offset: Offset(0, 3),
+//                         blurRadius: 6,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 139.6, 7.0),
+//                 size: Size(349.0, 7.0),
+//                 pinLeft: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 child:
+//                     // Adobe XD layer: 'Progress' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(4.0),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                     boxShadow: [
+//                       BoxShadow(
+//                         color: const Color(0x1a000000),
+//                         offset: Offset(0, 3),
+//                         blurRadius: 80,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 173,
+//             top: 39,
+//             child: Container(
+//                 width: 64.0,
+//                 height: 37.0,
+//                 decoration: BoxDecoration(
+//             image: DecorationImage(
+//               image: const AssetImage('assets/Sync Logo.png'),
+//               fit: BoxFit.fill,
+//               colorFilter: new ColorFilter.mode(
+//                   Colors.black.withOpacity(0.7), BlendMode.dstIn),
+//             ),
+//             boxShadow: [
+//               BoxShadow(
+//                 color: const Color(0x45000000),
+//                 offset: Offset(0, 3),
+//                 blurRadius: 80,
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+class Intro2 extends StatefulWidget {
+  const Intro2({Key key}) : super(key: key);
+
+  @override
+  _Intro2State createState() => _Intro2State();
+}
+
+class _Intro2State extends State<Intro2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            left: 188,
-            top: 730,
-            child: Text(
-                '(2/5)',
-                style: TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
-            color: const Color(0xffb6b6b6),
-            fontWeight: FontWeight.w300,
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: Colors.white,
+      ),
+      body: Column(
+        children: [
+          Center(
+            //Sync Logo
+            child: Container(
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  // enter variable
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
                 ),
-                textAlign: TextAlign.left,
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: const Color(0x45000000),
+                //     offset: Offset(0, 3),
+                //     blurRadius: 80,
+                //   ),
+                // ],
               ),
-          ),
-          Positioned(
-            left: 68,
-            top: 667,
-            child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => Intro3(),
             ),
-                ],
-                child: SizedBox(
-            width: 273.0,
-            height: 48.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-                  size: Size(273.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'Button' (shape)
-                      Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      gradient: LinearGradient(
-                        begin: Alignment(-0.97, -0.82),
-                        end: Alignment(0.97, 0.79),
-                        colors: [
-                          const Color(0xfffe4f70),
-                          const Color(0xffcb6bd8)
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.90,
+              height: 7.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
+                    size: Size(349.0, 7.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                    // Adobe XD layer: 'Bar' (shape)
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.0),
+                        color: const Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x1a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
                         ],
-                        stops: [0.0, 1.0],
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x29000000),
-                          offset: Offset(0, 3),
-                          blurRadius: 6,
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 139.6, 7.0),
+                    size: Size(349.0, 7.0),
+                    pinLeft: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    child:
+                    // Adobe XD layer: 'Progress' (shape)
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.0),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
                         ),
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x1a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 80,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(117.0, 12.0, 44.0, 21.0),
-                  size: Size(273.0, 48.0),
-                  child: Text(
-                    'Next',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
-            ),
-                ),
+                ],
               ),
+            ),
           ),
-          Positioned(
-            left: 55,
-            top: 540,
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.475,
+            alignment: Alignment.center,
+            child: SizedBox(
+              width: 273.0,
+              height: 226.0,
+              child: Stack(
+                children: <Widget>[
+                  Transform.translate(
+                    offset: Offset(78.7, 2.3),
+                    child: SvgPicture.string(
+                      _svg_y68b4v,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(113.0, 146.1),
+                    child: Container(
+                      width: 17.2,
+                      height: 20.5,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(22.0, 221.0),
+                    child: SvgPicture.string(
+                      _svg_13929g,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(93.5, 67.7),
+                    child: Container(
+                      width: 90.9,
+                      height: 21.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe6e6e6),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(93.5, 33.9),
+                    child: Container(
+                      width: 90.9,
+                      height: 21.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe6e6e6),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(93.5, 0.0),
+                    child: Container(
+                      width: 90.9,
+                      height: 21.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe6e6e6),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(95.4, 2.3),
+                    child: SvgPicture.string(
+                      _svg_3bj4xp,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(97.7, 4.2),
+                    child: Container(
+                      width: 10.7,
+                      height: 12.8,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(115.9, 8.1),
+                    child: Container(
+                      width: 52.9,
+                      height: 1.4,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(115.9, 11.7),
+                    child: Container(
+                      width: 52.9,
+                      height: 1.4,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(97.7, 38.4),
+                    child: Container(
+                      width: 10.7,
+                      height: 12.8,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffcccccc),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(115.9, 42.3),
+                    child: Container(
+                      width: 52.9,
+                      height: 1.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffcccccc),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(115.9, 45.9),
+                    child: Container(
+                      width: 52.9,
+                      height: 1.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffcccccc),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(97.7, 72.2),
+                    child: Container(
+                      width: 10.7,
+                      height: 12.8,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffcccccc),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(115.9, 76.1),
+                    child: Container(
+                      width: 52.9,
+                      height: 1.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffcccccc),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(115.9, 79.7),
+                    child: Container(
+                      width: 52.9,
+                      height: 1.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffcccccc),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(0.0, 51.2),
+                    child: SizedBox(
+                      width: 51.0,
+                      height: 175.0,
+                      child: Stack(
+                        children: <Widget>[
+                          Transform.translate(
+                            offset: Offset(0.0, 78.5),
+                            child: SvgPicture.string(
+                              _svg_bitp8k,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(11.8, 1.6),
+                            child: Container(
+                              width: 19.8,
+                              height: 21.5,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0xffffb8b8),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(2.9, 0.0),
+                            child: SvgPicture.string(
+                              _svg_x4wha6,
+                              allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Text(
+            'Get notified Instantly!',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 24,
+              color: const Color(0xff404040),
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.left,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
             child: Text(
               'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et',
               style: TextStyle(
@@ -108,354 +826,74 @@ class Intro2 extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Positioned(
-            left: 87,
-            top: 497,
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
+          PageLink(
+            links: [
+              PageLinkInfo(
+                transition: LinkTransition.Fade,
+                ease: Curves.easeOut,
+                duration: 0.3,
+                pageBuilder: () => Intro3(),
+              ),
+            ],
+            child: Container(
+              height: 48,
+              width: MediaQuery.of(context).size.width * 0.70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                gradient: LinearGradient(
+                  begin: Alignment(-0.97, -0.82),
+                  end: Alignment(0.97, 0.79),
+                  colors: [
+                    const Color(0xfffe4f70),
+                    const Color(0xffcb6bd8)
+                  ],
+                  stops: [0.0, 1.0],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x29000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 6,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                    color: const Color(0xffffffff),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
             child: Text(
-              'Get notified Instantly!',
+              '(2/5)',
               style: TextStyle(
                 fontFamily: 'Poppins',
-                fontSize: 24,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                color: const Color(0xffb6b6b6),
+                fontWeight: FontWeight.w300,
               ),
               textAlign: TextAlign.left,
             ),
-          ),
-          Positioned(
-            left: 71,
-            top: 206.6,
-            child: SizedBox(
-                width: 273.0,
-                height: 226.0,
-                child: Stack(
-            children: <Widget>[
-              Transform.translate(
-                offset: Offset(78.7, 2.3),
-                child: SvgPicture.string(
-                  _svg_y68b4v,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(113.0, 146.1),
-                child: Container(
-                  width: 17.2,
-                  height: 20.5,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(22.0, 221.0),
-                child: SvgPicture.string(
-                  _svg_13929g,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(93.5, 67.7),
-                child: Container(
-                  width: 90.9,
-                  height: 21.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe6e6e6),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(93.5, 33.9),
-                child: Container(
-                  width: 90.9,
-                  height: 21.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe6e6e6),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(93.5, 0.0),
-                child: Container(
-                  width: 90.9,
-                  height: 21.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe6e6e6),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(95.4, 2.3),
-                child: SvgPicture.string(
-                  _svg_3bj4xp,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(97.7, 4.2),
-                child: Container(
-                  width: 10.7,
-                  height: 12.8,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(115.9, 8.1),
-                child: Container(
-                  width: 52.9,
-                  height: 1.4,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(115.9, 11.7),
-                child: Container(
-                  width: 52.9,
-                  height: 1.4,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(97.7, 38.4),
-                child: Container(
-                  width: 10.7,
-                  height: 12.8,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffcccccc),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(115.9, 42.3),
-                child: Container(
-                  width: 52.9,
-                  height: 1.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcccccc),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(115.9, 45.9),
-                child: Container(
-                  width: 52.9,
-                  height: 1.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcccccc),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(97.7, 72.2),
-                child: Container(
-                  width: 10.7,
-                  height: 12.8,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffcccccc),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(115.9, 76.1),
-                child: Container(
-                  width: 52.9,
-                  height: 1.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcccccc),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(115.9, 79.7),
-                child: Container(
-                  width: 52.9,
-                  height: 1.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffcccccc),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(0.0, 51.2),
-                child: SizedBox(
-                  width: 51.0,
-                  height: 175.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Transform.translate(
-                        offset: Offset(0.0, 78.5),
-                        child: SvgPicture.string(
-                          _svg_bitp8k,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(11.8, 1.6),
-                        child: Container(
-                          width: 19.8,
-                          height: 21.5,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.elliptical(9999.0, 9999.0)),
-                            color: const Color(0xffffb8b8),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(2.9, 0.0),
-                        child: SvgPicture.string(
-                          _svg_x4wha6,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 108,
-            child: SizedBox(
-                width: 385.0,
-                height: 7.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
-                size: Size(349.0, 7.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Bar' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    color: const Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x1a000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 139.6, 7.0),
-                size: Size(349.0, 7.0),
-                pinLeft: true,
-                pinTop: true,
-                pinBottom: true,
-                fixedWidth: true,
-                child:
-                    // Adobe XD layer: 'Progress' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x1a000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 80,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 173,
-            top: 39,
-            child: Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Sync Logo.png'),
-              fit: BoxFit.fill,
-              colorFilter: new ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.dstIn),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0x45000000),
-                offset: Offset(0, 3),
-                blurRadius: 80,
-              ),
-            ],
-                ),
-              ),
           ),
         ],
       ),
     );
   }
 }
+
 
 const String _svg_y68b4v =
     '<svg viewBox="91.7 177.4 194.3 218.9" ><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-327.71, 19.51)" d="M 421.9056396484375 307.6749267578125 C 419.1554260253906 310.8908081054688 419.0914306640625 316.1472778320313 421.7622375488281 319.4569091796875 L 466.1653137207031 374.2393188476563 C 467.4695739746094 375.848388671875 469.2608032226563 376.7666015625 471.1377563476563 376.7882690429688 C 473.0147094726563 376.809814453125 474.8204956054688 375.9330444335938 476.1506042480469 374.3543090820313 L 611.6434326171875 213.5403289794922 C 613.142333984375 211.7608642578125 613.8867797851563 209.2695922851563 613.6693115234375 206.7612915039063 C 613.4518432617188 204.2529296875 612.295654296875 201.9958801269531 610.5231323242188 200.6194610595703 L 557.2442626953125 159.2531280517578 C 554.4984741210938 157.09912109375 550.8632202148438 157.525634765625 548.5224609375 160.2764892578125 L 421.9056396484375 307.6749267578125 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-326.82, -54.27)" d="M 611.6861572265625 276.8489685058594 C 611.417236328125 277.341064453125 611.1058349609375 277.7981872558594 610.757080078125 278.212890625 L 475.5831909179688 442.0650024414063 C 474.2530517578125 443.6437683105469 472.4472961425781 444.5205383300781 470.5703430175781 444.4989318847656 C 468.6933898925781 444.477294921875 466.9021911621094 443.5591430664063 465.597900390625 441.9500122070313 L 420.2394714355469 384.888916015625 C 419.930419921875 384.506103515625 419.6528930664063 384.0888977050781 419.4105834960938 383.6430053710938 C 417.6711730957031 386.8330688476563 418.5707092285156 390.3988952636719 420.8765869140625 393.2434997558594 L 465.2795715332031 448.0260314941406 C 466.5838623046875 449.6351318359375 468.3750915527344 450.5532836914063 470.2520446777344 450.5749206542969 C 472.1289978027344 450.5965576171875 473.934814453125 449.7197875976563 475.264892578125 448.1409912109375 L 610.7576904296875 287.3270263671875 C 613.10791015625 284.5361633300781 613.49560546875 280.1638488769531 611.686767578125 276.8490295410156 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><path transform="translate(-342.79, 5.95)" d="M 615.1061401367188 218.6100311279297 L 609.59228515625 214.4194641113281 C 610.7881469726563 216.959716796875 610.3568115234375 220.1474456787109 608.551513671875 222.1106414794922 C 606.7462158203125 224.0738220214844 604.0437622070313 224.2939605712891 602.03125 222.6417846679688 L 566.35107421875 193.4007415771484 C 564.6962890625 192.0468139648438 563.8338012695313 189.6867065429688 564.1290893554688 187.3201751708984 C 564.4242553710938 184.9536437988281 565.8255004882813 182.9948120117188 567.7392578125 182.2734832763672 L 564.8984985351563 180.1144409179688 C 564.1389770507813 179.5371856689453 563.1444091796875 179.6703643798828 562.5112915039063 180.4341888427734 L 442.4807434082031 321.0452270507813 C 442.1189575195313 321.4816284179688 441.920166015625 322.0735473632813 441.9292602539063 322.68701171875 C 441.9383544921875 323.3004760742188 442.1546325683594 323.8836669921875 442.5291137695313 324.3045654296875 L 486.1210632324219 374.9375610351563 C 486.8723449707031 375.7819213867188 488.0503540039063 375.7623901367188 488.7817077636719 374.8934936523438 L 615.4278564453125 222.1451721191406 C 615.8387451171875 221.6570434570313 616.0414428710938 220.9729766845703 615.9788208007813 220.2855529785156 C 615.9163208007813 219.5981292724609 615.5952758789063 218.9817504882813 615.1061401367188 218.6100311279297 Z" fill="#ffffff" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><path transform="translate(-245.36, 135.01)" d="M 379.14697265625 160.9342346191406 L 415.9685668945313 202.3190612792969 L 503.55126953125 99.17033386230469 L 459.1023864746094 64.68299865722656 L 379.14697265625 160.9342346191406 Z" fill="#e6e6e6" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-674.91, -95.68)" d="M 929.6974487304688 355.3189392089844 C 930.2017211914063 355.8927001953125 930.9953002929688 355.8927001953125 931.4996337890625 355.3189697265625 L 939.1588134765625 346.1891174316406 C 939.6553344726563 345.5953369140625 939.6553344726563 344.6347351074219 939.1588134765625 344.0409545898438 C 938.6544189453125 343.4671936035156 937.8609008789063 343.4671936035156 937.3565063476563 344.0409545898438 L 929.6974487304688 353.1707763671875 C 929.200927734375 353.7645568847656 929.200927734375 354.7252197265625 929.6974487304688 355.3189392089844 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-647.31, -120.78)" d="M 889.1971435546875 395.7944030761719 C 889.6953125 396.3862915039063 890.501220703125 396.3862915039063 890.9993896484375 395.7944030761719 L 898.6585693359375 386.6643371582031 C 899.1561889648438 386.0710754394531 899.1561889648438 385.1092529296875 898.6585693359375 384.5159912109375 C 898.160888671875 383.9227294921875 897.35400390625 383.9227294921875 896.8562622070313 384.5159912109375 L 889.1971435546875 393.6460571289063 C 888.7005004882813 394.2397766113281 888.7005004882813 395.2006225585938 889.1971435546875 395.7944030761719 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
