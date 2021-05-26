@@ -4,100 +4,2128 @@ import './Intro2.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Intro1 extends StatelessWidget {
-  Intro1({
-    Key key,
-  }) : super(key: key);
+// class Intro1 extends StatelessWidget {
+//   Intro1({
+//     Key key,
+//   }) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xffffffff),
+//       body: Stack(
+//         children: <Widget>[ //156, 39
+//           Positioned(
+//             left: 188,
+//             top: 730,
+//             child: Text(
+//                 '(1/5)',
+//                 style: TextStyle(
+//             fontFamily: 'Poppins',
+//             fontSize: 16,
+//             color: const Color(0xffb6b6b6),
+//             fontWeight: FontWeight.w300,
+//                 ),
+//                 textAlign: TextAlign.left,
+//               ),
+//           ),
+//           Positioned(
+//             left: 68,
+//             top: 667,
+//             child: PageLink(
+//                 links: [
+//             PageLinkInfo(
+//               transition: LinkTransition.Fade,
+//               ease: Curves.easeOut,
+//               duration: 0.3,
+//               pageBuilder: () => Intro2(),
+//             ),
+//                 ],
+//                 child: SizedBox(
+//             width: 273.0,
+//             height: 48.0,
+//             child: Stack(
+//               children: <Widget>[
+//                 Pinned.fromSize(
+//                   bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
+//                   size: Size(273.0, 48.0),
+//                   pinLeft: true,
+//                   pinRight: true,
+//                   pinTop: true,
+//                   pinBottom: true,
+//                   child:
+//                       // Adobe XD layer: 'Button' (shape)
+//                       Container(
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.circular(10.0),
+//                       gradient: LinearGradient(
+//                         begin: Alignment(-0.97, -0.82),
+//                         end: Alignment(0.97, 0.79),
+//                         colors: [
+//                           const Color(0xfffe4f70),
+//                           const Color(0xffcb6bd8)
+//                         ],
+//                         stops: [0.0, 1.0],
+//                       ),
+//                       boxShadow: [
+//                         BoxShadow(
+//                           color: const Color(0x29000000),
+//                           offset: Offset(0, 3),
+//                           blurRadius: 6,
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//                 Pinned.fromSize(
+//                   bounds: Rect.fromLTWH(117.0, 12.0, 44.0, 21.0),
+//                   size: Size(273.0, 48.0),
+//                   child: Text(
+//                     'Next',
+//                     style: TextStyle(
+//                       fontFamily: 'Poppins',
+//                       fontSize: 18,
+//                       color: const Color(0xffffffff),
+//                       fontWeight: FontWeight.w600,
+//                     ),
+//                     textAlign: TextAlign.left,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 55,
+//             top: 540,
+//             child: Text(
+//               'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 17,
+//                 color: const Color(0xff9d9d9d),
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           Positioned(
+//             left: 90,
+//             top: 497,
+//             child: Text(
+//               'Never miss an event!',
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 24,
+//                 color: const Color(0xff404040),
+//                 fontWeight: FontWeight.w600,
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           Positioned(
+//             left: 61,
+//             top: 206.6,
+//             child: SizedBox(
+//                 width: 273.0,
+//                 height: 226.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               SvgPicture.string(
+//                 _svg_ssd345,
+//                 allowDrawingOutsideViewBox: true,
+//               ),
+//               Transform.translate(
+//                 offset: Offset(236.0, 27.7),
+//                 child: Transform.rotate(
+//                   angle: -1.2649,
+//                   child: Container(
+//                     width: 5.3,
+//                     height: 5.3,
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.all(
+//                           Radius.elliptical(9999.0, 9999.0)),
+//                       color: const Color(0xffffd037),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(231.8, 25.0),
+//                 child: Transform.rotate(
+//                   angle: -1.2649,
+//                   child: Container(
+//                     width: 5.3,
+//                     height: 5.3,
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.all(
+//                           Radius.elliptical(9999.0, 9999.0)),
+//                       color: const Color(0xffffd037),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(28.9, 112.3),
+//                 child: SvgPicture.string(
+//                   _svg_u15c0b,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(54.6, 9.4),
+//                 child: Container(
+//                   width: 161.3,
+//                   height: 187.3,
+//                   decoration: BoxDecoration(
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, 1.0),
+//                       end: Alignment(0.0, -1.0),
+//                       colors: [
+//                         const Color(0x40808080),
+//                         const Color(0x1f808080),
+//                         const Color(0x1a808080)
+//                       ],
+//                       stops: [0.0, 0.54, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(56.5, 11.6),
+//                 child: Container(
+//                   width: 157.6,
+//                   height: 182.9,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xfff7f7fd),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(66.0, 32.2),
+//                 child: Container(
+//                   width: 39.8,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffe2e2ec),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(66.0, 39.9),
+//                 child: Container(
+//                   width: 68.0,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffe2e2ec),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.2, 29.2),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.1, 29.0),
+//                 child: SvgPicture.string(
+//                   _svg_i5fnd3,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.7, 29.2),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.5, 29.0),
+//                 child: SvgPicture.string(
+//                   _svg_vf910g,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.2, 53.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.1, 53.7),
+//                 child: SvgPicture.string(
+//                   _svg_hgwlcj,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.7, 53.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.5, 53.7),
+//                 child: SvgPicture.string(
+//                   _svg_ytsx62,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.1, 53.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.0, 53.7),
+//                 child: SvgPicture.string(
+//                   _svg_cuxriu,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.6, 53.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.4, 53.7),
+//                 child: SvgPicture.string(
+//                   _svg_dsoahh,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(64.0, 53.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(63.9, 53.7),
+//                 child: SvgPicture.string(
+//                   _svg_2rhoji,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.2, 78.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.1, 78.4),
+//                 child: SvgPicture.string(
+//                   _svg_vrvxu3,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.7, 78.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.5, 78.4),
+//                 child: SvgPicture.string(
+//                   _svg_sifw6s,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.1, 78.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.0, 78.4),
+//                 child: SvgPicture.string(
+//                   _svg_7t0pvy,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.6, 78.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.4, 78.4),
+//                 child: SvgPicture.string(
+//                   _svg_imcuk3,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(64.0, 78.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(63.9, 78.4),
+//                 child: SvgPicture.string(
+//                   _svg_nfg5ya,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.2, 103.2),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.1, 103.0),
+//                 child: SvgPicture.string(
+//                   _svg_pa3m4d,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.7, 103.2),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.5, 103.0),
+//                 child: SvgPicture.string(
+//                   _svg_z3ofry,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.1, 103.2),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.0, 103.0),
+//                 child: SvgPicture.string(
+//                   _svg_ce5coc,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.6, 103.2),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.4, 103.0),
+//                 child: SvgPicture.string(
+//                   _svg_fta3ud,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(64.0, 103.2),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(63.9, 103.0),
+//                 child: SvgPicture.string(
+//                   _svg_jf6d5s,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.2, 127.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.1, 127.7),
+//                 child: SvgPicture.string(
+//                   _svg_d5t97v,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.7, 127.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.5, 127.7),
+//                 child: SvgPicture.string(
+//                   _svg_jhd03e,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.1, 127.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.0, 127.7),
+//                 child: SvgPicture.string(
+//                   _svg_oumtga,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.6, 127.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.4, 127.7),
+//                 child: SvgPicture.string(
+//                   _svg_6yn8pp,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(64.0, 127.8),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(63.9, 127.7),
+//                 child: SvgPicture.string(
+//                   _svg_60tjf2,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.2, 152.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(178.1, 152.4),
+//                 child: SvgPicture.string(
+//                   _svg_div7bn,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.7, 152.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(149.5, 152.4),
+//                 child: SvgPicture.string(
+//                   _svg_6esu4o,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.1, 152.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(121.0, 152.4),
+//                 child: SvgPicture.string(
+//                   _svg_qtgy3o,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.6, 152.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(92.4, 152.4),
+//                 child: SvgPicture.string(
+//                   _svg_bnovw5,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(64.0, 152.5),
+//                 child: Container(
+//                   width: 28.3,
+//                   height: 24.4,
+//                   decoration: BoxDecoration(
+//                     color: const Color(0xffffffff),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(63.9, 152.4),
+//                 child: SvgPicture.string(
+//                   _svg_ys5d4z,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(66.1, 55.9),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     color: const Color(0xfffc6681),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(70.1, 55.9),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     color: const Color(0xffffd037),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(123.0, 79.8),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(127.1, 79.8),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(209.2, 126.0),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(210.0, 124.1),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(210.8, 122.5),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(180.7, 55.9),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(184.8, 55.9),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(188.8, 55.9),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(192.8, 55.9),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(180.7, 105.8),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(184.8, 105.8),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(188.8, 105.8),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(192.8, 105.8),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(94.6, 79.8),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     color: const Color(0xffffd037),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(66.1, 104.2),
+//                 child: Container(
+//                   width: 3.2,
+//                   height: 3.2,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     color: const Color(0xfffc6681),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(208.4, 41.1),
+//                 child: SvgPicture.string(
+//                   _svg_ui0yzl,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(220.5, 46.7),
+//                 child: Container(
+//                   width: 18.6,
+//                   height: 18.6,
+//                   decoration: BoxDecoration(
+//                     borderRadius:
+//                         BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+//                     color: const Color(0xffdb8b8b),
+//                   ),
+//                 ),
+//               ),
+//               Transform.translate(
+//                 offset: Offset(209.3, 43.2),
+//                 child: SvgPicture.string(
+//                   _svg_3wemk9,
+//                   allowDrawingOutsideViewBox: true,
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 13,
+//             top: 108,
+//             child: SizedBox(
+//                 width: 385.0,
+//                 height: 7.0,
+//                 child: Stack(
+//             children: <Widget>[
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
+//                 size: Size(349.0, 7.0),
+//                 pinLeft: true,
+//                 pinRight: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 child:
+//                     // Adobe XD layer: 'Bar' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(4.0),
+//                     color: const Color(0xffffffff),
+//                     boxShadow: [
+//                       BoxShadow(
+//                         color: const Color(0x1a000000),
+//                         offset: Offset(0, 3),
+//                         blurRadius: 6,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//               Pinned.fromSize(
+//                 bounds: Rect.fromLTWH(0.0, 0.0, 87.3, 7.0),
+//                 size: Size(349.0, 7.0),
+//                 pinLeft: true,
+//                 pinTop: true,
+//                 pinBottom: true,
+//                 fixedWidth: true,
+//                 child:
+//                     // Adobe XD layer: 'Progress' (shape)
+//                     Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(4.0),
+//                     gradient: LinearGradient(
+//                       begin: Alignment(0.0, -1.0),
+//                       end: Alignment(0.0, 1.0),
+//                       colors: [
+//                         const Color(0xfffe4f70),
+//                         const Color(0xffcb6bd8)
+//                       ],
+//                       stops: [0.0, 1.0],
+//                     ),
+//                     boxShadow: [
+//                       BoxShadow(
+//                         color: const Color(0x1a000000),
+//                         offset: Offset(0, 3),
+//                         blurRadius: 6,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//                 ),
+//               ),
+//           ),
+//           Positioned(
+//             left: 173,
+//             top: 39,
+//             child: Container(
+//                 width: 64.0,
+//                 height: 37.0,
+//                 decoration: BoxDecoration(
+//                   image: DecorationImage(
+//                     image: const AssetImage('assets/Sync Logo.png'),
+//                     fit: BoxFit.fill,
+//                     colorFilter: new ColorFilter.mode(
+//                         Colors.black.withOpacity(0.7), BlendMode.dstIn),
+//                   ),
+//                   boxShadow: [
+//                     BoxShadow(
+//                       color: const Color(0x45000000),
+//                       offset: Offset(0, 3),
+//                       blurRadius: 80,
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+class Intro1 extends StatefulWidget {
+  const Intro1({Key key}) : super(key: key);
+
+  @override
+  _Intro1State createState() => _Intro1State();
+}
+
+class _Intro1State extends State<Intro1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: <Widget>[ //156, 39
-          Positioned(
-            left: 188,
-            top: 730,
-            child: Text(
-                '(1/5)',
-                style: TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
-            color: const Color(0xffb6b6b6),
-            fontWeight: FontWeight.w300,
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: Colors.white,
+      ),
+      body: Column(
+        children: [
+          Center(
+            //Sync Logo
+            child: Container(
+              width: 64.0,
+              height: 37.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  // enter variable
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
                 ),
-                textAlign: TextAlign.left,
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: const Color(0x45000000),
+                //     offset: Offset(0, 3),
+                //     blurRadius: 80,
+                //   ),
+                // ],
               ),
-          ),
-          Positioned(
-            left: 68,
-            top: 667,
-            child: PageLink(
-                links: [
-            PageLinkInfo(
-              transition: LinkTransition.Fade,
-              ease: Curves.easeOut,
-              duration: 0.3,
-              pageBuilder: () => Intro2(),
             ),
-                ],
-                child: SizedBox(
-            width: 273.0,
-            height: 48.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-                  size: Size(273.0, 48.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'Button' (shape)
-                      Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      gradient: LinearGradient(
-                        begin: Alignment(-0.97, -0.82),
-                        end: Alignment(0.97, 0.79),
-                        colors: [
-                          const Color(0xfffe4f70),
-                          const Color(0xffcb6bd8)
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.90,
+              height: 7.0,
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
+                    size: Size(349.0, 7.0),
+                    pinLeft: true,
+                    pinRight: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    child:
+                    // Adobe XD layer: 'Bar' (shape)
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.0),
+                        color: const Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x1a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
                         ],
-                        stops: [0.0, 1.0],
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x29000000),
-                          offset: Offset(0, 3),
-                          blurRadius: 6,
+                    ),
+                  ),
+                  Pinned.fromSize(
+                    bounds: Rect.fromLTWH(0.0, 0.0, 87.3, 7.0),
+                    size: Size(349.0, 7.0),
+                    pinLeft: true,
+                    pinTop: true,
+                    pinBottom: true,
+                    fixedWidth: true,
+                    child:
+                    // Adobe XD layer: 'Progress' (shape)
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.0),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
                         ),
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x1a000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(117.0, 12.0, 44.0, 21.0),
-                  size: Size(273.0, 48.0),
-                  child: Text(
-                    'Next',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
-            ),
-                ),
+                ],
               ),
+            ),
           ),
-          Positioned(
-            left: 55,
-            top: 540,
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.475,
+            alignment: Alignment.center,
+            child: SizedBox(
+              width: 273.0,
+              height: 226.0,
+              child: Stack(
+                children: <Widget>[
+                  SvgPicture.string(
+                    _svg_ssd345,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                  Transform.translate(
+                    offset: Offset(236.0, 27.7),
+                    child: Transform.rotate(
+                      angle: -1.2649,
+                      child: Container(
+                        width: 5.3,
+                        height: 5.3,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                              Radius.elliptical(9999.0, 9999.0)),
+                          color: const Color(0xffffd037),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(231.8, 25.0),
+                    child: Transform.rotate(
+                      angle: -1.2649,
+                      child: Container(
+                        width: 5.3,
+                        height: 5.3,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                              Radius.elliptical(9999.0, 9999.0)),
+                          color: const Color(0xffffd037),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(28.9, 112.3),
+                    child: SvgPicture.string(
+                      _svg_u15c0b,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(54.6, 9.4),
+                    child: Container(
+                      width: 161.3,
+                      height: 187.3,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, 1.0),
+                          end: Alignment(0.0, -1.0),
+                          colors: [
+                            const Color(0x40808080),
+                            const Color(0x1f808080),
+                            const Color(0x1a808080)
+                          ],
+                          stops: [0.0, 0.54, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(56.5, 11.6),
+                    child: Container(
+                      width: 157.6,
+                      height: 182.9,
+                      decoration: BoxDecoration(
+                        color: const Color(0xfff7f7fd),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(66.0, 32.2),
+                    child: Container(
+                      width: 39.8,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe2e2ec),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(66.0, 39.9),
+                    child: Container(
+                      width: 68.0,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffe2e2ec),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.2, 29.2),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.1, 29.0),
+                    child: SvgPicture.string(
+                      _svg_i5fnd3,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.7, 29.2),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.5, 29.0),
+                    child: SvgPicture.string(
+                      _svg_vf910g,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.2, 53.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.1, 53.7),
+                    child: SvgPicture.string(
+                      _svg_hgwlcj,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.7, 53.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.5, 53.7),
+                    child: SvgPicture.string(
+                      _svg_ytsx62,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.1, 53.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.0, 53.7),
+                    child: SvgPicture.string(
+                      _svg_cuxriu,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.6, 53.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.4, 53.7),
+                    child: SvgPicture.string(
+                      _svg_dsoahh,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(64.0, 53.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(63.9, 53.7),
+                    child: SvgPicture.string(
+                      _svg_2rhoji,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.2, 78.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.1, 78.4),
+                    child: SvgPicture.string(
+                      _svg_vrvxu3,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.7, 78.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.5, 78.4),
+                    child: SvgPicture.string(
+                      _svg_sifw6s,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.1, 78.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.0, 78.4),
+                    child: SvgPicture.string(
+                      _svg_7t0pvy,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.6, 78.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.4, 78.4),
+                    child: SvgPicture.string(
+                      _svg_imcuk3,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(64.0, 78.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(63.9, 78.4),
+                    child: SvgPicture.string(
+                      _svg_nfg5ya,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.2, 103.2),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.1, 103.0),
+                    child: SvgPicture.string(
+                      _svg_pa3m4d,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.7, 103.2),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.5, 103.0),
+                    child: SvgPicture.string(
+                      _svg_z3ofry,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.1, 103.2),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.0, 103.0),
+                    child: SvgPicture.string(
+                      _svg_ce5coc,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.6, 103.2),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.4, 103.0),
+                    child: SvgPicture.string(
+                      _svg_fta3ud,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(64.0, 103.2),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(63.9, 103.0),
+                    child: SvgPicture.string(
+                      _svg_jf6d5s,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.2, 127.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.1, 127.7),
+                    child: SvgPicture.string(
+                      _svg_d5t97v,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.7, 127.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.5, 127.7),
+                    child: SvgPicture.string(
+                      _svg_jhd03e,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.1, 127.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.0, 127.7),
+                    child: SvgPicture.string(
+                      _svg_oumtga,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.6, 127.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.4, 127.7),
+                    child: SvgPicture.string(
+                      _svg_6yn8pp,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(64.0, 127.8),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(63.9, 127.7),
+                    child: SvgPicture.string(
+                      _svg_60tjf2,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.2, 152.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(178.1, 152.4),
+                    child: SvgPicture.string(
+                      _svg_div7bn,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.7, 152.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(149.5, 152.4),
+                    child: SvgPicture.string(
+                      _svg_6esu4o,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.1, 152.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(121.0, 152.4),
+                    child: SvgPicture.string(
+                      _svg_qtgy3o,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.6, 152.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(92.4, 152.4),
+                    child: SvgPicture.string(
+                      _svg_bnovw5,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(64.0, 152.5),
+                    child: Container(
+                      width: 28.3,
+                      height: 24.4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(63.9, 152.4),
+                    child: SvgPicture.string(
+                      _svg_ys5d4z,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(66.1, 55.9),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xfffc6681),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(70.1, 55.9),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffd037),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(123.0, 79.8),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(127.1, 79.8),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(209.2, 126.0),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(210.0, 124.1),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(210.8, 122.5),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(180.7, 55.9),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(184.8, 55.9),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(188.8, 55.9),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(192.8, 55.9),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(180.7, 105.8),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(184.8, 105.8),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(188.8, 105.8),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(192.8, 105.8),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        gradient: LinearGradient(
+                          begin: Alignment(0.0, -1.0),
+                          end: Alignment(0.0, 1.0),
+                          colors: [
+                            const Color(0xfffe4f70),
+                            const Color(0xffcb6bd8)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(94.6, 79.8),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffffd037),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(66.1, 104.2),
+                    child: Container(
+                      width: 3.2,
+                      height: 3.2,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xfffc6681),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(208.4, 41.1),
+                    child: SvgPicture.string(
+                      _svg_ui0yzl,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(220.5, 46.7),
+                    child: Container(
+                      width: 18.6,
+                      height: 18.6,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        color: const Color(0xffdb8b8b),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(209.3, 43.2),
+                    child: SvgPicture.string(
+                      _svg_3wemk9,
+                      allowDrawingOutsideViewBox: true,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Text(
+            'Never miss an event!',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 24,
+              color: const Color(0xff404040),
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.left,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
             child: Text(
               'Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et',
               style: TextStyle(
@@ -108,1009 +2136,74 @@ class Intro1 extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Positioned(
-            left: 90,
-            top: 497,
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
+          PageLink(
+            links: [
+              PageLinkInfo(
+                transition: LinkTransition.Fade,
+                ease: Curves.easeOut,
+                duration: 0.3,
+                pageBuilder: () => Intro2(),
+              ),
+            ],
+            child: Container(
+              height: 48,
+              width: MediaQuery.of(context).size.width * 0.70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                gradient: LinearGradient(
+                  begin: Alignment(-0.97, -0.82),
+                  end: Alignment(0.97, 0.79),
+                  colors: [
+                    const Color(0xfffe4f70),
+                    const Color(0xffcb6bd8)
+                  ],
+                  stops: [0.0, 1.0],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x29000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 6,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                    color: const Color(0xffffffff),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
             child: Text(
-              'Never miss an event!',
+              '(1/5)',
               style: TextStyle(
                 fontFamily: 'Poppins',
-                fontSize: 24,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                color: const Color(0xffb6b6b6),
+                fontWeight: FontWeight.w300,
               ),
               textAlign: TextAlign.left,
             ),
-          ),
-          Positioned(
-            left: 61,
-            top: 206.6,
-            child: SizedBox(
-                width: 273.0,
-                height: 226.0,
-                child: Stack(
-            children: <Widget>[
-              SvgPicture.string(
-                _svg_ssd345,
-                allowDrawingOutsideViewBox: true,
-              ),
-              Transform.translate(
-                offset: Offset(236.0, 27.7),
-                child: Transform.rotate(
-                  angle: -1.2649,
-                  child: Container(
-                    width: 5.3,
-                    height: 5.3,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                          Radius.elliptical(9999.0, 9999.0)),
-                      color: const Color(0xffffd037),
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(231.8, 25.0),
-                child: Transform.rotate(
-                  angle: -1.2649,
-                  child: Container(
-                    width: 5.3,
-                    height: 5.3,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                          Radius.elliptical(9999.0, 9999.0)),
-                      color: const Color(0xffffd037),
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(28.9, 112.3),
-                child: SvgPicture.string(
-                  _svg_u15c0b,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(54.6, 9.4),
-                child: Container(
-                  width: 161.3,
-                  height: 187.3,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, 1.0),
-                      end: Alignment(0.0, -1.0),
-                      colors: [
-                        const Color(0x40808080),
-                        const Color(0x1f808080),
-                        const Color(0x1a808080)
-                      ],
-                      stops: [0.0, 0.54, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(56.5, 11.6),
-                child: Container(
-                  width: 157.6,
-                  height: 182.9,
-                  decoration: BoxDecoration(
-                    color: const Color(0xfff7f7fd),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(66.0, 32.2),
-                child: Container(
-                  width: 39.8,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe2e2ec),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(66.0, 39.9),
-                child: Container(
-                  width: 68.0,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe2e2ec),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.2, 29.2),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.1, 29.0),
-                child: SvgPicture.string(
-                  _svg_i5fnd3,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.7, 29.2),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.5, 29.0),
-                child: SvgPicture.string(
-                  _svg_vf910g,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.2, 53.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.1, 53.7),
-                child: SvgPicture.string(
-                  _svg_hgwlcj,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.7, 53.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.5, 53.7),
-                child: SvgPicture.string(
-                  _svg_ytsx62,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.1, 53.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.0, 53.7),
-                child: SvgPicture.string(
-                  _svg_cuxriu,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.6, 53.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.4, 53.7),
-                child: SvgPicture.string(
-                  _svg_dsoahh,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(64.0, 53.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(63.9, 53.7),
-                child: SvgPicture.string(
-                  _svg_2rhoji,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.2, 78.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.1, 78.4),
-                child: SvgPicture.string(
-                  _svg_vrvxu3,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.7, 78.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.5, 78.4),
-                child: SvgPicture.string(
-                  _svg_sifw6s,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.1, 78.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.0, 78.4),
-                child: SvgPicture.string(
-                  _svg_7t0pvy,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.6, 78.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.4, 78.4),
-                child: SvgPicture.string(
-                  _svg_imcuk3,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(64.0, 78.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(63.9, 78.4),
-                child: SvgPicture.string(
-                  _svg_nfg5ya,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.2, 103.2),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.1, 103.0),
-                child: SvgPicture.string(
-                  _svg_pa3m4d,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.7, 103.2),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.5, 103.0),
-                child: SvgPicture.string(
-                  _svg_z3ofry,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.1, 103.2),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.0, 103.0),
-                child: SvgPicture.string(
-                  _svg_ce5coc,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.6, 103.2),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.4, 103.0),
-                child: SvgPicture.string(
-                  _svg_fta3ud,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(64.0, 103.2),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(63.9, 103.0),
-                child: SvgPicture.string(
-                  _svg_jf6d5s,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.2, 127.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.1, 127.7),
-                child: SvgPicture.string(
-                  _svg_d5t97v,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.7, 127.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.5, 127.7),
-                child: SvgPicture.string(
-                  _svg_jhd03e,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.1, 127.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.0, 127.7),
-                child: SvgPicture.string(
-                  _svg_oumtga,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.6, 127.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.4, 127.7),
-                child: SvgPicture.string(
-                  _svg_6yn8pp,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(64.0, 127.8),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(63.9, 127.7),
-                child: SvgPicture.string(
-                  _svg_60tjf2,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.2, 152.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(178.1, 152.4),
-                child: SvgPicture.string(
-                  _svg_div7bn,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.7, 152.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(149.5, 152.4),
-                child: SvgPicture.string(
-                  _svg_6esu4o,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.1, 152.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(121.0, 152.4),
-                child: SvgPicture.string(
-                  _svg_qtgy3o,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.6, 152.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(92.4, 152.4),
-                child: SvgPicture.string(
-                  _svg_bnovw5,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(64.0, 152.5),
-                child: Container(
-                  width: 28.3,
-                  height: 24.4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(63.9, 152.4),
-                child: SvgPicture.string(
-                  _svg_ys5d4z,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(66.1, 55.9),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xfffc6681),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(70.1, 55.9),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffd037),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(123.0, 79.8),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(127.1, 79.8),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(209.2, 126.0),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(210.0, 124.1),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(210.8, 122.5),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(180.7, 55.9),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(184.8, 55.9),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(188.8, 55.9),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(192.8, 55.9),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(180.7, 105.8),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(184.8, 105.8),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(188.8, 105.8),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(192.8, 105.8),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(94.6, 79.8),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffffd037),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(66.1, 104.2),
-                child: Container(
-                  width: 3.2,
-                  height: 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xfffc6681),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(208.4, 41.1),
-                child: SvgPicture.string(
-                  _svg_ui0yzl,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(220.5, 46.7),
-                child: Container(
-                  width: 18.6,
-                  height: 18.6,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
-                    color: const Color(0xffdb8b8b),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(209.3, 43.2),
-                child: SvgPicture.string(
-                  _svg_3wemk9,
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 13,
-            top: 108,
-            child: SizedBox(
-                width: 385.0,
-                height: 7.0,
-                child: Stack(
-            children: <Widget>[
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 7.0),
-                size: Size(349.0, 7.0),
-                pinLeft: true,
-                pinRight: true,
-                pinTop: true,
-                pinBottom: true,
-                child:
-                    // Adobe XD layer: 'Bar' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    color: const Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x1a000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Pinned.fromSize(
-                bounds: Rect.fromLTWH(0.0, 0.0, 87.3, 7.0),
-                size: Size(349.0, 7.0),
-                pinLeft: true,
-                pinTop: true,
-                pinBottom: true,
-                fixedWidth: true,
-                child:
-                    // Adobe XD layer: 'Progress' (shape)
-                    Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    gradient: LinearGradient(
-                      begin: Alignment(0.0, -1.0),
-                      end: Alignment(0.0, 1.0),
-                      colors: [
-                        const Color(0xfffe4f70),
-                        const Color(0xffcb6bd8)
-                      ],
-                      stops: [0.0, 1.0],
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x1a000000),
-                        offset: Offset(0, 3),
-                        blurRadius: 6,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-                ),
-              ),
-          ),
-          Positioned(
-            left: 173,
-            top: 39,
-            child: Container(
-                width: 64.0,
-                height: 37.0,
-                decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('assets/Sync Logo.png'),
-              fit: BoxFit.fill,
-              colorFilter: new ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.dstIn),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0x45000000),
-                offset: Offset(0, 3),
-                blurRadius: 80,
-              ),
-            ],
-                ),
-              ),
           ),
         ],
       ),
     );
   }
 }
+
 
 const String _svg_ssd345 =
     '<svg viewBox="0.0 0.0 273.0 226.4" ><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-117.18, -49.59)" d="M 372.1448669433594 174.6912689208984 C 361.6593017578125 191.6536254882813 363.6240844726563 214.7620697021484 368.2294006347656 232.9824981689453 C 369.7701416015625 239.0833282470703 371.5455017089844 245.5233612060547 370.2280883789063 252.3507537841797 C 368.6166381835938 260.6990661621094 362.7420959472656 267.2549743652344 356.7967224121094 271.0093383789063 C 345.957763671875 277.8367309570313 333.5809020996094 277.6473083496094 324.5682067871094 270.5089721679688 C 316.7852478027344 264.3431091308594 311.6598205566406 253.5890045166016 303.7129516601563 247.7539215087891 C 290.4257202148438 237.9864044189453 272.1798400878906 243.9062957763672 256.3370056152344 253.0348663330078 C 245.13330078125 259.4777221679688 232.8016662597656 267.6762390136719 222.4461364746094 263.0342102050781 C 215.1607971191406 259.7745971679688 210.6176910400391 250.5781707763672 208.4974060058594 240.5703277587891 C 207.4739990234375 235.7389068603516 206.8548736572266 230.4607543945313 204.5084075927734 226.7799072265625 C 203.1118469238281 224.5917816162109 201.1922607421875 223.1273498535156 199.2020111083984 221.9258422851563 C 181.0381164550781 210.9737854003906 156.4624481201172 220.1306762695313 138.9459533691406 207.7283172607422 C 127.1146926879883 199.3545684814453 120.3890991210938 182.0585784912109 118.178337097168 163.5639190673828 C 115.9675750732422 145.0692596435547 117.7853851318359 125.2798004150391 120.0611572265625 105.7956848144531 C 121.6810760498047 91.94307708740234 123.8720474243164 77.12360382080078 131.1432495117188 65.85773468017578 C 138.8357086181641 53.94165802001953 150.9609680175781 48.61264038085938 161.5002593994141 49.74346923828125 C 172.0395660400391 50.87429428100586 181.1907653808594 57.55182266235352 189.0782928466797 65.71355438232422 C 198.9362640380859 75.91361236572266 207.8273773193359 88.94072723388672 220.5859375 92.23142242431641 C 229.2763519287109 94.47329711914063 238.7667541503906 91.8780517578125 248.0084381103516 90.41080474853516 C 263.4385681152344 87.9569091796875 278.6538696289063 88.66084289550781 293.7616577148438 89.58247375488281 C 308.2249145507813 90.46451568603516 322.7758483886719 91.56142425537109 336.25244140625 96.65013885498047 C 345.7881774902344 100.254638671875 353.1073608398438 107.7576675415039 362.0069885253906 112.63720703125 C 367.8081359863281 115.8176498413086 374.3528442382813 116.2219161987305 379.7581481933594 120.4625015258789 C 386.4158935546875 125.6869125366211 392.1774597167969 135.3300170898438 389.5115356445313 147.5203247070313 C 386.969970703125 159.1169738769531 377.7085266113281 165.6898803710938 372.1448669433594 174.6912689208984 Z" fill="url(#gradient)" fill-opacity="0.1" stroke="none" stroke-width="1" stroke-opacity="0.1" stroke-miterlimit="4" stroke-linecap="butt" /><path transform="translate(-593.82, -121.42)" d="M 781.6700439453125 208.1767425537109 C 781.6700439453125 208.1767425537109 810.2233276367188 184.2512969970703 816.572998046875 172.1882171630859 C 822.922607421875 160.1251220703125 831.005126953125 149.7300109863281 831.005126953125 149.7300109863281" fill="none" stroke="#535461" stroke-width="2" stroke-miterlimit="10" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-678.13, -182.77)" d="M 911.5615844726563 238.0546569824219 L 899.2100219726563 235.2699890136719 C 899.2100219726563 235.2699890136719 902.124755859375 248.297119140625 911.5615844726563 238.0546569824219 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-656.84, -156.1)" d="M 871.4006958007813 198.0800170898438 L 878.5078735351563 208.7238922119141 C 878.5078735351563 208.7238922119141 864.6129150390625 209.7275238037109 871.4006958007813 198.0800170898438 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-693.15, -159.43)" d="M 931.448486328125 204.7089538574219 L 920.1599731445313 202.7300109863281 C 920.1599731445313 202.7300109863281 927.2503662109375 213.5152587890625 931.448486328125 204.7089538574219 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-676.67, -140.32)" d="M 898.260986328125 176.0800170898438 L 903.82177734375 183.3625183105469 C 903.82177734375 183.3625183105469 893.97802734375 184.2954559326172 898.260986328125 176.0800170898438 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-707.97, -136.64)" d="M 940.8099975585938 170.9500122070313 C 940.8099975585938 170.9500122070313 950.4219970703125 171.4079895019531 951.5527954101563 172.3267822265625 C 952.68359375 173.2455749511719 950.1194458007813 178.6311340332031 946.464111328125 177.7519226074219 C 942.8087158203125 176.8727111816406 940.8099975585938 170.9500122070313 940.8099975585938 170.9500122070313 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.5" y1="0.0" x2="0.5" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-689.14, -114.84)" d="M 918.1403198242188 140.5599975585938 C 918.1403198242188 140.5599975585938 922.0670166015625 147.7153015136719 921.9201049804688 149.0779418945313 C 921.7730102539063 150.4406127929688 915.9352416992188 151.9700469970703 914.7562866210938 146.8163146972656 C 913.5773315429688 141.6625671386719 918.1403198242188 140.5599975585938 918.1403198242188 140.5599975585938 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
