@@ -347,17 +347,8 @@ class _RegisterViewState extends State<SignUp> {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.277,
+              height: MediaQuery.of(context).size.height * 0.18,
             ),
-            // SizedBox(
-            //   width: MediaQuery.of(context).size.width,
-            //   height: MediaQuery.of(context).size.height * 0.73,
-            //   child: Column(
-            //     children: [
-            //
-            //     ],
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: PageLink(
@@ -369,45 +360,29 @@ class _RegisterViewState extends State<SignUp> {
                     pageBuilder: () => SignIn(),
                   ),
                 ],
-                child: SizedBox(
-                  width: 216.0,
-                  height: 17.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromSize(
-                        bounds: Rect.fromLTWH(0.0, 0.0, 299.0, 17.0),
-                        size: Size(199.0, 17.0),
-                        pinLeft: true,
-                        pinRight: true,
-                        pinTop: true,
-                        pinBottom: true,
-                        child: Text.rich(
-                          TextSpan(
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 15,
-                              color: const Color(0xff9d9d9d),
-                            ),
-                            children: [
-                              TextSpan(
-                                text: 'Already have an account? ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'Sign In',
-                                style: TextStyle(
-                                  color: const Color(0xff404040),
-                                ),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.left,
+                child: Text.rich(
+                  TextSpan(
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: const Color(0xff9d9d9d),
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Already have an account? ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Sign In',
+                        style: TextStyle(
+                          color: const Color(0xff404040),
                         ),
                       ),
                     ],
                   ),
+                  textAlign: TextAlign.left,
                 ),
               ),
             ),
