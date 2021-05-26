@@ -410,29 +410,39 @@ class _SignInState extends State<SignIn> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-              child: Text.rich(
-                TextSpan(
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 15,
-                    color: const Color(0xff9d9d9d),
+              child: PageLink(
+                links: [
+                  PageLinkInfo(
+                    transition: LinkTransition.Fade,
+                    ease: Curves.easeOut,
+                    duration: 0.3,
+                    pageBuilder: () => SignUp(),
                   ),
-                  children: [
-                    TextSpan(
-                      text: 'Don\'t have an account? ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                      ),
+                ],
+                child: Text.rich(
+                  TextSpan(
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: const Color(0xff9d9d9d),
                     ),
-                    TextSpan(
-                      text: 'Sign Up',
-                      style: TextStyle(
-                        color: const Color(0xff000000),
+                    children: [
+                      TextSpan(
+                        text: 'Don\'t have an account? ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
-                    ),
-                  ],
+                      TextSpan(
+                        text: 'Sign Up',
+                        style: TextStyle(
+                          color: const Color(0xff000000),
+                        ),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.left,
                 ),
-                textAlign: TextAlign.left,
               ),
             ),
             InkWell(
