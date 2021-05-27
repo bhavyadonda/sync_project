@@ -48,12 +48,187 @@ class _ClubsState extends State<Clubs> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Expanded(
-          //   child: SizedBox(
-          //     //width: 385.0,
-          //     height: 158.0,
-          //     child: Stack(
-          //       children: <Widget>[
+          Container(
+            height: 158.0,
+            width: MediaQuery.of(context).size.width * 0.93,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: const Color(0xffffffff),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0x26000000),
+                  offset: Offset(0, 5),
+                  blurRadius: 10,
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Row(
+                          children: [
+                            GestureDetector(
+                              onTap:()async{
+                                print(clubs['key']);
+                                SharedPreferences prefs = await SharedPreferences.getInstance();
+                                prefs.setString('clubdetails', clubs['key']);
+                                Navigator.of(context).pushNamed('/ClubDetails');
+                              },
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    height: 55,
+                                    width: 55,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                                      color: const Color(0xffffffff),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: const Color(0x29000000),
+                                          offset: Offset(0, 3),
+                                          blurRadius: 6,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: const AssetImage('assets/Tech Club Logo Big.png'),
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.03,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                GestureDetector(
+                                  onTap: ()async{
+                                    print(clubs['key']);
+                                    SharedPreferences prefs = await SharedPreferences.getInstance();
+                                    prefs.setString('clubdetails', clubs['key']);
+                                    Navigator.of(context).pushNamed('/ClubDetails');
+                                  },
+                                  child: Text(
+                                    clubs['Clubname'],
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 20,
+                                      color: const Color(0xff404040),
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                Text(
+                                  clubs['Clubinfo'],
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 13,
+                                    color: const Color(0xff9d9d9d),
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.1666666666666667,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      // FOLLOW AND FOLLOWING BUTTON
+                      Container(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          width: 87,
+                          height: 27.5,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.0),
+                            gradient: LinearGradient(
+                              begin: Alignment(-0.97, -0.82),
+                              end: Alignment(0.97, 0.79),
+                              colors: [
+                                const Color(0xfffe4f70),
+                                const Color(0xffcb6bd8)
+                              ],
+                              stops: [0.0, 1.0],
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Following',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 13,
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 80,
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 15,
+                          color: const Color(0xff9d9d9d),
+                        ),
+                        children: [
+                          TextSpan(
+                            text:
+                            clubs['Aboutclub'],
+                          ),
+                          TextSpan(
+                            text: 'Learn More..',
+                            style: TextStyle(
+                              color: const Color(0xfffe4f70),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // SizedBox(
+          //   width: 385.0,
+          //   height: 158.0,
+          //   child: Stack(
+          //     children: <Widget>[
+          //       Pinned.fromSize(
+          //         bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 158.0),
+          //         size: Size(349.0, 158.0),
+          //         pinLeft: true,
+          //         pinRight: true,
+          //         pinTop: true,
+          //         pinBottom: true,
+          //         child:
+          //         // Adobe XD layer: 'Club Rectangle' (shape)
           //         Container(
           //           decoration: BoxDecoration(
           //             borderRadius: BorderRadius.circular(20.0),
@@ -67,388 +242,215 @@ class _ClubsState extends State<Clubs> {
           //             ],
           //           ),
           //         ),
-          //         Column(
-          //           children: [
-          //             Row(
-          //               children: [
-          //                 GestureDetector(
-          //                   onTap:()async{
-          //                     print(clubs['key']);
-          //                     SharedPreferences prefs = await SharedPreferences.getInstance();
-          //                     prefs.setString('clubdetails', clubs['key']);
-          //                     Navigator.of(context).pushNamed('/ClubDetails');
-          //                   },
-          //                   child: Stack(
-          //                     children: <Widget>[
-          //                       Pinned.fromSize(
-          //                         bounds: Rect.fromLTWH(0.0, 0.0, 55.0, 55.0),
-          //                         size: Size(55.0, 55.0),
-          //                         pinLeft: true,
-          //                         pinRight: true,
-          //                         pinTop: true,
-          //                         pinBottom: true,
-          //                         child:
-          //                         // Adobe XD layer: 'Logo Circle' (shape)
-          //                         Container(
-          //                           decoration: BoxDecoration(
-          //                             borderRadius: BorderRadius.all(
-          //                                 Radius.elliptical(9999.0, 9999.0)),
-          //                             color: const Color(0xffffffff),
-          //                             boxShadow: [
-          //                               BoxShadow(
-          //                                 color: const Color(0x29000000),
-          //                                 offset: Offset(0, 3),
-          //                                 blurRadius: 6,
-          //                               ),
-          //                             ],
-          //                           ),
-          //                         ),
-          //                       ),
-          //                       Pinned.fromSize(
-          //                         bounds: Rect.fromLTWH(5.0, 5.0, 45.0, 45.0),
-          //                         size: Size(55.0, 55.0),
-          //                         pinLeft: true,
-          //                         pinRight: true,
-          //                         pinTop: true,
-          //                         pinBottom: true,
-          //                         child:
-          //                         // Adobe XD layer: 'Tech Club Logo' (shape)
-          //                         Container(
-          //                           decoration: BoxDecoration(
-          //                             image: DecorationImage(
-          //                               image: const AssetImage('assets/Tech Club Logo Big.png'),
-          //                               fit: BoxFit.fill,
-          //                             ),
-          //                           ),
-          //                         ),
+          //       ),
+          //       Pinned.fromSize(
+          //         bounds: Rect.fromLTWH(8.0, 74.0, 320.0, 67.0),
+          //         size: Size(349.0, 158.0),
+          //         pinLeft: true,
+          //         pinRight: true,
+          //         pinBottom: true,
+          //         fixedHeight: true,
+          //         child: Text.rich(
+          //           TextSpan(
+          //             style: TextStyle(
+          //               fontFamily: 'Poppins',
+          //               fontSize: 15,
+          //               color: const Color(0xff9d9d9d),
+          //             ),
+          //             children: [
+          //               TextSpan(
+          //                 text:
+          //                 clubs['Aboutclub'],
+          //               ),
+          //               TextSpan(
+          //                 text: 'Learn More..',
+          //                 style: TextStyle(
+          //                   color: const Color(0xfffe4f70),
+          //                   fontWeight: FontWeight.w600,
+          //                 ),
+          //               ),
+          //             ],
+          //           ),
+          //           textAlign: TextAlign.left,
+          //         ),
+          //       ),
+          //       Pinned.fromSize(
+          //         bounds: Rect.fromLTWH(252.0, 23.0, 87.0, 27.5),
+          //         size: Size(349.0, 158.0),
+          //         pinRight: true,
+          //         pinTop: true,
+          //         fixedWidth: true,
+          //         fixedHeight: true,
+          //         child: Stack(
+          //           children: <Widget>[
+          //           Pinned.fromSize(
+          //             bounds: Rect.fromLTWH(0.0, 0.0, 87.0, 27.5),
+          //             size: Size(87.0, 27.5),
+          //             pinLeft: true,
+          //             pinRight: true,
+          //             pinTop: true,
+          //             pinBottom: true,
+          //             child: Container(
+          //               decoration: BoxDecoration(
+          //                     borderRadius: BorderRadius.circular(30.0),
+          //                     gradient: LinearGradient(
+          //                     begin: Alignment(-0.97, -0.82),
+          //                     end: Alignment(0.97, 0.79),
+          //                     colors: [
+          //                       const Color(0xfffe4f70),
+          //                       const Color(0xffcb6bd8)
+          //                     ],
+          //                    stops: [0.0, 1.0],
+          //                   ),
+          //                 ),
+          //               ),
+          //             ),
+          //           Pinned.fromSize(
+          //             bounds: Rect.fromLTWH(15.0, 6.0, 73.0, 16.0),
+          //             size: Size(87.0, 27.5),
+          //             child: Text(
+          //               'Following',
+          //              style: TextStyle(
+          //              fontFamily: 'Poppins',
+          //              fontSize: 13,
+          //              color: const Color(0xffffffff),
+          //              fontWeight: FontWeight.w600,
+          //             ),
+          //            textAlign: TextAlign.left,
+          //           ),
+          //         ),
+          //       ],
+          //     ),// 'Follow' Button below
+          //         // Stack(
+          //         //   alignment: Alignment.center,
+          //         //   children: [
+          //         //     Text(
+          //         //       'Follow',
+          //         //       style: TextStyle(
+          //         //         fontFamily: 'Poppins',
+          //         //         fontSize: 11,
+          //         //         color: const Color(0xff404040),
+          //         //         fontWeight: FontWeight.w600,
+          //         //       ),
+          //         //       textAlign: TextAlign.left,
+          //         //     ),
+          //         //     SvgPicture.string(
+          //         //       _svg_k2ckhg,
+          //         //       allowDrawingOutsideViewBox: true,
+          //         //       fit: BoxFit.fill,
+          //         //     ),
+          //         //   ],
+          //         // ),
+          //   ),
+          //       Pinned.fromSize(
+          //         bounds: Rect.fromLTWH(50.0, 42.0, 204.0, 17.0),
+          //         size: Size(349.0, 158.0),
+          //         fixedWidth: true,
+          //         fixedHeight: true,
+          //         child: Text(
+          //           clubs['Clubinfo'],
+          //           style: TextStyle(
+          //             fontFamily: 'Poppins',
+          //             fontSize: 13,
+          //             color: const Color(0xff9d9d9d),
+          //             fontWeight: FontWeight.w500,
+          //             height: 1.1666666666666667,
+          //           ),
+          //           textAlign: TextAlign.center,
+          //         ),
+          //       ),
+          //       Pinned.fromSize(
+          //         bounds: Rect.fromLTWH(68.0, 14.0, 143.0, 28.0),
+          //         size: Size(349.0, 158.0),
+          //         pinTop: true,
+          //         fixedWidth: true,
+          //         fixedHeight: true,
+          //         child: GestureDetector(
+          //           onTap: ()async{
+          //             print(clubs['key']);
+          //             SharedPreferences prefs = await SharedPreferences.getInstance();
+          //             prefs.setString('clubdetails', clubs['key']);
+          //             Navigator.of(context).pushNamed('/ClubDetails');
+          //               },
+          //          child: Text(
+          //             clubs['Clubname'],
+          //             style: TextStyle(
+          //               fontFamily: 'Poppins',
+          //               fontSize: 20,
+          //               color: const Color(0xff404040),
+          //               fontWeight: FontWeight.w600,
+          //             ),
+          //             textAlign: TextAlign.left,
+          //           ),
+          //         ),
+          //       ),
+          //       Pinned.fromSize(
+          //         bounds: Rect.fromLTWH(8.0, 9.0, 55.0, 55.0),
+          //         size: Size(349.0, 158.0),
+          //         pinLeft: true,
+          //         pinTop: true,
+          //         fixedWidth: true,
+          //         fixedHeight: true,
+          //         child:
+          //         // Adobe XD layer: 'Club Logo' (group)
+          //         GestureDetector(
+          //           onTap:()async{
+          //             print(clubs['key']);
+          //             SharedPreferences prefs = await SharedPreferences.getInstance();
+          //             prefs.setString('clubdetails', clubs['key']);
+          //             Navigator.of(context).pushNamed('/ClubDetails');
+          //           },
+          //             child: Stack(
+          //             children: <Widget>[
+          //               Pinned.fromSize(
+          //                 bounds: Rect.fromLTWH(0.0, 0.0, 55.0, 55.0),
+          //                 size: Size(55.0, 55.0),
+          //                 pinLeft: true,
+          //                 pinRight: true,
+          //                 pinTop: true,
+          //                 pinBottom: true,
+          //                 child:
+          //                 // Adobe XD layer: 'Logo Circle' (shape)
+          //                 Container(
+          //                   decoration: BoxDecoration(
+          //                     borderRadius: BorderRadius.all(
+          //                         Radius.elliptical(9999.0, 9999.0)),
+          //                     color: const Color(0xffffffff),
+          //                     boxShadow: [
+          //                       BoxShadow(
+          //                         color: const Color(0x29000000),
+          //                         offset: Offset(0, 3),
+          //                         blurRadius: 6,
           //                       ),
           //                     ],
           //                   ),
           //                 ),
-          //                 Column(
-          //                   children: [
-          //                     GestureDetector(
-          //                       onTap: ()async{
-          //                         print(clubs['key']);
-          //                         SharedPreferences prefs = await SharedPreferences.getInstance();
-          //                         prefs.setString('clubdetails', clubs['key']);
-          //                         Navigator.of(context).pushNamed('/ClubDetails');
-          //                       },
-          //                       child: Text(
-          //                         clubs['Clubname'],
-          //                         style: TextStyle(
-          //                           fontFamily: 'Poppins',
-          //                           fontSize: 20,
-          //                           color: const Color(0xff404040),
-          //                           fontWeight: FontWeight.w600,
-          //                         ),
-          //                         textAlign: TextAlign.left,
-          //                       ),
-          //                     ),
-          //                     Text(
-          //                       clubs['Clubinfo'],
-          //                       style: TextStyle(
-          //                         fontFamily: 'Poppins',
-          //                         fontSize: 13,
-          //                         color: const Color(0xff9d9d9d),
-          //                         fontWeight: FontWeight.w500,
-          //                         height: 1.1666666666666667,
-          //                       ),
-          //                       textAlign: TextAlign.center,
-          //                     ),
-          //                   ],
-          //                 ),
-          //                 Stack(
-          //                   alignment: Alignment.center,
-          //                   children: [
-          //                     Text(
-          //                       'Follow',
-          //                       style: TextStyle(
-          //                         fontFamily: 'Poppins',
-          //                         fontSize: 11,
-          //                         color: const Color(0xff404040),
-          //                         fontWeight: FontWeight.w600,
-          //                       ),
-          //                       textAlign: TextAlign.left,
-          //                     ),
-          //                     SvgPicture.string(
-          //                       _svg_k2ckhg,
-          //                       allowDrawingOutsideViewBox: true,
+          //               ),
+          //               Pinned.fromSize(
+          //                 bounds: Rect.fromLTWH(5.0, 5.0, 45.0, 45.0),
+          //                 size: Size(55.0, 55.0),
+          //                 pinLeft: true,
+          //                 pinRight: true,
+          //                 pinTop: true,
+          //                 pinBottom: true,
+          //                 child:
+          //                 // Adobe XD layer: 'Tech Club Logo' (shape)
+          //                 Container(
+          //                   decoration: BoxDecoration(
+          //                     image: DecorationImage(
+          //                       image: const AssetImage('assets/Tech Club Logo Big.png'),
           //                       fit: BoxFit.fill,
           //                     ),
-          //                   ],
-          //                 ),
-          //               ],
-          //             ),
-          //             Text.rich(
-          //               TextSpan(
-          //                 style: TextStyle(
-          //                   fontFamily: 'Poppins',
-          //                   fontSize: 15,
-          //                   color: const Color(0xff9d9d9d),
-          //                 ),
-          //                 children: [
-          //                   TextSpan(
-          //                     text:
-          //                     clubs['Aboutclub'],
           //                   ),
-          //                   TextSpan(
-          //                     text: 'Learn More..',
-          //                     style: TextStyle(
-          //                       color: const Color(0xfffe4f70),
-          //                       fontWeight: FontWeight.w600,
-          //                     ),
-          //                   ),
-          //                 ],
+          //                 ),
           //               ),
-          //               textAlign: TextAlign.left,
-          //             ),
-          //           ],
+          //             ],
+          //           ),
           //         ),
-          //       ],
-          //     ),
+          //       ),
+          //     ],
           //   ),
           // ),
-          SizedBox(
-            width: 385.0,
-            height: 158.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 158.0),
-                  size: Size(349.0, 158.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                  // Adobe XD layer: 'Club Rectangle' (shape)
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: const Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x26000000),
-                          offset: Offset(0, 5),
-                          blurRadius: 10,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(8.0, 74.0, 320.0, 67.0),
-                  size: Size(349.0, 158.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinBottom: true,
-                  fixedHeight: true,
-                  child: Text.rich(
-                    TextSpan(
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 15,
-                        color: const Color(0xff9d9d9d),
-                      ),
-                      children: [
-                        TextSpan(
-                          text:
-                          clubs['Aboutclub'],
-                        ),
-                        TextSpan(
-                          text: 'Learn More..',
-                          style: TextStyle(
-                            color: const Color(0xfffe4f70),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(252.0, 23.0, 87.0, 27.5),
-                  size: Size(349.0, 158.0),
-                  pinRight: true,
-                  pinTop: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Stack(
-                    children: <Widget>[
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(0.0, 0.0, 87.0, 27.5),
-                      size: Size(87.0, 27.5),
-                      pinLeft: true,
-                      pinRight: true,
-                      pinTop: true,
-                      pinBottom: true,
-                      child: Container(
-                        decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              gradient: LinearGradient(
-                              begin: Alignment(-0.97, -0.82),
-                              end: Alignment(0.97, 0.79),
-                              colors: [
-                                const Color(0xfffe4f70),
-                                const Color(0xffcb6bd8)
-                              ],
-                             stops: [0.0, 1.0],
-                            ),
-                          ),
-                        ),
-                      ),
-                    Pinned.fromSize(
-                      bounds: Rect.fromLTWH(15.0, 6.0, 73.0, 16.0),
-                      size: Size(87.0, 27.5),
-                      child: Text(
-                        'Following',
-                       style: TextStyle(
-                       fontFamily: 'Poppins',
-                       fontSize: 13,
-                       color: const Color(0xffffffff),
-                       fontWeight: FontWeight.w600,
-                      ),
-                     textAlign: TextAlign.left,
-                    ),
-                  ),
-                ],
-              ),// 'Follow' Button below
-                  // Stack(
-                  //   alignment: Alignment.center,
-                  //   children: [
-                  //     Text(
-                  //       'Follow',
-                  //       style: TextStyle(
-                  //         fontFamily: 'Poppins',
-                  //         fontSize: 11,
-                  //         color: const Color(0xff404040),
-                  //         fontWeight: FontWeight.w600,
-                  //       ),
-                  //       textAlign: TextAlign.left,
-                  //     ),
-                  //     SvgPicture.string(
-                  //       _svg_k2ckhg,
-                  //       allowDrawingOutsideViewBox: true,
-                  //       fit: BoxFit.fill,
-                  //     ),
-                  //   ],
-                  // ),
-            ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(50.0, 42.0, 204.0, 17.0),
-                  size: Size(349.0, 158.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    clubs['Clubinfo'],
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 13,
-                      color: const Color(0xff9d9d9d),
-                      fontWeight: FontWeight.w500,
-                      height: 1.1666666666666667,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(68.0, 14.0, 143.0, 28.0),
-                  size: Size(349.0, 158.0),
-                  pinTop: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: GestureDetector(
-                    onTap: ()async{
-                          print(clubs['key']);
-                          SharedPreferences prefs =
-                            await SharedPreferences.getInstance();
-                        prefs.setString(
-                            'clubdetails', clubs['key']);
-                        
-                          Navigator.of(context)
-                              .pushNamed('/ClubDetails');
-                        },
-                   child: Text(
-                      clubs['Clubname'],
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 20,
-                        color: const Color(0xff404040),
-                        fontWeight: FontWeight.w600,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(8.0, 9.0, 55.0, 55.0),
-                  size: Size(349.0, 158.0),
-                  pinLeft: true,
-                  pinTop: true,
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child:
-                  // Adobe XD layer: 'Club Logo' (group)
-                  GestureDetector(
-                    onTap:()async{
-                      print(clubs['key']);
-                      SharedPreferences prefs = await SharedPreferences.getInstance();
-                      prefs.setString('clubdetails', clubs['key']);
-                      Navigator.of(context).pushNamed('/ClubDetails');
-                    },
-                      child: Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 55.0, 55.0),
-                          size: Size(55.0, 55.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child:
-                          // Adobe XD layer: 'Logo Circle' (shape)
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                  Radius.elliptical(9999.0, 9999.0)),
-                              color: const Color(0xffffffff),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x29000000),
-                                  offset: Offset(0, 3),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(5.0, 5.0, 45.0, 45.0),
-                          size: Size(55.0, 55.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinTop: true,
-                          pinBottom: true,
-                          child:
-                          // Adobe XD layer: 'Tech Club Logo' (shape)
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage('assets/Tech Club Logo Big.png'),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );
@@ -457,11 +459,69 @@ class _ClubsState extends State<Clubs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.fromLTRB(13, 135, 13, 0),
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: const Color(0xffffffff),
+      ),
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
+                child: PageLink(
+                  links: [
+                    PageLinkInfo(
+                      transition: LinkTransition.Fade,
+                      ease: Curves.easeOut,
+                      duration: 0.3,
+                    ),
+                  ],
+                  child: SvgPicture.string(
+                    _svg_ah28f4,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                ),
+              ),
+              Center(
+                child: Container(
+                  width: 64.0,
+                  height: 37.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: const AssetImage('assets/Sync Logo.png'),
+                      fit: BoxFit.fill,
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                    ),
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //     color: const Color(0x45000000),
+                    //     offset: Offset(0, 3),
+                    //     blurRadius: 80,
+                    //   ),
+                    // ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: EdgeInsets.fromLTRB(13, 20, 0, 10),
+            child: Text(
+              'Clubs',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 22,
+                color: const Color(0xff404040),
+                fontWeight: FontWeight.w700,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          Expanded(
             child: FirebaseAnimatedList(
               query: _ref,
               itemBuilder: (BuildContext context, DataSnapshot snapshot,
@@ -472,128 +532,8 @@ class _ClubsState extends State<Clubs> {
               },
             ),
           ),
-          //Clubs Heading Layer ->
-          Positioned(
-            left: 13,
-            top: 110,
-            child: Text(
-              'Clubs',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 22,
-                color: const Color(0xff404040),
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          //Sync Logo Layer ->
-          Positioned(
-            left: 173,
-            top: 39,
-            child: Container(
-              width: 64.0,
-              height: 37.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/Sync Logo.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x45000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 80,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          //Back Button Layer ->
-          Positioned(
-            left: 0,
-            top: 35,
-            child: FlatButton(
-              onPressed: () async {
-                dynamic result = await Navigator.pushNamed(context, '/Home');
-              },
-              child: SvgPicture.string(
-                _svg_ah28f4,
-                allowDrawingOutsideViewBox: true,
-              ),
-            ),
-          ),
         ],
       ),
-      // Column(
-      //   children: [
-      //     Stack(
-      //       children: [
-      //         Container(
-      //           padding: EdgeInsets.fromLTRB(20, 7, 0, 0),
-      //           child: PageLink(
-      //             links: [
-      //               PageLinkInfo(
-      //                 transition: LinkTransition.Fade,
-      //                 ease: Curves.easeOut,
-      //                 duration: 0.3,
-      //               ),
-      //             ],
-      //             child: SvgPicture.string(
-      //               _svg_ah28f4,
-      //               allowDrawingOutsideViewBox: true,
-      //             ),
-      //           ),
-      //         ),
-      //         Center(
-      //           child: Container(
-      //             width: 64.0,
-      //             height: 37.0,
-      //             decoration: BoxDecoration(
-      //               image: DecorationImage(
-      //                 image: const AssetImage('assets/Sync Logo.png'),
-      //                 fit: BoxFit.fill,
-      //                 colorFilter: new ColorFilter.mode(
-      //                     Colors.black.withOpacity(0.7), BlendMode.dstIn),
-      //               ),
-      //               // boxShadow: [
-      //               //   BoxShadow(
-      //               //     color: const Color(0x45000000),
-      //               //     offset: Offset(0, 3),
-      //               //     blurRadius: 80,
-      //               //   ),
-      //               // ],
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //     Text(
-      //       'Clubs',
-      //       style: TextStyle(
-      //         fontFamily: 'Poppins',
-      //         fontSize: 22,
-      //         color: const Color(0xff404040),
-      //         fontWeight: FontWeight.w600,
-      //       ),
-      //       textAlign: TextAlign.left,
-      //     ),
-      //     Padding(
-      //       padding: EdgeInsets.fromLTRB(13, 0, 13, 0),
-      //       child: FirebaseAnimatedList(
-      //         query: _ref,
-      //         itemBuilder: (BuildContext context, DataSnapshot snapshot,
-      //             Animation<double> animation, int index) {
-      //           Map clubs = snapshot.value;
-      //           clubs['key'] = snapshot.key;
-      //           return _buildClubItem(clubs: clubs);
-      //         },
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
