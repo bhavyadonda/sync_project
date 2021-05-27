@@ -129,6 +129,643 @@ class _UpdateProfileState extends State<UpdateProfile> {
 
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 30,
+        backgroundColor: Colors.white,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(
+              //Sync Logo
+              child: Container(
+                width: 64.0,
+                height: 37.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    // enter variable
+                    image: const AssetImage('assets/Sync Logo.png'),
+                    fit: BoxFit.fill,
+                    colorFilter: new ColorFilter.mode(
+                        Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                  ),
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //     color: const Color(0x45000000),
+                  //     offset: Offset(0, 3),
+                  //     blurRadius: 80,
+                  //   ),
+                  // ],
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.17,
+              alignment: Alignment.center,
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  FutureBuilder(
+                      future: getdata(),
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.hasData) {
+                          Map<dynamic, dynamic> values = snapshot.data;
+                          return new Container(
+                            height: 89,
+                            width: 89,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                              color: const Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x7a000000),
+                                  offset: Offset(0, 3),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                            child: ClipOval(
+                              child: SizedBox(
+                                child: (_image != null) ?
+                                Image.file(_image, fit: BoxFit.cover,) :
+                                GestureDetector(
+                                  onTap: () {
+                                    getImage();
+                                  },
+                                  child: Image.network(
+                                    values['profile_pic'],
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        } else {
+                          return Container();
+                        }
+                      }
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                    child: GestureDetector(
+                      onTap: () {
+                        getImage();
+                      },
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: 17.0,
+                            height: 17.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                  Radius.elliptical(9999.0, 9999.0)),
+                              gradient: LinearGradient(
+                                begin: Alignment(-0.97, -0.82),
+                                end: Alignment(0.97, 0.79),
+                                colors: [
+                                  const Color(0xfffe4f70),
+                                  const Color(0xffcb6bd8)
+                                ],
+                                stops: [0.0, 1.0],
+                              ),
+                            ),
+                          ),
+                          SvgPicture.string(
+                            _svg_qftx7n,
+                            allowDrawingOutsideViewBox: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // SizedBox(
+            //   width: 89.0,
+            //   height: 89.0,
+            //   child: Stack(
+            //     children: <Widget>[
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(0.0, 0.0, 89.0, 89.0),
+            //         size: Size(89.0, 89.0),
+            //         pinLeft: true,
+            //         pinRight: true,
+            //         pinTop: true,
+            //         pinBottom: true,
+            //         child:
+            //         // Adobe XD layer: 'Profile Circle' (shape)
+            //         Container(
+            //           decoration: BoxDecoration(
+            //             borderRadius:
+            //             BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+            //             color: const Color(0xffffffff),
+            //             boxShadow: [
+            //               BoxShadow(
+            //                 color: const Color(0x7a000000),
+            //                 offset: Offset(0, 3),
+            //                 blurRadius: 6,
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(60.0, 72.0, 17.0, 17.0),
+            //         size: Size(89.0, 89.0),
+            //         child:
+            //
+            //         // Adobe XD layer: 'Add Button' (group)
+            //         Stack(
+            //           children: <Widget>[
+            //             // Adobe XD layer: 'Add Circle' (shape)
+            //
+            //             Container(
+            //               width: 17.0,
+            //               height: 17.0,
+            //               decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.all(
+            //                     Radius.elliptical(9999.0, 9999.0)),
+            //                 gradient: LinearGradient(
+            //                   begin: Alignment(-0.97, -0.82),
+            //                   end: Alignment(0.97, 0.79),
+            //                   colors: [
+            //                     const Color(0xfffe4f70),
+            //                     const Color(0xffcb6bd8)
+            //                   ],
+            //                   stops: [0.0, 1.0],
+            //                 ),
+            //               ),
+            //               child: GestureDetector(
+            //                 onTap: () {
+            //                   getImage();
+            //                 },
+            //               ),
+            //             ),
+            //
+            //             Transform.translate(
+            //               offset: Offset(3.7, 3.7),
+            //               child: SvgPicture.string(
+            //                 _svg_qftx7n,
+            //                 allowDrawingOutsideViewBox: true,
+            //               ),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //       Pinned.fromSize(
+            //         bounds: Rect.fromLTWH(29.0, 27.5, 31.0, 33.9),
+            //         size: Size(89.0, 89.0),
+            //         child:
+            //         // Adobe XD layer: 'Profile Icon' (group)
+            //         Stack(
+            //           children: <Widget>[
+            //             Transform.translate(
+            //               offset: Offset(7.8, 0.0),
+            //               child: Container(
+            //                 width: 15.5,
+            //                 height: 15.5,
+            //                 decoration: BoxDecoration(
+            //                   borderRadius: BorderRadius.all(
+            //                       Radius.elliptical(9999.0, 9999.0)),
+            //                   gradient: LinearGradient(
+            //                     begin: Alignment(-0.97, -0.82),
+            //                     end: Alignment(0.97, 0.79),
+            //                     colors: [
+            //                       const Color(0xfffe4f70),
+            //                       const Color(0xffcb6bd8)
+            //                     ],
+            //                     stops: [0.0, 1.0],
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //             FutureBuilder(
+            //                 future: getdata(),
+            //                 builder: (context, AsyncSnapshot snapshot) {
+            //                   if (snapshot.hasData) {
+            //                     Map<dynamic, dynamic> values = snapshot.data;
+            //                     return Transform.translate(
+            //                       offset: Offset(0.0, 19.3),
+            //                       child: ClipOval(
+            //                         child: new SizedBox(
+            //                           // width: 180.0,
+            //                           // height: 180.0,
+            //                             child: (_image != null)
+            //                                 ? Image.file(
+            //                               _image,
+            //                               fit: BoxFit.fill,
+            //                             )
+            //                                 : GestureDetector(
+            //                               onTap: () {
+            //                                 getImage();
+            //                               },
+            //                               child: Image.network(
+            //                                 values['profile_pic'],
+            //                               ),
+            //                             )),
+            //                       ),
+            //                     );
+            //                   } else {
+            //                     return Container(
+            //                       width: 15.5,
+            //                       height: 15.5,
+            //                       decoration: BoxDecoration(
+            //                         borderRadius: BorderRadius.all(
+            //                             Radius.elliptical(9999.0, 9999.0)),
+            //                         gradient: LinearGradient(
+            //                           begin: Alignment(-0.97, -0.82),
+            //                           end: Alignment(0.97, 0.79),
+            //                           colors: [
+            //                             const Color(0xfffe4f70),
+            //                             const Color(0xffcb6bd8)
+            //                           ],
+            //                           stops: [0.0, 1.0],
+            //                         ),
+            //                       ),
+            //                     );
+            //                   }
+            //                 }),
+            //           ],
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.05,
+              alignment: Alignment.center,
+              child: Text(
+                'Let\'s complete your profile',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 18,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.53,
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Column(
+                //mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                    child: Container(
+                      height: 48.0,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: const Color(0x1a9d9d9d),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                        child: TextFormField(
+                          maxLines: 1,
+                          controller: _name,
+                          keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: const Color(0xffb6b6b6),
+                            fontWeight: FontWeight.w300,
+                          ),
+                          cursorColor: Colors.white,
+                          decoration: InputDecoration(
+                            icon: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.string(
+                                  _svg_8m0axe,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                                SvgPicture.string(
+                                  _svg_wkyxh4,
+                                  allowDrawingOutsideViewBox: true,
+                                  fit: BoxFit.fill,
+                                ),
+                              ],
+                            ),
+                            border: InputBorder.none,
+                            fillColor: const Color(0x1a9d9d9d),
+                            hintText: 'Name',
+                            hintStyle: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xffb6b6b6),
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Container(
+                      height: 48.0,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: const Color(0x1a9d9d9d),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                        child: TextFormField(
+                          maxLines: 1,
+                          controller: _course,
+                          keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: const Color(0xffb6b6b6),
+                            fontWeight: FontWeight.w300,
+                          ),
+                          cursorColor: Colors.white,
+                          decoration: InputDecoration(
+                            icon: Container(
+                              width: 30,
+                              height: 30,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(4.4, 10.9, 13.4, 2.2),
+                                    size: Size(25.0, 27.9),
+                                    child: SvgPicture.string(
+                                      _svg_wjl8u5,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(4.4, 15.3, 9.0, 2.2),
+                                    size: Size(25.0, 27.9),
+                                    child: SvgPicture.string(
+                                      _svg_4iw10s,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 22.1, 27.9),
+                                    size: Size(25.0, 27.9),
+                                    child: SvgPicture.string(
+                                      _svg_m52rhj,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(11.8, 14.8, 13.2, 13.1),
+                                    size: Size(25.0, 27.9),
+                                    child: SvgPicture.string(
+                                      _svg_uk39fa,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(4.4, 6.5, 13.4, 2.2),
+                                    size: Size(25.0, 27.9),
+                                    child: SvgPicture.string(
+                                      _svg_fxejn8,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            border: InputBorder.none,
+                            hintText: "Course",
+                            hintStyle: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xffb6b6b6),
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Container(
+                      height: 48.0,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: const Color(0x1a9d9d9d),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                        child: TextFormField(
+                          controller: _yearOfStudy,
+                          maxLines: 1,
+                          keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: const Color(0xffb6b6b6),
+                            fontWeight: FontWeight.w300,
+                          ),
+                          cursorColor: Colors.white,
+                          decoration: InputDecoration(
+                            icon: Container(
+                              width: 30,
+                              height: 25,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 25.0, 19.4),
+                                    size: Size(25.0, 19.4),
+                                    child: SvgPicture.string(
+                                      _svg_v4c4p3,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 25.0, 19.4),
+                                    size: Size(25.0, 19.4),
+                                    child: SvgPicture.string(
+                                      _svg_v4c4p3,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            border: InputBorder.none,
+                            hintText: "Year of Study",
+                            hintStyle: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xffb6b6b6),
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Container(
+                      height: 48.0,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: const Color(0x1a9d9d9d),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                        child: TextFormField(
+                          controller: _sapID,
+                          maxLines: 1,
+                          keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: const Color(0xffb6b6b6),
+                            fontWeight: FontWeight.w300,
+                          ),
+                          cursorColor: Colors.white,
+                          decoration: InputDecoration(
+                            icon: SvgPicture.string(
+                              _svg_wiv4v2,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                            border: InputBorder.none,
+                            hintText: "SAP ID",
+                            hintStyle: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xffb6b6b6),
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    child: Container(
+                      height: 48.0,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: const Color(0x1a9d9d9d),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                        child: TextFormField(
+                          controller: _phoneNumber,
+                          maxLines: 1,
+                          keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: const Color(0xffb6b6b6),
+                            fontWeight: FontWeight.w300,
+                          ),
+                          cursorColor: Colors.white,
+                          decoration: InputDecoration(
+                            icon: SvgPicture.string(
+                              _svg_bzik28,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                            border: InputBorder.none,
+                            hintText: "Phone Number",
+                            hintStyle: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: const Color(0xffb6b6b6),
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () async {
+                if (_sapID.text.length != 11 ||
+                    _phoneNumber.text.length != 10) {
+                  _sapID.text = '';
+                  _phoneNumber.text = '';
+                  showAlertDialog(context, '', 'Wrong Inputs',
+                      'Please make sure SAP id is 11-digit and Phone number is 10-digit');
+                } else {
+                  showLoaderDialog(context, "Creating Profile...");
+                  createProfile();
+                }
+              },
+              child: Container(
+                height: 48.0,
+                width: MediaQuery.of(context).size.width * 0.75,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  gradient: LinearGradient(
+                    begin: Alignment(-0.97, -0.82),
+                    end: Alignment(0.97, 0.79),
+                    colors: [
+                      const Color(0xfffe4f70),
+                      const Color(0xffcb6bd8)
+                    ],
+                    stops: [0.0, 1.0],
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    'Let\'s Go',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      color: const Color(0xffffffff),
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
+          ],
+        ),
+      ),
+    );
+
+    return Scaffold(
+      backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -422,27 +1059,27 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     child:
                         // Adobe XD layer: 'Study Icon' (group)
                         Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 25.0, 19.4),
-                          size: Size(25.0, 19.4),
-                          child: SvgPicture.string(
-                            _svg_v4c4p3,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
-                          ),
+                    children: <Widget>[
+                      Pinned.fromSize(
+                        bounds: Rect.fromLTWH(0.0, 0.0, 25.0, 19.4),
+                        size: Size(25.0, 19.4),
+                        child: SvgPicture.string(
+                          _svg_v4c4p3,
+                          allowDrawingOutsideViewBox: true,
+                          fit: BoxFit.fill,
                         ),
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 0.0, 25.0, 19.4),
-                          size: Size(25.0, 19.4),
-                          child: SvgPicture.string(
-                            _svg_v4c4p3,
-                            allowDrawingOutsideViewBox: true,
-                            fit: BoxFit.fill,
-                          ),
+                      ),
+                      Pinned.fromSize(
+                        bounds: Rect.fromLTWH(0.0, 0.0, 25.0, 19.4),
+                        size: Size(25.0, 19.4),
+                        child: SvgPicture.string(
+                          _svg_v4c4p3,
+                          allowDrawingOutsideViewBox: true,
+                          fit: BoxFit.fill,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
+                  ),
                   ),
                 ],
               ),
