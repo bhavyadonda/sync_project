@@ -644,7 +644,7 @@ class _ContactUsState extends State<ContactUs> {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.21,
+              height: MediaQuery.of(context).size.height * 0.20,
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.90,
@@ -674,6 +674,10 @@ class _ContactUsState extends State<ContactUs> {
                   textAlign: TextAlign.left,
                 ),
               ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
           ],
         ),
