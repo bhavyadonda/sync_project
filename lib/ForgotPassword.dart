@@ -64,23 +64,26 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-              child: Text(
-                'Forgot Password',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22,
-                  color: const Color(0xff404040),
-                  fontWeight: FontWeight.w600,
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.075,
+              child: Center(
+                child: Text(
+                  'Forgot Password',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22,
+                    color: const Color(0xff404040),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.left,
                 ),
-                textAlign: TextAlign.left,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.80,
+            Container(
+              width: MediaQuery.of(context).size.width * 0.80,
+              height: MediaQuery.of(context).size.height * 0.05,
+              child: Center(
                 child: Text(
                   'We will send a password reset link to your \nregistered mail ID.',
                   style: TextStyle(
@@ -92,66 +95,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
               ),
             ),
-            // SizedBox(
-            //   width: MediaQuery.of(context).size.width * 0.67,
-            //   height: 48.0,
-            //   child: Stack(
-            //     children: <Widget>[
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-            //         size: Size(273.0, 48.0),
-            //         pinLeft: true,
-            //         pinRight: true,
-            //         pinTop: true,
-            //         pinBottom: true,
-            //         child:
-            //         // Adobe XD layer: 'Mail ID Input' (shape)
-            //         Container(
-            //           decoration: BoxDecoration(
-            //             borderRadius: BorderRadius.circular(10.0),
-            //             color: const Color(0x1a9d9d9d),
-            //           ),
-            //         ),
-            //       ),
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(50.0, 14.0, 45.0, 20.0),
-            //         size: Size(273.0, 48.0),
-            //         fixedWidth: true,
-            //         fixedHeight: true,
-            //         child:
-            //         // Adobe XD layer: 'Mail ID Placeholder' (text)
-            //         Text(
-            //           'Mail ID',
-            //           style: TextStyle(
-            //             fontFamily: 'Poppins',
-            //             fontSize: 16,
-            //             color: const Color(0xffb6b6b6),
-            //             fontWeight: FontWeight.w300,
-            //           ),
-            //           textAlign: TextAlign.left,
-            //         ),
-            //       ),
-            //       Pinned.fromSize(
-            //         bounds: Rect.fromLTWH(14.5, 15.0, 25.0, 17.6),
-            //         size: Size(273.0, 48.0),
-            //         child:
-            //         // Adobe XD layer: 'Mail Icon' (shape)
-            //         SvgPicture.string(
-            //           _svg_wiv4v2,
-            //           allowDrawingOutsideViewBox: true,
-            //           fit: BoxFit.fill,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // SvgPicture.string(
-            //   _svg_wiv4v2,
-            //   allowDrawingOutsideViewBox: true,
-            //   fit: BoxFit.fill,
-            // ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.67,
                 height: 48.0,
@@ -165,6 +110,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     controller: _emailController,
                     maxLines: 1,
                     decoration: InputDecoration(
+                      icon: SvgPicture.string(
+                        _svg_wiv4v2,
+                        allowDrawingOutsideViewBox: true,
+                        fit: BoxFit.fill,
+                      ),
                       border: InputBorder.none,
                       fillColor: const Color(0x1a9d9d9d),
                       hintText: 'Mail',
@@ -181,68 +131,56 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.55,
+              height: MediaQuery.of(context).size.height * 0.50,
+            ),
+            InkWell(
+              onTap: () async {
+                showLoaderDialog(context, "Sending Email...");
+                try {
+                  await FirebaseAuth.instance.sendPasswordResetEmail(
+                    email: _emailController.text,
+                  );
+                  Navigator.pop(context);
+                  showAlertDialog(context, '/SignIn', 'Password Change',
+                      'A link to change your password has been send to your email id.');
+                } on FirebaseAuthException catch (e) {
+                  Navigator.pop(context);
+                  _emailController.text = "";
+                  showAlertDialog(context, '', e.code, e.message);
+                }
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.67,
+                height: 48.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  gradient: LinearGradient(
+                    begin: Alignment(-0.97, -0.82),
+                    end: Alignment(0.97, 0.79),
+                    colors: [
+                      const Color(0xfffe4f70),
+                      const Color(0xffcb6bd8)
+                    ],
+                    stops: [0.0, 1.0],
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    'Send',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      color: const Color(0xffffffff),
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.67,
-              height: 48.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 273.0, 48.0),
-                    size: Size(273.0, 48.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                        // Adobe XD layer: 'Button' (shape)
-                        Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        gradient: LinearGradient(
-                          begin: Alignment(-0.97, -0.82),
-                          end: Alignment(0.97, 0.79),
-                          colors: [
-                            const Color(0xfffe4f70),
-                            const Color(0xffcb6bd8)
-                          ],
-                          stops: [0.0, 1.0],
-                        ),
-                      ),
-                      child: InkWell(onTap: () async {
-                        showLoaderDialog(context, "Sending Email...");
-                        try {
-                          await FirebaseAuth.instance.sendPasswordResetEmail(
-                            email: _emailController.text,
-                          );
-                          Navigator.pop(context);
-                          showAlertDialog(context, '/SignIn', 'Password Change',
-                              'A link to change your password has been send to your email id.');
-                        } on FirebaseAuthException catch (e) {
-                          Navigator.pop(context);
-                          _emailController.text = "";
-                          showAlertDialog(context, '', e.code, e.message);
-                        }
-                      }),
-                    ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(118.0, 12.0, 48.0, 21.0),
-                    size: Size(273.0, 48.0),
-                    child: Text(
-                      'Send',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 18,
-                        color: const Color(0xffffffff),
-                        fontWeight: FontWeight.w600,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ],
-              ),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
           ],
         ),
