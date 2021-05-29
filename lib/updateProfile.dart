@@ -432,7 +432,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         child: TextFormField(
                           maxLines: 1,
                           controller: _name,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.name,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -484,7 +484,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         child: TextFormField(
                           maxLines: 1,
                           controller: _course,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.text,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -573,7 +573,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         child: TextFormField(
                           controller: _yearOfStudy,
                           maxLines: 1,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.text,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -635,7 +635,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         child: TextFormField(
                           controller: _sapID,
                           maxLines: 1,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.number,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -676,7 +676,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         child: TextFormField(
                           controller: _phoneNumber,
                           maxLines: 1,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.phone,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 16,
