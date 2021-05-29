@@ -8,6 +8,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import './methods.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -18,6 +20,20 @@ class _SignInState extends State<SignIn> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+  String deviceId;
+  
+   @override
+  void initState() {
+    super.initState();
+    _getToken();
+  }
+
+  _getToken() {
+    _firebaseMessaging.getToken().then((token) {
+      deviceId = token;
+    });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -464,6 +480,8 @@ class _SignInState extends State<SignIn> {
                         );
                         User user = FirebaseAuth.instance.currentUser;
                         if (user.emailVerified) {
+                          final databaseReference = FirebaseDatabase.instance.reference();
+                          await databaseReference.child("users/" + user.uid+ "/device_id").set(deviceId);
                           SharedPreferences prefs =
                           await SharedPreferences.getInstance();
                           prefs.setBool('my_bool_key', true);
