@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_database/firebase_database.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import './methods.dart';
 import 'dart:async';
 import 'dart:io';
@@ -19,6 +20,20 @@ class CompleteProfile extends StatefulWidget {
 
 class _CompleteProfileState extends State<CompleteProfile> {
   File _image;
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+  String deviceId;
+  
+  @override
+  void initState() {
+    super.initState();
+    _getToken();
+  }
+
+  _getToken() {
+    _firebaseMessaging.getToken().then((token) {
+      deviceId = token;
+    });
+}
 
   final _formKey = GlobalKey<FormState>();
   TextEditingController _name = TextEditingController();
@@ -53,6 +68,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
           'year': _yearOfStudy.text,
           'SAP': _sapID.text,
           'phone': _phoneNumber.text,
+          'device_id': deviceId,
         });
 
         Navigator.pop(context);
