@@ -109,6 +109,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   child: TextFormField(
                     controller: _emailController,
                     maxLines: 1,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       icon: SvgPicture.string(
                         _svg_wiv4v2,
