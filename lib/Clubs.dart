@@ -8,6 +8,9 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'dart:io';
+import 'dart:convert';
+import 'methods.dart';
+
 
 class Clubs extends StatefulWidget {
   @override
@@ -15,9 +18,35 @@ class Clubs extends StatefulWidget {
 }
 
 class _ClubsState extends State<Clubs> {
+
+  String uid;
+  String clubkey;
+  bool following;
+
+  getdata() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    uid = prefs.getString('uid');
+    Map data = json.decode(prefs.getString('clubs'));
+    Map userdata = json.decode(prefs.getString('userData'));
+    var followdata = userdata['following'].values.toList();
+    clubkey = prefs.getString('clubdetails');
+    if (followdata.contains(clubkey)) {
+      setState(() {
+        following = true;
+      });
+    } else {
+      setState(() {
+        following = false;
+      });
+    }
+    print(followdata);
+    return data;
+  }
+
   Query _ref;
   DatabaseReference reference =
   FirebaseDatabase.instance.reference().child('Club');
+
 
   @override
   void initState() {
@@ -29,7 +58,6 @@ class _ClubsState extends State<Clubs> {
         .orderByChild('name');
         print(_ref);
   }
-  
 
   // followState() async {
   //   _ref = FirebaseDatabase.instance
@@ -151,11 +179,136 @@ class _ClubsState extends State<Clubs> {
                           ],
                         ),
                       ),
-                      // FOLLOW AND FOLLOWING BUTTON
+                      GestureDetector(
+                        onTap: () async {
+                          SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                          Map userdata =
+                          json.decode(prefs.getString('userData'));
+                          final databaseReference =
+                          FirebaseDatabase.instance.reference();
+
+                          if (userdata.keys
+                              .toList()
+                              .contains('following')) {
+                            if (userdata['following']
+                                .values
+                                .toList()
+                                .contains(clubkey)) {
+                              showLoaderDialog(context, "unfollowing...");
+
+                              await databaseReference
+                                  .child("users/" + uid + '/following')
+                                  .child(clubkey)
+                                  .remove();
+                              userdata['following'].remove(clubkey);
+                              setState(() {
+                                following = !following;
+                              });
+
+                              Navigator.pop(context);
+                              showAlertDialog(
+                                  context,
+                                  '',
+                                  'unfollowed Successfully',
+                                  'You will now not be notified for the club.');
+                            } else {
+                              showLoaderDialog(context, "following...");
+                              await databaseReference
+                                  .child("users/" + uid + '/following')
+                                  .child(clubkey)
+                                  .set(clubkey);
+                              userdata['following'][clubkey] = clubkey;
+                              setState(() {
+                                following = !following;
+                              });
+
+                              Navigator.pop(context);
+                              showAlertDialog(
+                                  context,
+                                  '',
+                                  'following Created Successfully',
+                                  'You will now be notified for the club.');
+                            }
+
+                            prefs.setString(
+                                'userData', json.encode(userdata));
+                          } else {
+                            showLoaderDialog(context, "following...");
+                            await databaseReference
+                                .child("users/" + uid + '/following')
+                                .child(clubkey)
+                                .set(clubkey);
+                            if (userdata['following'] == null) {
+                              userdata['following'] = {};
+                              userdata['following'][clubkey] = clubkey;
+                            }
+                            userdata['following'][clubkey] = clubkey;
+
+                            Navigator.pop(context);
+                            showAlertDialog(context, '/Home', ' following',
+                                'You will now be notified for the club.');
+                          }
+
+                          prefs.setString(
+                              'userData', json.encode(userdata));
+                        },
+                        child: following == true ?
+                        Container(
+                          width: 87.0,
+                          height: 28.0,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(30.0),
+                            gradient: LinearGradient(
+                              begin: Alignment(-0.97, -0.82),
+                              end: Alignment(0.97, 0.79),
+                              colors: [
+                                const Color(0xfffe4f70),
+                                const Color(0xffcb6bd8)
+                              ],
+                              stops: [0.0, 1.0],
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Following',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 12,
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w700,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                        ) :
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            SvgPicture.string(
+                              _svg_k2ckhg,
+                              allowDrawingOutsideViewBox: true,
+                              fit: BoxFit.fill,
+                            ),
+                            Text(
+                              'Follow',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 11,
+                                color: const Color(0xff404040),
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ],
+                        ),
+                      ),
+                      //FOLLOW AND FOLLOWING BUTTON
                       Container(
                         alignment: Alignment.centerRight,
                         child: Container(
-                          width: 87,
+                          width: 90,
                           height: 27.5,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30.0),
