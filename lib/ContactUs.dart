@@ -375,6 +375,10 @@ class ContactUs extends StatefulWidget {
 }
 
 class _ContactUsState extends State<ContactUs> {
+
+  List<String> _query = ['A', 'B', 'C', 'D'];
+  String _selectedQuery;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -596,6 +600,19 @@ class _ContactUsState extends State<ContactUs> {
                         ),
                         textAlign: TextAlign.left,
                       ),
+                      value: _selectedQuery,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _selectedQuery = newValue;
+                        });
+                        print(_selectedQuery);
+                      },
+                      items: _query.map((location) {
+                        return DropdownMenuItem(
+                          child: new Text(location),
+                          value: location,
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),
