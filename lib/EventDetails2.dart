@@ -256,57 +256,74 @@ class _EventDetails2State extends State<EventDetails2> {
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Image.asset('assets/Calendar Icon.png'),
-                                          Image.asset('assets/Time Icon.png'),
-                                          SvgPicture.string(
-                                            _svg_w4c8pt,
-                                            allowDrawingOutsideViewBox: true,
-                                            fit: BoxFit.fill,
+                                          Column(
+                                            children: [
+                                              Image.asset('assets/Calendar Icon.png'),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Text(
+                                                values['event_start_date'].toString().split(' ')[0],
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 14,
+                                                  color: const Color(0xff9d9d9d),
+                                                  fontWeight: FontWeight.w500,
+                                                  height: 1.1666666666666667,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            children: [
+                                              Image.asset('assets/Time Icon.png'),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Text(
+                                                values['event_start_time']
+                                                    .toString()
+                                                    .split(' ')[1]
+                                                    .substring(0, 5),
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 14,
+                                                  color: const Color(0xff9d9d9d),
+                                                  fontWeight: FontWeight.w500,
+                                                  height: 1.1666666666666667,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            children: [
+                                              SvgPicture.string(
+                                                _svg_w4c8pt,
+                                                allowDrawingOutsideViewBox: true,
+                                                fit: BoxFit.fill,
+                                              ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Text(
+                                                values['event_location'].toString(),
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 14,
+                                                  color: const Color(0xff9d9d9d),
+                                                  fontWeight: FontWeight.w500,
+                                                  height: 1.1666666666666667,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          values['event_start_date'].toString(),
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 14,
-                                            color: const Color(0xff9d9d9d),
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.1666666666666667,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        Text(
-                                          values['event_start_time']
-                                              .toString()
-                                              .split(' ')[1]
-                                              .substring(0, 5),
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 14,
-                                            color: const Color(0xff9d9d9d),
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.1666666666666667,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        Text(
-                                          'Santokba\nFoyer',
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 14,
-                                            color: const Color(0xff9d9d9d),
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.1666666666666667,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
                                     ),
                                   ],
                                 ),
