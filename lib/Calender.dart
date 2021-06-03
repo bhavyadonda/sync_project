@@ -798,7 +798,7 @@ class _CalenderState extends State<Calender> {
                                                 fixedHeight: true,
                                                 child: Text(
                                                   values.values.toList()[index]
-                                                      ['event_start_date'],
+                                                      ['event_start_date'].toString().split(' ')[0],
                                                   style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 13,
