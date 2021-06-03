@@ -217,7 +217,7 @@ class _EventsState extends State<Events> {
                                             values.values
                                                     .toList()[index]
                                                         ['event_start_date']
-                                                    .toString() +
+                                                .toString().split(' ')[0] +
                                                 " | " +
                                                 values.values
                                                     .toList()[index]
