@@ -366,6 +366,7 @@ class _CalenderState extends State<Calender> {
               ],
             ),
             TableCalendar(
+              calendarController: _controller,
               builders: CalendarBuilders(
                 selectedDayBuilder: (context, date, events) => Container(
                     margin: const EdgeInsets.all(5.0),
@@ -393,44 +394,69 @@ class _CalenderState extends State<Calender> {
               ),
               initialCalendarFormat: CalendarFormat.month,
               headerStyle: HeaderStyle(
-                formatButtonDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                  gradient: LinearGradient(
-                  begin: Alignment(-0.97, -0.82),
-                  end: Alignment(0.97, 0.79),
-                  colors: [
-                    const Color(0xfffe4f70),
-                    const Color(0xffcb6bd8)
-                  ],
-                  stops: [0.0, 1.0],
-                  ),
-                ),
-                //formatButtonVisible: false, //Button wont be visible with this
-                formatButtonTextStyle: TextStyle(
+                centerHeaderTitle: true,
+                titleTextStyle: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 15,
-                  color: const Color(0xffffffff),
-                  fontWeight: FontWeight.w400,
+                  fontSize: 18,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w600,
                 ),
-                formatButtonShowsNext: false,
+                formatButtonVisible: false,
+              ),
+              daysOfWeekStyle: DaysOfWeekStyle(
+                weekdayStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 17,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w600,
+                ),
+                weekendStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 17,
+                  color: Colors.red,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               calendarStyle: CalendarStyle(
-                  todayColor: Color(0x1a9d9d9d),
-                  selectedColor: const Color(0xfffe4f70),
-                  selectedStyle: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 13,
-                    color: const Color(0xff2e2e2e),
-                    fontWeight: FontWeight.w500,
-                  ),
-                  todayStyle: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 13,
-                    color: const Color(0xff2e2e2e),
-                    fontWeight: FontWeight.w500,
-                  ),
+                weekdayStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                  color: const Color(0xff404040),
+                  fontWeight: FontWeight.w500,
+                ),
+                weekendStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                  color: Colors.red,
+                  fontWeight: FontWeight.w500,
+                ),
+                outsideStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
+                outsideWeekendStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                  color: Colors.red[200],
+                  fontWeight: FontWeight.w500,
+                ),
+                todayColor: Color(0x1a9d9d9d),
+                selectedColor: const Color(0xfffe4f70),
+                selectedStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 13,
+                  color: const Color(0xff2e2e2e),
+                  fontWeight: FontWeight.w500,
+                ),
+                todayStyle: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 13,
+                  color: const Color(0xff2e2e2e),
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              calendarController: _controller,
               onDaySelected: (date, event, _) {
                 setState(() {
                   dateSelected = date;
