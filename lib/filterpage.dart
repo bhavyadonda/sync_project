@@ -24,7 +24,7 @@ class _FilterPageState extends State<FilterPage> {
   DateTime _selecteddate;
   double len = 250;
   double wid = 250;
-  List<String> _Clubs = ['A', 'B', 'C', 'D'];
+  List<String> _Clubs = ['Select Clubs', 'A', 'B', 'C', 'D'];
   Map<String, bool> categories = {
     'P': false,
     'Q': false,
@@ -123,7 +123,7 @@ class _FilterPageState extends State<FilterPage> {
                       ),
                       onTap: () {
                         setState(() {
-                          _selectedClub = 'A';
+                          _selectedClub = '';
                           _selecteddate = DateTime(2021, 3, 1);
                           if (morning == true) {
                             morning = false;
@@ -182,7 +182,7 @@ class _FilterPageState extends State<FilterPage> {
                       _svg_2a2k3i,
                       allowDrawingOutsideViewBox: true,
                       fit: BoxFit.fill,
-                      ),
+                    ),
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: const Color(0x1a9d9d9d)),
@@ -460,111 +460,111 @@ class _FilterPageState extends State<FilterPage> {
                       return Padding(
                         padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                         child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              categories[categories.keys.toList()[index]] ^= true;
-                            });
-                            print(categories);
-                          },
-                          child: Container(
-                            width: 100,
-                            child: Stack(
-                              children: <Widget>[
-                                Pinned.fromSize(
-                                  bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
-                                  size: Size(91.0, 34.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(17.0),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(-0.97, -0.82),
-                                        end: Alignment(0.97, 0.79),
-                                        colors: [
-                                          const Color(0xfffe4f70),
-                                          const Color(0xffcb6bd8)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x29000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 6,
+                            onTap: () {
+                              setState(() {
+                                categories[categories.keys.toList()[index]] ^= true;
+                              });
+                              print(categories);
+                            },
+                            child: Container(
+                              width: 100,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
+                                    size: Size(91.0, 34.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(17.0),
+                                        gradient: LinearGradient(
+                                          begin: Alignment(-0.97, -0.82),
+                                          end: Alignment(0.97, 0.79),
+                                          colors: [
+                                            const Color(0xfffe4f70),
+                                            const Color(0xffcb6bd8)
+                                          ],
+                                          stops: [0.0, 1.0],
                                         ),
-                                      ],
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0x29000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Center(
-                                  child: Text(
-                                    categories.keys.toList()[index],
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 16,
-                                      color: const Color(0xffffffff),
+                                  Center(
+                                    child: Text(
+                                      categories.keys.toList()[index],
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        color: const Color(0xffffffff),
+                                      ),
+                                      textAlign: TextAlign.left,
                                     ),
-                                    textAlign: TextAlign.left,
                                   ),
-                                ),
-                              ],
-                            ),
-                          )
+                                ],
+                              ),
+                            )
                         ),
                       );
                     }),
               ),
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-        child: GestureDetector(
-          onTap: () async {
-            SharedPreferences prefs =
-            await SharedPreferences.getInstance();
-            prefs.setBool('morning', morning);
-            prefs.setBool('afternoon', afternoon);
-            prefs.setBool('evening', evening);
-            prefs.setBool('night', night);
-            prefs.setString('date', _selecteddate.toString());
-            prefs.setString('club', _selectedClub);
-            for (var i = 0; i < categories.keys.toList().length; i++) {
-              prefs.setBool(categories.keys.toList()[i],
-                  categories.values.toList()[i]);
-            }
-            // prefs.setString('categories', categories.toString());
-            prefs.setBool('filter_applied', true);
-            Navigator.of(context).pushNamed('/Calender');
-          },
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.80,
-            height: 48.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              gradient: LinearGradient(
-                begin: Alignment(-0.97, -0.82),
-                end: Alignment(0.97, 0.79),
-                colors: [
-                  const Color(0xfffe4f70),
-                  const Color(0xffcb6bd8)
-                ],
-                stops: [0.0, 1.0],
-              ),
-            ),
-            child: Center(
-              child: Text(
-                'Apply',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 18,
-                  color: const Color(0xffffffff),
-                  fontWeight: FontWeight.w600,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 50, 0, 50),
+              child: GestureDetector(
+                onTap: () async {
+                  SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+                  prefs.setBool('morning', morning);
+                  prefs.setBool('afternoon', afternoon);
+                  prefs.setBool('evening', evening);
+                  prefs.setBool('night', night);
+                  prefs.setString('date', _selecteddate.toString());
+                  prefs.setString('club', _selectedClub);
+                  for (var i = 0; i < categories.keys.toList().length; i++) {
+                    prefs.setBool(categories.keys.toList()[i],
+                        categories.values.toList()[i]);
+                  }
+                  // prefs.setString('categories', categories.toString());
+                  prefs.setBool('filter_applied', true);
+                  Navigator.of(context).pushNamed('/Calender');
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.80,
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    gradient: LinearGradient(
+                      begin: Alignment(-0.97, -0.82),
+                      end: Alignment(0.97, 0.79),
+                      colors: [
+                        const Color(0xfffe4f70),
+                        const Color(0xffcb6bd8)
+                      ],
+                      stops: [0.0, 1.0],
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Apply',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                        color: const Color(0xffffffff),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
                 ),
-                textAlign: TextAlign.left,
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
