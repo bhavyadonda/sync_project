@@ -13,6 +13,7 @@ import 'methods.dart';
 
 
 class Clubs extends StatefulWidget {
+
   @override
   _ClubsState createState() => _ClubsState();
 }
@@ -22,14 +23,19 @@ class _ClubsState extends State<Clubs> {
   String uid;
   String clubkey;
   bool following;
-
+  List followdata;
+// change user data - it is not a list
   getdata() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     uid = prefs.getString('uid');
     Map data = json.decode(prefs.getString('clubs'));
     Map userdata = json.decode(prefs.getString('userData'));
-    var followdata = userdata['following'].values.toList();
+    setState(() {
+      followdata = userdata['following'].values.toList();
+    });
+
     clubkey = prefs.getString('clubdetails');
+
     if (followdata.contains(clubkey)) {
       setState(() {
         following = true;
@@ -39,7 +45,7 @@ class _ClubsState extends State<Clubs> {
         following = false;
       });
     }
-    print(followdata);
+    //print(followdata);
     return data;
   }
 
@@ -52,6 +58,7 @@ class _ClubsState extends State<Clubs> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    getdata();
     _ref = FirebaseDatabase.instance
         .reference()
         .child('clubs')
@@ -179,160 +186,127 @@ class _ClubsState extends State<Clubs> {
                           ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () async {
-                          SharedPreferences prefs =
-                          await SharedPreferences.getInstance();
-                          Map userdata =
-                          json.decode(prefs.getString('userData'));
-                          final databaseReference =
-                          FirebaseDatabase.instance.reference();
+                      Container(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
+                          onTap: () async {
+                            SharedPreferences prefs = await SharedPreferences.getInstance();
+                            Map userdata = json.decode(prefs.getString('userData'));
 
-                          if (userdata.keys
-                              .toList()
-                              .contains('following')) {
-                            if (userdata['following']
-                                .values
+                            final databaseReference = FirebaseDatabase.instance.reference();
+
+                            if (userdata.keys
                                 .toList()
-                                .contains(clubkey)) {
-                              showLoaderDialog(context, "unfollowing...");
+                                .contains('following')) {
+                              if (userdata['following']
+                                  .values
+                                  .toList()
+                                  .contains(clubkey)) {
+                                showLoaderDialog(context, "unfollowing...");
 
-                              await databaseReference
-                                  .child("users/" + uid + '/following')
-                                  .child(clubkey)
-                                  .remove();
-                              userdata['following'].remove(clubkey);
-                              setState(() {
-                                following = !following;
-                              });
+                                await databaseReference
+                                    .child("users/" + uid + '/following')
+                                    .child(clubkey)
+                                    .remove();
+                                userdata['following'].remove(clubkey);
+                                setState(() {
+                                  followdata.remove(clubs['Clubname']);
+                                });
 
-                              Navigator.pop(context);
-                              showAlertDialog(
-                                  context,
-                                  '',
-                                  'unfollowed Successfully',
-                                  'You will now not be notified for the club.');
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '',
+                                    'unfollowed Successfully',
+                                    'You will now not be notified for the club.');
+                              } else {
+                                showLoaderDialog(context, "following...");
+                                await databaseReference
+                                    .child("users/" + uid + '/following')
+                                    .child(clubkey)
+                                    .set(clubkey);
+                                userdata['following'][clubkey] = clubkey;
+                                setState(() {
+                                  followdata.add(clubs['Clubname']);
+                                });
+
+                                Navigator.pop(context);
+                                showAlertDialog(
+                                    context,
+                                    '',
+                                    'following Created Successfully',
+                                    'You will now be notified for the club.');
+                              }
+
+                              prefs.setString(
+                                  'userData', json.encode(userdata));
                             } else {
                               showLoaderDialog(context, "following...");
                               await databaseReference
                                   .child("users/" + uid + '/following')
                                   .child(clubkey)
                                   .set(clubkey);
+                              if (userdata['following'] == null) {
+                                userdata['following'] = {};
+                                userdata['following'][clubkey] = clubkey;
+                              }
                               userdata['following'][clubkey] = clubkey;
-                              setState(() {
-                                following = !following;
-                              });
 
                               Navigator.pop(context);
-                              showAlertDialog(
-                                  context,
-                                  '',
-                                  'following Created Successfully',
+                              showAlertDialog(context, '/Home', ' following',
                                   'You will now be notified for the club.');
                             }
-
-                            prefs.setString(
-                                'userData', json.encode(userdata));
-                          } else {
-                            showLoaderDialog(context, "following...");
-                            await databaseReference
-                                .child("users/" + uid + '/following')
-                                .child(clubkey)
-                                .set(clubkey);
-                            if (userdata['following'] == null) {
-                              userdata['following'] = {};
-                              userdata['following'][clubkey] = clubkey;
-                            }
-                            userdata['following'][clubkey] = clubkey;
-
-                            Navigator.pop(context);
-                            showAlertDialog(context, '/Home', ' following',
-                                'You will now be notified for the club.');
-                          }
-
-                          prefs.setString(
-                              'userData', json.encode(userdata));
-                        },
-                        child: following == true ?
-                        Container(
-                          width: 87.0,
-                          height: 28.0,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(30.0),
-                            gradient: LinearGradient(
-                              begin: Alignment(-0.97, -0.82),
-                              end: Alignment(0.97, 0.79),
-                              colors: [
-                                const Color(0xfffe4f70),
-                                const Color(0xffcb6bd8)
-                              ],
-                              stops: [0.0, 1.0],
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Following',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 12,
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w700,
+                            prefs.setString('userData', json.encode(userdata));
+                          },
+                          child: followdata.contains(clubs['Clubname'])  ?
+                          Container(
+                            width: 87.0,
+                            height: 28.0,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.circular(30.0),
+                              gradient: LinearGradient(
+                                begin: Alignment(-0.97, -0.82),
+                                end: Alignment(0.97, 0.79),
+                                colors: [
+                                  const Color(0xfffe4f70),
+                                  const Color(0xffcb6bd8)
+                                ],
+                                stops: [0.0, 1.0],
                               ),
-                              textAlign: TextAlign.left,
                             ),
-                          ),
-                        ) :
-                        Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            SvgPicture.string(
-                              _svg_k2ckhg,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                            Text(
-                              'Follow',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 11,
-                                color: const Color(0xff404040),
-                                fontWeight: FontWeight.w600,
+                            child: Center(
+                              child: Text(
+                                'Following',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12,
+                                  color: const Color(0xffffffff),
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                textAlign: TextAlign.left,
                               ),
-                              textAlign: TextAlign.left,
                             ),
-                          ],
-                        ),
-                      ),
-                      //FOLLOW AND FOLLOWING BUTTON
-                      Container(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          width: 90,
-                          height: 27.5,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30.0),
-                            gradient: LinearGradient(
-                              begin: Alignment(-0.97, -0.82),
-                              end: Alignment(0.97, 0.79),
-                              colors: [
-                                const Color(0xfffe4f70),
-                                const Color(0xffcb6bd8)
-                              ],
-                              stops: [0.0, 1.0],
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Following',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 13,
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
+                          ) :
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              SvgPicture.string(
+                                _svg_k2ckhg,
+                                allowDrawingOutsideViewBox: true,
+                                fit: BoxFit.fill,
                               ),
-                              textAlign: TextAlign.left,
-                            ),
+                              Text(
+                                'Follow',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 11,
+                                  color: const Color(0xff404040),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -611,6 +585,523 @@ class _ClubsState extends State<Clubs> {
 
   @override
   Widget build(BuildContext context) {
+    // final clubs = FutureBuilder(
+    //   future: getdata(),
+    //     builder: (context, AsyncSnapshot snapshot) {
+    //       if (snapshot.hasData) {
+    //         Map<dynamic, dynamic> clubs = snapshot.data['subEvents'];
+    //         return Padding(
+    //           padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+    //           child: Column(
+    //             mainAxisAlignment: MainAxisAlignment.center,
+    //             children: [
+    //               Container(
+    //                 height: 158.0,
+    //                 width: MediaQuery.of(context).size.width * 0.93,
+    //                 decoration: BoxDecoration(
+    //                   borderRadius: BorderRadius.circular(20.0),
+    //                   color: const Color(0xffffffff),
+    //                   boxShadow: [
+    //                     BoxShadow(
+    //                       color: const Color(0x26000000),
+    //                       offset: Offset(0, 5),
+    //                       blurRadius: 10,
+    //                     ),
+    //                   ],
+    //                 ),
+    //                 child: Padding(
+    //                   padding: const EdgeInsets.all(10),
+    //                   child: Column(
+    //                     children: [
+    //                       Stack(
+    //                         alignment: Alignment.center,
+    //                         children: [
+    //                           Container(
+    //                             alignment: Alignment.centerLeft,
+    //                             child: Row(
+    //                               children: [
+    //                                 GestureDetector(
+    //                                   onTap:()async{
+    //                                     print(clubs['key']);
+    //                                     SharedPreferences prefs = await SharedPreferences.getInstance();
+    //                                     prefs.setString('clubdetails', clubs['key']);
+    //                                     Navigator.of(context).pushNamed('/ClubDetails');
+    //                                   },
+    //                                   child: Stack(
+    //                                     alignment: Alignment.center,
+    //                                     children: [
+    //                                       Container(
+    //                                         height: 55,
+    //                                         width: 55,
+    //                                         decoration: BoxDecoration(
+    //                                           borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+    //                                           color: const Color(0xffffffff),
+    //                                           boxShadow: [
+    //                                             BoxShadow(
+    //                                               color: const Color(0x29000000),
+    //                                               offset: Offset(0, 3),
+    //                                               blurRadius: 6,
+    //                                             ),
+    //                                           ],
+    //                                         ),
+    //                                       ),
+    //                                       Container(
+    //                                         height: 45,
+    //                                         width: 45,
+    //                                         decoration: BoxDecoration(
+    //                                           image: DecorationImage(
+    //                                             image: const AssetImage('assets/Tech Club Logo Big.png'),
+    //                                             fit: BoxFit.fill,
+    //                                           ),
+    //                                         ),
+    //                                       ),
+    //                                     ],
+    //                                   ),
+    //                                 ),
+    //                                 SizedBox(
+    //                                   width: MediaQuery.of(context).size.width * 0.03,
+    //                                 ),
+    //                                 Column(
+    //                                   crossAxisAlignment: CrossAxisAlignment.start,
+    //                                   children: [
+    //                                     GestureDetector(
+    //                                       onTap: ()async{
+    //                                         print(clubs['key']);
+    //                                         SharedPreferences prefs = await SharedPreferences.getInstance();
+    //                                         prefs.setString('clubdetails', clubs['key']);
+    //                                         Navigator.of(context).pushNamed('/ClubDetails');
+    //                                       },
+    //                                       child: Text(
+    //                                         clubs['Clubname'],
+    //                                         style: TextStyle(
+    //                                           fontFamily: 'Poppins',
+    //                                           fontSize: 20,
+    //                                           color: const Color(0xff404040),
+    //                                           fontWeight: FontWeight.w600,
+    //                                         ),
+    //                                         textAlign: TextAlign.left,
+    //                                       ),
+    //                                     ),
+    //                                     Text(
+    //                                       clubs['Clubinfo'],
+    //                                       style: TextStyle(
+    //                                         fontFamily: 'Poppins',
+    //                                         fontSize: 13,
+    //                                         color: const Color(0xff9d9d9d),
+    //                                         fontWeight: FontWeight.w500,
+    //                                         height: 1.1666666666666667,
+    //                                       ),
+    //                                       textAlign: TextAlign.center,
+    //                                     ),
+    //                                   ],
+    //                                 ),
+    //                               ],
+    //                             ),
+    //                           ),
+    //                           Container(
+    //                             alignment: Alignment.centerRight,
+    //                             child: GestureDetector(
+    //                               onTap: () async {
+    //                                 SharedPreferences prefs =
+    //                                 await SharedPreferences.getInstance();
+    //                                 Map userdata =
+    //                                 json.decode(prefs.getString('userData'));
+    //                                 final databaseReference =
+    //                                 FirebaseDatabase.instance.reference();
+    //
+    //                                 if (userdata.keys
+    //                                     .toList()
+    //                                     .contains('following')) {
+    //                                   if (userdata['following']
+    //                                       .values
+    //                                       .toList()
+    //                                       .contains(clubkey)) {
+    //                                     showLoaderDialog(context, "unfollowing...");
+    //
+    //                                     await databaseReference
+    //                                         .child("users/" + uid + '/following')
+    //                                         .child(clubkey)
+    //                                         .remove();
+    //                                     userdata['following'].remove(clubkey);
+    //                                     setState(() {
+    //                                       following = !following;
+    //                                     });
+    //
+    //                                     Navigator.pop(context);
+    //                                     showAlertDialog(
+    //                                         context,
+    //                                         '',
+    //                                         'unfollowed Successfully',
+    //                                         'You will now not be notified for the club.');
+    //                                   } else {
+    //                                     showLoaderDialog(context, "following...");
+    //                                     await databaseReference
+    //                                         .child("users/" + uid + '/following')
+    //                                         .child(clubkey)
+    //                                         .set(clubkey);
+    //                                     userdata['following'][clubkey] = clubkey;
+    //                                     setState(() {
+    //                                       following = !following;
+    //                                     });
+    //
+    //                                     Navigator.pop(context);
+    //                                     showAlertDialog(
+    //                                         context,
+    //                                         '',
+    //                                         'following Created Successfully',
+    //                                         'You will now be notified for the club.');
+    //                                   }
+    //
+    //                                   prefs.setString(
+    //                                       'userData', json.encode(userdata));
+    //                                 } else {
+    //                                   showLoaderDialog(context, "following...");
+    //                                   await databaseReference
+    //                                       .child("users/" + uid + '/following')
+    //                                       .child(clubkey)
+    //                                       .set(clubkey);
+    //                                   if (userdata['following'] == null) {
+    //                                     userdata['following'] = {};
+    //                                     userdata['following'][clubkey] = clubkey;
+    //                                   }
+    //                                   userdata['following'][clubkey] = clubkey;
+    //
+    //                                   Navigator.pop(context);
+    //                                   showAlertDialog(context, '/Home', ' following',
+    //                                       'You will now be notified for the club.');
+    //                                 }
+    //
+    //                                 prefs.setString(
+    //                                     'userData', json.encode(userdata));
+    //                               },
+    //                               child: following == true ?
+    //                               Container(
+    //                                 width: 87.0,
+    //                                 height: 28.0,
+    //                                 decoration: BoxDecoration(
+    //                                   borderRadius:
+    //                                   BorderRadius.circular(30.0),
+    //                                   gradient: LinearGradient(
+    //                                     begin: Alignment(-0.97, -0.82),
+    //                                     end: Alignment(0.97, 0.79),
+    //                                     colors: [
+    //                                       const Color(0xfffe4f70),
+    //                                       const Color(0xffcb6bd8)
+    //                                     ],
+    //                                     stops: [0.0, 1.0],
+    //                                   ),
+    //                                 ),
+    //                                 child: Center(
+    //                                   child: Text(
+    //                                     'Following',
+    //                                     style: TextStyle(
+    //                                       fontFamily: 'Poppins',
+    //                                       fontSize: 12,
+    //                                       color: const Color(0xffffffff),
+    //                                       fontWeight: FontWeight.w700,
+    //                                     ),
+    //                                     textAlign: TextAlign.left,
+    //                                   ),
+    //                                 ),
+    //                               ) :
+    //                               Stack(
+    //                                 alignment: Alignment.center,
+    //                                 children: [
+    //                                   SvgPicture.string(
+    //                                     _svg_k2ckhg,
+    //                                     allowDrawingOutsideViewBox: true,
+    //                                     fit: BoxFit.fill,
+    //                                   ),
+    //                                   Text(
+    //                                     'Follow',
+    //                                     style: TextStyle(
+    //                                       fontFamily: 'Poppins',
+    //                                       fontSize: 11,
+    //                                       color: const Color(0xff404040),
+    //                                       fontWeight: FontWeight.w600,
+    //                                     ),
+    //                                     textAlign: TextAlign.left,
+    //                                   ),
+    //                                 ],
+    //                               ),
+    //                             ),
+    //                           ),
+    //                         ],
+    //                       ),
+    //                       Container(
+    //                         height: 80,
+    //                         child: Text.rich(
+    //                           TextSpan(
+    //                             style: TextStyle(
+    //                               fontFamily: 'Poppins',
+    //                               fontSize: 15,
+    //                               color: const Color(0xff9d9d9d),
+    //                             ),
+    //                             children: [
+    //                               TextSpan(
+    //                                 text:
+    //                                 clubs['Aboutclub'],
+    //                               ),
+    //                               TextSpan(
+    //                                 text: 'Learn More..',
+    //                                 style: TextStyle(
+    //                                   color: const Color(0xfffe4f70),
+    //                                   fontWeight: FontWeight.w600,
+    //                                 ),
+    //                               ),
+    //                             ],
+    //                           ),
+    //                           textAlign: TextAlign.left,
+    //                         ),
+    //                       ),
+    //                     ],
+    //                   ),
+    //                 ),
+    //               ),
+    //               // SizedBox(
+    //               //   width: 385.0,
+    //               //   height: 158.0,
+    //               //   child: Stack(
+    //               //     children: <Widget>[
+    //               //       Pinned.fromSize(
+    //               //         bounds: Rect.fromLTWH(0.0, 0.0, 349.0, 158.0),
+    //               //         size: Size(349.0, 158.0),
+    //               //         pinLeft: true,
+    //               //         pinRight: true,
+    //               //         pinTop: true,
+    //               //         pinBottom: true,
+    //               //         child:
+    //               //         // Adobe XD layer: 'Club Rectangle' (shape)
+    //               //         Container(
+    //               //           decoration: BoxDecoration(
+    //               //             borderRadius: BorderRadius.circular(20.0),
+    //               //             color: const Color(0xffffffff),
+    //               //             boxShadow: [
+    //               //               BoxShadow(
+    //               //                 color: const Color(0x26000000),
+    //               //                 offset: Offset(0, 5),
+    //               //                 blurRadius: 10,
+    //               //               ),
+    //               //             ],
+    //               //           ),
+    //               //         ),
+    //               //       ),
+    //               //       Pinned.fromSize(
+    //               //         bounds: Rect.fromLTWH(8.0, 74.0, 320.0, 67.0),
+    //               //         size: Size(349.0, 158.0),
+    //               //         pinLeft: true,
+    //               //         pinRight: true,
+    //               //         pinBottom: true,
+    //               //         fixedHeight: true,
+    //               //         child: Text.rich(
+    //               //           TextSpan(
+    //               //             style: TextStyle(
+    //               //               fontFamily: 'Poppins',
+    //               //               fontSize: 15,
+    //               //               color: const Color(0xff9d9d9d),
+    //               //             ),
+    //               //             children: [
+    //               //               TextSpan(
+    //               //                 text:
+    //               //                 clubs['Aboutclub'],
+    //               //               ),
+    //               //               TextSpan(
+    //               //                 text: 'Learn More..',
+    //               //                 style: TextStyle(
+    //               //                   color: const Color(0xfffe4f70),
+    //               //                   fontWeight: FontWeight.w600,
+    //               //                 ),
+    //               //               ),
+    //               //             ],
+    //               //           ),
+    //               //           textAlign: TextAlign.left,
+    //               //         ),
+    //               //       ),
+    //               //       Pinned.fromSize(
+    //               //         bounds: Rect.fromLTWH(252.0, 23.0, 87.0, 27.5),
+    //               //         size: Size(349.0, 158.0),
+    //               //         pinRight: true,
+    //               //         pinTop: true,
+    //               //         fixedWidth: true,
+    //               //         fixedHeight: true,
+    //               //         child: Stack(
+    //               //           children: <Widget>[
+    //               //           Pinned.fromSize(
+    //               //             bounds: Rect.fromLTWH(0.0, 0.0, 87.0, 27.5),
+    //               //             size: Size(87.0, 27.5),
+    //               //             pinLeft: true,
+    //               //             pinRight: true,
+    //               //             pinTop: true,
+    //               //             pinBottom: true,
+    //               //             child: Container(
+    //               //               decoration: BoxDecoration(
+    //               //                     borderRadius: BorderRadius.circular(30.0),
+    //               //                     gradient: LinearGradient(
+    //               //                     begin: Alignment(-0.97, -0.82),
+    //               //                     end: Alignment(0.97, 0.79),
+    //               //                     colors: [
+    //               //                       const Color(0xfffe4f70),
+    //               //                       const Color(0xffcb6bd8)
+    //               //                     ],
+    //               //                    stops: [0.0, 1.0],
+    //               //                   ),
+    //               //                 ),
+    //               //               ),
+    //               //             ),
+    //               //           Pinned.fromSize(
+    //               //             bounds: Rect.fromLTWH(15.0, 6.0, 73.0, 16.0),
+    //               //             size: Size(87.0, 27.5),
+    //               //             child: Text(
+    //               //               'Following',
+    //               //              style: TextStyle(
+    //               //              fontFamily: 'Poppins',
+    //               //              fontSize: 13,
+    //               //              color: const Color(0xffffffff),
+    //               //              fontWeight: FontWeight.w600,
+    //               //             ),
+    //               //            textAlign: TextAlign.left,
+    //               //           ),
+    //               //         ),
+    //               //       ],
+    //               //     ),// 'Follow' Button below
+    //               //         // Stack(
+    //               //         //   alignment: Alignment.center,
+    //               //         //   children: [
+    //               //         //     Text(
+    //               //         //       'Follow',
+    //               //         //       style: TextStyle(
+    //               //         //         fontFamily: 'Poppins',
+    //               //         //         fontSize: 11,
+    //               //         //         color: const Color(0xff404040),
+    //               //         //         fontWeight: FontWeight.w600,
+    //               //         //       ),
+    //               //         //       textAlign: TextAlign.left,
+    //               //         //     ),
+    //               //         //     SvgPicture.string(
+    //               //         //       _svg_k2ckhg,
+    //               //         //       allowDrawingOutsideViewBox: true,
+    //               //         //       fit: BoxFit.fill,
+    //               //         //     ),
+    //               //         //   ],
+    //               //         // ),
+    //               //   ),
+    //               //       Pinned.fromSize(
+    //               //         bounds: Rect.fromLTWH(50.0, 42.0, 204.0, 17.0),
+    //               //         size: Size(349.0, 158.0),
+    //               //         fixedWidth: true,
+    //               //         fixedHeight: true,
+    //               //         child: Text(
+    //               //           clubs['Clubinfo'],
+    //               //           style: TextStyle(
+    //               //             fontFamily: 'Poppins',
+    //               //             fontSize: 13,
+    //               //             color: const Color(0xff9d9d9d),
+    //               //             fontWeight: FontWeight.w500,
+    //               //             height: 1.1666666666666667,
+    //               //           ),
+    //               //           textAlign: TextAlign.center,
+    //               //         ),
+    //               //       ),
+    //               //       Pinned.fromSize(
+    //               //         bounds: Rect.fromLTWH(68.0, 14.0, 143.0, 28.0),
+    //               //         size: Size(349.0, 158.0),
+    //               //         pinTop: true,
+    //               //         fixedWidth: true,
+    //               //         fixedHeight: true,
+    //               //         child: GestureDetector(
+    //               //           onTap: ()async{
+    //               //             print(clubs['key']);
+    //               //             SharedPreferences prefs = await SharedPreferences.getInstance();
+    //               //             prefs.setString('clubdetails', clubs['key']);
+    //               //             Navigator.of(context).pushNamed('/ClubDetails');
+    //               //               },
+    //               //          child: Text(
+    //               //             clubs['Clubname'],
+    //               //             style: TextStyle(
+    //               //               fontFamily: 'Poppins',
+    //               //               fontSize: 20,
+    //               //               color: const Color(0xff404040),
+    //               //               fontWeight: FontWeight.w600,
+    //               //             ),
+    //               //             textAlign: TextAlign.left,
+    //               //           ),
+    //               //         ),
+    //               //       ),
+    //               //       Pinned.fromSize(
+    //               //         bounds: Rect.fromLTWH(8.0, 9.0, 55.0, 55.0),
+    //               //         size: Size(349.0, 158.0),
+    //               //         pinLeft: true,
+    //               //         pinTop: true,
+    //               //         fixedWidth: true,
+    //               //         fixedHeight: true,
+    //               //         child:
+    //               //         // Adobe XD layer: 'Club Logo' (group)
+    //               //         GestureDetector(
+    //               //           onTap:()async{
+    //               //             print(clubs['key']);
+    //               //             SharedPreferences prefs = await SharedPreferences.getInstance();
+    //               //             prefs.setString('clubdetails', clubs['key']);
+    //               //             Navigator.of(context).pushNamed('/ClubDetails');
+    //               //           },
+    //               //             child: Stack(
+    //               //             children: <Widget>[
+    //               //               Pinned.fromSize(
+    //               //                 bounds: Rect.fromLTWH(0.0, 0.0, 55.0, 55.0),
+    //               //                 size: Size(55.0, 55.0),
+    //               //                 pinLeft: true,
+    //               //                 pinRight: true,
+    //               //                 pinTop: true,
+    //               //                 pinBottom: true,
+    //               //                 child:
+    //               //                 // Adobe XD layer: 'Logo Circle' (shape)
+    //               //                 Container(
+    //               //                   decoration: BoxDecoration(
+    //               //                     borderRadius: BorderRadius.all(
+    //               //                         Radius.elliptical(9999.0, 9999.0)),
+    //               //                     color: const Color(0xffffffff),
+    //               //                     boxShadow: [
+    //               //                       BoxShadow(
+    //               //                         color: const Color(0x29000000),
+    //               //                         offset: Offset(0, 3),
+    //               //                         blurRadius: 6,
+    //               //                       ),
+    //               //                     ],
+    //               //                   ),
+    //               //                 ),
+    //               //               ),
+    //               //               Pinned.fromSize(
+    //               //                 bounds: Rect.fromLTWH(5.0, 5.0, 45.0, 45.0),
+    //               //                 size: Size(55.0, 55.0),
+    //               //                 pinLeft: true,
+    //               //                 pinRight: true,
+    //               //                 pinTop: true,
+    //               //                 pinBottom: true,
+    //               //                 child:
+    //               //                 // Adobe XD layer: 'Tech Club Logo' (shape)
+    //               //                 Container(
+    //               //                   decoration: BoxDecoration(
+    //               //                     image: DecorationImage(
+    //               //                       image: const AssetImage('assets/Tech Club Logo Big.png'),
+    //               //                       fit: BoxFit.fill,
+    //               //                     ),
+    //               //                   ),
+    //               //                 ),
+    //               //               ),
+    //               //             ],
+    //               //           ),
+    //               //         ),
+    //               //       ),
+    //               //     ],
+    //               //   ),
+    //               // ),
+    //             ],
+    //           ),
+    //         );
+    //       }
+    //       return CircularProgressIndicator();
+    //     }
+    // );
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -674,6 +1165,9 @@ class _ClubsState extends State<Clubs> {
               textAlign: TextAlign.left,
             ),
           ),
+          // Expanded(
+          //   child: clubs,
+          // ),
           Expanded(
             child: FirebaseAnimatedList(
               query: _ref,
