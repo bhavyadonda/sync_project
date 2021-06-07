@@ -412,10 +412,6 @@ class _EventsState extends State<Events> {
                                     ),
                                   ],
                                 ),
-                                IconButton(
-                                  icon: (bookmarked ? Icon(Icons.bookmark_border) : Icon(Icons.bookmark)),
-                                  onPressed: isBookmarked,
-                                ),
                                 GestureDetector(
                                   onTap: () async {
                                     isBookmarked();
@@ -490,8 +486,7 @@ class _EventsState extends State<Events> {
 
                                     prefs.setString('userData', json.encode(userdata));
                                   },
-                                  child: bookmarked ?
-                                  Text('bookmarked') :
+                                  child: bookmarked == true?
                                   Stack(
                                     alignment: Alignment.center,
                                     children: [
@@ -511,6 +506,35 @@ class _EventsState extends State<Events> {
                                           ],
                                         ),
                                       ),
+                                      SvgPicture.string(
+                                        _svg_bdggjb,
+                                        allowDrawingOutsideViewBox: true,
+                                      ),
+                                    ],
+                                  ) :
+                                  Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Container(
+                                        width: 35.0,
+                                        height: 35.0,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.elliptical(9999.0, 9999.0)),
+                                          color: const Color(0xffffffff),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: const Color(0x29000000),
+                                              offset: Offset(0, 3),
+                                              blurRadius: 6,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      // IconButton(
+                                      //   icon: (bookmarked ? Icon(Icons.bookmark_border) : Icon(Icons.bookmark)),
+                                      //   onPressed: isBookmarked,
+                                      // ),
                                       SvgPicture.string(
                                         _svg_d54sjf,
                                         allowDrawingOutsideViewBox: true,
@@ -629,3 +653,5 @@ const String _svg_e0lvmc =
     '<svg viewBox="190.5 690.0 67.5 24.0" ><defs><filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="6"/></filter></defs><path transform="translate(190.5, 690.0)" d="M 2.288132667541504 0 L 65.21178436279297 0 C 66.47548675537109 0 67.49992370605469 2.149032831192017 67.49992370605469 4.799999713897705 L 67.49992370605469 19.19999885559082 C 67.49992370605469 21.85096740722656 66.47548675537109 23.99999809265137 65.21178436279297 23.99999809265137 L 2.288132667541504 23.99999809265137 C 1.024431943893433 23.99999809265137 0 21.85096740722656 0 19.19999885559082 L 0 4.799999713897705 C 0 2.149032831192017 1.024431943893433 0 2.288132667541504 0 Z" fill="#ffffff" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" filter="url(#shadow)"/></svg>';
 const String _svg_7u199j =
     '<svg viewBox="13.0 668.0 242.0 60.0" ><defs><filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="6"/></filter><linearGradient id="gradient" x1="0.017181" y1="0.087972" x2="0.984024" y2="0.895426"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(13.0, 668.0)" d="M 8.203389167785645 0 L 233.7966003417969 0 C 238.3272094726563 0 242 5.372581958770752 242 12 L 242 48 C 242 54.62741851806641 238.3272094726563 60 233.7966003417969 60 L 8.203389167785645 60 C 3.672782421112061 60 0 54.62741851806641 0 48 L 0 12 C 0 5.372581958770752 3.672782421112061 0 8.203389167785645 0 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" filter="url(#shadow)"/></svg>';
+const String _svg_bdggjb =
+    '<svg viewBox="4.3 2.1 13.6 18.7" ><defs><linearGradient id="gradient" x1="0.0" y1="0.0" x2="1.0" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-0.67, -0.86)" d="M 5.970602512359619 21.66046905517578 C 5.803862571716309 21.6599235534668 5.640063285827637 21.61351013183594 5.494998931884766 21.52569961547852 C 5.189751148223877 21.34244155883789 5.00058650970459 20.99777984619141 4.999984264373779 20.62377548217773 L 4.999983787536621 5.415494441986084 C 4.972677230834961 4.121750831604004 5.924486637115479 3.045077800750732 7.135345458984375 3 L 16.45329475402832 3.000000238418579 C 17.66415786743164 3.045077323913574 18.615966796875 4.121750831604004 18.58865928649902 5.415494441986084 L 18.58865928649902 20.62377548217773 C 18.58658027648926 20.99191665649414 18.40185737609863 21.33126449584961 18.10334968566895 21.51533126831055 C 17.80303764343262 21.70051574707031 17.43304061889648 21.70051574707031 17.13272857666016 21.51533126831055 L 11.62931537628174 18.18754577636719 L 6.455911636352539 21.50496673583984 C 6.309886455535889 21.60177612304688 6.142409801483154 21.65544128417969 5.970602512359619 21.66046905517578 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
