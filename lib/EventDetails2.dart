@@ -21,6 +21,17 @@ class EventDetails2 extends StatefulWidget {
 class _EventDetails2State extends State<EventDetails2> {
   String uid;
   String id;
+  bool bookmarked = false;
+  void isBookmarked() {
+    setState(() {
+      if (bookmarked) {
+        bookmarked = false;
+      } else {
+        bookmarked = true;
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -159,6 +170,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                           ),
                                           GestureDetector(
                                             onTap: () async {
+                                              isBookmarked();
                                               SharedPreferences prefs =
                                               await SharedPreferences.getInstance();
                                               Map userdata =
@@ -224,7 +236,8 @@ class _EventDetails2State extends State<EventDetails2> {
 
                                               prefs.setString('userData', json.encode(userdata));
                                             },
-                                            child: Stack(
+                                            child: bookmarked == true?
+                                            Stack(
                                               alignment: Alignment.center,
                                               children: [
                                                 Container(
@@ -244,6 +257,35 @@ class _EventDetails2State extends State<EventDetails2> {
                                                   ),
                                                 ),
                                                 SvgPicture.string(
+                                                  _svg_bdggjb,
+                                                  allowDrawingOutsideViewBox: true,
+                                                ),
+                                              ],
+                                            ) :
+                                            Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Container(
+                                                  width: 35.0,
+                                                  height: 35.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.all(
+                                                        Radius.elliptical(9999.0, 9999.0)),
+                                                    color: const Color(0xffffffff),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: const Color(0x29000000),
+                                                        offset: Offset(0, 3),
+                                                        blurRadius: 6,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                // IconButton(
+                                                //   icon: (bookmarked ? Icon(Icons.bookmark_border) : Icon(Icons.bookmark)),
+                                                //   onPressed: isBookmarked,
+                                                // ),
+                                                SvgPicture.string(
                                                   _svg_d54sjf,
                                                   allowDrawingOutsideViewBox: true,
                                                 ),
@@ -254,7 +296,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
+                                      padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
@@ -1939,3 +1981,5 @@ const String _svg_d54sjf =
     '<svg viewBox="188.0 181.0 12.8 17.4" ><defs><linearGradient id="gradient" x1="0.017181" y1="0.087972" x2="0.984024" y2="0.895426"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(180.5, 176.5)" d="M 20.28730392456055 21.85420036315918 L 13.89364910125732 17.03359031677246 L 7.500000953674316 21.85420036315918 L 7.500000953674316 6.428244590759277 C 7.500000953674316 5.363304138183594 8.317866325378418 4.5 9.326759338378906 4.5 L 18.46054649353027 4.5 C 19.46943473815918 4.5 20.28730392456055 5.363304615020752 20.28730392456055 6.428244590759277 L 20.28730392456055 21.85420036315918 Z" fill="url(#gradient)" fill-opacity="0.0" stroke="none" stroke-width="1" stroke-opacity="0.0" stroke-miterlimit="4" stroke-linecap="butt" /><defs><linearGradient id="gradient" x1="0.017181" y1="0.087972" x2="0.984024" y2="0.895426"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(135.71, 181.0)" d="M 62.79208755493164 0 L 54.58391189575195 0 C 53.32068634033203 0 52.29299926757813 1.109349131584167 52.29299926757813 2.472882747650146 L 52.29299926757813 16.64911651611328 C 52.29299926757813 16.9116382598877 52.42893218994141 17.15216445922852 52.64519882202148 17.27229499816895 C 52.86146545410156 17.39245796203613 53.12181091308594 17.37205505371094 53.31967926025391 17.21943092346191 L 58.6879997253418 13.08030414581299 L 64.05635070800781 17.21939659118652 C 64.16860961914063 17.30594062805176 64.30083465576172 17.34992790222168 64.43379211425781 17.34992790222168 C 64.53528594970703 17.34992790222168 64.63718414306641 17.32427406311035 64.73082733154297 17.27222442626953 C 64.94709777832031 17.15209770202637 65.08300018310547 16.91156959533691 65.08300018310547 16.64904975891113 L 65.08300018310547 2.472882747650146 C 65.08300018310547 1.109349131584167 64.05528259277344 0 62.79208755493164 0 Z M 63.784423828125 15.28720951080322 L 59.06537628173828 11.64872646331787 C 58.95248413085938 11.56170558929443 58.82022857666016 11.51819515228271 58.6879997253418 11.51819515228271 C 58.55574035644531 11.51819515228271 58.42351531982422 11.56173992156982 58.31062316894531 11.64875984191895 L 53.59154510498047 15.28724384307861 L 53.59154510498047 2.472882747650146 C 53.59154510498047 1.882237315177917 54.0367317199707 1.401689887046814 54.58391189575195 1.401689887046814 L 62.79205322265625 1.401689887046814 C 63.33923721313477 1.401689887046814 63.784423828125 1.882237315177917 63.784423828125 2.472882747650146 L 63.784423828125 15.28720951080322 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
 const String _svg_see9ki =
     '<svg viewBox="32.0 48.0 12.6 18.0" ><defs><filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="6"/></filter></defs><path transform="matrix(0.0, 1.0, -1.0, 0.0, 44.56, 48.0)" d="M 8.999999046325684 12.56341361999512 L 0 2.883406400680542 L 2.680851221084595 0 L 8.999999046325684 6.796600818634033 L 15.31914710998535 0 L 18 2.883406400680542 L 8.999999046325684 12.56341361999512 Z" fill="#ffffff" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" filter="url(#shadow)"/></svg>';
+const String _svg_bdggjb =
+    '<svg viewBox="4.3 2.1 13.6 18.7" ><defs><linearGradient id="gradient" x1="0.0" y1="0.0" x2="1.0" y2="1.0"><stop offset="0.0" stop-color="#fffe4f70"  /><stop offset="1.0" stop-color="#ffcb6bd8"  /></linearGradient></defs><path transform="translate(-0.67, -0.86)" d="M 5.970602512359619 21.66046905517578 C 5.803862571716309 21.6599235534668 5.640063285827637 21.61351013183594 5.494998931884766 21.52569961547852 C 5.189751148223877 21.34244155883789 5.00058650970459 20.99777984619141 4.999984264373779 20.62377548217773 L 4.999983787536621 5.415494441986084 C 4.972677230834961 4.121750831604004 5.924486637115479 3.045077800750732 7.135345458984375 3 L 16.45329475402832 3.000000238418579 C 17.66415786743164 3.045077323913574 18.615966796875 4.121750831604004 18.58865928649902 5.415494441986084 L 18.58865928649902 20.62377548217773 C 18.58658027648926 20.99191665649414 18.40185737609863 21.33126449584961 18.10334968566895 21.51533126831055 C 17.80303764343262 21.70051574707031 17.43304061889648 21.70051574707031 17.13272857666016 21.51533126831055 L 11.62931537628174 18.18754577636719 L 6.455911636352539 21.50496673583984 C 6.309886455535889 21.60177612304688 6.142409801483154 21.65544128417969 5.970602512359619 21.66046905517578 Z" fill="url(#gradient)" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
