@@ -17,17 +17,41 @@ class Events extends StatefulWidget {
 class _EventsState extends State<Events> {
   String uid;
   String id;
+  bool bookmarked = false;
+  void isBookmarked() {
+    setState(() {
+      if (bookmarked) {
+        bookmarked = false;
+      } else {
+        bookmarked = true;
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     getdata();
   }
 
-  Future getEventData() async {
+  Future<Map> getEventData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     uid = prefs.getString('uid');
     Map data = json.decode(prefs.getString('data'));
     Map events = {};
+    Map userdata = json.decode(prefs.getString('userData'));
+    var bookmarkdata = userdata['bookmarked'].values.toList();
+    id = prefs.getString('bookmarkdetails');
+    if (bookmarkdata.contain(id)) {
+      setState(() {
+        bookmarked = true;
+      });
+    } else {
+      setState(() {
+        bookmarked = false;
+      });
+    }
+    print(bookmarkdata);
 
     for (var i = 0; i < data.length; i++) {
       if (data.values.toList()[i]['subEvents'] == null) {
@@ -85,8 +109,8 @@ class _EventsState extends State<Events> {
                                           pinTop: true,
                                           pinBottom: true,
                                           child:
-                                              // Adobe XD layer: 'Fest Background' (group)
-                                              Stack(
+                                          // Adobe XD layer: 'Fest Background' (group)
+                                          Stack(
                                             children: <Widget>[
                                               Pinned.fromSize(
                                                 bounds: Rect.fromLTWH(
@@ -97,12 +121,12 @@ class _EventsState extends State<Events> {
                                                 pinTop: true,
                                                 pinBottom: true,
                                                 child:
-                                                    // Adobe XD layer: 'Background Image' (shape)
-                                                    Container(
+                                                // Adobe XD layer: 'Background Image' (shape)
+                                                Container(
                                                   decoration: BoxDecoration(
                                                     image: DecorationImage(
                                                       image: const AssetImage(
-                                                          // Enter Variable
+                                                        // Enter Variable
                                                           'assets/Background Image1.png'),
                                                       fit: BoxFit.fill,
                                                     ),
@@ -114,24 +138,24 @@ class _EventsState extends State<Events> {
                                                     281.5, 25.0, 16.7, 16.7),
                                                 size: Size(313.0, 67.2),
                                                 child:
-                                                    // Adobe XD layer: 'Continue Button' (shape)
-                                                    GestureDetector(
+                                                // Adobe XD layer: 'Continue Button' (shape)
+                                                GestureDetector(
                                                   onTap: () async {
                                                     SharedPreferences prefs =
-                                                        await SharedPreferences
-                                                            .getInstance();
+                                                    await SharedPreferences
+                                                        .getInstance();
                                                     prefs.setString(
                                                         'eventId',
                                                         values.keys
                                                             .toList()[index]);
                                                     Navigator.of(context)
                                                         .pushNamed(
-                                                            '/EventDetails2');
+                                                        '/EventDetails2');
                                                   },
                                                   child: SvgPicture.string(
                                                     _svg_e5s8jc,
                                                     allowDrawingOutsideViewBox:
-                                                        true,
+                                                    true,
                                                     fit: BoxFit.fill,
                                                   ),
                                                 ),
@@ -148,8 +172,8 @@ class _EventsState extends State<Events> {
                                           fixedWidth: true,
                                           fixedHeight: true,
                                           child:
-                                              // Adobe XD layer: 'Gradient Background' (shape)
-                                              SvgPicture.string(
+                                          // Adobe XD layer: 'Gradient Background' (shape)
+                                          SvgPicture.string(
                                             _svg_7u199j,
                                             allowDrawingOutsideViewBox: true,
                                             fit: BoxFit.fill,
@@ -163,8 +187,8 @@ class _EventsState extends State<Events> {
                                           fixedWidth: true,
                                           fixedHeight: true,
                                           child:
-                                              // Adobe XD layer: 'Club Info' (group)
-                                              Stack(
+                                          // Adobe XD layer: 'Club Info' (group)
+                                          Stack(
                                             children: <Widget>[
                                               Pinned.fromSize(
                                                 bounds: Rect.fromLTWH(
@@ -174,11 +198,11 @@ class _EventsState extends State<Events> {
                                                 pinRight: true,
                                                 fixedHeight: true,
                                                 child:
-                                                    // Adobe XD layer: 'Logo Background' (shape)
-                                                    SvgPicture.string(
+                                                // Adobe XD layer: 'Logo Background' (shape)
+                                                SvgPicture.string(
                                                   _svg_e0lvmc,
                                                   allowDrawingOutsideViewBox:
-                                                      true,
+                                                  true,
                                                   fit: BoxFit.fill,
                                                 ),
                                               ),
@@ -191,12 +215,12 @@ class _EventsState extends State<Events> {
                                                 pinTop: true,
                                                 pinBottom: true,
                                                 child:
-                                                    // Adobe XD layer: 'Club Logo' (shape)
-                                                    Container(
+                                                // Adobe XD layer: 'Club Logo' (shape)
+                                                Container(
                                                   decoration: BoxDecoration(
                                                     image: DecorationImage(
                                                       image: const AssetImage(
-                                                          // Enter Variable
+                                                        // Enter Variable
                                                           'assets/Montage Logo1.png'),
                                                       fit: BoxFit.fill,
                                                     ),
@@ -215,20 +239,20 @@ class _EventsState extends State<Events> {
                                           fixedHeight: true,
                                           child: Text(
                                             values.values
-                                                    .toList()[index]
-                                                        ['event_start_date']
+                                                .toList()[index]
+                                            ['event_start_date']
                                                 .toString().split(' ')[0] +
                                                 " | " +
                                                 values.values
                                                     .toList()[index]
-                                                        ['event_start_time']
+                                                ['event_start_time']
                                                     .toString()
                                                     .split(' ')[1]
                                                     .substring(0, 5) +
                                                 " - " +
                                                 values.values
                                                     .toList()[index]
-                                                        ['event_end_time']
+                                                ['event_end_time']
                                                     .toString()
                                                     .split(' ')[1]
                                                     .substring(0, 5),
@@ -388,8 +412,13 @@ class _EventsState extends State<Events> {
                                     ),
                                   ],
                                 ),
+                                IconButton(
+                                  icon: (bookmarked ? Icon(Icons.bookmark_border) : Icon(Icons.bookmark)),
+                                  onPressed: isBookmarked,
+                                ),
                                 GestureDetector(
                                   onTap: () async {
+                                    isBookmarked();
                                     SharedPreferences prefs =
                                     await SharedPreferences.getInstance();
                                     Map userdata =
@@ -411,6 +440,9 @@ class _EventsState extends State<Events> {
                                             .child(id)
                                             .remove();
                                         userdata['bookmark'].remove(id);
+                                        setState(() {
+                                          bookmarked = !bookmarked;
+                                        });
 
                                         Navigator.pop(context);
                                         showAlertDialog(
@@ -426,6 +458,9 @@ class _EventsState extends State<Events> {
                                             .child(id)
                                             .set(id);
                                         userdata['bookmark'] = {id: id};
+                                        setState(() {
+                                          bookmarked = !bookmarked;
+                                        });
 
                                         Navigator.pop(context);
                                         showAlertDialog(
@@ -455,7 +490,9 @@ class _EventsState extends State<Events> {
 
                                     prefs.setString('userData', json.encode(userdata));
                                   },
-                                  child: Stack(
+                                  child: bookmarked ?
+                                  Text('bookmarked') :
+                                  Stack(
                                     alignment: Alignment.center,
                                     children: [
                                       Container(
