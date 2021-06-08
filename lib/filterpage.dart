@@ -24,7 +24,7 @@ class _FilterPageState extends State<FilterPage> {
   DateTime _selecteddate;
   double len = 250;
   double wid = 250;
-  List<String> _Clubs = ['Select Clubs', 'A', 'B', 'C', 'D'];
+  List<String> _Clubs = ['A', 'B', 'C', 'D'];
   Map<String, bool> categories = {
     'P': false,
     'Q': false,
@@ -33,8 +33,16 @@ class _FilterPageState extends State<FilterPage> {
   };
   String _selectedClub;
   bool checkBoxValue = true;
-
-
+  bool selectedTag = false;
+  void tagIsSelected() {
+    setState(() {
+      if (selectedTag) {
+        selectedTag = false;
+      } else {
+        selectedTag = true;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +131,7 @@ class _FilterPageState extends State<FilterPage> {
                       ),
                       onTap: () {
                         setState(() {
-                          _selectedClub = '';
+                          _selectedClub = 'A';
                           _selecteddate = DateTime(2021, 3, 1);
                           if (morning == true) {
                             morning = false;
@@ -461,54 +469,78 @@ class _FilterPageState extends State<FilterPage> {
                         padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                         child: GestureDetector(
                             onTap: () {
+                              tagIsSelected();
                               setState(() {
                                 categories[categories.keys.toList()[index]] ^= true;
                               });
                               print(categories);
                             },
-                            child: Container(
-                              width: 100,
-                              child: Stack(
-                                children: <Widget>[
-                                  Pinned.fromSize(
-                                    bounds: Rect.fromLTWH(0.0, 0.0, 91.0, 34.0),
-                                    size: Size(91.0, 34.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(17.0),
-                                        gradient: LinearGradient(
-                                          begin: Alignment(-0.97, -0.82),
-                                          end: Alignment(0.97, 0.79),
-                                          colors: [
-                                            const Color(0xfffe4f70),
-                                            const Color(0xffcb6bd8)
-                                          ],
-                                          stops: [0.0, 1.0],
-                                        ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: const Color(0x29000000),
-                                            offset: Offset(0, 3),
-                                            blurRadius: 6,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Center(
-                                    child: Text(
-                                      categories.keys.toList()[index],
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        color: const Color(0xffffffff),
-                                      ),
-                                      textAlign: TextAlign.left,
-                                    ),
+                            child: categories[categories.keys.toList()[index]] == true ?
+                            Container(
+                              height: 34,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                gradient: LinearGradient(
+                                  begin: Alignment(-0.97, -0.82),
+                                  end: Alignment(0.97, 0.79),
+                                  colors: [
+                                    const Color(0xfffe4f70),
+                                    const Color(0xffcb6bd8)
+                                  ],
+                                  stops: [0.0, 1.0],
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x29000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
                                   ),
                                 ],
                               ),
-                            )
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                                child: Center(
+                                  child: Text(
+                                    categories.keys.toList()[index],
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16,
+                                      color: const Color(0xffffffff),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                              ),
+                            ) :
+                            Container(
+                              height: 34,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                color: const Color(0xffffffff),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x29000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
+                                  ),
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                                child: Center(
+                                  child: Text(
+                                    categories.keys.toList()[index],
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16,
+                                      color: const Color(0xff9d9d9d),
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                              ),
+                            ),
                         ),
                       );
                     }),
