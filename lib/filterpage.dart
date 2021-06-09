@@ -44,6 +44,16 @@ class _FilterPageState extends State<FilterPage> {
     });
   }
 
+  void clearAll() {
+    Navigator.pushReplacement(
+      context,
+      PageRouteBuilder(
+        transitionDuration: Duration.zero,
+        pageBuilder: (_, __, ___) => FilterPage(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     initializeDateFormatting('az');
@@ -130,9 +140,11 @@ class _FilterPageState extends State<FilterPage> {
                         textAlign: TextAlign.left,
                       ),
                       onTap: () {
+                        clearAll();
+                        print(selectedTag);
+                        print(_selectedClub);
+                        print(_selecteddate);
                         setState(() {
-                          _selectedClub = 'A';
-                          _selecteddate = DateTime(2021, 3, 1);
                           if (morning == true) {
                             morning = false;
                           }
@@ -217,7 +229,6 @@ class _FilterPageState extends State<FilterPage> {
                       return DropdownMenuItem(
                         child: new Text(location),
                         value: location,
-
                       );
                     }).toList(),
                   ),
