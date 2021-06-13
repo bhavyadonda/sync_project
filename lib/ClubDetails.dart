@@ -5,6 +5,7 @@ import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'Clubs.dart';
 import 'methods.dart';
 
 class ClubDetails extends StatefulWidget {
@@ -16,14 +17,17 @@ class _ClubDetailsState extends State<ClubDetails> {
   String uid;
   String clubkey;
   bool following;
+  List followdata;
 
   getdata() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     uid = prefs.getString('uid');
     Map data = json.decode(prefs.getString('clubs'));
     Map userdata = json.decode(prefs.getString('userData'));
-    var followdata = userdata['following'].values.toList();
     clubkey = prefs.getString('clubdetails');
+    setState(() {
+      followdata = userdata['following'].values.toList();
+    });
     if (followdata.contains(clubkey)) {
       setState(() {
         following = true;
@@ -75,8 +79,16 @@ class _ClubDetailsState extends State<ClubDetails> {
                                         transition: LinkTransition.Fade,
                                         ease: Curves.easeOut,
                                         duration: 0.3,
+                                        pageBuilder: () => Clubs(),
                                       ),
                                     ],
+                                    // links: [
+                                    //   PageLinkInfo(
+                                    //     transition: LinkTransition.Fade,
+                                    //     ease: Curves.easeOut,
+                                    //     duration: 0.3,
+                                    //   ),
+                                    // ],
                                     child: SvgPicture.string(
                                       _svg_see9ki,
                                       allowDrawingOutsideViewBox: true,
@@ -152,10 +164,9 @@ class _ClubDetailsState extends State<ClubDetails> {
                           ),
                           GestureDetector(
                             onTap: () async {
-                              SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
-                              Map userdata =
-                              json.decode(prefs.getString('userData'));
+                              SharedPreferences prefs = await SharedPreferences.getInstance();
+                              Map userdata = json.decode(prefs.getString('userData'));
+                              //var followdata = userdata['following'].values.toList();
                               final databaseReference =
                               FirebaseDatabase.instance.reference();
 
@@ -174,7 +185,9 @@ class _ClubDetailsState extends State<ClubDetails> {
                                       .remove();
                                   userdata['following'].remove(clubkey);
                                   setState(() {
+                                    followdata.remove(values['Clubname']);
                                     following = !following;
+                                    //print(followdata);
                                   });
 
                                   Navigator.pop(context);
@@ -192,6 +205,8 @@ class _ClubDetailsState extends State<ClubDetails> {
                                   userdata['following'][clubkey] = clubkey;
                                   setState(() {
                                     following = !following;
+                                    followdata.add(values['Clubname']);
+                                    //print(followdata);
                                   });
 
                                   Navigator.pop(context);
@@ -224,7 +239,9 @@ class _ClubDetailsState extends State<ClubDetails> {
                               prefs.setString(
                                   'userData', json.encode(userdata));
                             },
-                            child: following == true ?
+                            child:
+                            following == true ?
+                              //followdata.contains(values['Clubname']) ?
                             Container(
                               width: 87.0,
                               height: 28.0,
