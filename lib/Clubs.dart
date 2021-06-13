@@ -22,7 +22,6 @@ class _ClubsState extends State<Clubs> {
 
   String uid;
   String clubkey;
-  bool following;
   List followdata;
 // change user data - it is not a list
   getdata() async {
@@ -34,18 +33,10 @@ class _ClubsState extends State<Clubs> {
       followdata = userdata['following'].values.toList();
     });
 
+    print(followdata);
+
     clubkey = prefs.getString('clubdetails');
 
-    if (followdata.contains(clubkey)) {
-      setState(() {
-        following = true;
-      });
-    } else {
-      setState(() {
-        following = false;
-      });
-    }
-    //print(followdata);
     return data;
   }
 
@@ -190,10 +181,12 @@ class _ClubsState extends State<Clubs> {
                         alignment: Alignment.centerRight,
                         child: GestureDetector(
                           onTap: () async {
-                            SharedPreferences prefs = await SharedPreferences.getInstance();
-                            Map userdata = json.decode(prefs.getString('userData'));
-
-                            final databaseReference = FirebaseDatabase.instance.reference();
+                            SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                            Map userdata =
+                            json.decode(prefs.getString('userData'));
+                            final databaseReference =
+                            FirebaseDatabase.instance.reference();
 
                             if (userdata.keys
                                 .toList()
@@ -211,6 +204,7 @@ class _ClubsState extends State<Clubs> {
                                 userdata['following'].remove(clubkey);
                                 setState(() {
                                   followdata.remove(clubs['Clubname']);
+                                  //print(followdata);
                                 });
 
                                 Navigator.pop(context);
@@ -228,6 +222,7 @@ class _ClubsState extends State<Clubs> {
                                 userdata['following'][clubkey] = clubkey;
                                 setState(() {
                                   followdata.add(clubs['Clubname']);
+                                  //print(followdata);
                                 });
 
                                 Navigator.pop(context);
@@ -256,9 +251,11 @@ class _ClubsState extends State<Clubs> {
                               showAlertDialog(context, '/Home', ' following',
                                   'You will now be notified for the club.');
                             }
-                            prefs.setString('userData', json.encode(userdata));
+
+                            prefs.setString(
+                                'userData', json.encode(userdata));
                           },
-                          child: followdata.contains(clubs['Clubname'])  ?
+                          child: followdata.contains(clubs['Clubname']) ?
                           Container(
                             width: 87.0,
                             height: 28.0,
