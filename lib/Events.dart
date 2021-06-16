@@ -32,6 +32,7 @@ class _EventsState extends State<Events> {
   void initState() {
     super.initState();
     getdata();
+    getEventData();
   }
 
   Future<Map> getEventData() async {
@@ -40,9 +41,14 @@ class _EventsState extends State<Events> {
     Map data = json.decode(prefs.getString('data'));
     Map events = {};
     Map userdata = json.decode(prefs.getString('userData'));
-    var bookmarkdata = userdata['bookmarked'].values.toList();
-    id = prefs.getString('bookmarkdetails');
-    if (bookmarkdata.contain(id)) {
+    print(userdata);
+    var bookmarkdata=[];
+    if(userdata['bookmark']!=null){
+      bookmarkdata = userdata['bookmark'].values.toList();
+    }
+    id = prefs.getString('eventId');
+    print(id);
+    if (bookmarkdata.contains(id)) {
       setState(() {
         bookmarked = true;
       });
@@ -474,7 +480,7 @@ class _EventsState extends State<Events> {
                                           .child("users/" + uid + '/bookmark')
                                           .child(id)
                                           .set(id);
-                                      userdata['bookmark'] = {id: id};
+                                      userdata['bookmark']= {id:id};
 
                                       Navigator.pop(context);
                                       showAlertDialog(
