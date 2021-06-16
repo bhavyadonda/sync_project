@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'Clubs.dart';
+import 'Home.dart';
 import 'methods.dart';
 
 class ClubDetails extends StatefulWidget {
@@ -73,22 +74,16 @@ class _ClubDetailsState extends State<ClubDetails> {
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(20, 40, 0, 0),
-                                  child: PageLink(
+                                  child:
+                                  PageLink(
                                     links: [
                                       PageLinkInfo(
                                         transition: LinkTransition.Fade,
                                         ease: Curves.easeOut,
                                         duration: 0.3,
-                                        pageBuilder: () => Clubs(),
+                                        //pageBuilder: () => HomePage(),
                                       ),
                                     ],
-                                    // links: [
-                                    //   PageLinkInfo(
-                                    //     transition: LinkTransition.Fade,
-                                    //     ease: Curves.easeOut,
-                                    //     duration: 0.3,
-                                    //   ),
-                                    // ],
                                     child: SvgPicture.string(
                                       _svg_see9ki,
                                       allowDrawingOutsideViewBox: true,
@@ -193,7 +188,7 @@ class _ClubDetailsState extends State<ClubDetails> {
                                   Navigator.pop(context);
                                   showAlertDialog(
                                       context,
-                                      '',
+                                      '/Home',
                                       'unfollowed Successfully',
                                       'You will now not be notified for the club.');
                                 } else {
@@ -212,7 +207,7 @@ class _ClubDetailsState extends State<ClubDetails> {
                                   Navigator.pop(context);
                                   showAlertDialog(
                                       context,
-                                      '',
+                                      '/Home',
                                       'following Created Successfully',
                                       'You will now be notified for the club.');
                                 }
