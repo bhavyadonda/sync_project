@@ -22,15 +22,15 @@ class _EventDetails2State extends State<EventDetails2> {
   String uid;
   String id;
   bool bookmarked = false;
-  // void isBookmarked() {
-  //   setState(() {
-  //     if (bookmarked) {
-  //       bookmarked = false;
-  //     } else {
-  //       bookmarked = true;
-  //     }
-  //   });
-  // }
+  void isBookmarked() {
+    setState(() {
+      if (bookmarked) {
+        bookmarked = false;
+      } else {
+        bookmarked = true;
+      }
+    });
+  }
 
   @override
   void initState() {
@@ -38,37 +38,20 @@ class _EventDetails2State extends State<EventDetails2> {
     getEventData();
   }
 
-  Future<Map> getEventData() async {
+  Future getEventData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     uid = prefs.getString('uid');
     Map data = json.decode(prefs.getString('data'));
     Map events = {};
-    Map userdata = json.decode(prefs.getString('userData'));
-    print(userdata);
-    var bookmarkdata=[];
-    if(userdata['bookmark']!=null){
-      bookmarkdata = userdata['bookmark'].values.toList();
-    }
-    id = prefs.getString('eventId');
-    print(id);
-    if (bookmarkdata.contains(id)) {
-      setState(() {
-        bookmarked = true;
-      });
-    } else {
-      setState(() {
-        bookmarked = false;
-      });
-    }
-    print(bookmarkdata);
-
+    id=prefs.getString('eventId');
+    
     for (var i = 0; i < data.length; i++) {
       if (data.values.toList()[i]['subEvents'] == null) {
         events[data.keys.toList()[i]] = data.values.toList()[i];
       } else {
         for (var j = 0; j < data.values.toList()[i]['subEvents'].length; j++) {
           events[data.values.toList()[i]['subEvents'].keys.toList()[j]] =
-          data.values.toList()[i]['subEvents'].values.toList()[j];
+              data.values.toList()[i]['subEvents'].values.toList()[j];
         }
       }
     }
@@ -188,7 +171,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                           ),
                                           GestureDetector(
                                             onTap: () async {
-                                              //isBookmarked();
+                                              isBookmarked();
                                               SharedPreferences prefs =
                                               await SharedPreferences.getInstance();
                                               Map userdata =
@@ -224,7 +207,12 @@ class _EventDetails2State extends State<EventDetails2> {
                                                       .child("users/" + uid + '/bookmark')
                                                       .child(id)
                                                       .set(id);
-                                                  userdata['bookmark'] = {id: id};
+                                                  if(userdata['bookmark']==null){
+                                        userdata['bookmark']={id:id};
+                                      }
+                                      else{
+                                         userdata['bookmark'][id]=id;
+                                      }
 
                                                   Navigator.pop(context);
                                                   showAlertDialog(
@@ -242,7 +230,12 @@ class _EventDetails2State extends State<EventDetails2> {
                                                     .child("users/" + uid + '/bookmark')
                                                     .child(id)
                                                     .set(id);
-                                                userdata['bookmark'] = {id: id};
+                                                if(userdata['bookmark']==null){
+                                                  userdata['bookmark']={id:id};
+                                                }
+                                                else{
+                                                  userdata['bookmark'][id]=id;
+                                                }
 
                                                 Navigator.pop(context);
                                                 showAlertDialog(
@@ -618,7 +611,7 @@ class _EventDetails2State extends State<EventDetails2> {
                 ],
               ),
             );
-            Stack(
+              Stack(
               children: <Widget>[
                 //Register Button
                 Positioned(
@@ -727,8 +720,8 @@ class _EventDetails2State extends State<EventDetails2> {
                   top: 498,
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
-                        color: Colors.red
-                    ),
+                      color: Colors.red
+          ),
                     child: SizedBox(
                       width: 333.0,
                       height: 211.0, //211
@@ -742,8 +735,8 @@ class _EventDetails2State extends State<EventDetails2> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Image 3' (shape)
-                            Container(
+                                // Adobe XD layer: 'Image 3' (shape)
+                                Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15.0),
                                 image: DecorationImage(
@@ -762,8 +755,8 @@ class _EventDetails2State extends State<EventDetails2> {
                             fixedWidth: true,
                             fixedHeight: true,
                             child:
-                            // Adobe XD layer: 'Image 2' (shape)
-                            Container(
+                                // Adobe XD layer: 'Image 2' (shape)
+                                Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15.0),
                                 image: DecorationImage(
@@ -782,8 +775,8 @@ class _EventDetails2State extends State<EventDetails2> {
                             pinBottom: true,
                             fixedWidth: true,
                             child:
-                            // Adobe XD layer: 'Image 1' (shape)
-                            Container(
+                                // Adobe XD layer: 'Image 1' (shape)
+                                Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15.0),
                                 image: DecorationImage(
@@ -887,8 +880,8 @@ class _EventDetails2State extends State<EventDetails2> {
                           fixedWidth: true,
                           fixedHeight: true,
                           child:
-                          // Adobe XD layer: 'Location Info' (group)
-                          Stack(
+                              // Adobe XD layer: 'Location Info' (group)
+                              Stack(
                             children: <Widget>[
                               Pinned.fromSize(
                                 bounds: Rect.fromLTWH(-6.0, 28.0, 69.0, 31.0),
@@ -913,8 +906,8 @@ class _EventDetails2State extends State<EventDetails2> {
                                 bounds: Rect.fromLTWH(20.0, 0.0, 19.3, 25.0),
                                 size: Size(59.0, 59.0),
                                 child:
-                                // Adobe XD layer: 'Location Icon' (shape)
-                                SvgPicture.string(
+                                    // Adobe XD layer: 'Location Icon' (shape)
+                                    SvgPicture.string(
                                   _svg_w4c8pt,
                                   allowDrawingOutsideViewBox: true,
                                   fit: BoxFit.fill,
@@ -930,8 +923,8 @@ class _EventDetails2State extends State<EventDetails2> {
                           fixedWidth: true,
                           fixedHeight: true,
                           child:
-                          // Adobe XD layer: 'Time Info' (group)
-                          Stack(
+                              // Adobe XD layer: 'Time Info' (group)
+                              Stack(
                             children: <Widget>[
                               Pinned.fromSize(
                                 bounds: Rect.fromLTWH(-5.0, 28.0, 44.0, 31.0),
@@ -964,12 +957,12 @@ class _EventDetails2State extends State<EventDetails2> {
                                 pinTop: true,
                                 fixedHeight: true,
                                 child:
-                                // Adobe XD layer: 'Time Icon' (group)
-                                Stack(
+                                    // Adobe XD layer: 'Time Icon' (group)
+                                    Stack(
                                   children: <Widget>[
                                     Pinned.fromSize(
                                       bounds:
-                                      Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
+                                          Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
                                       size: Size(25.0, 25.0),
                                       child: SvgPicture.string(
                                         _svg_zgo1ml,
@@ -979,7 +972,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                     ),
                                     Pinned.fromSize(
                                       bounds:
-                                      Rect.fromLTWH(11.5, 3.8, 7.2, 14.9),
+                                          Rect.fromLTWH(11.5, 3.8, 7.2, 14.9),
                                       size: Size(25.0, 25.0),
                                       child: SvgPicture.string(
                                         _svg_coyz6r,
@@ -989,7 +982,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                     ),
                                     Pinned.fromSize(
                                       bounds:
-                                      Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
+                                          Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
                                       size: Size(25.0, 25.0),
                                       child: Container(
                                         decoration: BoxDecoration(),
@@ -1009,8 +1002,8 @@ class _EventDetails2State extends State<EventDetails2> {
                           fixedWidth: true,
                           fixedHeight: true,
                           child:
-                          // Adobe XD layer: 'Date Info' (group)
-                          Stack(
+                              // Adobe XD layer: 'Date Info' (group)
+                              Stack(
                             children: <Widget>[
                               Pinned.fromSize(
                                 bounds: Rect.fromLTWH(-3.0, 28.0, 73.0, 31.0), //width = 66
@@ -1038,8 +1031,8 @@ class _EventDetails2State extends State<EventDetails2> {
                                 fixedWidth: true,
                                 fixedHeight: true,
                                 child:
-                                // Adobe XD layer: 'Calendar Icon' (group)
-                                Stack(
+                                    // Adobe XD layer: 'Calendar Icon' (group)
+                                    Stack(
                                   children: <Widget>[
                                     Pinned.fromSize(
                                       bounds: Rect.fromLTWH(0.0, 1.9, 25.0, 23.1),
@@ -1061,7 +1054,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                     ),
                                     Pinned.fromSize(
                                       bounds:
-                                      Rect.fromLTWH(0.0, 7.7, 25.0, 1.9),
+                                          Rect.fromLTWH(0.0, 7.7, 25.0, 1.9),
                                       size: Size(25.0, 25.0),
                                       child: SvgPicture.string(
                                         _svg_l0a8re,
@@ -1080,7 +1073,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                     ),
                                     Pinned.fromSize(
                                       bounds:
-                                      Rect.fromLTWH(16.3, 0.0, 1.9, 5.8),
+                                          Rect.fromLTWH(16.3, 0.0, 1.9, 5.8),
                                       size: Size(25.0, 25.0),
                                       child: SvgPicture.string(
                                         _svg_9n2cnq,
@@ -1090,7 +1083,7 @@ class _EventDetails2State extends State<EventDetails2> {
                                     ),
                                     Pinned.fromSize(
                                       bounds:
-                                      Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
+                                          Rect.fromLTWH(0.0, 0.0, 25.0, 25.0),
                                       size: Size(25.0, 25.0),
                                       child: Container(
                                         decoration: BoxDecoration(),
@@ -1140,12 +1133,12 @@ class _EventDetails2State extends State<EventDetails2> {
                         GestureDetector(
                           onTap: () async {
                             SharedPreferences prefs =
-                            await SharedPreferences.getInstance();
+                                await SharedPreferences.getInstance();
                             Map userdata =
-                            json.decode(prefs.getString('userData'));
+                                json.decode(prefs.getString('userData'));
 
                             final databaseReference =
-                            FirebaseDatabase.instance.reference();
+                                FirebaseDatabase.instance.reference();
 
                             if (userdata.keys.toList().contains('bookmark')) {
                               if (userdata['bookmark']
@@ -1208,8 +1201,8 @@ class _EventDetails2State extends State<EventDetails2> {
                             bounds: Rect.fromLTWH(284.0, 38.0, 35.0, 35.0),
                             size: Size(333.0, 185.0),
                             child:
-                            // Adobe XD layer: 'Bookmark Button' (group)
-                            Stack(
+                                // Adobe XD layer: 'Bookmark Button' (group)
+                                Stack(
                               children: <Widget>[
                                 // Adobe XD layer: 'Bookmark Circle' (shape)
                                 Container(
@@ -1248,8 +1241,8 @@ class _EventDetails2State extends State<EventDetails2> {
                           fixedWidth: true,
                           fixedHeight: true,
                           child:
-                          // Adobe XD layer: 'Club Logo' (group)
-                          Stack(
+                              // Adobe XD layer: 'Club Logo' (group)
+                              Stack(
                             children: <Widget>[
                               Pinned.fromSize(
                                 bounds: Rect.fromLTWH(0.0, 0.0, 55.0, 55.0),
@@ -1259,8 +1252,8 @@ class _EventDetails2State extends State<EventDetails2> {
                                 pinTop: true,
                                 pinBottom: true,
                                 child:
-                                // Adobe XD layer: 'Logo Circle' (shape)
-                                Container(
+                                    // Adobe XD layer: 'Logo Circle' (shape)
+                                    Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.all(
                                         Radius.elliptical(9999.0, 9999.0)),
@@ -1283,8 +1276,8 @@ class _EventDetails2State extends State<EventDetails2> {
                                 pinTop: true,
                                 pinBottom: true,
                                 child:
-                                // Adobe XD layer: 'Tech Club Logo' (shape)
-                                Container(
+                                    // Adobe XD layer: 'Tech Club Logo' (shape)
+                                    Container(
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: const AssetImage(
@@ -1390,7 +1383,7 @@ class _EventDetails2State extends State<EventDetails2> {
                   child: FlatButton(
                     onPressed: () async {
                       dynamic result =
-                      await Navigator.pushNamed(context, '/Home');
+                          await Navigator.pushNamed(context, '/Home');
                     },
                     child: SvgPicture.string(
                       _svg_see9ki,
