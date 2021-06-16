@@ -459,7 +459,12 @@ class _EventsState extends State<Events> {
                                             .child("users/" + uid + '/bookmark')
                                             .child(id)
                                             .set(id);
-                                        userdata['bookmark'] = {id: id};
+                                        if(userdata['bookmark']==null){
+                                        userdata['bookmark']={id:id};
+                                      }
+                                      else{
+                                         userdata['bookmark'][id]=id;
+                                      }
                                         setState(() {
                                           bookmarked = !bookmarked;
                                         });
@@ -480,7 +485,13 @@ class _EventsState extends State<Events> {
                                           .child("users/" + uid + '/bookmark')
                                           .child(id)
                                           .set(id);
-                                      userdata['bookmark']= {id:id};
+                                        print(id);
+                                      if(userdata['bookmark']==null){
+                                        userdata['bookmark']={id:id};
+                                      }
+                                      else{
+                                         userdata['bookmark'][id]=id;
+                                      }
 
                                       Navigator.pop(context);
                                       showAlertDialog(
