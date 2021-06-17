@@ -80,26 +80,39 @@ class OpeningViewState extends State<OpeningView> {
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
 
-    final logo = Image.asset(
-      "assets/Tech Club Logo.png",
-      height: mq.size.height / 4,
-    );
-
     return Scaffold(
-      backgroundColor: Color(0xff8c52ff),
-      body: Padding(
-        padding: EdgeInsets.all(36),
+      backgroundColor: Colors.white,
+      body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 50),
-              child: logo,
+            Container(
+              width: 120,
+              height: 70,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: const AssetImage('assets/Sync Logo.png'),
+                  fit: BoxFit.fill,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstIn),
+                ),
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: const Color(0x45000000),
+                //     offset: Offset(0, 3),
+                //     blurRadius: 80,
+                //   ),
+                // ],
+              ),
+            ),
+            SizedBox(
+              height: 30,
             ),
             Center(
               child: CircularProgressIndicator(
                 backgroundColor: Colors.white,
-                strokeWidth: 2,
+                strokeWidth: 3,
               ),
             ),
           ],
